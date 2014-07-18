@@ -35,13 +35,15 @@ ActiveRecord::Schema.define(version: 20140718002515) do
   end
 
   create_table "messages", force: true do |t|
-    t.string   "user_id"
+    t.integer  "user_id"
+    t.integer  "game_id"
+    t.integer  "chat_id"
     t.string   "image"
     t.string   "language_from"
     t.string   "language_to"
     t.string   "input_text"
     t.string   "translation"
-    t.string   "pronounciation"
+    t.string   "pronounciation_text"
     t.string   "sound"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -52,8 +54,7 @@ ActiveRecord::Schema.define(version: 20140718002515) do
     t.string   "email"
     t.string   "password_digest"
     t.string   "avatar"
-    t.string   "default_language"
-    t.integer  "skill_level"
+    t.string   "native_language"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -5,8 +5,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :email
       t.string :password_digest
       t.string :avatar
-      t.string :default_language
-      t.integer :skill_level
+      t.string :native_language
 
       t.timestamps
     end
