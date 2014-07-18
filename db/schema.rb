@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20140718002515) do
     t.string   "email"
     t.string   "password_digest"
     t.string   "avatar"
-    t.string   "native_language"
+    t.string   "native_language", default: "en"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
