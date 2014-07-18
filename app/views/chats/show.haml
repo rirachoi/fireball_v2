@@ -1,0 +1,6 @@
+%h2= "Fireball is talking in #{ LANGUAGES.invert[@chat.language] }"
+
+= form_tag "/chats/#{params[:id]}" do
+  = text_field_tag :input_text
+  -# - raise params.inspect
+  = submit_tag "Speak"

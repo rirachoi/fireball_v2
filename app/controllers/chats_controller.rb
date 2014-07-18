@@ -2,13 +2,13 @@ class ChatsController < ApplicationController
 
   def index
     @chats = @current_user.chats
-    render :json => @current_user
   end
 
   def create
-    @chat = Chat.create
+    @chat = Chat.create :language => params[:language]
     @current_user.chats << @chat
-    redirect_to chats_path
+    render :json => @chat
+    # redirect_to chats_path
   end
 
   def new

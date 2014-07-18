@@ -12,4 +12,5 @@
 class Chat < ActiveRecord::Base
   has_many :messages, :dependent => :destroy
   belongs_to :user
+  validates :language, :presence => true
 end

@@ -1,5 +1,11 @@
-- @chats.each do |chat|
-  %li= link_to( chat.language, chat_path(chat.id) )
+%div#my_chats
+
+  - @chats.each do |chat|
+    %li= link_to( chat.language, chat_path(chat.id) )
 
 
-= @current_user.json
+= button_tag "New chat", :id => 'new_chat'
+
+%div#new_chat
+  = label_tag :chat_language
+  = text_field_tag :chat_language
