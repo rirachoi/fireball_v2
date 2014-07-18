@@ -2,6 +2,7 @@ class ChatsController < ApplicationController
 
   def index
     @chats = @current_user.chats
+    render :json => @current_user
   end
 
   def create

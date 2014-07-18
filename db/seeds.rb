@@ -6,7 +6,16 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+User.destroy_all
+Chat.destroy_all
+Game.destroy_all
+Message.destroy_all
 
-User.create(:username => "lynt", :email => "strawww@gmail.com", :password => "chicken", :password_confirmation => "chicken")
-User.create(:username => "rich", :email => "richfield14@gmail.com", :password => "chicken", :password_confirmation => "chicken")
-User.create(:username => "rira", :email => "rirachoi@gmail.com", :password => "chicken", :password_confirmation => "chicken")
+u1 = User.create(:username => "lynt", :email => "strawww@gmail.com", :password => "chicken", :password_confirmation => "chicken")
+u2 = User.create(:username => "rich", :email => "richfield14@gmail.com", :password => "chicken", :password_confirmation => "chicken")
+u3 = User.create(:username => "rira", :email => "rirachoi@gmail.com", :password => "chicken", :password_confirmation => "chicken")
+
+c1 = Chat.create(:language => "ko")
+c2 = Chat.create(:language => "ja")
+
+u1.chats << c1 << c2

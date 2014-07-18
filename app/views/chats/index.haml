@@ -1,0 +1,5 @@
+- @chats.each do |chat|
+  %li= link_to( chat.language, chat_path(chat.id) )
+
+
+= @current_user.json
