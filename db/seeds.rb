@@ -7,5 +7,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-User.create(:name => "larlyn", :email => "strawww@gmail.com", :password => "chicken", :password_confirmation => "chicken")
-User.create(:name => "rich", :email => "richfield14@gmail.com", :password => "chicken", :password_confirmation => "chicken")
+User.create(:username => "lynt", :email => "strawww@gmail.com", :password => "chicken", :password_confirmation => "chicken")
+User.create(:username => "rich", :email => "richfield14@gmail.com", :password => "chicken", :password_confirmation => "chicken")
+User.create(:username => "rira", :email => "rirachoi@gmail.com", :password => "chicken", :password_confirmation => "chicken")
