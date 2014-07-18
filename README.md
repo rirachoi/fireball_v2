@@ -8,4 +8,5 @@ Fireball is a translator.
 + [ ] Using the Google Translate Api
 + [ ] Will be converted into a native phone app
 + [ ] Such language
-+ [ ] Many funs
++ [ ] Many
++ [x] Wow.
