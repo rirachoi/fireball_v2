@@ -20,8 +20,8 @@ class User < ActiveRecord::Base
   validates :password, :presence => true, :length => { :minimum => 6 }, :on => :create
   validates :email, :presence => true, :uniqueness => true
   validates :native_language, :presence => :true
-  has_many :chats
-  has_many :games
+  has_many :chats, :dependent => :destroy
+  has_many :games, :dependent => :destroy
   has_many :messages, :through => :chats
   has_many :messages, :through => :games
 
