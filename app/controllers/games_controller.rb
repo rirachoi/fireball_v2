@@ -1,4 +1,5 @@
 class GamesController < ApplicationController
+  before_action :check_if_logged_in
 
   def index
     @games = @current_user.games.order(updated_at: :desc)

@@ -32,6 +32,6 @@ class ChatsController < ApplicationController
   def destroy
     chat = Chat.find params[:id]
     chat.destroy
-    render :text => "I'm afraid he has The Knack." #render nothing because you dont need to render JSON
+    render :text => "I'm afraid he has The Knack." # Thanks Joel #render nothing because you dont need to render JSON
   end
 end
