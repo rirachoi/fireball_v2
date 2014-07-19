@@ -5,7 +5,7 @@ $(document).ready(function(){
       var $gameLanguage = $('#game_language').val();
       var $gameLanguageText = $("#game_language option:selected").text();
         $.ajax({
-          url: '/chats',
+          url: '/games',
           method: 'post',
           dataType: 'json',
           data: {

@@ -1,10 +1,10 @@
 %div#my_games
 
-  - @games.each do |chat|
-    %li= link_to( LANGUAGES.invert[chat.language], chat_path(chat.id) ) + " " + link_to("Remove", chat_path(chat.id), :method => :delete, :class => 'delete_chat')
+  - @games.each do |game|
+    %li= link_to( LANGUAGES.invert[game.language], game_path(game.id) ) + " " + link_to("Remove", game_path(game.id), :method => :delete, :class => 'delete_game')
 
 
-= button_tag "New chat", :id => 'new_chat'
+= button_tag "New game", :id => 'new_game'
 
 %div#new_game
   = label_tag :game_language

@@ -5,9 +5,9 @@ class GamesController < ApplicationController
   end
 
   def create
-    @game = Game.create :language => params[:language]
-    @current_user.games << @game
-    render :json
+    game = Game.create :language => params[:language]
+    @current_user.games << game
+    render :json => game
   end
 
   def new
@@ -32,7 +32,7 @@ class GamesController < ApplicationController
   def destroy
     @game = Game.find params[:id]
     @game.destroy
-    redirect_to games_path
+    render :text => 'very wow'
   end
 
   private
