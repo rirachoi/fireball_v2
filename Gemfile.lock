@@ -44,6 +44,10 @@ GEM
       execjs
     coffee-script-source (1.7.1)
     debug_inspector (0.0.2)
+    easy_translate (0.5.0)
+      json
+      thread
+      thread_safe
     erubis (2.7.0)
     execjs (2.2.1)
     haml (4.0.5)
@@ -114,6 +118,7 @@ GEM
       activesupport (>= 3.0)
       sprockets (~> 2.8)
     thor (0.19.1)
+    thread (0.1.4)
     thread_safe (0.3.4)
     tilt (1.4.1)
     treetop (1.4.15)
@@ -134,6 +139,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   coffee-rails (~> 4.0.0)
+  easy_translate
   haml
   jbuilder (~> 2.0)
   jquery-rails

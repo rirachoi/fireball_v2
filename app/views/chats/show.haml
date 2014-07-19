@@ -3,6 +3,7 @@
 %div#chat_messages
   - @chat.messages.each do |msg|
     %li= msg.created_at.to_s + ": " + msg.input_text
+    %li= @translation
 
 
 = form_tag "/chats/#{params[:id]}/messages" do
