@@ -10,14 +10,11 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.create :input_text => params[:input_text]
-    # raise params.inspect
     if @message.save
-      # @current_user.messages << @message
-      # raise params.inspect
       if params[:chat_id]
         chat = Chat.find params[:chat_id]
         chat.messages << @message
-        chat.save
+        chat.update_attribute(:updated_at, Time.now)
         @current_user.chats << chat
         redirect_to chat_path(chat.id)
         # @message.translate_text
@@ -25,6 +22,7 @@ class MessagesController < ApplicationController
       elsif params[:game_id]
         game = Game.find params[:game_id]
         game.messages << @message
+        game.update_attribute(:updated_at, Time.now)
         @current_user.game << game
       end
     end
