@@ -7,7 +7,7 @@ class GamesController < ApplicationController
   def create
     @game = Game.create :language => params[:language]
     @current_user.games << @game
-    redirect_to games_path
+    render :json
   end
 
   def new
