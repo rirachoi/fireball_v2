@@ -11,22 +11,11 @@ class ChatsController < ApplicationController
     render :json => chat #send back a json object to the browser
   end
 
-  def new
-    @chat = Chat.new
-  end
-
-  def edit
-    @chat = Chat.find params[:id]
-  end
-
   def show
     @chat = Chat.find params[:id]
-  end
-
-  def update
-    @message = Message.new
-    @chat = Chat.find params[:id]
-    @chat.save
+    unless @current_user.chats.include? @chat
+      redirect_to chats_path
+    end
   end
 
   def destroy

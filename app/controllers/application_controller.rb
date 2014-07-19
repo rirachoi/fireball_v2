@@ -21,11 +21,11 @@ class ApplicationController < ActionController::Base
 
   def check_if_logged_in
     if @current_user.nil?
-      redirect_to(login_path)
+      redirect_to login_path
     end
   end
 
   def check_if_admin
-    redirect_to(root_path) unless @current_user.is_admin?
+    redirect_to root_path unless @current_user.is_admin?
   end
 end

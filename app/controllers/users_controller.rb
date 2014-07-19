@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create user_params
+    @user.username = @user.username.downcase
     if @user.save
       session[:user_id] = @user.id
       redirect_to users_path
@@ -35,7 +36,8 @@ class UsersController < ApplicationController
   def update
     @user = User.find params[:id]
     @user.update user_params
-
+    @user.username = @user.username.downcase
+    @user.save
     redirect_to users_path
   end
 
@@ -49,7 +51,5 @@ class UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:username, :email, :password, :password_confirmation, :avatar, :native_language)
-    @user.username = @user.username.downcase
-    @user.save
   end
 end

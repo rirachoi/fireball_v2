@@ -16,9 +16,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    # raise params.inspect
     session[:user_id] = nil
-    session[:instagram_id] = nil
 
     redirect_to root_path
   end
