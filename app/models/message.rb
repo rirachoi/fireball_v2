@@ -18,7 +18,14 @@
 #
 
 class Message < ActiveRecord::Base
-  belongs_to :game
   belongs_to :chat
+  belongs_to :game
   belongs_to :user
+
+
+
+  private
+  def translate_input
+    self.input_text
+  end
 end

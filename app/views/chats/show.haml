@@ -1,6 +1,10 @@
 %h2= "Fireball is talking in #{ LANGUAGES.invert[@chat.language] }"
 
-= form_tag "/chats/#{params[:id]}" do
+%div#chat_messages
+  - @chat.messages.each do |msg|
+    %li= msg.input_text
+
+
+= form_tag "/chats/#{params[:id]}/messages" do
   = text_field_tag :input_text
-  -# - raise params.inspect
-  = submit_tag "Speak"
+  = submit_tag "Speak", :id => "speak"

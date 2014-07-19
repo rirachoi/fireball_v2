@@ -9,19 +9,23 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.create
+    @message = Message.create :input_text => params[:input_text]
+    # raise params.inspect
     if @message.save
-      @current_user.messages << @message
-      if params[:game_id]
+      # @current_user.messages << @message
+      # raise params.inspect
+      if params[:chat_id]
+        chat = Chat.find params[:chat_id]
+        chat.messages << @message
+        @current_user.chats << chat
+        redirect_to chat_path(chat.id)
+      elsif params[:game_id]
         game = Game.find params[:game_id]
         game.messages << @message
-      end
-      if params[:chat_id]
-        game = Game.find params[:chat_id]
-        game.messages << @message
+        @current_user.game << game
       end
     end
-
+    # render :json
   end
 
   def edit
