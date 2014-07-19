@@ -1,5 +1,8 @@
 %h2= "Fireball is talking in #{ LANGUAGES.invert[@chat.language] }"
 
+%div#chat_id.invisible
+  = @chat.id
+
 %div#chat_messages
   - @chat.messages.each do |msg|
     %li= msg.created_at.to_s + ": " + msg.input_text
