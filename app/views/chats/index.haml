@@ -1,11 +1,13 @@
 %div#my_chats
 
-  - @chats.each do |chat|
-    %li= link_to( chat.language, chat_path(chat.id) )
+  - @chats.reverse.each do |chat|
+    %li= link_to( LANGUAGES.invert[chat.language], chat_path(chat.id) )
 
 
 = button_tag "New chat", :id => 'new_chat'
 
 %div#new_chat
   = label_tag :chat_language
-  = text_field_tag :chat_language
+  = select(:chat, :language, LANGUAGES)
+
+  = submit_tag "Create new chat", :id => :create_new_chat

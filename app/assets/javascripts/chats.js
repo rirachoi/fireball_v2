@@ -1,8 +1,8 @@
 $(document).ready(function(){
 
-  var $chatLanguage = $('#chat_language').val();
-
     var createChat = function() {
+
+      var $chatLanguage = $('#chat_language').val();
         $.ajax({
         url: '/chats',
         method: 'post',
@@ -11,13 +11,21 @@ $(document).ready(function(){
           language: $chatLanguage
         },
         success: function (response) {
-          console.log(response); // update the page with the response somehow
+          var $chat = $('<li/>'); // update the page with the response somehow
+          var $chatLink = $('<a>');
+          $chatLink.href = "/chats/" + response.id
+          $chatLink.text($chatLanguage);
+          $chat.text($chatLink);
+          $('#my_chats').prepend($chat);
+          console.log($chat);
+          console.log($chatLink);
+          console.log(response);
         }
         });
 
-    }
+    };
 
-
+  $('#create_new_chat').on('click', createChat)
 
 });
 

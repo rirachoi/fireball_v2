@@ -5,6 +5,7 @@ class ChatsController < ApplicationController
   end
 
   def create
+    # binding.pry
     @chat = Chat.create :language => params[:language]
     @current_user.chats << @chat
     render :json => @chat
