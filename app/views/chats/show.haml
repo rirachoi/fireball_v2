@@ -4,9 +4,10 @@
   = @chat.id
 
 %div#chat_messages
-  - @chat.messages.each do |msg|
-    %li= msg.created_at.to_s + ": " + msg.input_text
-    %li= msg.translation
+  - @chat_messages.each do |msg|
+    %div#chat_box
+      %li= msg.created_at.to_s + ": " + msg.input_text
+      %li= msg.translation
 
 
 = form_tag "/chats/#{params[:id]}/messages" do

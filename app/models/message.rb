@@ -23,7 +23,6 @@ class Message < ActiveRecord::Base
   belongs_to :user
 
   def translate_text
-    current_message = self
     current_user = User.find self.user_id
     translate_me = URI.encode( self.input_text )
     url = 'https://www.googleapis.com/language/translate/v2?key='

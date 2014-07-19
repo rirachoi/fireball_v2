@@ -13,8 +13,9 @@ class ChatsController < ApplicationController
 
   def show
     @chat = Chat.find params[:id]
+    @chat_messages = @chat.messages.order(:created_at)
     unless @current_user.chats.include? @chat
-      redirect_to chats_path
+      redirect_to chats_path # redirect user to their own chats path if they try to go into someone elses
     end
   end
 
