@@ -15,14 +15,21 @@ $(document).ready(function(){
           console.log(response);// update the page with the response somehow
           var $newMsg = $('<li/>');
           $newMsg.text(response.created_at + ": "+ response.input_text);
+          var $newTranslation = $('<li/>');
+          $newTranslation.text(response.translation);
           $('#chat_messages').append($newMsg);
+          $('#chat_messages').append($newTranslation);
           $('#input_text').val('');
         }
       });
-
     };
 
   $('#speak').on('click', createChatMessage);
+  $('#chat_id').on('keyup', function(event) {
+    if (event.which == 13) {
+      createChatMessage();
+    }
+  });
 
 });
 

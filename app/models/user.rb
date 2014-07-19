@@ -13,8 +13,6 @@
 #
 
 class User < ActiveRecord::Base
-  before_save :language_code
-
   has_secure_password
   validates :username, :presence => true, :length => { :minimum => 3 }, :uniqueness => true
   validates :password, :presence => true, :length => { :minimum => 6 }, :on => :create
@@ -24,9 +22,4 @@ class User < ActiveRecord::Base
   has_many :games, :dependent => :destroy
   has_many :messages, :through => :chats
   has_many :messages, :through => :games
-
-  private
-  def language_code
-
-  end
 end

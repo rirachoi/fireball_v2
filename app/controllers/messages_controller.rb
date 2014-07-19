@@ -13,7 +13,7 @@ class MessagesController < ApplicationController
         chat.update_attribute(:updated_at, Time.now)
         @current_user.chats << chat
         # redirect_to chat_path(chat.id)
-        # @message.translate_text
+        @message.translate_text
       elsif params[:game_id]
         game = Game.find params[:game_id]
         game.messages << @message
