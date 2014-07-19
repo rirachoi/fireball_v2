@@ -14,8 +14,8 @@ $(document).ready(function(){
           var $chat = $('<li/>'); // update the page with the response somehow
           var $chatLink = $('<a>');
           $chatLink.href = "/chats/" + response.id
-          $chatLink.text($chatLanguage);
-          $chat.text($chatLink);
+          $chatLink.innerHTML = "LEL";
+          $chat.append($chatLink);
           $('#my_chats').prepend($chat);
           console.log($chat);
           console.log($chatLink);

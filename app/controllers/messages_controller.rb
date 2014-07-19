@@ -18,9 +18,9 @@ class MessagesController < ApplicationController
         chat = Chat.find params[:chat_id]
         chat.messages << @message
         @current_user.chats << chat
-        #redirect_to chat_path(chat.id)
+        redirect_to chat_path(chat.id)
         # @message.translate_text
-        render :json => @message
+        # render :json => @message
       elsif params[:game_id]
         game = Game.find params[:game_id]
         game.messages << @message

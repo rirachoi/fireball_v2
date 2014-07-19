@@ -1,7 +1,7 @@
 %div#my_chats
 
   - @chats.reverse.each do |chat|
-    %li= link_to( LANGUAGES.invert[chat.language], chat_path(chat.id) )
+    %li= link_to( LANGUAGES.invert[chat.language], chat_path(chat.id) ) + " " + link_to("Remove", chat_path(chat.id), :method => :delete)
 
 
 = button_tag "New chat", :id => 'new_chat'
