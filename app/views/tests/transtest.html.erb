@@ -12,27 +12,28 @@
       <br>
       <audio id="audio" controls="controls"></audio>
     </div>
-    <script type='javascript/text' src='jquery-1.11.1.min.js'></script>
+    <div id="key" style="display:none"><%= API_KEY %></div>
     <script>
+    var translation = null;
       function translateText(response) {
         document.getElementById("translation").innerHTML += response.data.translations[0].translatedText;
+        translation = document.getElementById("translation").innerHTML;
       }
-    </script>
 
-    <script>
       var newScript = document.createElement('script');
       newScript.type = 'text/javascript';
       var sourceText = escape(document.getElementById("sourceText").innerHTML);
       // WARNING: be aware that YOUR-API-KEY inside html is viewable by all your users.
       // Restrict your key to designated domains or use a proxy to hide your key
       // to avoid misuage by other party.
-      var source = 'https://www.googleapis.com/language/translate/v2?key=AIzaSyC5YLOQOtocuIta7TDMI8TsSJPNFO9tRag&source=en&target=eu&callback=translateText&q=' + sourceText;
+      var key = document.getElementById('key').innerHTML;
+      var source = 'https://www.googleapis.com/language/translate/v2?key='+ key +'&source=en&target=ko&callback=translateText&q=' + sourceText;
       newScript.src = source;
 
       // When we add this script to the head, the request is sent off.
       document.getElementsByTagName('head')[0].appendChild(newScript);
 
-      var audio = "http://translate.google.com/translate_tts?ie=UTF-8&q=배고파&tl=ko";
+      var audio = "http://translate.google.com/translate_tts?ie=UTF-8&q=감기&tl=ko";
 
       var newAudio = document.getElementById('audio');
       newAudio.src = audio;

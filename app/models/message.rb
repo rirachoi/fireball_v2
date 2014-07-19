@@ -25,7 +25,8 @@ class Message < ActiveRecord::Base
 
 
   private
-  def translate_input
-    self.input_text
+  def translate_text
+
+    self.translation = ""
   end
 end
