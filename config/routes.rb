@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root :to => 'sessions#new'
+  root :to => 'chats#index'
   resources :chats do
     resources :messages, :only => [:new, :create]
   end

@@ -1,4 +1,5 @@
 class ChatsController < ApplicationController
+  before_action :check_if_logged_in
 
   def index
     @chats = @current_user.chats.order(updated_at: :desc)
