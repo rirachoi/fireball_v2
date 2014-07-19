@@ -26,6 +26,8 @@ class Message < ActiveRecord::Base
 
   private
   def translate_text
+    EasyTranslate.api_key = "AIzaSyCkjHk3WAwa-Vq-IBx8GdY_k_gJ8DAlCsw"
+    @translation = EasyTranslate.translate('hello world', :to => :fr)
 
     self.translation = ""
   end
