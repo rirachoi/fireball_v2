@@ -17,6 +17,7 @@ $(document).ready(function(){
           $chatLink.attr("href","/chats/" + response.id);
           $chatLink.text($chatLanguageText);
           var $deleteChat = $('<a/>');
+          $deleteChat.addClass('delete_chat')
           $deleteChat.attr("href","/chats/" + response.id);
           $deleteChat.attr("data-method","delete");
           $deleteChat.text("Remove");
@@ -31,6 +32,35 @@ $(document).ready(function(){
 
     };
 
-  $('#create_new_chat').on('click', createChat)
+    var deleteChat = function() {
+      $.ajax({
+        url: '/chats',
+        method: 'post',
+        dataType: 'json',
+        data: {
+          "_method":"delete"
+        },
+        success: function (response) {
+          var $chat = $('<li/>'); // update the page with the response somehow
+          var $chatLink = $('<a/>');
+          $chatLink.attr("href","/chats/" + response.id);
+          $chatLink.text($chatLanguageText);
+          var $deleteChat = $('<a/>');
+          $deleteChat.attr("href","/chats/" + response.id);
+          $deleteChat.attr("data-method","delete");
+          $deleteChat.text("Remove");
+          $chat.append($chatLink);
+          $chat.append(" ");
+          $chat.append($deleteChat);
+          $('#my_chats').prepend($chat);
+          console.log($deleteChat);
+          console.log(response);
+        }
+        });
+    };
+
+
+  $('#create_new_chat').on('click', createChat);
+  // $('#my_chats').on('click', '.delete_chat', deleteChat);
 
 });

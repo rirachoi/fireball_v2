@@ -15,8 +15,7 @@
   = f.text_field :avatar
 
   = f.label :native_language
-  = f.text_field :native_language
-  -# = f.collection_select( @user.native_language , LANGUAGES[@user.native_language], :id, :name)
+  = f.select(:native_language, LANGUAGES)
   -# = f.collection_select( :brand_id, Brand.order(:name => :asc), :id, :name,:prompt => true, :class => "form-control")
 
   = f.submit
