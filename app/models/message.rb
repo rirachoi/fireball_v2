@@ -22,12 +22,22 @@ class Message < ActiveRecord::Base
   belongs_to :game
   belongs_to :user
 
-
-
-  private
   def translate_text
-    EasyTranslate.api_key = API_KEY
-    @translation = EasyTranslate.translate(self.input_text, :to => :fr)
-    self.translation = @translation
+    current_message = self
+    current_user = User.find self.user_id
+    translate_me = URI.encode( self.input_text )
+    url = 'https://www.googleapis.com/language/translate/v2?key='
+    url += API_KEY
+    url += '&q=' + translate_me
+    url += '&source=' + current_user.native_language
+    if chat.present?
+      url += '&target=' + chat.language
+    elsif game.present?
+      url += '&target=' + game.language
+    end
+    response = HTTParty.get( url ).to_json
+    response = JSON.parse(response)
+    translation = response['data']['translations'].first['translatedText']
+    self.translation = translation
   end
 end

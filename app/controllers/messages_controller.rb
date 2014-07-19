@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
 
   def index
-    @messages = @current_user.messages
+    @messages = @current_user.messages.order(created: :desc)
   end
 
   def create
@@ -12,8 +12,8 @@ class MessagesController < ApplicationController
         chat.messages << @message
         chat.update_attribute(:updated_at, Time.now)
         @current_user.chats << chat
-        # redirect_to chat_path(chat.id)
         @message.translate_text
+        @message.save
       elsif params[:game_id]
         game = Game.find params[:game_id]
         game.messages << @message
@@ -21,7 +21,7 @@ class MessagesController < ApplicationController
         @current_user.game << game
       end
     end
-    render :json => @message
+    render :json => @message #sends json obj back to the browser for ajax to use
   end
 
   def show
