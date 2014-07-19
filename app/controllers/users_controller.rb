@@ -48,5 +48,7 @@ class UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:username, :email, :password, :password_confirmation, :avatar, :native_language)
+    @user.username = @user.username.downcase
+    @user.save
   end
 end

@@ -5,11 +5,9 @@ class ChatsController < ApplicationController
   end
 
   def create
-    # binding.pry
-    @chat = Chat.create :language => params[:language]
-    @current_user.chats << @chat
-    render :json => @chat
-    # redirect_to chats_path
+    chat = Chat.create :language => params[:language]
+    @current_user.chats << chat
+    render :json => chat #send back a json object to the browser
   end
 
   def new
@@ -31,8 +29,8 @@ class ChatsController < ApplicationController
   end
 
   def destroy
-    @chat = Chat.find params[:id]
-    @chat.destroy
-    redirect_to chats_path
+    chat = Chat.find params[:id]
+    chat.destroy
+    render :text => 'okay'
   end
 end
