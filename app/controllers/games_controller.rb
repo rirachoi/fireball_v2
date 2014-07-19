@@ -1,11 +1,11 @@
 class GamesController < ApplicationController
 
   def index
-    @games = @current_user.games
+    @games = @current_user.games.order(updated_at: :desc)
   end
 
   def create
-    @game = Game.create
+    @game = Game.create :language => params[:language]
     @current_user.games << @game
     redirect_to games_path
   end
@@ -33,5 +33,10 @@ class GamesController < ApplicationController
     @game = Game.find params[:id]
     @game.destroy
     redirect_to games_path
+  end
+
+  private
+  def game_params
+
   end
 end

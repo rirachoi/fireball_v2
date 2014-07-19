@@ -1,7 +1,7 @@
 class ChatsController < ApplicationController
 
   def index
-    @chats = @current_user.chats
+    @chats = @current_user.chats.order(updated_at: :desc)
   end
 
   def create
@@ -31,6 +31,6 @@ class ChatsController < ApplicationController
   def destroy
     chat = Chat.find params[:id]
     chat.destroy
-    render :text => 'okay'
+    render :text => "I'm afraid he has The Knack." #render nothing because you dont need to render JSON
   end
 end

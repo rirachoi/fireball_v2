@@ -32,7 +32,8 @@ $(document).ready(function(){
     var deleteChat = function(event) {
       event.preventDefault();
       var $this = $(this);
-      $this.closest('li').remove();
+      $this.closest('li').remove(); // removes the li from the page of the remove link you click
+
       $.ajax({
         url: $this.attr('href'),
         method: 'post',
@@ -41,7 +42,7 @@ $(document).ready(function(){
           "_method":"delete",
         },
         success: function (response) {
-          // var $removeLink = $('#my_chats').find(this); // Find the right LI to remove
+          // GREAT SUCCESS
         }
       });
       return false;

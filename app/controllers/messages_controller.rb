@@ -17,6 +17,7 @@ class MessagesController < ApplicationController
       if params[:chat_id]
         chat = Chat.find params[:chat_id]
         chat.messages << @message
+        chat.save
         @current_user.chats << chat
         redirect_to chat_path(chat.id)
         # @message.translate_text
