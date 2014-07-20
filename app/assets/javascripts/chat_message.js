@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  $("html, body").animate({ scrollTop: $(document).height() }, 1000);
   var $currentChatId = $('#chat_id').text();
 
     var createChatMessage = function(event) {
@@ -23,7 +24,8 @@ $(document).ready(function(){
           $newMsg.appendTo($chatBox);
           $newTranslation.appendTo($chatBox);
           $('#chat_messages').append($chatBox);
-          $('#input_text').val('');
+          $('#input_text').val('').focus();
+          $("html, body").animate({ scrollTop: $(document).height() }, "slow");
         }
       });
     };

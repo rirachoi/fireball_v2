@@ -1,7 +1,9 @@
 module ApplicationHelper
 
   def smartnav
-    links = "<li>" + link_to('Home', root_path) + "</li>"
+
+    links = '<li>' + link_to('Home', root_path) + "</li>"
+
     if @current_user
       links += "<li>" + link_to('Games', games_path) + " " + "</li>"
       links += "<li>" + link_to('Chat to FireBall', chats_path) + " " + "</li>"

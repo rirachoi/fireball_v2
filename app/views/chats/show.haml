@@ -12,5 +12,5 @@
 
 
 = form_tag "/chats/#{params[:id]}/messages" do
-  = text_field_tag :input_text, nil,:autocomplete => "off"
+  = text_field_tag :input_text, nil, :autocomplete => "off", :autofocus => :true
   = submit_tag "Speak", :id => "speak"
