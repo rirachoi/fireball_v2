@@ -1,5 +1,7 @@
 %h2= "Fireball is talking in #{ LANGUAGES.invert[@chat.language] }"
 
+= image_tag( 'emoticons/drink.png', :class => "sticker" )
+
 %div#chat_id.invisible
   = @chat.id
 
@@ -8,6 +10,7 @@
     %div#chat_box
       %li= msg.created_at.strftime( "%e/%m/%Y %H:%M" ) + ": "
       %li= msg.input_text
+      %li= image_tag( msg.image , :class => "sticker" )
       %li.translation= msg.translation
 
 
