@@ -2,6 +2,12 @@
   display: none;
 }
 
+.content{
+  max-width: 80%;
+  margin: auto;
+  display: inline-block;
+}
+
 #chat_box {
   /*height: 75px;*/
   max-width: 10em;
@@ -15,4 +21,15 @@
 .translation {
   font-weight: bold;
   font-size: 1.2em;
+}
+
+nav{
+  max-width: 20%;
+  /*position: fixed;*/
+  display: inline-block;
+  vertical-align: top;
+}
+
+nav a{
+  display: block;
 }
