@@ -1,7 +1,16 @@
+* {
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  box-sizing: border-box; /* Opera/IE 8+ */
+}
+
 body{
   font-family: arial;
   text-rendering: optimize;
   -webkit-font-smoothing:antialiased;
+  margin: 0;
+  padding: 0;
+  border: 0;
 }
 
 .invisible {
@@ -47,19 +56,20 @@ img.sticker {
 
 /*NAV*/
 nav{
-  margin-top: 0.5em;
-  max-width: 20%;
-  max-height: 100%;
+  width: 15%;
+  height: 100%;
   position: fixed;
-  background-color: #665d5d;
-  border: 0.2em solid black;
-  border-radius: 5%;
+  background-color: #ff9d00;
+  border-bottom-right-radius: 0.5em;
+  border-bottom-style: groove;
+  border-color: #776a6a;
 }
 
 nav a{
   display: block;
   text-decoration: none;
-  color: white;
+  padding-bottom: 1em;
+  color: black;
 }
 
 nav ul{
@@ -68,7 +78,7 @@ nav ul{
 
 nav ul li:nth-child(5n){
   font-weight: bold;
-  color: white;
+  color: black;
 }
 
 nav a:hover{
