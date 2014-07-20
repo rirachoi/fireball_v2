@@ -4,7 +4,6 @@ $(document).ready(function(){
 
       var $chatLanguage = $('#chat_language').val();
       var $chatLanguageText = $("#chat_language option:selected").text();
-      // $chatLanguageText.closest('option').hide();
         $.ajax({
           url: '/chats',
           method: 'post',
@@ -13,6 +12,7 @@ $(document).ready(function(){
             language: $chatLanguage
           },
           success: function (response) {
+            $("#chat_language option[value=" + $chatLanguage + "]").remove();
             var $chat = $('<li/>');         // Add li for the new chat
             var $chatLink = $('<a/>');      // Add link for the new chat
             $chatLink.attr("href","/chats/" + response.id);

@@ -25,13 +25,17 @@ body{
 }
 
 #chat_box {
-  /*height: 75px;*/
   max-width: 10em;
   background-color: #ff9d00;
   border-radius: 1em;
   margin: 1em;
   padding: 0.4em;
   list-style: none;
+}
+
+img.sticker {
+  max-height: 10em;
+  max-width: 10em;
 }
 
 .translation {
