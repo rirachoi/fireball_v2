@@ -13,6 +13,11 @@ body{
   margin: 0;
   padding: 0;
   border: 0;
+  background-color: #ffdd35;
+}
+
+button, input{
+  border: 0;
 }
 
 .invisible {
@@ -37,7 +42,7 @@ body{
 
 #chat_box {
   max-width: 10em;
-  background-color: #ff9d00;
+  background-color: #f6af1d;
   border-radius: 1em;
   margin: 1em;
   padding: 0.4em;
@@ -53,6 +58,47 @@ img.sticker {
   font-weight: bold;
   font-size: 1.2em;
 }
+
+#input form{
+  width: 960px;
+  max-height: 80px;
+  /*background-color: black;*/
+
+}
+
+#input_text{
+  height: 100%;
+  width: 80%;
+  font-size: 40px;
+  padding: 14px;
+  margin-top: 1px;
+  border: 2px solid #888;
+  border-radius: 0.2em;
+}
+
+#input_text:focus{
+  outline: 0;
+}
+
+#speak{
+  height: 78px;
+  width: 90px;
+  top: -7px;
+  position: relative;
+  font-size: 20px;
+  border-radius: 0.5em;
+}
+
+#scroll-to-top{
+  height: 78px;
+  width: 90px;
+  top: -7px;
+  position: relative;
+  font-size: 20px;
+  border-radius: 0.5em;
+}
+
+
 /*END CHAT
 
 
@@ -61,7 +107,7 @@ nav{
   width: 15%;
   height: 100%;
   position: fixed;
-  background-color: #ff9d00;
+  background-color: #f34223;
   border-bottom-right-radius: 0.5em;
   border-bottom-style: groove;
   border-color: #776a6a;
