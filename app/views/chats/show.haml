@@ -6,8 +6,9 @@
 %div#chat_messages
   - @chat_messages.each do |msg|
     %div#chat_box
-      %li= msg.created_at.strftime( "%e/%m/%Y %H:%M" ) + ": " + msg.input_text
-      %li= msg.translation
+      %li= msg.created_at.strftime( "%e/%m/%Y %H:%M" ) + ": "
+      %li= msg.input_text
+      %li.translation= msg.translation
 
 
 = form_tag "/chats/#{params[:id]}/messages" do

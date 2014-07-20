@@ -12,13 +12,17 @@ $(document).ready(function(){
           input_text: $inputText,
         },
         success: function (response) {
-          console.log(response);// update the page with the response somehow
+          var $chatBox = $('<div/>');
+          $chatBox.attr('id', 'chat_box');
+          $chatBox.addClass('animation-target');
           var $newMsg = $('<li/>');
           $newMsg.text(response.created_at + ": "+ response.input_text);
           var $newTranslation = $('<li/>');
+          $newTranslation.addClass('translation');
           $newTranslation.text(response.translation);
-          $('#chat_messages').append($newMsg);
-          $('#chat_messages').append($newTranslation);
+          $newMsg.appendTo($chatBox);
+          $newTranslation.appendTo($chatBox);
+          $('#chat_messages').append($chatBox);
           $('#input_text').val('');
         }
       });
