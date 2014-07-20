@@ -128,7 +128,7 @@ nav a{
   color: black;
 }
 
-.active{
+.selected{
   background-color: #ffdd35;
 }
 
