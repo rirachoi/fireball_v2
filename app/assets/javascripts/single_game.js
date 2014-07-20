@@ -19,6 +19,13 @@ $(document).ready(function() {
         return false; // will only run the game code if not on game page
     }
 
+    // display word_list
+    for (var q=0; q<question.length; q++){
+        var $each_word = question[q];
+        display_text = "<h2>"+ $each_word +"</h2>"
+        $('#word_list').append(display_text);
+    };
+
     var children = $("#container").children();
     var child = $("#container div:first-child");
 
@@ -34,11 +41,12 @@ $(document).ready(function() {
 
     $(".animatedbox").css("left", box_left+"px");
 
+    // setting play and pause
     $("#btnplay").click(function() {
 
         if ($(this).text() == "Play") {
             startPlay();
-            playGame = setInterval(startPlay, 50000);
+            playGame = setInterval(startPlay,100000000);
             $(this).text("Pause");
         } else if ($(this).text() == "Pause") {
             stop = true;
@@ -47,7 +55,7 @@ $(document).ready(function() {
             } else {
               $(this).text("wait a moment");
             }
-            clearInterval(playGame);
+            //clearInterval(playGame());
         }
         return false;
     });
@@ -60,7 +68,7 @@ $(document).ready(function() {
     var max_top = min_top + con_height - 56;
 
     function startPlay() {
-
+        $('#userInput').focus();
         child = $("#container div:first-child");
         child.addClass("current");
         currentEl = $(".current");
@@ -69,8 +77,8 @@ $(document).ready(function() {
             var delaytime = i * 10000;
             setTimeout(function() {
                 randomIndex = randomFromTo(0, question.length - 1);
-                randomTop = randomFromTo(min_top, max_top);
-                child.animate({"top": randomTop+"px"}, 'slow');
+                //randomTop = randomFromTo(min_top, max_top);
+                child.animate({"top": min_top+"px"}, 'slow');
                 child.find(".match").text();
                 child.find(".unmatch").text(question[randomIndex]);
                 child.show();
@@ -98,9 +106,9 @@ $(document).ready(function() {
         }
     }
 
-
-    $('#btnsubmit').click(function() {
-        currentElPress = $(".current");
+    $(document).keydown(function(key){
+        if(key.keyCode == 13) {
+        var currentElPress = $(".current");
         var matchSpan = currentElPress.find(".match");
         var unmatchSpan = currentElPress.find(".unmatch");
         var unmatchText = unmatchSpan.text();
@@ -111,19 +119,22 @@ $(document).ready(function() {
             currentElPress.animate({
             left: box_left+"px"
         }, 'fast');
-            console.log("yes");
-            currentElPress.removeClass("current");
-            currentElPress = currentElPress.next();
-            currentElPress.addClass("current");
-            currentEl = currentElPress;
-            score += 50;
-            $("#score").text(score).effect("highlight", {
-                color: '#000000'
-            }, 1000);
+
+        currentElPress.removeClass("current");
+        currentElPress = currentElPress.next();
+        currentElPress.addClass("current");
+        currentEl = currentElPress;
+        score += 50;
+        $("#score").text(score).effect("highlight", {
+            color: '#000000'
+        }, 1000);
+        $('#userInput').val("");
         } else{
             console.log(userInput);
             console.log("fucking javascript");
         }
-    });
+
+      };// end keyCode
+    }); // end keydown
 
 }); // end of document ready

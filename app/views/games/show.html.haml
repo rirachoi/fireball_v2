@@ -12,13 +12,13 @@
   %div#fireball
 
   %div#toolbar
-  %div#boxscore
-    %span Score:
-    %span#score 0
-    %div#boxcontrol
+    %div#boxscore
+      %span Score:
+      %span#score 0
+      %div#boxcontrol
     =link_to 'Play', "", :id => 'btnplay'
 
-  %div#game_container
+  %div#container
     %div.animatedbox
       %span.match
       %span.unmatch
@@ -38,9 +38,9 @@
       %span.match
       %span.unmatch
 
-    %div#userAnswer
-      = text_field_tag :userInput, nil, :auto_focous => true, :placeholder => 'Type Your Answer Here!'
-      = submit_tag 'Submit', :id => "btnsubmit"
+  %div#userAnswer
+    = text_field_tag :userInput, nil, :placeholder => 'Type Your Answer Here!'
+    = submit_tag 'Submit', :id => "btnsubmit"
 
   / %div#input.game
   /   = form_tag "/games/#{params[:id]}/messages" do

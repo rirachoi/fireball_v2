@@ -110,7 +110,7 @@ class Message < ActiveRecord::Base
       "working-out" => "emoticons/run.png",
       "i-m-sad" => "emoticons/sad.png",
       "sad" => "emoticons/sad.png",
-      "lonely" => "emoticons/sad.png",
+      "lonely" => "emoticons/lonely.png",
       "i-m-shy" => "emoticons/shy.png",
       "shy" => "emoticons/shy.png",
       "i-m-sick" => "emoticons/sick.png",
