@@ -1,6 +1,18 @@
+#word_list {
+  width
+}
+
 #game_window {
   width: 100%;
-  height: 100em;
+<<<<<<< HEAD
+  height: 100%;
+=======
+  /*height: 100em;*/
+>>>>>>> c687b8cb9ba830b9463902023d8ec7cfe49710d0
   background: #C9E7EF;
   margin: 0;
+}
+
+#input.game {
+  position: absolute;
 }

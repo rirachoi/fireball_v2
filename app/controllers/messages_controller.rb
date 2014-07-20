@@ -11,9 +11,12 @@ class MessagesController < ApplicationController
         chat = Chat.find params[:chat_id]
         chat.messages << @message
         chat.update_attribute(:updated_at, Time.now) # manually sets the updated_at column
-        @message.match_emoticon
+        @message.match_emoticon # run the method called match_emoticon from inside the Message model
         @message.translate_text # run the method called translate_text from inside the Message model
+<<<<<<< HEAD
+=======
         # @message.get_audio
+>>>>>>> 352ce75afdb9a8fd055eb66d24724fc94d24ad70
         @message.save
       elsif params[:game_id]
         game = Game.find params[:game_id]
