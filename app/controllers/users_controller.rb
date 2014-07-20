@@ -39,7 +39,7 @@ class UsersController < ApplicationController
     @user.update user_params
     @user.username = @user.username.downcase
     @user.save
-    redirect_to users_path
+    redirect_to root_path
   end
 
   def destroy

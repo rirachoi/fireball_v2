@@ -9,6 +9,7 @@
 
 
     %nav
+      = image_tag(@current_user.avatar, :class => 'avatar')
       %ul
         = smartnav.html_safe
 
