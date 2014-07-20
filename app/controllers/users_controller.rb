@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   def create
     @user = User.create user_params
     @user.username = @user.username.downcase
+    @user.avatar = "emoticon/peng.png"
     if @user.save
       session[:user_id] = @user.id
       redirect_to users_path
