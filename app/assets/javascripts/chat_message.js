@@ -20,11 +20,14 @@ $(document).ready(function(){
             var $chatBox = $('<div/>');
             $chatBox.attr('id', 'chat_box');
             $chatBox.addClass('animation-target');
+
             var $newMsg = $('<li/>');
             $newMsg.text(response.created_at + ": "+ response.input_text);
+
             var $newTranslation = $('<li/>');
             $newTranslation.addClass('translation');
             $newTranslation.text(response.translation);
+
             $newMsg.appendTo($chatBox);
             $newTranslation.appendTo($chatBox);
             $('#chat_messages').append($chatBox);
@@ -33,6 +36,7 @@ $(document).ready(function(){
           }
         });
       };
+
     };
 
   $('#speak').on('click', createChatMessage);
