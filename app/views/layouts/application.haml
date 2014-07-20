@@ -9,6 +9,7 @@
 
 
     %nav
+      = image_tag(@current_user.avatar, :class => 'avatar') if @current_user
       %ul
         = smartnav.html_safe
 
