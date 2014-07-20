@@ -6,13 +6,14 @@
 %div#chat_messages
   - @chat_messages.each do |msg|
     %div#chat_box
+      %li= image_tag( msg.image , :class => "sticker" )
       %li= msg.created_at.strftime( "%e/%m/%Y %H:%M" ) + ": "
       %li= msg.input_text
-      %li= image_tag( msg.image , :class => "sticker" )
       %li.translation= msg.translation
+      %audio{:src => msg.sound }
 
-
-= form_tag "/chats/#{params[:id]}/messages" do
-  = text_field_tag :input_text, nil, :autocomplete => "off", :autofocus => :true
-  = submit_tag "Speak", :id => "speak"
-  = button_tag "Top", :id => "scroll-to-top"
+%div#input
+  = form_tag "/chats/#{params[:id]}/messages" do
+    = text_field_tag :input_text, nil, :autocomplete => "off", :autofocus => :true
+    = submit_tag "Speak", :id => "speak"
+    = button_tag "Top", :id => "scroll-to-top"
