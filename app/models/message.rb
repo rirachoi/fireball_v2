@@ -40,6 +40,18 @@ class Message < ActiveRecord::Base
     self.translation = translation
   end
 
+  def get_audio
+    audio_link = "http://translate.google.com/translate_tts?ie=UTF-8"
+    audio_link += "&q=" + self.translation
+    if chat.present?
+      audio_link += "&tl=" + chat.language
+    elsif game.present?
+      audio_link += "&tl=" + game.language
+    end
+    # response = HTTParty.get(audio_link)
+    self.sound = audio_link
+  end
+
   def emoticon
     { "autumn" => "emoticons/autumn.png",
       "fall" =>  "emoticons/autumn.png",
@@ -133,6 +145,10 @@ class Message < ActiveRecord::Base
 
   def match_emoticon
     string = self.input_text.parameterize
-    self.image = self.emoticon[string] if self.emoticon.include?(string)
+    if self.emoticon.include?(string)
+      self.image = self.emoticon[string]
+    else
+      self.image = self.emoticon["huh"]
+    end
   end
 end

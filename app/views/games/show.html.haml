@@ -1,1 +1,18 @@
-%h1 This is Show page
+%div#word_list
+
+%div#game_window
+  %h1= "Battle fireball " + LANGUAGES.invert[@game.language]
+  %div#lives
+  %div#stage_bar
+    %div#stage_one.stage
+    %div#stage_two.stage
+    %div#stage_three.stage
+    %div#stage_four.stage
+  %div#peng
+  %div#fireball
+
+  %div#input
+    = form_tag "/games/#{params[:id]}/messages" do
+      = text_field_tag :input_text, nil, :autocomplete => "off", :autofocus => :true
+      = submit_tag "Speak", :id => "speak"
+      = button_tag "Top", :id => "scroll-to-top"

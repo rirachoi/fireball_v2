@@ -10,6 +10,7 @@
       %li= msg.created_at.strftime( "%e/%m/%Y %H:%M" ) + ": "
       %li= msg.input_text
       %li.translation= msg.translation
+      %audio{:src => msg.sound }
 
 
 = form_tag "/chats/#{params[:id]}/messages" do

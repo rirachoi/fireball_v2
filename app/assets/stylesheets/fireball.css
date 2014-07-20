@@ -19,6 +19,11 @@ body{
   display: none;
 }
 
+audio {
+  height: 50px;
+  width: 50px;
+}
+
 .content{
   max-width: 80%;
   margin: auto;
