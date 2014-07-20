@@ -6,9 +6,9 @@
 %div#chat_messages
   - @chat_messages.each do |msg|
     %div#chat_box
+      %li= image_tag( msg.image , :class => "sticker" )
       %li= msg.created_at.strftime( "%e/%m/%Y %H:%M" ) + ": "
       %li= msg.input_text
-      %li= image_tag( msg.image , :class => "sticker" )
       %li.translation= msg.translation
 
 

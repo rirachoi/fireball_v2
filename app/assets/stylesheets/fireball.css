@@ -65,7 +65,7 @@ nav{
   border-bottom-right-radius: 0.5em;
   border-bottom-style: groove;
   border-color: #776a6a;
-  font-family: ubuntu;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 nav a{
