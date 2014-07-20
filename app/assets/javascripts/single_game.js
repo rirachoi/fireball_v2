@@ -10,9 +10,14 @@ var string = {
     depressed: "i'm depressed"
     };
 
+var question = Object.keys(string);
 var score = 0;
 
 $(document).ready(function() {
+
+    if ($("#container").length == 0) {
+        return false; // will only run the game code if not on game page
+    }
 
     var children = $("#container").children();
     var child = $("#container div:first-child");
@@ -94,7 +99,7 @@ $(document).ready(function() {
     }
 
 
-$('#btnsubmit').click(function() {
+    $('#btnsubmit').click(function() {
         currentElPress = $(".current");
         var matchSpan = currentElPress.find(".match");
         var unmatchSpan = currentElPress.find(".unmatch");
