@@ -39,15 +39,41 @@ $(document).ready(function() {
     var playGame;
     var stop;
 
+
     $(".animatedbox").css("left", box_left+"px");
 
     // setting play and pause
     $("#btnplay").click(function() {
 
+
         if ($(this).text() == "Play") {
             startPlay();
             playGame = setInterval(startPlay,100000000);
             $(this).text("Pause");
+
+            //insert peng
+            var $pengImg = '/emoticons/wink.png';
+            $img = $("<img/>");
+            $img.addClass('peng_game');
+            $img.attr("src", "/assets/"+ $pengImg);
+            $img.appendTo('#container');
+
+            //insert fireball
+            var $fireballImg = '/emoticons/fireball.png';
+            $img = $("<img/>");
+            $img.addClass('fireball_game');
+            $img.attr("src", "/assets/"+ $fireballImg);
+            $img.appendTo('#container');
+
+            //insert water_stick
+            var $water_stick = $('<div/>');
+            $water_stick.addClass('water_stick');
+            var $water1 = $('<div/>');
+            $water1.addClass('water1');
+            $water1.appendTo($water_stick);
+            $('#container').append($water_stick);
+
+
         } else if ($(this).text() == "Pause") {
             stop = true;
             if ($("#container").find(".current").length == 0) {
@@ -55,7 +81,7 @@ $(document).ready(function() {
             } else {
               $(this).text("wait a moment");
             }
-            //clearInterval(playGame());
+            //clearInterval();
         }
         return false;
     });
@@ -103,6 +129,7 @@ $(document).ready(function() {
                 });
                 child = child.next();
             }, delaytime);
+
         }
     }
 
@@ -118,19 +145,27 @@ $(document).ready(function() {
             currentElPress.stop().effect("explode", 500);
             currentElPress.animate({
             left: box_left+"px"
-        }, 'fast');
+            }, 'fast');
 
-        currentElPress.removeClass("current");
-        currentElPress = currentElPress.next();
-        currentElPress.addClass("current");
-        currentEl = currentElPress;
-        score += 50;
-        $("#score").text(score).effect("highlight", {
-            color: '#000000'
-        }, 1000);
-        $('#userInput').val("");
-        } else{
-            console.log(userInput);
+            currentElPress.removeClass("current");
+            currentElPress = currentElPress.next();
+            currentElPress.addClass("current");
+            currentEl = currentElPress;
+
+            score += 50;
+            $("#score").text(score).effect("highlight", {
+                color: '#000000'
+            }, 1000);
+            //remove previous answer for next one
+            $('#userInput').val("");
+
+        } else if ($(".current").find('.unmatch').text() !== userInput){
+            //var $fireballImg = '/emoticons/fireball.png';
+            var $fireballImg = $('#container').find('.fireball_game');
+            $fireballImg.animate({
+                left: -30+"px"
+            }, 'fast');
+            $('#userInput').val("");
             console.log("fucking javascript");
         }
 

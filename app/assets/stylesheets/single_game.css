@@ -2,9 +2,11 @@
     font-family: Arial;
 }
 #container {
-    background: #333;
+    background: url(http://cdn2.qvectors.net./downloads/images/preview/snow_landscape_vector_preview.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
     width: 600px;
-    height: 400px;
+    height: 300px;
     margin: 0 auto;
     -webkit-border-radius: 0.7em;
     -moz-border-radius: 0.7em;
@@ -101,6 +103,7 @@
 #word_list h2{
     display: inline-block;
     margin: 10px;
+    color: #CC0066;
     background-color: #F0FAFF;
     border-radius: 0.5em;
     padding: 15px;
@@ -111,11 +114,43 @@
 #btnplay{
     text-decoration: none;
     font-size: 20px;
-    background-color: pink;
-    padding: 5px;
-    border-radius: 0.5em;
-    margin-left: 35%;
+    color: white;
+    margin-left: 40%;
 }
+/* game images*/
+.fireball_game{
+    width: 200px;
+    height: 200px;
+    margin-left: 40%;
+/*  animation-duration: 3s;
+  animation-name: slidein;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;*/
+}
+
+.peng_game{
+    width: 150px;
+    height: 150px;
+}
+
+.water_stick{
+    width: 500px;
+    height: 30px;
+    border-radius: 1em;
+    margin-top: 20px;
+    border: 2px solid #003D99;
+}
+
+.water1{
+    width: 100px;
+    height: 25px;
+    color: #8585FF;
+}
+
+#game_title{
+    text-align: center;
+}
+
 
 body {
     margin: 0;
