@@ -31,6 +31,7 @@ $(document).ready(function(){
             $newImg = $('<img/>');
             $newImg.addClass('sticker');
             $newImg.attr("src", "/assets/"+response.image);
+            // assests need to remove when we depoloy it!!
             $newImg.appendTo($chatBox);
 
             $newMsg.appendTo($chatBox);
