@@ -4,7 +4,7 @@ $(document).ready(function(){
 
       var $chatLanguage = $('#chat_language').val();
       var $chatLanguageText = $("#chat_language option:selected").text();
-      $chatLanguageText.closest('option').hide();
+      // $chatLanguageText.closest('option').hide();
         $.ajax({
           url: '/chats',
           method: 'post',
