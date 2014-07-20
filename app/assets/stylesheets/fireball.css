@@ -30,6 +30,7 @@ body{
   max-width: 80%;
   margin: auto;
   display: inline-block;
+  margin-left: 20%;
 }
 
 #chat_box {
@@ -49,9 +50,12 @@ body{
 
 nav{
   max-width: 20%;
-  /*position: fixed;*/
+  position: fixed;
+  top: 0;
+  left: 0;
   display: inline-block;
   vertical-align: top;
+  background-color: red;
 }
 
 nav a{
