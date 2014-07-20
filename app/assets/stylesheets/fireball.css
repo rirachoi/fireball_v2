@@ -85,25 +85,27 @@ img.sticker {
   outline: 0;
 }
 
-#speak{
+/*INPUT BUTTONS*/
+#speak, #scroll-to-top{
   height: 78px;
   width: 90px;
   top: -7px;
   position: relative;
   font-size: 20px;
   border-radius: 0.5em;
+  box-shadow: 1px 2px 0 0;
+  background-color: #f34223;
+  -webkit-transition: all 0.15s ease-in-out;
+  -moz-transition: all 0.15s ease-in-out;
+  -o-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
 }
 
-#scroll-to-top{
-  height: 78px;
-  width: 90px;
-  top: -7px;
-  position: relative;
-  font-size: 20px;
-  border-radius: 0.5em;
+#speak:hover, #scroll-to-top:hover{
+  box-shadow: 0 0 0 0;
+  background-color: #f94a2f;
 }
-
-
+/*END INPUT BUTTONS*/
 /*END CHAT
 
 
