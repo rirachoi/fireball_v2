@@ -11,7 +11,7 @@
   %div#peng
   %div#fireball
 
-  %div#input
+  %div#input.game
     = form_tag "/games/#{params[:id]}/messages" do
       = text_field_tag :input_text, nil, :autocomplete => "off", :autofocus => :true
       = submit_tag "Speak", :id => "speak"
