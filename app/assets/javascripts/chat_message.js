@@ -25,6 +25,7 @@ $(document).ready(function(){
             var $newTranslation = $('<li/>');
             $newTranslation.addClass('translation');
             $newTranslation.text(response.translation);
+            $newMsgImage.appendTo($newMsg)
             $newMsg.appendTo($chatBox);
             $newTranslation.appendTo($chatBox);
             $('#chat_messages').append($chatBox);
