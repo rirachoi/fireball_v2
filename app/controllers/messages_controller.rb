@@ -10,15 +10,13 @@ class MessagesController < ApplicationController
       if params[:chat_id]
         chat = Chat.find params[:chat_id]
         chat.messages << @message
-        chat.update_attribute(:updated_at, Time.now)
-        @current_user.chats << chat
-        @message.translate_text
+        chat.update_attribute(:updated_at, Time.now) # manually sets the updated_at column
+        @message.translate_text # run the method called translate_text from inside the Message model
         @message.save
       elsif params[:game_id]
         game = Game.find params[:game_id]
         game.messages << @message
         game.update_attribute(:updated_at, Time.now)
-        @current_user.game << game
       end
     end
     render :json => @message #sends json obj back to the browser for ajax to use

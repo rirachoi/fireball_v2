@@ -6,7 +6,7 @@
 %div#chat_messages
   - @chat_messages.each do |msg|
     %div#chat_box
-      %li= msg.created_at.to_s + ": " + msg.input_text
+      %li= msg.created_at.strftime( "%e/%m/%Y %H:%M" ) + ": " + msg.input_text
       %li= msg.translation
 
 
