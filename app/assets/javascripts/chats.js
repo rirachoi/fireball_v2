@@ -22,7 +22,7 @@ $(document).ready(function(){
             $deleteChat.attr("href","/chats/" + response.id);
             $deleteChat.text("Remove");
             $chat.append($chatLink);
-            $chat.append(" ");
+            $chat.append(" | ");
             $chat.append($deleteChat);
             $('#my_chats').prepend($chat);
           }
