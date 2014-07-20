@@ -10,11 +10,6 @@ var string = {
     depressed: "i'm depressed"
     };
 
-var question = Object.keys(string);
-
-console.log(question);
-
-
 var score = 0;
 
 $(document).ready(function() {
@@ -38,7 +33,7 @@ $(document).ready(function() {
 
         if ($(this).text() == "Play") {
             startPlay();
-            playGame = setInterval(startPlay, 23000);
+            playGame = setInterval(startPlay, 50000);
             $(this).text("Pause");
         } else if ($(this).text() == "Pause") {
             stop = true;
@@ -122,7 +117,6 @@ $('#btnsubmit').click(function() {
             }, 1000);
         } else{
             console.log(userInput);
-
             console.log("fucking javascript");
         }
     });
