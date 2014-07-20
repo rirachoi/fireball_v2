@@ -1,25 +1,7 @@
 body{
-  -webkit-transform: translateZ(0px);
   font-family: arial;
   text-rendering: optimize;
   -webkit-font-smoothing:antialiased;
-}
-
-.box {
-  height: 75px;
-  width: 75px;
-  background-color: #ff9d00;
-  border-radius: 1em;
-  margin: 20em;
-  padding: 1em;
-}
-
-.sticker{
-}
-
-#audio{
-  width: 45px;
-  height: 10px;
 }
 
 .invisible {
@@ -31,6 +13,15 @@ body{
   margin: auto;
   display: inline-block;
   margin-left: 20%;
+}
+
+/*CHAT*/
+.sticker{
+}
+
+#audio{
+  width: 45px;
+  height: 10px;
 }
 
 #chat_box {
@@ -47,17 +38,36 @@ body{
   font-weight: bold;
   font-size: 1.2em;
 }
+/*END CHAT*/
 
+
+/*NAV*/
 nav{
+  margin-top: 0.5em;
   max-width: 20%;
+  max-height: 40%;
   position: fixed;
-  top: 0;
-  left: 0;
-  display: inline-block;
-  vertical-align: top;
-  background-color: red;
 }
 
 nav a{
   display: block;
+  text-decoration: none;
+  color: black;
 }
+
+nav ul{
+  list-style: none;
+}
+
+nav ul li:nth-child(5n){
+  font-weight: bold;
+}
+
+nav a:hover{
+  font-weight: bold;
+}
+
+/*END NAV
+
+
+/**/
