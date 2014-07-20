@@ -1,1 +1,15 @@
-%h1 This is index
+%h1 Battle Fireball
+
+%div#my_games
+
+  - @games.each do |game|
+    %li= link_to( LANGUAGES.invert[game.language], game_path(game.id) ) + " " + link_to("Remove", game_path(game.id), :method => :delete, :class => 'delete_game')
+
+
+= button_tag "New game", :id => 'new_game'
+
+%div#new_game
+  = label_tag :game_language
+  = select(:game, :language, LANGUAGES)
+
+  = submit_tag "New game", :id => :create_new_game

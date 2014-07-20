@@ -1,37 +1,28 @@
 class GamesController < ApplicationController
+  before_action :check_if_logged_in
 
   def index
-    @games = @current_user.games
+    @games = @current_user.games.order(updated_at: :desc)
   end
 
   def create
-    @game = Game.create
-    @current_user.games << @game
-    redirect_to games_path
-  end
-
-  def new
-    @game = Game.new
-  end
-
-  def edit
-    @game = Game.find params[:id]
+    game = Game.create :language => params[:language]
+    @current_user.games << game
+    render :json => game
   end
 
   def show
     @game = Game.find params[:id]
   end
 
-  def update # NEEDS MORE THINGS!!!!!
-    @game = Game.new
-    @game = Game.find params[:id]
-    @game.save
-    redirect_to games_path
-  end
-
   def destroy
     @game = Game.find params[:id]
     @game.destroy
-    redirect_to games_path
+    render :text => 'very wow'
+  end
+
+  private
+  def game_params
+
   end
 end

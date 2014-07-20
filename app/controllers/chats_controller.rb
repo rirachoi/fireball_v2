@@ -1,7 +1,8 @@
 class ChatsController < ApplicationController
+  before_action :check_if_logged_in
 
   def index
-    @chats = @current_user.chats
+    @chats = @current_user.chats.order(updated_at: :desc)
   end
 
   def create
@@ -10,27 +11,17 @@ class ChatsController < ApplicationController
     render :json => chat #send back a json object to the browser
   end
 
-  def new
-    @chat = Chat.new
-  end
-
-  def edit
-    @chat = Chat.find params[:id]
-  end
-
   def show
     @chat = Chat.find params[:id]
-  end
-
-  def update
-    @message = Message.new
-    @chat = Chat.find params[:id]
-    @chat.save
+    @chat_messages = @chat.messages.order(:created_at)
+    unless @current_user.chats.include? @chat
+      redirect_to chats_path # redirect user to their own chats path if they try to go into someone elses
+    end
   end
 
   def destroy
     chat = Chat.find params[:id]
     chat.destroy
-    render :text => 'okay'
+    render :text => "I'm afraid he has The Knack." # Thanks Joel #render nothing because you dont need to render JSON
   end
 end

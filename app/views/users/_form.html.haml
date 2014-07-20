@@ -14,8 +14,7 @@
   = f.label :avatar
   = f.text_field :avatar
 
-  = f.label :native_language
-  = f.select(:native_language, LANGUAGES)
-  -# = f.collection_select( :brand_id, Brand.order(:name => :asc), :id, :name,:prompt => true, :class => "form-control")
+  = f.label :native_language, "Your Language"
+  = f.select(:native_language, LANGUAGES) # makes a dropdown from the constant LANGUAGES
 
   = f.submit
