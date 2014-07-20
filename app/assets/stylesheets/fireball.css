@@ -2,11 +2,34 @@
   display: none;
 }
 
-#chat_boxLELELE {
-  height: 75px;
-  width: 75px;
+.content{
+  max-width: 80%;
+  margin: auto;
+  display: inline-block;
+}
+
+#chat_box {
+  /*height: 75px;*/
+  max-width: 10em;
   background-color: #ff9d00;
   border-radius: 1em;
-  /*margin: 20em;*/
-  /*padding: 1em;*/
+  margin: 1em;
+  padding: 0.4em;
+  list-style: none;
+}
+
+.translation {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+nav{
+  max-width: 20%;
+  /*position: fixed;*/
+  display: inline-block;
+  vertical-align: top;
+}
+
+nav a{
+  display: block;
 }

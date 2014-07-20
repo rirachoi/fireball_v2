@@ -6,10 +6,11 @@
 %div#chat_messages
   - @chat_messages.each do |msg|
     %div#chat_box
-      %li= msg.created_at.to_s + ": " + msg.input_text
-      %li= msg.translation
+      %li= msg.created_at.strftime( "%e/%m/%Y %H:%M" ) + ": "
+      %li= msg.input_text
+      %li.translation= msg.translation
 
 
 = form_tag "/chats/#{params[:id]}/messages" do
-  = text_field_tag :input_text, nil,:autocomplete => "off"
+  = text_field_tag :input_text, nil, :autocomplete => "off", :autofocus => :true
   = submit_tag "Speak", :id => "speak"
