@@ -3,6 +3,10 @@ class ChatsController < ApplicationController
 
   def index
     @chats = @current_user.chats.order(updated_at: :desc)
+    @language_select = LANGUAGES
+    @chats.each do |chat|
+      @language_select.invert.delete(chat.language)
+    end
   end
 
   def create
