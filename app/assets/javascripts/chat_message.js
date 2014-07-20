@@ -13,7 +13,8 @@ $(document).ready(function(){
         },
         success: function (response) {
           console.log(response);// update the page with the response somehow
-          var $newMsg = $('<li/>');
+        
+          var $newMsg = $('<li/>');
           $newMsg.text(response.created_at + ": "+ response.input_text);
           var $newTranslation = $('<li/>');
           $newTranslation.text(response.translation);
