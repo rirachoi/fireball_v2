@@ -10,3 +10,4 @@ Fireball is a translator.
 + [x] Such language.
 + [x] Many funs.
 + [x] Wow.
++ [x] Many Thanks to Darren for all his loving support and assistant ;)

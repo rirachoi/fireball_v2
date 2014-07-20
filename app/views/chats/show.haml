@@ -12,8 +12,8 @@
       %li.translation= msg.translation
       %audio{:src => msg.sound }
 
-
-= form_tag "/chats/#{params[:id]}/messages" do
-  = text_field_tag :input_text, nil, :autocomplete => "off", :autofocus => :true
-  = submit_tag "Speak", :id => "speak"
-  = button_tag "Top", :id => "scroll-to-top"
+%div#input
+  = form_tag "/chats/#{params[:id]}/messages" do
+    = text_field_tag :input_text, nil, :autocomplete => "off", :autofocus => :true
+    = submit_tag "Speak", :id => "speak"
+    = button_tag "Top", :id => "scroll-to-top"
