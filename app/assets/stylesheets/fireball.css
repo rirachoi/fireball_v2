@@ -1,3 +1,27 @@
+body{
+  -webkit-transform: translateZ(0px);
+  font-family: arial;
+  text-rendering: optimize;
+  -webkit-font-smoothing:antialiased;
+}
+
+.box {
+  height: 75px;
+  width: 75px;
+  background-color: #ff9d00;
+  border-radius: 1em;
+  margin: 20em;
+  padding: 1em;
+}
+
+.sticker{
+}
+
+#audio{
+  width: 45px;
+  height: 10px;
+}
+
 .invisible {
   display: none;
 }
@@ -6,6 +30,7 @@
   max-width: 80%;
   margin: auto;
   display: inline-block;
+  margin-left: 20%;
 }
 
 #chat_box {
@@ -25,9 +50,12 @@
 
 nav{
   max-width: 20%;
-  /*position: fixed;*/
+  position: fixed;
+  top: 0;
+  left: 0;
   display: inline-block;
   vertical-align: top;
+  background-color: red;
 }
 
 nav a{

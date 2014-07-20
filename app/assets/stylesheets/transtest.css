@@ -1,27 +1,3 @@
-body{
-  -webkit-transform: translateZ(0px);
-  font-family: arial;
-  text-rendering: optimize;
-  -webkit-font-smoothing:antialiased;
-}
-
-.box {
-  height: 75px;
-  width: 75px;
-  background-color: #ff9d00;
-  border-radius: 1em;
-  margin: 20em;
-  padding: 1em;
-}
-
-.sticker{
-}
-
-#audio{
-  width: 45px;
-  height: 10px;
-}
-
 
 
 .animation-target {

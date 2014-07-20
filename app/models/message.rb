@@ -40,7 +40,7 @@ class Message < ActiveRecord::Base
     self.translation = translation
   end
 
-  def self.emoticon
+  def emoticon
     { autumn: "emoticons/autumn.png",
       fall: "emoticons/autumn.png",
       christmas: "emoticons/christmas.png",
@@ -98,7 +98,7 @@ class Message < ActiveRecord::Base
   end
 
   def match_emoticon
-    string = self.input_text
-    self.img = Message.emoticon.values if string.include?(Message.emoticon.keys)
+    string = self.input_text.parameterize
+    self.image = self.emoticon[string] if self.emoticon.include?(string)
   end
 end
