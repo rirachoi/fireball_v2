@@ -4,7 +4,11 @@ class ChatsController < ApplicationController
   def index
     @chats = @current_user.chats.order(updated_at: :desc)
     @language_select = LANGUAGES
-    # @language_select.invert.delete(chat.language)
+    # binding.pry
+    @chats.each do |chat|
+      @language_select = @language_select.invert.reject!{|k,v| chat.language.include? k}.invert
+      # @language_select = @language_select.invert.extract!(chat.language).invert
+    end
   end
 
   def create
