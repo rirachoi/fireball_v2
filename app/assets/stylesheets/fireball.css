@@ -4,6 +4,8 @@
   box-sizing: border-box; /* Opera/IE 8+ */
 }
 
+@import url(http://fonts.googleapis.com/css?family=Ubuntu); /* !!!!!!!!!!!TEST!!!!!!!!!!! */
+
 body{
   font-family: arial;
   text-rendering: optimize;
@@ -51,7 +53,7 @@ img.sticker {
   font-weight: bold;
   font-size: 1.2em;
 }
-/*END CHAT*/
+/*END CHAT
 
 
 /*NAV*/
@@ -63,6 +65,7 @@ nav{
   border-bottom-right-radius: 0.5em;
   border-bottom-style: groove;
   border-color: #776a6a;
+  font-family: ubuntu;
 }
 
 nav a{
@@ -88,4 +91,17 @@ nav a:hover{
 /*END NAV
 
 
-/**/
+/*GAME*/
+
+#my_chats li{
+  list-style: none;
+}
+
+#my_chats li a{
+  text-decoration: none;
+  color: black;
+}
+
+#my_chats li a:hover{
+  font-weight: bold;
+}
