@@ -98,7 +98,7 @@ class Message < ActiveRecord::Base
   end
 
   def match_emoticon
-    string = self.input_text.parameterize
+    string = self.input_text.parameterize.to_sym
     self.image = self.emoticon[string] if self.emoticon.include?(string)
   end
 end

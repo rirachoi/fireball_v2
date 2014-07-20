@@ -5,7 +5,6 @@ class ChatsController < ApplicationController
     @chats = @current_user.chats.order(updated_at: :desc)
     @language_select = LANGUAGES
     # @language_select.invert.delete(chat.language)
-    # @language_select.invert.delete(chat.language)
   end
 
   def create
