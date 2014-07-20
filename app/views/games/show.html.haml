@@ -1,1 +1,30 @@
-%h1 This is Show page
+%div#toolbar
+  %div#boxscore
+    %span Score:
+    %span#score 0
+    %div#boxcontrol
+    =link_to 'Play', "", :id => 'btnplay'
+
+%div#container
+  %div.animatedbox
+    %span.match
+    %span.unmatch
+  %div.animatedbox
+    %span.match
+    %span.unmatch
+
+  %div.animatedbox
+    %span.match
+    %span.unmatch
+
+  %div.animatedbox
+    %span.match
+    %span.unmatch
+
+  %div.animatedbox#last
+    %span.match
+    %span.unmatch
+
+  %div#userAnswer
+    = text_field_tag :userInput, nil, :auto_focous => true, :placeholder => 'Type Your Answer Here!'
+    = submit_tag 'Submit', :id => "btnsubmit"
