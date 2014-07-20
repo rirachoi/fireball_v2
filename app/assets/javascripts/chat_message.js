@@ -28,6 +28,10 @@ $(document).ready(function(){
             $newTranslation.addClass('translation');
             $newTranslation.text(response.translation);
 
+            $newImg = $('<img/>');
+            $newImg.src = response.image;
+            $newImg.appendTo($chatBox);
+
             $newMsg.appendTo($chatBox);
             $newTranslation.appendTo($chatBox);
             $('#chat_messages').append($chatBox);
