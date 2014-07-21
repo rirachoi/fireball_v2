@@ -1,6 +1,6 @@
 $(document).ready(function(){
-  if ($('#user_username').length != 1){
-    $("html, body").animate({ scrollTop: $(document).height() }, 500);
+  if ($('#input_text').length == 1){ // makes sure that it only scrolls down on chat pages
+    $("html, body").animate({ scrollTop: ($(document).height() + $(window).height()) }, 500);
   };
 
   var $currentChatId = $('#chat_id').text();
@@ -34,6 +34,7 @@ $(document).ready(function(){
             $chatBox.addClass('animation-target right');
 
             var $newTimestamp = $('<li/>');
+            $newTimestamp.addClass('timestamp');
             $newTimestamp.text( moment().format('lll') + ":");
 
             var $newMsg = $('<li/>');
@@ -60,6 +61,10 @@ $(document).ready(function(){
 
     };
 
+  var playSound = function() {
+    console.log("yep")
+  };
+
   $('#speak').on('click', createChatMessage);
   $('#scroll-to-top').on('click', function(event) {
     event.preventDefault();
@@ -70,6 +75,7 @@ $(document).ready(function(){
       createChatMessage();
     }
   });
+  $('#chat_messages').on('click', '.play_sound', playSound);
 
 });
 

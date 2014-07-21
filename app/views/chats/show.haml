@@ -12,8 +12,8 @@
       %li.timestamp= msg.created_at.strftime( "%b %e %Y %l:%M %p" ) + ": "
       %li= msg.input_text
       %li.translation= msg.translation
-      %embed{:src => msg.sound, :autoplay => :false }
-        %param{:name => :autoplay, :value => :false}
+      %li
+        %button.play_sound Play
 
 %div#input
   = form_tag "/chats/#{params[:id]}/messages" do

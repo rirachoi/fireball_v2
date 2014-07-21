@@ -25,7 +25,7 @@ $(document).ready(function(){
             $chat.append($chatLink);
             // $chat.append(" | ");
             $chat.append($deleteChat);
-            $('#my_chats').prepend($chat);
+            $('ul').prepend($chat);
           }
         });
 
