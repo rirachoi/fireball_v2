@@ -23,6 +23,8 @@
   width: 120%;
   display: block;
   font-size: 2em;
+  margin-top: 0.58em;
+  margin-bottom: 0.58em;
   -webkit-transition: all 0.15s ease-in-out;
   -moz-transition: all 0.15s ease-in-out;
   -o-transition: all 0.15s ease-in-out;
