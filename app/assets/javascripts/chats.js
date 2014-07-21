@@ -23,7 +23,7 @@ $(document).ready(function(){
             $deleteChat.attr("href","/chats/" + response.id);
             $deleteChat.text("Remove");
             $chat.append($chatLink);
-            var $button = $('<button/>');
+            var $button = $('<input/>');
             $button.text('x');
             $button.attr("href","/chats/" + response.id);
             $button.addClass('show_delete_chat');
@@ -58,6 +58,6 @@ $(document).ready(function(){
     $('#new_chat').toggle();
   })
   $('#create_new_chat').on('click', createChat);
-  $('#my_chats').on('click', '.delete_chat', deleteChat);
+  $('#my_chats').on('click', '.show_delete_chat', deleteChat);
 
 });
