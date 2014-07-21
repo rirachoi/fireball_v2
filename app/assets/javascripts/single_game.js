@@ -16,35 +16,36 @@ var score = 0;
 
 $(document).ready(function() {
 
-                //insert peng
-            var $pengImg = '/emoticons/wink.png';
-            $img1 = $("<img/>");
-            $img1.addClass('peng_game');
-            $img1.attr("src", "/assets/"+ $pengImg);
-            $img1.appendTo('#container');
-
-            //insert fireball
-            var $fireballImg = '/emoticons/fireball.png';
-            $img2 = $("<img/>");
-            $img2.addClass('fireball_game');
-            $img2.attr("src", "/assets/"+ $fireballImg);
-            $img2.appendTo('#container');
-
-            //insert water_stick
-            var $water_stick = $('<div/>');
-            $water_stick.addClass('water_stick');
-            var $water1 = $('<div/>');
-            $water1.addClass('water1');
-            $water1.appendTo($water_stick);
-            $('#container').append($water_stick);
-
-            $('.fireball_game').hide();
-            $('.peng_game').hide();
-            $('.water_stick').hide();
-
     if ($("#container").length == 0) {
         return false; // will only run the game code if not on game page
     }
+
+
+    //insert water_stick
+    var $water_stick = $('<div/>');
+    $water_stick.addClass('water_stick');
+    var $water1 = $('<div/>');
+    $water1.addClass('water1');
+    $water1.appendTo($water_stick);
+    $('#container').prepend($water_stick);
+
+    //insert peng
+    var $pengImg = '/emoticons/wink.png';
+    $img1 = $("<img/>");
+    $img1.addClass('peng_game');
+    $img1.attr("src", "/assets/"+ $pengImg);
+    $img1.prependTo('#container');
+
+    //insert fireball
+    var $fireballImg = '/emoticons/fireball.png';
+    $img2 = $("<img/>");
+    $img2.addClass('fireball_game fireball-animation');
+    $img2.attr("src", "/assets/"+ $fireballImg);
+    $img2.prependTo('#container');
+
+    $('.fireball_game').hide();
+    $('.peng_game').hide();
+    $('.water_stick').hide();
 
     // display word_list
     for (var q=0; q<question.length; q++){
@@ -102,7 +103,7 @@ $(document).ready(function() {
 
     function startPlay() {
         $('#userInput').focus();
-        child = $("#container div:first-child");
+        child = $("#ani_container div:first-child");
         child.addClass("current");
         currentEl = $(".current");
 
@@ -141,42 +142,48 @@ $(document).ready(function() {
     }
 
 
+    var matchAnswer = function(event){
 
-    $(document).keydown(function(key){
-        if(key.keyCode == 13 ) {
         var currentElPress = $(".current");
         var matchSpan = currentElPress.find(".match");
         var unmatchSpan = currentElPress.find(".unmatch");
         var unmatchText = unmatchSpan.text();
         var userInput = $('#userInput').val();
 
-        if ($(".current").find('.unmatch').text() == userInput){
-            currentElPress.stop().effect("explode", 500);
-            currentElPress.animate({
-            left: box_left+"px"
-            }, 'fast');
+            if ($(".current").find('.unmatch').text() == userInput){
+                currentElPress.stop().effect("explode", 500);
+                currentElPress.animate({
+                left: box_left+"px"
+                }, 'fast');
 
-            currentElPress.removeClass("current");
-            currentElPress = currentElPress.next();
-            currentElPress.addClass("current");
-            currentEl = currentElPress;
+                currentElPress.removeClass("current");
+                currentElPress = currentElPress.next();
+                currentElPress.addClass("current");
+                currentEl = currentElPress;
 
-            score += 50;
-            $("#score").text(score).effect("highlight", {
-                color: '#000000'
-            }, 1000);
-            //remove previous answer for next one
-            $('#userInput').val("");
+                score += 50;
+                $("#score").text(score).effect("highlight", {
+                    color: '#000000'
+                }, 1000);
+                //remove previous answer for next one
+                $('#userInput').val("");
 
-        } else if ($(".current").find('.unmatch').text() !== userInput){
-            $('.fireball_game').animate({
-                left: -30+"px"
-            }, 'fast');
-            $('#userInput').val("");
-            console.log("fucking javascript");
+            } else if ($(".current").find('.unmatch').text() !== userInput){
+                $('.fireball_game').animate({
+                    'left':  '-=1px'
+                }, 'fast');
+                $('#userInput').val("");
+                console.log("fucking javascript");
+            }
+
+    }; // end matchAnswer
+
+
+    $('#btnsubmit').on('click', matchAnswer);
+    $('#userInput').on('keydown', function(key){
+        if (key.which == 13){
+            matchAnswer();
         }
-
-      };// end keyCode
-    }); // end keydown
+    });
 
 }); // end of document ready
