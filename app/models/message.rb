@@ -48,8 +48,9 @@ class Message < ActiveRecord::Base
     elsif game.present?
       audio_link += "&tl=" + game.language
     end
-    response = HTTParty.get(audio_link)
-    self.sound = response
+    audio_link += "&autoplay=0"
+    # response = HTTParty.get(audio_link)
+    self.sound = audio_link
   end
 
   def get_pronounciation
