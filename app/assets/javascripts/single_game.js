@@ -23,10 +23,25 @@ $(document).ready(function() {
     //insert water_stick
     var $water_stick = $('<div/>');
     $water_stick.addClass('water_stick');
-    var $water1 = $('<div/>');
-    $water1.addClass('water1');
+    var $water1 = $('<div class="water1"></div>');
+    var $water2 = $('<div class="water2"></div>');
+    var $water3 = $('<div class="water3"></div>');
+    var $water4 = $('<div class="water4"></div>');
+    var $water5 = $('<div class="water5"></div>');
     $water1.appendTo($water_stick);
-    $('#container').prepend($water_stick);
+    $water2.appendTo($water_stick);
+    $water3.appendTo($water_stick);
+    $water4.appendTo($water_stick);
+    $water5.appendTo($water_stick);
+    $('#container').append($water_stick);
+
+    // insert water_basket
+    var $basket = $('<div/>');
+    var $basketImg = $('<img/>');
+    $basketImg.attr('src', 'http://i.imgur.com/BBUHONS.png');
+    $basketImg.appendTo($basket);
+    $basket.addClass('water_basket');
+    $basket.appendTo($('#container'));
 
     //insert peng
     var $pengImg = '/emoticons/wink.png';
@@ -44,7 +59,7 @@ $(document).ready(function() {
 
     $('.fireball_game').hide();
     $('.peng_game').hide();
-    $('.water_stick').hide();
+    //$('.water_stick').hide();
 
     // display word_list
     for (var q=0; q<question.length; q++){
@@ -75,21 +90,31 @@ $(document).ready(function() {
 
         if ($(this).text() == "Play") {
             startPlay();
-            playGame = setInterval(startPlay,100000000);
+            playGame = setInterval(startPlay, 100000000);
             $(this).text("Pause");
 
             $('.fireball_game').show();
             $('.peng_game').show();
-            $('.water_stick').show();
+
+            //water_stick and make water empty
+            $('.water_stick').css({"margin-top": 0});
+            $('.water1').css({"background-color": "#C9E7EF"});
+            $('.water2').css({"background-color": "#C9E7EF"});
+            $('.water3').css({"background-color": "#C9E7EF"});
+            $('.water4').css({"background-color": "#C9E7EF"});
+            $('.water5').css({"background-color": "#C9E7EF"});
 
         } else if ($(this).text() == "Pause") {
             stop = true;
-            if ($("#container").find(".current").length == 0) {
-              $(this).text("Play");
-            } else {
-              $(this).text("wait a moment");
-            }
-            //clearInterval();
+            $('.current').stop();
+            $(this).text("Resume");
+
+            // resume.addClass('resume');
+
+        } else if ($(this).text() == "Resume") {
+            $(this).text("Pause");
+            $('.current').on();
+
         }
         return false;
     });
@@ -159,10 +184,29 @@ $(document).ready(function() {
                 currentElPress.addClass("current");
                 currentEl = currentElPress;
 
+                //add score
                 score += 50;
                 $("#score").text(score).effect("highlight", {
                     color: '#000000'
                 }, 1000);
+                //getting water
+                var $score = $("#score").text();
+                console.log($score);
+                // always write it from the biggest number
+                if ($score > 249){
+                    $('.water5').css({"background-color": "#0000B2"});
+                } else if ($score > 199){
+                    $('.water4').css({"background-color": "#0000FF"});
+                } else if ($score > 149){
+                    $('.water3').css({"background-color": "#005CE6"});
+                } else if ($score > 99){
+                    $('.water2').css({"background-color": "#33ADFF"});
+                } else if ($score > 49){
+                    $('.water1').css({"background-color": "#5CADFF"});
+                } else {
+                    console.log("You can't get any water hahahah");
+                }
+
                 //remove previous answer for next one
                 $('#userInput').val("");
 

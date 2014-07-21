@@ -6,10 +6,10 @@
       %li= link_to( LANGUAGES.invert[chat.language], chat_path(chat.id) ) + link_to("Remove", chat_path(chat.id), :method => :delete, :class => 'delete_chat invisible') + button_tag("x", :class => 'show_delete_chat')
 
 
+%div#chatsubmittag
 = button_tag "New chat", :id => 'new_chat_button'
 
 %div#new_chat.invisible
   = label_tag :chat_language
   = select(:chat, :language, @language_select)
-
   = submit_tag "Create new chat", :id => :create_new_chat

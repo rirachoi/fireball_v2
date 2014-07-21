@@ -1,6 +1,4 @@
-* {
-    font-family: Arial;
-}
+
 #container {
     background: url(http://cdn2.qvectors.net./downloads/images/preview/snow_landscape_vector_preview.jpg);
     background-repeat: no-repeat;
@@ -95,6 +93,7 @@
 
 #userInput {
     width: 300px;
+
 }
 
 #word_list{
@@ -145,26 +144,51 @@
 .water_stick{
     width: 500px;
     height: 30px;
-    border-radius: 1em;
+    border-radius: 0.5em;
     border: 2px solid #003D99;
+    margin-top: 38%;
+/*    position: absolute;*/
+}
+
+.water1, .water2, .water3, .water4, .water5 {
+    width: 85px;
+    height: 20px;
+    margin-left: 2%;
+    margin-top: 3px;
+    display: inline-block;
+
+}
+
+.water_stick, .water_basket{
+    display: inline-block;
+    vertical-align: bottom;
+    margin-left: 10px;
 }
 
 .water1{
-    width: 100px;
-    height: 20px;
-    color: #8585FF;
-    margin-left: 2%;
-    margin-top: 3px;
+    background-color: #5CADFF;
+    border: 3px solid #5CADFF;
 }
+.water2{
+    background-color: #33ADFF;
+    border: 3px solid #33ADFF;
+}
+.water3{
+    background-color: #005CE6;
+    border: 3px solid #005CE6;
+}
+.water4{
+    background-color: #0000FF;
+    border: 3px solid #0000FF;
+}
+.water5{
+    background-color: #0000B2;
+    border: 3px solid #0000B2;
+}
+
 
 #game_title{
     text-align: center;
-}
-
-
-body {
-    margin: 0;
-    padding: 0;
 }
 
 
