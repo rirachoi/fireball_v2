@@ -5,7 +5,7 @@
     background-size: 100%;
     width: 600px;
     height: 300px;
-    margin: 0 auto;
+    margin-left: 15%;
     -webkit-border-radius: 0.7em;
     -moz-border-radius: 0.7em;
     border-radius: 0.7em;
@@ -39,7 +39,7 @@
     width: 600px;
     height: 40px;
     padding: 10px 0 10px 0;
-    margin: 0 auto;
+    margin-left:15%;
     text-align: center;
     margin-bottom: 10px;
     margin-top: 10px;
@@ -165,7 +165,7 @@
 .water_stick, .water_basket{
     display: inline-block;
     vertical-align: bottom;
-    margin-left: 10px;
+    margin-left: 15px;
 }
 
 .water1{
@@ -204,26 +204,61 @@
 
 }
 
-.pengLives{
+/*.pengLives{
     margin-left: 10%;
 
-}
+}*/
 
 .pengLives, #container{
     display: inline-block;
-    vertical-align: bottom;
+    vertical-align: top;
 }
 
 /*---------------------------*/
 
+
+/*answer div*/
+
+.answers{
+    background-color: #3399FF;
+    border-radius: 1em;
+    margin-left: 1.5%;
+    width: 600px;
+    height: 300px;
+    overflow: scroll;
+
+}
+#answer{
+    margin-left: 3%;
+    background-color: #85C2FF;
+    padding: 1em;
+    border-radius: 0.5em;
+    width:250px;
+}
+
+#answer_title{
+    margin-left: 5%;
+    color: white;
+}
+
+#str_answer{
+    color: #0000E6;
+    font-size: 25px;
+}
+
+
+
+
+/*---------------------------*/
+
 .fireball-animation {
-  -webkit-animation: animation 1500ms linear both;
-  animation: animation 1500ms linear both;
+  -webkit-animation: fireball 1500ms linear infinite both;
+  animation: fireball 1500ms linear infinite both;
 }
 
 /* Generated with Bounce.js. Edit at http://goo.gl/mSq3zk */
 
-@-webkit-keyframes animation {
+@-webkit-keyframes fireball {
   0% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -50, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -50, 0, 0, 1); }
   2.222222% { -webkit-transform: matrix3d(1.13551, 0, 0, 0, 0, 1.13551, 0, 0, 0, 0, 1, 0, -10.87046, 0, 0, 1); transform: matrix3d(1.13551, 0, 0, 0, 0, 1.13551, 0, 0, 0, 0, 1, 0, -10.87046, 0, 0, 1); }
   4.444444% { -webkit-transform: matrix3d(1.16497, 0, 0, 0, 0, 1.16497, 0, 0, 0, 0, 1, 0, 20.29266, 0, 0, 1); transform: matrix3d(1.16497, 0, 0, 0, 0, 1.16497, 0, 0, 0, 0, 1, 0, 20.29266, 0, 0, 1); }

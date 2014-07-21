@@ -20,6 +20,17 @@ $(document).ready(function() {
         return false; // will only run the game code if not on game page
     }
 
+    var answers = $('<div class="answers animation-target "/>');
+    var yourAnswer = $('<h2 id="answer_title">Answers<h2/>')
+    answers.append(yourAnswer);
+    for (var q=0; q<question.length; q++) {
+        // var answer = string[question[q]];
+        var parah_answer = $('<h3 id=answer>' +question[q]+ '<br/> <span id="str_answer">' +string[question[q]]+ '</span></h3>');
+        answers.append(parah_answer);
+        $('#container').append(answers);
+    };
+    answers.hide();
+
     //insert water_stick
     var $water_stick = $('<div/>');
     $water_stick.addClass('water_stick');
@@ -53,7 +64,7 @@ $(document).ready(function() {
     //insert fireball
     var $fireballImg = '/emoticons/fireball.png';
     $img2 = $("<img/>");
-    $img2.addClass('fireball_game');
+    $img2.addClass('fireball_game fireball-animation');
     $img2.attr("src", "/assets/"+ $fireballImg);
     $img2.prependTo('#container');
 
@@ -71,10 +82,7 @@ $(document).ready(function() {
     $pengLives.append($liveImg3);
 
     $pengLives.prependTo("#game_window");
-    ($('#container')).before($pengLives);
-
-
-
+    ($('#container')).after($pengLives);
 
     $('.fireball_game').hide();
     $('.peng_game').hide();
@@ -115,7 +123,7 @@ $(document).ready(function() {
             $('.fireball_game').show();
             $('.peng_game').show();
 
-            //water_stick and make water empty
+            //water_stick and make water look like empty
             $('.water_stick').css({"margin-top": 0});
             $('.water1').css({"background-color": "#C9E7EF"});
             $('.water2').css({"background-color": "#C9E7EF"});
@@ -214,7 +222,9 @@ $(document).ready(function() {
                 // always write it from the biggest number
                 if ($score > 249){
                     $('.water5').css({"background-color": "#0000B2"});
-
+                    $('.water_stick').css({"margin-top": 0});
+                    //show the answer div
+                    // answers.show();
                 } else if ($score > 199){
                     $('.water4').css({"background-color": "#0000FF"});
                 } else if ($score > 149){
