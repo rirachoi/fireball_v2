@@ -33,7 +33,7 @@ audio {
 
 .content{
   max-width: 80%;
-  width: 40%;
+  /*width: 40%;*/
   margin: auto;
   display: inline-block;
   margin-left: 20%;

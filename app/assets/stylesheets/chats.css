@@ -20,11 +20,12 @@
   border-radius: 0.3em;
   padding: 1em 3em;
   background: #008DBC;
-  width: 120%;
+  width: 180%;
   display: block;
   font-size: 2em;
   margin-top: 0.58em;
   margin-bottom: 0.58em;
+  text-align: center;
   -webkit-transition: all 0.15s ease-in-out;
   -moz-transition: all 0.15s ease-in-out;
   -o-transition: all 0.15s ease-in-out;
@@ -69,9 +70,10 @@
   border-radius: 0.3em;
   padding: 0.8em;
   font-size: 18px;
-  width: 20%;
+  width: 30%;
   background-color: #008DBC;
   color: white;
+  text-align: center;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
@@ -81,13 +83,8 @@
 #new_chat_button:hover {
   font-size: 30px;
   padding: 0.3em;
-  width: 100%;
+  width: 180%;
   color: black;
   background-color: #f34223;
   font-weight: bold;
-}
-
-#chatsubmittag{
-  text-align: center;
-  min-width: 120%;
 }
