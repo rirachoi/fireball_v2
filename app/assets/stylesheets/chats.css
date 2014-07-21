@@ -11,7 +11,6 @@
 #my_chats ul li{
   list-style: none;
   position: relative;
-
 }
 
 #my_chats ul li a {
@@ -64,6 +63,11 @@
   -moz-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+}
+
+.show_delete_chat:hover {
+  background-color: #1C303E;
+  color: #fff;
 }
 
 #new_chat_button {

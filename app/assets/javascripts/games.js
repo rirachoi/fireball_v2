@@ -21,13 +21,17 @@ $(document).ready(function(){
             $gameLink.attr("href","/games/" + response.id);
             $gameLink.text($gameLanguageText);
             var $deleteGame = $('<a/>');    // Add delete link
-            $deleteGame.addClass('delete_game');
+            $deleteGame.addClass('delete_game invisible');
             $deleteGame.attr("href","/games/" + response.id);
             $deleteGame.text("Remove");
+            var $button = $('<button/>');
+            $button.attr('value','x');
+            $button.addClass('show_delete_chat');
+            $game.append($button);
             $game.append($gameLink);
             $game.append(" ");
             $game.append($deleteGame);
-            $('#my_games').prepend($game);
+            $('ul').prepend($game);
           }
         });
 
