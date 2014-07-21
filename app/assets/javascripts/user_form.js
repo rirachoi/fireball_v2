@@ -16,12 +16,19 @@ $(document).ready(function(){
     });
 
     $('input').on('keydown', function(event){
-      if (event.which == 40 && $(this) != $(':input').last()){
+      if (event.which == 40 && $(this) != $('#user_password_confirmation') ) {
         console.log('down key pressed');
         $(':input:eq(' + ($(':input').index(this) + 1) + ')').focus();
-      } else if (event.which == 38 && $(this) != $(':input').first()){
+      } else if(event.which == 40 && $(this) == $('#user_password_confirmation')) {
+        console.log('down key pressed and passed password input');
+        $('#user_username').focus();
+      } else if (event.which == 38 && $(this) !=  $('#user_username').first()){
         console.log("upkey pressed");
         $(':input:eq(' + ($(':input').index(this) - 1) + ')').focus();
+        console.log(this);
+      } else if(event.which == 38 && $(this) ==  $('#user_username').first() ){
+        console.log(this + "le");
+        $('#user_password_confirmation').focus();
       };
     });
 });
