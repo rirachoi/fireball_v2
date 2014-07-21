@@ -2,7 +2,7 @@
   = form_for @user do |f|
     %div.formgroup
       = f.label :username
-      = f.text_field :username
+      = f.text_field :username, :autofocus => true
     %div.formgroup
       = f.label :email
       = f.email_field :email

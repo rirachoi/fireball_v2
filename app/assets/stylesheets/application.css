@@ -17,6 +17,11 @@ body{
   background-color: rgba(0,0,0,0.9);
 }
 
+h1{
+  color: #f34223;
+}
+
+
 h2{
   color: #f34223;
 }
@@ -43,7 +48,7 @@ form{
   padding: 1em;
   margin-bottom: 1em;
   display: block;
-  color: rgba(0,0,0,.5);
+  color: rgba(255,255,255,.05);
   -webkit-transition: all 0.30s ease-in-out;
   -moz-transition: all 0.30s ease-in-out;
   -o-transition: all 0.30s ease-in-out;
