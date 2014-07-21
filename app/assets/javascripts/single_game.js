@@ -43,7 +43,6 @@ $(document).ready(function() {
     $basket.addClass('water_basket');
     $basket.appendTo($('#container'));
 
-
     //insert peng
     var $pengImg = '/emoticons/wink.png';
     $img1 = $("<img/>");
@@ -96,6 +95,7 @@ $(document).ready(function() {
 
             $('.fireball_game').show();
             $('.peng_game').show();
+
             //water_stick and make water empty
             $('.water_stick').css({"margin-top": 0});
             $('.water1').css({"background-color": "#C9E7EF"});
@@ -184,10 +184,29 @@ $(document).ready(function() {
                 currentElPress.addClass("current");
                 currentEl = currentElPress;
 
+                //add score
                 score += 50;
                 $("#score").text(score).effect("highlight", {
                     color: '#000000'
                 }, 1000);
+                //getting water
+                var $score = $("#score").text();
+                console.log($score);
+                // always write it from the biggest number
+                if ($score > 249){
+                    $('.water5').css({"background-color": "#0000B2"});
+                } else if ($score > 199){
+                    $('.water4').css({"background-color": "#0000FF"});
+                } else if ($score > 149){
+                    $('.water3').css({"background-color": "#005CE6"});
+                } else if ($score > 99){
+                    $('.water2').css({"background-color": "#33ADFF"});
+                } else if ($score > 49){
+                    $('.water1').css({"background-color": "#5CADFF"});
+                } else {
+                    console.log("You can't get any water hahahah");
+                }
+
                 //remove previous answer for next one
                 $('#userInput').val("");
 
