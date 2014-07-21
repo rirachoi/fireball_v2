@@ -46,24 +46,24 @@
     margin-top: 10px;
 }
 #boxscore {
-    float: left;
     font-size: 22px;
     margin-left: 15px;
     color: #ffffff;
+    text-align: left;
 }
 #score {
     font-weight: bold;
     font-size: 24px;
     padding: 0 3px;
 }
-#boxcontrol {
+/*#boxcontrol {
     float: right;
     margin-right: 15px;
 }
 #boxcontrol a {
     font-size: 22px;
     color: #ffffff;
-}
+}*/
 .clear {
     margin-top: 5px;
     font-size: 11px;
@@ -113,10 +113,20 @@
 
 #btnplay{
     text-decoration: none;
-    font-size: 20px;
+    font-size: 25px;
     color: white;
-    margin-left: 40%;
+    margin-left: 60%;
 }
+
+#toolbar a:hover{
+    color: #FFFF00;
+}
+
+#boxscore, #btnplay{
+    display: inline-block;
+    vertical-align: middle;
+}
+
 /* game images*/
 .fireball_game{
     width: 200px;
