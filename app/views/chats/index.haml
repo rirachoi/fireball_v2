@@ -1,9 +1,9 @@
 %h1 Chat to Fireball
 
 %div#my_chats
-
-  - @chats.each do |chat|
-    %li= link_to( LANGUAGES.invert[chat.language], chat_path(chat.id) ) + " | " + link_to("Remove", chat_path(chat.id), :method => :delete, :class => 'delete_chat')
+  %ul
+    - @chats.each do |chat|
+      %li= link_to( LANGUAGES.invert[chat.language], chat_path(chat.id) ) + " | " + link_to("Remove", chat_path(chat.id), :method => :delete, :class => 'delete_chat')
 
 
 = button_tag "New chat", :id => 'new_chat'

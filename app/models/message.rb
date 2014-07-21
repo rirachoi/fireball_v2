@@ -48,8 +48,8 @@ class Message < ActiveRecord::Base
     elsif game.present?
       audio_link += "&tl=" + game.language
     end
-    # response = HTTParty.get(audio_link)
-    self.sound = audio_link
+    response = HTTParty.get(audio_link)
+    self.sound = response
   end
 
   def emoticon
