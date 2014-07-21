@@ -48,7 +48,8 @@ audio {
 }
 
 #chat_messages {
-  width: 100%;
+  width: 500px;
+  position: relative;
 }
 
 #chat_box {
@@ -69,7 +70,7 @@ audio {
 }
 
 #chat_box.right {
-  margin-left: 200px;
+  left: 400px;
   border-radius: 3em;
   border-bottom-right-radius: 0;
   padding: 2em;

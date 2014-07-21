@@ -52,6 +52,15 @@ class Message < ActiveRecord::Base
     self.sound = response
   end
 
+  def get_pronounciation
+    translate_me = URI.encode( self.input_text )
+    pronounciation = "https://translate.google.com.au/translate_a/single?client=t&sl=auto"
+    pronounciation += "&tl=" + "ko"
+    pronounciation += "&hl=" + "en"
+    pronounciation += "&dt=bd&dt=ex&dt=ld&dt=md&dt=qc&dt=rw&dt=rm&dt=ss&dt=t&dt=at&dt=sw&ie=UTF-8&oe=UTF-8&prev=btn&rom=1&ssel=0&tsel=0"
+    pronounciation += "&q=" + translate_me
+  end
+
   def emoticon
     { "autumn" => "emoticons/autumn.png",
       "fall" =>  "emoticons/autumn.png",

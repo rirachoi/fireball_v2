@@ -12,7 +12,7 @@
       %li.timestamp= msg.created_at.strftime( "%b %e %Y %l:%M %p" ) + ": "
       %li= msg.input_text
       %li.translation= msg.translation
-      %audio{:src => msg.sound }
+      %iframe{:src => msg.sound }
 
 %div#input
   = form_tag "/chats/#{params[:id]}/messages" do
