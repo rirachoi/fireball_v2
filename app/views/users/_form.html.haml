@@ -1,20 +1,21 @@
 = form_for @user do |f|
-  = f.label :username
-  = f.text_field :username
-
-  = f.label :email
-  = f.email_field :email
-
-  = f.label :password
-  = f.password_field :password
-
-  = f.label :password_confirmation
-  = f.password_field :password_confirmation
-
-  = f.label :avatar
-  = f.text_field :avatar
-
-  = f.label :native_language, "Your Language"
-  = f.select(:native_language, LANGUAGES) # makes a dropdown from the constant LANGUAGES
-
-  = f.submit
+  %div.formgroup
+    = f.label :username
+    = f.text_field :username
+  %div.formgroup
+    = f.label :email
+    = f.email_field :email
+  %div.formgroup
+    = f.label :password
+    = f.password_field :password
+  %div.formgroup
+    = f.label :password_confirmation
+    = f.password_field :password_confirmation
+  / %div.formgroup
+  /   = f.label :avatar
+  /   = f.text_field :avatar
+  %div.formgroup
+    = f.label :native_language, "Your Language"
+    = f.select(:native_language, LANGUAGES)# makes a dropdown from the constant LANGUAGES
+  %div.formsubmit
+    = f.submit
