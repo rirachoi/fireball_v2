@@ -46,23 +46,15 @@
 }
 #boxscore {
     font-size: 22px;
-    margin-left: 15px;
     color: #ffffff;
-    text-align: left;
+    width: 200px;
 }
 #score {
     font-weight: bold;
     font-size: 24px;
     padding: 0 3px;
 }
-/*#boxcontrol {
-    float: right;
-    margin-right: 15px;
-}
-#boxcontrol a {
-    font-size: 22px;
-    color: #ffffff;
-}*/
+
 .clear {
     margin-top: 5px;
     font-size: 11px;
@@ -70,22 +62,7 @@
     color: #ffffff;
     clear: both;
 }
-#main {
-    background: #0099cc;
-    margin-top: 0;
-    padding: 2px 0 4px 0;
-    text-align: center;
-}
-#main a {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 12px;
-    font-weight: bold;
-    font-family: Arial;
-}
-#main a:hover {
-    text-decoration: underline;
-}
+
 #userAnswer {
     margin-left: 30%;
     margin-bottom: 30%;
@@ -115,16 +92,17 @@
     text-decoration: none;
     font-size: 25px;
     color: white;
-    margin-left: 60%;
+    width: 180px;
 }
 
 #toolbar a:hover{
     color: #FFFF00;
 }
 
-#boxscore, #btnplay{
+#boxscore, #btnplay, .pengLives{
     display: inline-block;
-    vertical-align: middle;
+    vertical-align: top;
+    position: relative;
 }
 
 /* game images*/
@@ -197,23 +175,24 @@
 
 /* lives*/
 
-#liveImg{
-    width: 5em;
-    height: 5em;
-    display: block;
+#liveImg1, #liveImg2, #liveImg3{
+    width: 3em;
+    height: 3em;
+    display: inline-block;
 
 }
 
-/*.pengLives{
-    margin-left: 10%;
+.pengLives{
+    position: right;
+    width: 180px
 
-}*/
+}
 
-.pengLives, #container{
+/*.pengLives, #btnplay, #boxscore{
     display: inline-block;
     vertical-align: top;
 }
-
+*/
 /*---------------------------*/
 
 

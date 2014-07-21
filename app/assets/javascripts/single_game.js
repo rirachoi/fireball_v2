@@ -12,6 +12,7 @@ var string = {
 
 var question = Object.keys(string);
 var score = 0;
+var wrongAnswerCount = 0;
 
 
 $(document).ready(function() {
@@ -47,42 +48,40 @@ $(document).ready(function() {
     $('#container').append($water_stick);
 
     // insert water_basket
-    var $basket = $('<div/>');
+    var $basket = $('<div class="water_basket"/>');
     var $basketImg = $('<img/>');
     $basketImg.attr('src', 'http://i.imgur.com/BBUHONS.png');
     $basketImg.appendTo($basket);
-    $basket.addClass('water_basket');
     $basket.appendTo($('#container'));
 
     //insert peng
     var $pengImg = '/emoticons/wink.png';
-    $img1 = $("<img/>");
-    $img1.addClass('peng_game');
+    var $img1 = $("<img class='peng_game'/>");
     $img1.attr("src", "/assets/"+ $pengImg);
     $img1.prependTo('#container');
 
     //insert fireball
     var $fireballImg = '/emoticons/fireball.png';
-    $img2 = $("<img/>");
+    var $img2 = $("<img/>");
     $img2.addClass('fireball_game fireball-animation');
     $img2.attr("src", "/assets/"+ $fireballImg);
     $img2.prependTo('#container');
 
     //insert lives
     var $pengLives = $('<div class="pengLives"/>');
-    var $liveImg1 = $('<img id="liveImg"/>')
+    var $liveImg1 = $('<img id="liveImg1"/>')
     $liveImg1.attr('src', '/assets/emoticons/peng.png');
-    var $liveImg2 = $('<img id="liveImg"/>')
+    var $liveImg2 = $('<img id="liveImg2"/>')
     $liveImg2.attr('src', '/assets/emoticons/peng.png');
-    var $liveImg3 = $('<img id="liveImg"/>')
+    var $liveImg3 = $('<img id="liveImg3"/>')
     $liveImg3.attr('src', '/assets/emoticons/peng.png');
 
     $pengLives.append($liveImg1);
     $pengLives.append($liveImg2);
     $pengLives.append($liveImg3);
 
-    $pengLives.prependTo("#game_window");
-    ($('#container')).after($pengLives);
+    $pengLives.prependTo("#toolbar");
+    ($('#btnplay')).after($pengLives);
 
     $('.fireball_game').hide();
     $('.peng_game').hide();
@@ -242,11 +241,29 @@ $(document).ready(function() {
                 $('#userInput').val("");
 
             } else if ($(".current").find('.unmatch').text() !== userInput){
+                //fireball animation
                 $('.fireball_game').animate({
                     'left':  '-=140px'
                 }, 'fast');
                 $('#userInput').val("");
-                console.log("fucking javascript");
+
+                //remove lives when useriput is wrong
+                var inputLetterCount = userInput.length;
+                wrongAnswerCount += 1;
+                if (wrongAnswerCount == 3 ){
+                    $img1.attr('src','/assets/emoticons/surprise.png');
+                    $('.peng_game').effect('bounce', {times:3}, 500);
+                    $('#liveImg1').fadeOut();
+                } else if (wrongAnswerCount == 2){
+                    $img1.attr('src','/assets/emoticons/surprise.png');
+                    $('.peng_game').effect('bounce', {times:3}, 500);
+                    $('#liveImg2').fadeOut();
+                } else if (wrongAnswerCount == 1){
+                    $img1.attr('src','/assets/emoticons/surprise.png');
+                    $('.peng_game').effect('bounce', {times:3}, 500);
+                    $('#liveImg3').fadeOut();
+                }
+                console.log(wrongAnswerCount);
             }
 
     }; // end matchAnswer
