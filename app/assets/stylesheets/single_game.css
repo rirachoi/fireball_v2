@@ -1,6 +1,4 @@
-* {
-    font-family: Arial;
-}
+
 #container {
     background: url(http://cdn2.qvectors.net./downloads/images/preview/snow_landscape_vector_preview.jpg);
     background-repeat: no-repeat;
@@ -191,12 +189,6 @@
 
 #game_title{
     text-align: center;
-}
-
-
-body {
-    margin: 0;
-    padding: 0;
 }
 
 
