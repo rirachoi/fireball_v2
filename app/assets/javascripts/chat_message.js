@@ -33,6 +33,10 @@ $(document).ready(function(){
             $chatBox.attr('id', 'chat_box');
             $chatBox.addClass('animation-target right');
 
+            var $messageID = $('<li/>')
+            $messageID.addClass('invisible msgID');
+            $messageID.text(response.id);
+
             var $newTimestamp = $('<li/>');
             $newTimestamp.addClass('timestamp');
             $newTimestamp.text( moment().format('lll') + ":");
@@ -48,10 +52,14 @@ $(document).ready(function(){
             $newImg.addClass('sticker');
             $newImg.attr("src", "/assets/"+response.image);
             // assests need to remove when we depoloy it!!
+            var $newPlayButton = $('<button/>');
+            $newPlayButton.text('Play');
+
             $newImg.appendTo($chatBox);
             $newTimestamp.appendTo($chatBox);
             $newMsg.appendTo($chatBox);
             $newTranslation.appendTo($chatBox);
+            $newPlayButton.appendTo($chatBox);
             $('#chat_messages').append($chatBox);
             $('#input_text').val('').focus();
             $("html, body").animate({ scrollTop: $(document).height() }, "slow");
@@ -62,7 +70,32 @@ $(document).ready(function(){
     };
 
   var playSound = function() {
-    console.log("yep")
+    console.log("yep");
+
+    // $.ajax({
+    //   url: '/location',
+    //   method: 'get',
+    //   dataType: 'json',
+    //   data: {
+    //     originlatitude: something.lat,
+    //     originlongitude: something.long,
+    //     destinationlatitude: someother.lat,
+    //     destinationlongitude: someother.long
+    //   },
+    //   success: function (response) {
+    //     console.log(response.bearing); // update the page with the response somehow
+    //   }
+    // });
+    // // if $('embed') {
+    // //   $('embed').remove();
+    // // }
+    // var $msg = $(this).closest('.msgID')
+
+
+    // var $embed =  $('embed');
+    // $embed.attr('src', "#");
+    // $embed.addClass('invisible');
+    // $embed.appendTo($('body'));
   };
 
   $('#speak').on('click', createChatMessage);
