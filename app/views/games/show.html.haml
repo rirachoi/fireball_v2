@@ -19,24 +19,25 @@
     =link_to 'Play', "", :id => 'btnplay'
 
   %div#container
-    %div.animatedbox
-      %span.match
-      %span.unmatch
-    %div.animatedbox
-      %span.match
-      %span.unmatch
+    %div#ani_container
+      %div.animatedbox
+        %span.match
+        %span.unmatch
+      %div.animatedbox
+        %span.match
+        %span.unmatch
 
-    %div.animatedbox
-      %span.match
-      %span.unmatch
+      %div.animatedbox
+        %span.match
+        %span.unmatch
 
-    %div.animatedbox
-      %span.match
-      %span.unmatch
+      %div.animatedbox
+        %span.match
+        %span.unmatch
 
-    %div.animatedbox#last
-      %span.match
-      %span.unmatch
+      %div.animatedbox#last
+        %span.match
+        %span.unmatch
 
   %div#userAnswer
     = text_field_tag :userInput, nil, :placeholder => 'Type Your Answer Here!'
