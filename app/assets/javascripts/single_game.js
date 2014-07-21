@@ -12,6 +12,7 @@ var string = {
 
 var question = Object.keys(string);
 var score = 0;
+var wrongAnswerCount = 0;
 
 
 $(document).ready(function() {
@@ -70,19 +71,19 @@ $(document).ready(function() {
 
     //insert lives
     var $pengLives = $('<div class="pengLives"/>');
-    var $liveImg1 = $('<img id="liveImg"/>')
+    var $liveImg1 = $('<img id="liveImg1"/>')
     $liveImg1.attr('src', '/assets/emoticons/peng.png');
-    var $liveImg2 = $('<img id="liveImg"/>')
+    var $liveImg2 = $('<img id="liveImg2"/>')
     $liveImg2.attr('src', '/assets/emoticons/peng.png');
-    var $liveImg3 = $('<img id="liveImg"/>')
+    var $liveImg3 = $('<img id="liveImg3"/>')
     $liveImg3.attr('src', '/assets/emoticons/peng.png');
 
     $pengLives.append($liveImg1);
     $pengLives.append($liveImg2);
     $pengLives.append($liveImg3);
 
-    $pengLives.prependTo("#game_window");
-    ($('#container')).after($pengLives);
+    $pengLives.prependTo("#toolbar");
+    ($('#btnplay')).after($pengLives);
 
     $('.fireball_game').hide();
     $('.peng_game').hide();
@@ -242,11 +243,23 @@ $(document).ready(function() {
                 $('#userInput').val("");
 
             } else if ($(".current").find('.unmatch').text() !== userInput){
+                //fireball animation
                 $('.fireball_game').animate({
                     'left':  '-=140px'
                 }, 'fast');
                 $('#userInput').val("");
-                console.log("fucking javascript");
+
+                //remove lives when useriput is wrong
+                var inputLetterCount = userInput.length;
+                wrongAnswerCount += 1;
+                if (wrongAnswerCount == 3 ){
+                    $('#liveImg1').fadeOut();
+                } else if (wrongAnswerCount == 2){
+                    $('#liveImg2').fadeOut();
+                } else if (wrongAnswerCount == 1){
+                    $('#liveImg3').fadeOut();
+                }
+                console.log(wrongAnswerCount);
             }
 
     }; // end matchAnswer
