@@ -14,6 +14,7 @@ body{
   padding: 0;
   border: 0;
   background-color: #ffdd35;
+  color: #420d00;
 }
 
 button, input{
@@ -67,8 +68,6 @@ img.sticker {
 #input form{
   width: 960px;
   max-height: 80px;
-  /*background-color: black;*/
-
 }
 
 #input_text{

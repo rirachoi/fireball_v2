@@ -1,10 +1,11 @@
 %h1 LOGIN
 
 = form_tag '/login' do
-  = label_tag :username
-  = text_field_tag :username
-
-  = label_tag :password
-  = password_field_tag :password
-
-  = submit_tag "login"
+  %div.formgroup
+    = label_tag :username
+    = text_field_tag :username, nil, :autofocus => :true
+  %div.formgroup
+    = label_tag :password
+    = password_field_tag :password
+  %div.formsubmit
+    = submit_tag "login"

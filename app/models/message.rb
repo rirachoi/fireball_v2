@@ -48,8 +48,8 @@ class Message < ActiveRecord::Base
     elsif game.present?
       audio_link += "&tl=" + game.language
     end
-    # response = HTTParty.get(audio_link)
-    self.sound = audio_link
+    response = HTTParty.get(audio_link)
+    self.sound = response
   end
 
   def emoticon
@@ -96,8 +96,9 @@ class Message < ActiveRecord::Base
       "i-don-t-know" => "emoticons/idontknow.png",
       "i-don-t-understand" => "emoticons/idontknow.png",
       "huh" => "emoticons/idontknow.png",
-      "peng" =>  "emoticons/peng.png",
-      "hello" =>  "emoticons/peng.png",
+      "peng" => "emoticons/peng.png",
+      "hello" => "emoticons/peng.png",
+      "good-morning" => "emoticons/peng.png",
       "music" =>  "emoticons/music.png",
       "dance" => "emoticons/music.png",
       "dancing" => "emoticons/music.png",
@@ -107,6 +108,7 @@ class Message < ActiveRecord::Base
       "run" => "emoticons/run.png",
       "running" => "emoticons/run.png",
       "jogging" => "emoticons/run.png",
+      "bye" => "emoticons/run.png",
       "working-out" => "emoticons/run.png",
       "i-m-sad" => "emoticons/sad.png",
       "sad" => "emoticons/sad.png",
@@ -125,6 +127,8 @@ class Message < ActiveRecord::Base
       "i-m-studying" => "emoticons/study.png",
       "surprise" => "emoticons/surprise.png",
       "holy-shit" => "emoticons/surprise.png",
+      "wot" => "emoticons/surprise.png",
+      "omg" => "emoticons/surprise.png",
       "surprised" => "emoticons/surprise.png",
       "surprising" => "emoticons/surprise.png",
       "what" => "emoticons/what.png",
