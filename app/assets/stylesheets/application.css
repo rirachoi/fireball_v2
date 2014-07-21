@@ -104,7 +104,7 @@ form{
   transition: all 0.3s ease-in-out;
 }
 
-.formsubmit input:hover{
+.formsubmit input:hover, .formsubmit input:focus{
   box-shadow: 0 0 0 0;
   background-color: #008DBC;
   color: white;
