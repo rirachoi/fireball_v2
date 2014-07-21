@@ -47,6 +47,10 @@ audio {
   height: 10px;
 }
 
+#chat_messages {
+  width: 100%;
+}
+
 #chat_box {
   max-width: 15em;
   background-color: #f6af1d;
@@ -54,11 +58,30 @@ audio {
   margin: 1em;
   padding: 0.4em;
   list-style: none;
+  position: relative;
+}
+
+#chat_box.left {
+  margin-left: 0;
+  line-height: 2em;
+  padding: 1em;
+  border-bottom-left-radius: 0;
+}
+
+#chat_box.right {
+  margin-left: 200px;
+  border-radius: 3em;
+  border-bottom-right-radius: 0;
+  padding: 2em;
 }
 
 img.sticker {
   max-height: 10em;
   max-width: 10em;
+}
+
+.timestamp {
+  font-size: .8em;
 }
 
 .translation {

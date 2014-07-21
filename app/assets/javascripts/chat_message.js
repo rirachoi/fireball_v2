@@ -5,8 +5,17 @@ $(document).ready(function(){
     var createChatMessage = function(event) {
       event.preventDefault();
       var $inputText = $('#input_text').val();
+
+      var $chatBox = $('<div/>');
+      $chatBox.attr('id', 'chat_box');
+      $chatBox.addClass('animation-target left');
+      var $newMsg = $('<li/>');
+      $newMsg.text( $inputText );
+      $newMsg.appendTo($chatBox);
+      $('#chat_messages').append($chatBox);
+
       if ($inputText === ''){
-        return false
+        return false;
       } else {
 
         $.ajax({
@@ -19,7 +28,7 @@ $(document).ready(function(){
           success: function (response) {
             var $chatBox = $('<div/>');
             $chatBox.attr('id', 'chat_box');
-            $chatBox.addClass('animation-target');
+            $chatBox.addClass('animation-target right');
 
             var $newTimestamp = $('<li/>');
             $newTimestamp.text( moment().format('lll') + ":");
