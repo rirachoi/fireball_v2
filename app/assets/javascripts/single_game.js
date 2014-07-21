@@ -57,6 +57,25 @@ $(document).ready(function() {
     $img2.attr("src", "/assets/"+ $fireballImg);
     $img2.prependTo('#container');
 
+    //insert lives
+    var $pengLives = $('<div class="pengLives"/>');
+    var $liveImg1 = $('<img id="liveImg"/>')
+    $liveImg1.attr('src', '/assets/emoticons/peng.png');
+    var $liveImg2 = $('<img id="liveImg"/>')
+    $liveImg2.attr('src', '/assets/emoticons/peng.png');
+    var $liveImg3 = $('<img id="liveImg"/>')
+    $liveImg3.attr('src', '/assets/emoticons/peng.png');
+
+    $pengLives.append($liveImg1);
+    $pengLives.append($liveImg2);
+    $pengLives.append($liveImg3);
+
+    $pengLives.prependTo("#game_window");
+    ($('#container')).before($pengLives);
+
+
+
+
     $('.fireball_game').hide();
     $('.peng_game').hide();
     //$('.water_stick').hide();
@@ -195,6 +214,7 @@ $(document).ready(function() {
                 // always write it from the biggest number
                 if ($score > 249){
                     $('.water5').css({"background-color": "#0000B2"});
+
                 } else if ($score > 199){
                     $('.water4').css({"background-color": "#0000FF"});
                 } else if ($score > 149){
@@ -203,6 +223,7 @@ $(document).ready(function() {
                     $('.water2').css({"background-color": "#33ADFF"});
                 } else if ($score > 49){
                     $('.water1').css({"background-color": "#5CADFF"});
+                    $('.water_basket').animate({"size": "200%"}, 'slow');
                 } else {
                     console.log("You can't get any water hahahah");
                 }

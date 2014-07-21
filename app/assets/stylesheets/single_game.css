@@ -140,6 +140,9 @@
     height: 150px;
     margin-top: 10%;
 }
+/*---------------------------*/
+
+/* water_stick */
 
 .water_stick{
     width: 500px;
@@ -186,12 +189,32 @@
     border: 3px solid #0000B2;
 }
 
+/*---------------------------*/
 
 #game_title{
     text-align: center;
 }
 
+/* lives*/
 
+#liveImg{
+    width: 5em;
+    height: 5em;
+    display: block;
+
+}
+
+.pengLives{
+    margin-left: 10%;
+
+}
+
+.pengLives, #container{
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+/*---------------------------*/
 
 .fireball-animation {
   -webkit-animation: animation 1500ms linear both;
