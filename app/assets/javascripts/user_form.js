@@ -9,4 +9,19 @@ $(document).ready(function(){
         $(this).parent().find('label').removeClass('active');
       });
   });
+
+    $('input').on('focus', function(){
+      var val = $(this).val();
+      $(this).val(val);
+    });
+
+    $('input').on('keydown', function(event){
+      if (event.which == 40 && $(this) != $(':input')){
+        console.log('down key pressed');
+        $(':input:eq(' + ($(':input').index(this) + 1) + ')').focus();
+      } else if (event.which == 38 && $(this) != $(':input').first()){
+        console.log("upkey pressed");
+        $(':input:eq(' + ($(':input').index(this) - 1) + ')').focus();
+      };
+    });
 });
