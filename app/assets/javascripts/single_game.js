@@ -119,8 +119,8 @@ $(document).ready(function() {
             playGame = setInterval(startPlay, 100000000);
             $(this).text("Pause");
 
-            $('.fireball_game').show();
-            $('.peng_game').show();
+            $('.fireball_game').fadeIn('slow');
+            $('.peng_game').fadeIn('slow');
 
             //water_stick and make water look like empty
             $('.water_stick').css({"margin-top": 0});
@@ -139,7 +139,7 @@ $(document).ready(function() {
 
         } else if ($(this).text() == "Resume") {
             $(this).text("Pause");
-            $('.current').on();
+            $('.current').on(playGame);
 
         }
         return false;
@@ -159,7 +159,7 @@ $(document).ready(function() {
         currentEl = $(".current");
 
         for (i=0; i<children.length; i++) {
-            var delaytime = i * 10000;
+            var delaytime = i * 5000;
             setTimeout(function() {
                 randomIndex = randomFromTo(0, question.length - 1);
                 child.animate({"top": min_top+"px"}, 'slow');
@@ -168,7 +168,7 @@ $(document).ready(function() {
                 child.show();
                 child.animate({
                    left: "+="+text_move_px
-                }, 10000, function() {
+                }, 5000, function() {
                     currentEl.removeClass("current");
                     currentEl.fadeOut('fast');
                     currentEl.animate({
