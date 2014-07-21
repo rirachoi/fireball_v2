@@ -1,5 +1,8 @@
 $(document).ready(function(){
-  $("html, body").animate({ scrollTop: $(document).height() }, 500);
+  if ($('#user_username').length != 1){
+    $("html, body").animate({ scrollTop: $(document).height() }, 500);
+  };
+
   var $currentChatId = $('#chat_id').text();
 
     var createChatMessage = function(event) {
