@@ -10,15 +10,59 @@
 
 #my_chats ul li{
   list-style: none;
-  display: block;
+  position: relative;
 
 }
 
 #my_chats ul li a {
   color: white;
   height: 3em;
-  border: 1px solid black;
+  /*border: 1px solid black;*/
   padding: 1em 3em;
-  background: red;
-  /*margin: 3em;*/
+  background: #008DBC;
+  width: 40em;
+  display: block;
+  font-size: 2em;
+  -webkit-transition: all 0.15s ease-in-out;
+  -moz-transition: all 0.15s ease-in-out;
+  -o-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+
+#my_chats ul li a.invisible {
+  display: none;
+}
+
+#my_chats ul li a:hover {
+  background: #C9E7EF;
+  color:#008DBC;
+}
+
+#my_chats ul li:hover > .show_delete_chat{
+  opacity: 100;
+  /*display: inline-block;*/
+}
+
+.show_delete_chat {
+  position: absolute;
+  width: 1.5em;
+  height: 1.5em;
+  top:15px;
+  left: 15px;
+  z-index: 1;
+  font-size: 3em;
+  border-radius: 2em;
+  opacity: 0;
+  -webkit-transition: all 0.15s ease-in-out;
+  -moz-transition: all 0.15s ease-in-out;
+  -o-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+
+#new_chat_button {
+  border-radius: 2em;
+  width: 100px;
+  height: 100px;
+  padding: .1em;
+  font-size: 2em;
 }

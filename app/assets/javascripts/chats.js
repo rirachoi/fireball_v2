@@ -50,7 +50,9 @@ $(document).ready(function(){
       return false;
     };
 
-
+  $('#new_chat_button').on('click', function() {
+    $('#new_chat').toggle();
+  })
   $('#create_new_chat').on('click', createChat);
   $('#my_chats').on('click', '.delete_chat', deleteChat);
 
