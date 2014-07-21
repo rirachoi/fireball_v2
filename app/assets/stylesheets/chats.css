@@ -4,14 +4,21 @@
 
 #my_chats ul {
   list-style: none;
-  margin: 0;
-  padding: 0;
+  /*margin: 0;*/
+  padding-left: 0;
 }
 
 #my_chats ul li{
   list-style: none;
-  line-height: 3em;
-  border: 1px solid black;
-  padding: 0 1em;
+  display: block;
+
 }
 
+#my_chats ul li a {
+  color: white;
+  height: 3em;
+  border: 1px solid black;
+  padding: 1em 3em;
+  background: red;
+  /*margin: 3em;*/
+}

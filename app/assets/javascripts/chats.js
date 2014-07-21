@@ -19,10 +19,11 @@ $(document).ready(function(){
             $chatLink.text($chatLanguageText);
             var $deleteChat = $('<a/>');    // Add delete link
             $deleteChat.addClass('delete_chat');
+            $deleteChat.addClass('invisible');
             $deleteChat.attr("href","/chats/" + response.id);
             $deleteChat.text("Remove");
             $chat.append($chatLink);
-            $chat.append(" | ");
+            // $chat.append(" | ");
             $chat.append($deleteChat);
             $('#my_chats').prepend($chat);
           }

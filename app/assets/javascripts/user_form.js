@@ -16,7 +16,7 @@ $(document).ready(function(){
     });
 
     $('input').on('keydown', function(event){
-      if (event.which == 40 && $(this) != $(':input')){
+      if (event.which == 40 && $(this) != $(':input').last()){
         console.log('down key pressed');
         $(':input:eq(' + ($(':input').index(this) + 1) + ')').focus();
       } else if (event.which == 38 && $(this) != $(':input').first()){
