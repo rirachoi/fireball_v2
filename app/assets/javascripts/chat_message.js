@@ -21,8 +21,11 @@ $(document).ready(function(){
             $chatBox.attr('id', 'chat_box');
             $chatBox.addClass('animation-target');
 
-            var $newMsg = $('<li/>');
-            $newMsg.text(response.created_at + ": "+ response.input_text);
+            var $newTimestamp = $('<li/>');
+            $newTimestamp.text( moment().format('lll') + ":");
+
+            var $newMsg = $('<li/>');
+            $newMsg.text( response.input_text );
 
             var $newTranslation = $('<li/>');
             $newTranslation.addClass('translation');
@@ -33,7 +36,7 @@ $(document).ready(function(){
             $newImg.attr("src", "/assets/"+response.image);
             // assests need to remove when we depoloy it!!
             $newImg.appendTo($chatBox);
-
+            $newTimestamp.appendTo($chatBox);
             $newMsg.appendTo($chatBox);
             $newTranslation.appendTo($chatBox);
             $('#chat_messages').append($chatBox);

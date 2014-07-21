@@ -68,6 +68,8 @@ GEM
     method_source (0.8.2)
     mime-types (1.25.1)
     minitest (5.4.0)
+    momentjs-rails (2.7.0)
+      railties (>= 3.1)
     multi_json (1.10.1)
     multi_xml (0.5.5)
     nav_lynx (1.1.0)
@@ -147,6 +149,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   jquery-ui-rails
+  momentjs-rails
   nav_lynx
   pg
   pry-rails

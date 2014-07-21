@@ -7,7 +7,7 @@
   - @chat_messages.each do |msg|
     %div#chat_box
       %li= image_tag( msg.image , :class => "sticker" )
-      %li= msg.created_at.strftime( "%e/%m/%Y %H:%M" ) + ": "
+      %li= msg.created_at.strftime( "%b %e %Y %l:%M %p" ) + ": "
       %li= msg.input_text
       %li.translation= msg.translation
       %audio{:src => msg.sound }
