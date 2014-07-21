@@ -17,10 +17,10 @@
 #my_chats ul li a {
   color: white;
   height: 3em;
-  /*border: 1px solid black;*/
+  border-radius: 0.3em;
   padding: 1em 3em;
   background: #008DBC;
-  width: 40em;
+  width: 120%;
   display: block;
   font-size: 2em;
   -webkit-transition: all 0.15s ease-in-out;
@@ -53,8 +53,10 @@
   color: #1C303E;
   z-index: 1;
   font-size: 2em;
+  font-weight: bold;
   border-radius: 2em;
   opacity: 0;
+  padding-bottom: 0.1em;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
@@ -62,9 +64,28 @@
 }
 
 #new_chat_button {
-  border-radius: 2em;
-  width: 100px;
-  height: 100px;
-  padding: .1em;
-  font-size: 2em;
+  border-radius: 0.3em;
+  padding: 0.8em;
+  font-size: 18px;
+  width: 20%;
+  background-color: #008DBC;
+  color: white;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+#new_chat_button:hover {
+  font-size: 30px;
+  padding: 0.3em;
+  width: 100%;
+  color: black;
+  background-color: #f34223;
+  font-weight: bold;
+}
+
+#chatsubmittag{
+  text-align: center;
+  min-width: 120%;
 }
