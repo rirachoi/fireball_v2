@@ -48,23 +48,21 @@ $(document).ready(function() {
     $('#container').append($water_stick);
 
     // insert water_basket
-    var $basket = $('<div/>');
+    var $basket = $('<div class="water_basket"/>');
     var $basketImg = $('<img/>');
     $basketImg.attr('src', 'http://i.imgur.com/BBUHONS.png');
     $basketImg.appendTo($basket);
-    $basket.addClass('water_basket');
     $basket.appendTo($('#container'));
 
     //insert peng
     var $pengImg = '/emoticons/wink.png';
-    $img1 = $("<img/>");
-    $img1.addClass('peng_game');
+    var $img1 = $("<img class='peng_game'/>");
     $img1.attr("src", "/assets/"+ $pengImg);
     $img1.prependTo('#container');
 
     //insert fireball
     var $fireballImg = '/emoticons/fireball.png';
-    $img2 = $("<img/>");
+    var $img2 = $("<img/>");
     $img2.addClass('fireball_game fireball-animation');
     $img2.attr("src", "/assets/"+ $fireballImg);
     $img2.prependTo('#container');
@@ -253,10 +251,16 @@ $(document).ready(function() {
                 var inputLetterCount = userInput.length;
                 wrongAnswerCount += 1;
                 if (wrongAnswerCount == 3 ){
+                    $img1.attr('src','/assets/emoticons/surprise.png');
+                    $('.peng_game').effect('bounce', {times:3}, 500);
                     $('#liveImg1').fadeOut();
                 } else if (wrongAnswerCount == 2){
+                    $img1.attr('src','/assets/emoticons/surprise.png');
+                    $('.peng_game').effect('bounce', {times:3}, 500);
                     $('#liveImg2').fadeOut();
                 } else if (wrongAnswerCount == 1){
+                    $img1.attr('src','/assets/emoticons/surprise.png');
+                    $('.peng_game').effect('bounce', {times:3}, 500);
                     $('#liveImg3').fadeOut();
                 }
                 console.log(wrongAnswerCount);
