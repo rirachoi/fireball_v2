@@ -47,16 +47,18 @@
   position: absolute;
   width: 1.5em;
   height: 1.5em;
-  top:15px;
-  left: 15px;
+  top: 25px;
+  left: 25px;
+  background-color:#008DBC;
+  color: #1C303E;
   z-index: 1;
-  font-size: 3em;
+  font-size: 2em;
   border-radius: 2em;
   opacity: 0;
-  -webkit-transition: all 0.15s ease-in-out;
-  -moz-transition: all 0.15s ease-in-out;
-  -o-transition: all 0.15s ease-in-out;
-  transition: all 0.15s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 #new_chat_button {
