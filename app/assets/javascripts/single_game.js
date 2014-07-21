@@ -20,7 +20,6 @@ $(document).ready(function() {
         return false; // will only run the game code if not on game page
     }
 
-
     //insert water_stick
     var $water_stick = $('<div/>');
     $water_stick.addClass('water_stick');
@@ -39,7 +38,7 @@ $(document).ready(function() {
     //insert fireball
     var $fireballImg = '/emoticons/fireball.png';
     $img2 = $("<img/>");
-    $img2.addClass('fireball_game fireball-animation');
+    $img2.addClass('fireball_game');
     $img2.attr("src", "/assets/"+ $fireballImg);
     $img2.prependTo('#container');
 
@@ -54,8 +53,9 @@ $(document).ready(function() {
         $('#word_list').append(display_text);
     };
 
-    var children = $("#container").children();
-    var child = $("#container div:first-child");
+    // defined word blocks and other stuff
+    var children = $("#ani_container").children();
+    var child = $("#ani_container div:first-child");
 
     var currentEl;
     var currentElPress;
@@ -111,7 +111,6 @@ $(document).ready(function() {
             var delaytime = i * 10000;
             setTimeout(function() {
                 randomIndex = randomFromTo(0, question.length - 1);
-                //randomTop = randomFromTo(min_top, max_top);
                 child.animate({"top": min_top+"px"}, 'slow');
                 child.find(".match").text();
                 child.find(".unmatch").text(question[randomIndex]);
@@ -138,9 +137,8 @@ $(document).ready(function() {
                 child = child.next();
             }, delaytime);
 
-        }
-    }
-
+        } // end for loop for word blocks
+    }; // end startPlay
 
     var matchAnswer = function(event){
 
@@ -170,7 +168,7 @@ $(document).ready(function() {
 
             } else if ($(".current").find('.unmatch').text() !== userInput){
                 $('.fireball_game').animate({
-                    'left':  '-=1px'
+                    'left':  '-=140px'
                 }, 'fast');
                 $('#userInput').val("");
                 console.log("fucking javascript");
