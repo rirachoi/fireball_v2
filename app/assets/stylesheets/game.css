@@ -14,3 +14,88 @@
   position: absolute;
 }
 
+#my_games ul {
+  list-style: none;
+  /*margin: 0;*/
+  padding-left: 0;
+}
+
+#my_games ul li{
+  list-style: none;
+  position: relative;
+}
+
+#my_games ul li a {
+  color: white;
+  height: 3em;
+  border-radius: 0.3em;
+  padding: 1em 3em;
+  background: #008DBC;
+  width: 180%;
+  display: block;
+  font-size: 2em;
+  margin-top: 0.58em;
+  margin-bottom: 0.58em;
+  text-align: center;
+  -webkit-transition: all 0.15s ease-in-out;
+  -moz-transition: all 0.15s ease-in-out;
+  -o-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+
+#my_games ul li a.invisible {
+  display: none;
+}
+
+#my_games ul li a:hover {
+  background: #C9E7EF;
+  color:#008DBC;
+}
+
+#my_games ul li:hover > .show_delete_game{
+  opacity: 100;
+  /*display: inline-block;*/
+}
+
+.show_delete_game {
+  position: absolute;
+  width: 1.5em;
+  height: 1.5em;
+  top: 25px;
+  left: 25px;
+  background-color:#008DBC;
+  color: #1C303E;
+  z-index: 1;
+  font-size: 2em;
+  font-weight: bold;
+  border-radius: 2em;
+  opacity: 0;
+  padding-bottom: 0.1em;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+#new_game {
+  border-radius: 0.3em;
+  padding: 0.8em;
+  font-size: 18px;
+  width: 30%;
+  background-color: #008DBC;
+  color: white;
+  text-align: center;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+#new_game:hover {
+  font-size: 30px;
+  padding: 0.3em;
+  width: 180%;
+  color: black;
+  background-color: #f34223;
+  font-weight: bold;
+}
