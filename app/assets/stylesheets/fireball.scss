@@ -109,9 +109,16 @@ img.login_tag{
   font-size: 1.2em;
 }
 
+#input {
+  background-color: #191919;
+  height: 100px;
+}
+
 #input form{
   width: 960px;
   max-height: 80px;
+  position: fixed;
+  bottom:0;
 }
 
 #input_text{

@@ -68,6 +68,7 @@
 .show_delete_chat:hover {
   background-color: #1C303E;
   color: #fff;
+  opacity: 100;
 }
 
 #new_chat_button {
