@@ -209,6 +209,48 @@ nav a:hover{
   font-weight: bold;
 }
 
+/* entire container, keeps perspective */
+.flip-container{
+  perspective: 1000px;
+}
+
+/* flip pane when hovered */
+.flip-container:hover .flipper, .flip-container.hover .flipper{
+  -webkit-transform: rotateY(180deg);
+}
+
+.flip-container, .front, .back{
+  width: 110px;
+  height: 45px;
+  /*background-color: white;*/
+}
+
+/* flipper speed goes here */
+.flipper{
+  -webkit-transition: 0.6s;
+  -webkit-transform-style: preserve3d;
+  position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back{
+  -webkit-backface-visibility: hidden;
+   /*position: absolute;*/
+  top: 0;
+  left: 0;
+}
+
+/* front pane, placed above back */
+.front{
+  z-index: 2;
+}
+
+/* back, initially hidden pane */
+.back{
+  -webkit-transform: rotateY(180deg);
+}
+
+
 /*END NAV
 
 
