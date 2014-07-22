@@ -25,7 +25,11 @@ class MessagesController < ApplicationController
   end
 
   def show
-    @message = Message.find params [:id]
+    @message = Message.find params[:id]
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.json { render json: @message }
+    end
   end
 
   def destroy
