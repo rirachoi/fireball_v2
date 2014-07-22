@@ -26,7 +26,7 @@ class Message < ActiveRecord::Base
     current_user = User.find self.user_id
     translate_me = URI.encode( self.input_text )
     url = 'https://www.googleapis.com/language/translate/v2?key='
-    url += API_KEY
+    url += ENV['API_KEY']
     url += '&q=' + translate_me
     url += '&source=' + current_user.native_language
     if chat.present?
