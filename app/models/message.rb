@@ -163,8 +163,9 @@ class Message < ActiveRecord::Base
 
   def match_emoticon
     string = self.input_text.parameterize
-    if self.emoticon.include?(string)
-      self.image = self.emoticon[string]
+    if self.emoticon.keys.select {|k| string.include? k}
+      match = self.emoticon.keys.select {|k| string.include? k}.first
+      self.image = self.emoticon[match]
     else
       self.image = self.emoticon["huh"]
     end

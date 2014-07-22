@@ -6,7 +6,7 @@ class GamesController < ApplicationController
   end
 
   def create
-    game = Game.create :language => params[:language]
+    game = Game.create :language => params[:language], :points => params[:points], :lives => params[:lives], :stage => params[:stage], :difficulty_level => params[:difficulty_level]
     @current_user.games << game
     render :json => game
   end
