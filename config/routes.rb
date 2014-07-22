@@ -8,13 +8,11 @@ Rails.application.routes.draw do
     resources :messages, :only => [:create]
   end
   resources :users
+  resources :messages, :only => [:show]
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete '/login' => 'sessions#destroy'
-
-  get '/test' => 'tests#transtest'
-
 end
 
 #        Prefix Verb   URI Pattern                        Controller#Action
@@ -40,4 +38,3 @@ end
 #         login GET    /login(.:format)                   sessions#new
 #               POST   /login(.:format)                   sessions#create
 #               DELETE /login(.:format)                   sessions#destroy
-#          test GET    /test(.:format)                    tests#transtest

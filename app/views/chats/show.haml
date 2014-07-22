@@ -8,12 +8,12 @@
     %div#chat_box.left
       %li= msg.input_text
     %div#chat_box.right
-      %li.invisible= msg.id
       %li= image_tag( msg.image , :class => "sticker" )
       %li.timestamp= msg.created_at.strftime( "%b %e %Y %l:%M %p" ) + ": "
       %li= msg.input_text
       %li.translation= msg.translation
-      %li
+      %li.msg_id
+        %span.invisible= msg.id
         %button.play_sound Play
 
 %div#input

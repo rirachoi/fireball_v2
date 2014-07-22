@@ -72,30 +72,26 @@ $(document).ready(function(){
   var playSound = function() {
     console.log("yep");
 
-    // $.ajax({
-    //   url: '/location',
-    //   method: 'get',
-    //   dataType: 'json',
-    //   data: {
-    //     originlatitude: something.lat,
-    //     originlongitude: something.long,
-    //     destinationlatitude: someother.lat,
-    //     destinationlongitude: someother.long
-    //   },
-    //   success: function (response) {
-    //     console.log(response.bearing); // update the page with the response somehow
-    //   }
-    // });
-    // // if $('embed') {
-    // //   $('embed').remove();
-    // // }
-    // var $msg = $(this).closest('.msgID')
+    var $currentMsg = $(this).siblings('span').text();
+    // if $('embed') {
+    //   $('embed').remove();
+    // }
 
+    $.ajax({
+      url: '/messages/' + $currentMsg + ".json",
+      method: 'get',
+      dataType: 'json',
+      data: {
+      },
+      success: function (response) {
+        console.log(response); // update the page with the response somehow
+        var $embed =  $('<iframe/>');
+        $embed.attr('src', response.sound);
+        $embed.addClass('invisible');
+        $embed.appendTo($('body'));
+      }
+    });
 
-    // var $embed =  $('embed');
-    // $embed.attr('src', "#");
-    // $embed.addClass('invisible');
-    // $embed.appendTo($('body'));
   };
 
   $('#speak').on('click', createChatMessage);
