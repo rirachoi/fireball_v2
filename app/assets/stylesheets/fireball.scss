@@ -174,16 +174,14 @@ img.login_tag{
 img.avatar{
   height: 5em;
   width: 5em;
-  margin-left: 3.5em;
-  margin-top: 1em;
-  margin-bottom: 1em;
+  margin: 1em auto;
   border-radius: 100%;
   border: 3px solid black;
   background-color: white;
 }
 
 nav{
-  width: 15%;
+  width: 10%;
   height: 100%;
   position: fixed;
   background-color: #f34223;
@@ -191,13 +189,12 @@ nav{
   border-bottom-style: groove;
   border-color: #776a6a;
   font-family: 'Ubuntu', sans-serif;
+  text-align: center;
 }
 
 nav a{
   display: block;
   text-decoration: none;
-  padding-bottom: 2em;
-  padding-left: 1.8em;
   color: black;
 }
 
@@ -207,11 +204,13 @@ nav a{
 
 nav ul{
   list-style: none;
+  padding: 0;
+  margin-left: 2em;
+  width: 51px;
 }
 
-nav ul li:nth-child(5n){
-  font-weight: bold;
-  color: black;
+nav ul div {
+  // background: white;
 }
 
 nav a:hover{
@@ -223,7 +222,6 @@ nav a:hover{
   perspective: 1000px;
   margin-top: 5em;
   margin-bottom: 5em;
-  /*padding: 1em;*/
 }
 
 /* flip pane when hovered */
@@ -234,7 +232,6 @@ nav a:hover{
 .flip-container, .front, .back{
   width: 110px;
   height: 10px;
-  /*background-color: white;*/
 }
 
 /* flipper speed goes here */
