@@ -8,7 +8,7 @@
 
 @import url(http://fonts.googleapis.com/css?family=Ubuntu); /* !!!!!!!!!!!TEST!!!!!!!!!!! */
 
-body{
+body {
   text-rendering: optimize;
   -webkit-font-smoothing:antialiased;
   margin: 0;
@@ -19,22 +19,15 @@ body{
   font-family: 'Ubuntu', sans-serif;
 }
 
+h1, h2, h3, h4, h5, h6{
+  color: #f34223;
+}
+
 h1{
-  color: #f34223;
   font-size: 3em;
 }
 
-h2{
-  color: #f34223;
-  font-size: 2em;
-}
-.editheader{
-  font-size: 3em;
-  margin-left: -10px;
-  color: #dd1c1c;
-}
-
-form{
+form {
   min-width: 200px;
 }
 
@@ -128,17 +121,9 @@ audio {
 }
 
 .content{
-  max-width: 80%;
-  /*width: 40%;*/
-  margin: auto;
+  // max-width: 80%;
+  margin-left: 15em;
   display: inline-block;
-  margin-left: 20%;
-}
-
-/*CHAT*/
-#audio{
-  width: 45px;
-  height: 10px;
 }
 
 #chat_messages {
@@ -165,16 +150,11 @@ audio {
 }
 
 #chat_box.right {
-  left: 400px;
+  left: 20em;
   border-radius: 3em;
   border-bottom-right-radius: 0;
   padding: 2em;
 }
-
-/*#chat_box embed {
-  width: 50px;
-  height: 80px;
-}*/
 
 img.sticker {
   max-height: 10em;
@@ -186,12 +166,12 @@ img.thumb {
   width: 3.2em;
 }
 
-img.settings_tag{
+img.settings_tag {
   height: 3.2em;
   width: 3.2em;
 }
 
-img.login_tag{
+img.login_tag {
   width: 3em;
   height: 3em;
 }
@@ -205,20 +185,32 @@ img.login_tag{
   font-size: 1.2em;
 }
 
+.play_sound {
+  font-size: 1em;
+  // padding: .4em .8em;
+  border-radius: 2em;
+  background-color: #F34223;
+  width: 2em;
+  height: 2em;
+}
+
+.play_sound:hover {
+  color: #fff;
+}
+
 #input {
-  // background-color: red;
   height: 100px;
 }
 
-#input form{
+#input form {
   width: 960px;
   max-height: 80px;
   background-color: #191919;
   position: fixed;
-  bottom:0;
+  bottom: 0;
 }
 
-#input_text{
+#input_text {
   height: 100%;
   width: 80%;
   font-size: 40px;
@@ -239,7 +231,7 @@ img.login_tag{
   color: white;
 }
 /*INPUT BUTTONS*/
-#speak, #scroll-to-top{
+#speak, #scroll-to-top {
   height: 78px;
   width: 90px;
   top: -7px;
@@ -254,7 +246,7 @@ img.login_tag{
   transition: all 0.3s ease-in-out;
 }
 
-#speak:hover, #scroll-to-top:hover{
+#speak:hover, #scroll-to-top:hover {
   box-shadow: 0 0 0 0;
   background-color: #008DBC;
   font-weight: bold;
@@ -263,10 +255,8 @@ img.login_tag{
 /*END INPUT BUTTONS*/
 /*END CHAT
 
-
 /*NAV*/
-
-img.avatar{
+img.avatar {
   height: 5em;
   width: 5em;
   margin-left: 3.5em;
@@ -277,8 +267,8 @@ img.avatar{
   background-color: white;
 }
 
-nav{
-  width: 15%;
+nav {
+  width: 12em;
   height: 100%;
   position: fixed;
   background-color: #f34223;
@@ -287,7 +277,7 @@ nav{
   border-color: #776a6a;
 }
 
-nav a{
+nav a {
   display: block;
   text-decoration: none;
   padding-bottom: 2em;
@@ -299,25 +289,18 @@ nav a{
   background-color: #ffdd35;
 }
 
-nav ul{
+nav ul {
   list-style: none;
-}
-
-nav ul li:nth-child(5n){
-  font-weight: bold;
-  color: black;
 }
 
 nav a:hover{
   font-weight: bold;
 }
-
 /* entire container, keeps perspective */
 .flip-container{
   perspective: 1000px;
   margin-top: 5em;
   margin-bottom: 5em;
-  /*padding: 1em;*/
 }
 
 /* flip pane when hovered */
@@ -328,7 +311,6 @@ nav a:hover{
 .flip-container, .front, .back{
   width: 110px;
   height: 10px;
-  /*background-color: white;*/
 }
 
 /* flipper speed goes here */
