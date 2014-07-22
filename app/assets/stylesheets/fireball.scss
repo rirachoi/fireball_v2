@@ -14,7 +14,7 @@ body{
   margin: 0;
   padding: 0;
   border: 0;
-  background-color: #ffdd35;
+  background-color: rgba(0, 0, 0, 0.9);
   color: #420d00;
   font-family: 'Ubuntu', sans-serif;
 }
@@ -362,15 +362,3 @@ nav a:hover{
 
 /*GAME*/
 
-#my_chats li{
-  list-style: none;
-}
-
-#my_chats li a{
-  text-decoration: none;
-  color: black;
-}
-
-#my_chats li a:hover{
-  font-weight: bold;
-}
