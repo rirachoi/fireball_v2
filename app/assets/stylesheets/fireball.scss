@@ -9,7 +9,7 @@
 @import url(http://fonts.googleapis.com/css?family=Ubuntu); /* !!!!!!!!!!!TEST!!!!!!!!!!! */
 
 body{
-  font-family: arial;
+  /*font-family: arial;*/
   text-rendering: optimize;
   -webkit-font-smoothing:antialiased;
   margin: 0;
@@ -17,10 +17,12 @@ body{
   border: 0;
   background-color: #ffdd35;
   color: #420d00;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 button, input{
   border: 0;
+  font-family: inherit;
 }
 
 .invisible {
@@ -76,10 +78,10 @@ audio {
   padding: 2em;
 }
 
-#chat_box embed {
+/*#chat_box embed {
   width: 50px;
   height: 80px;
-}
+}*/
 
 img.sticker {
   max-height: 10em;
@@ -190,7 +192,6 @@ nav{
   border-bottom-right-radius: 0.5em;
   border-bottom-style: groove;
   border-color: #776a6a;
-  font-family: 'Ubuntu', sans-serif;
 }
 
 nav a{
