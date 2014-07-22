@@ -1,5 +1,7 @@
 %h1 LOGIN
 
+%h3= flash[:notice]
+
 = form_tag '/login' do
   %div.formgroup
     = label_tag :username

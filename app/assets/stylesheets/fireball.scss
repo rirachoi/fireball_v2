@@ -9,7 +9,6 @@
 @import url(http://fonts.googleapis.com/css?family=Ubuntu); /* !!!!!!!!!!!TEST!!!!!!!!!!! */
 
 body{
-  /*font-family: arial;*/
   text-rendering: optimize;
   -webkit-font-smoothing:antialiased;
   margin: 0;
@@ -18,6 +17,100 @@ body{
   background-color: #ffdd35;
   color: #420d00;
   font-family: 'Ubuntu', sans-serif;
+}
+
+h1{
+  color: #f34223;
+  font-size: 3em;
+}
+
+h2{
+  color: #f34223;
+  font-size: 2em;
+}
+.editheader{
+  font-size: 3em;
+  margin-left: -10px;
+  color: #dd1c1c;
+}
+
+form{
+  min-width: 200px;
+}
+
+.formgroup{
+  display: block;
+}
+
+.formgroup input{
+  width: 500px;
+  font-size: 30px;
+  border-bottom: 2px solid #420d00;
+  background-color: transparent;
+  padding: 1em;
+  margin-bottom: 1em;
+  display: block;
+  color: rgba(255,255,255,.05);
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  transition: all 0.30s ease-in-out;
+}
+
+.formgroup input.active{
+  outline: 0;
+  border-bottom: 8px solid #f34223;
+  color: rgba(255,255,255,1);
+}
+
+.formgroup label{
+  display: block;
+  color: #420d00;
+  -webkit-transition: all 0.15s ease-in-out;
+  -moz-transition: all 0.15s ease-in-out;
+  -o-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+
+.formgroup label.active{
+  color: #f34223;
+  font-size: 20px;
+}
+
+.formmenu #user_native_language{
+  min-width: 500px;
+  display: block;
+  padding: .5em 0 .5em 38%;
+  font-size: 30px;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border-radius: 0.5em;
+}
+
+.formsubmit{
+  text-align: center;
+  width: 100%;
+  margin-bottom: 10em;
+}
+
+.formsubmit input{
+  padding: 1em;
+  font-size: 25px;
+  border-radius: 0.5em;
+  box-shadow: 2px 4px 0 0;
+  background-color: #f34223;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.formsubmit input:hover, .formsubmit input:focus{
+  box-shadow: 0 0 0 0;
+  background-color: #008DBC;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
 }
 
 button, input{

@@ -29,7 +29,7 @@ $(document).ready(function(){
             $button.addClass('show_delete_chat');
             $chat.append($button);
             $chat.append($deleteChat);
-            $('ul').prepend($chat);
+            $('#my_chats ul').prepend($chat);
           }
         });
 
