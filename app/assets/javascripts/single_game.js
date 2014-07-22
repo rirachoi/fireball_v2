@@ -28,7 +28,6 @@ var currentElPress;
 
 var win_width = $(window).width();
 var text_move_px = 100;
-var box_left = (win_width / 5) - (text_move_px / 2);
 
 var playGame;
 var stop;
@@ -45,13 +44,6 @@ $(document).ready(function() {
     // defined word blocks and other stuff
     var insertImages = function(){
 
-        // animatedbox setting
-        $(".animatedbox").css("left", box_left+"px");
-        var con_height = $("#container").height();
-        var con_pos = $("#container").position();
-        var min_top = con_pos.top;
-        // 56 = animated box top & bottom padding + font size
-        var max_top = min_top + con_height - 56;
         //insert water_stick
         var $water_stick = $('<div/>');
         $water_stick.addClass('water_stick');
@@ -191,6 +183,18 @@ $(document).ready(function() {
 
     }; //end of newGame
 
+
+    // animatedbox setting
+    var animatedBoxSet = function(){
+        $(".animatedbox").css("left", box_left+"px");
+        var con_height = $("#container").height();
+        var con_pos = $("#container").position();
+        var min_top = con_pos.top;
+        // 56 = animated box top & bottom padding + font size
+        var max_top = min_top + con_height - 56;
+        var box_left = (win_width / 5) - (text_move_px / 2);
+    };
+
     var startPlay = function() {
         $('#userInput').focus();
         playImageInsert();
@@ -206,9 +210,21 @@ $(document).ready(function() {
         $('.water4').css({"background-color": "#C9E7EF"});
         $('.water5').css({"background-color": "#C9E7EF"});
 
+        animatedBoxSet();
         wordFalling();
 
     }; // end startPlay
+        // showing answer
+    var answerShow = function(){
+        var yourAnswer = $('<h2 id="answer_title">Answers<h2/>')
+        answers.append(yourAnswer);
+        for (var q=0; q<question.length; q++) {
+            var parah_answer = $('<h3 id=answer>' +question[q]+ '<br/> <span id="str_answer">' +string[question[q]]+ '</span></h3>');
+            answers.append(parah_answer);
+            $('#container').append(answers);
+        };
+    };
+
 
 
     var endPlay = function(){
@@ -228,20 +244,10 @@ $(document).ready(function() {
         answers.prepend($yourScore);
 
         $('#container').empty();
+        answerShow();
         btnSetting();
 
 
-    };
-
-    // showing answer
-    var answerShow = function(){
-        var yourAnswer = $('<h2 id="answer_title">Answers<h2/>')
-        answers.append(yourAnswer);
-        for (var q=0; q<question.length; q++) {
-            var parah_answer = $('<h3 id=answer>' +question[q]+ '<br/> <span id="str_answer">' +string[question[q]]+ '</span></h3>');
-            answers.append(parah_answer);
-            $('#container').append(answers);
-        };
     };
 
     var matchAnswer = function(event){
@@ -251,6 +257,7 @@ $(document).ready(function() {
         var unmatchSpan = currentElPress.find(".unmatch");
         var unmatchText = unmatchSpan.text();
         var userInput = $('#userInput').val();
+        animatedBoxSet();
 
             if ($(".current").find('.unmatch').text() == userInput){
                 currentElPress.stop().effect("explode", 500);
