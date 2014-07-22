@@ -405,7 +405,20 @@ $(document).ready(function() {
 
     }; // end matchAnswer
 
-    // set end of game
+    var startPlay = function() {
+        $('#userInput').focus();
+        createAnimatedbox();
+        moveAnimatedbox();
+        insertImages();
+        setPlayImages();
+        $('.peng_game').fadeIn('slow');
+        $('.fireball_game').fadeIn('slow');
+        loadPlayImage();
+        // matchAnswer();
+
+    }; // end startPlay
+
+        // set end of game
     var endPlay = function(){
         var $msgEnd = $('<div class="msgEnd"/>');
         var $msgGameOver = $('<h1 id="game_over">Game Over!</h1>');
@@ -416,8 +429,6 @@ $(document).ready(function() {
         $msgYouWin.hide();
         $msgGameOver.hide();
 
-        //var $replay = $('<button id="btnreplay">Replay</button>');
-
         //user score
         var $userScore = $("#score").text(score);
         var $yourScore = $('<div id="yourScore"/>');
@@ -425,9 +436,11 @@ $(document).ready(function() {
         $yourScorePrint.append($userScore);
         $yourScore.append($yourScorePrint);
         $msgEnd.append($yourScore);
+        console.log("this is userScore"+ $userScore);
+        console.log("this is text"+  $("#score").text(score));
 
         //giving comment depends on score
-        if ($userScore > 249){
+        if ($("#score").text() > 249){
             var $comment = $('<h2 id="comment">Wizard Master!</h2>');
             $comment.appendTo($msgEnd);
         } else if ($userScore > 199) {
@@ -448,6 +461,7 @@ $(document).ready(function() {
         };
 
 
+        // replay and learn more button
         var $replay = $('<div id="replay"/>');
         var $replayPrint = $('<h2 id="replayPrint">Replay</h2>');
         $replay.append($replayPrint);
@@ -466,9 +480,19 @@ $(document).ready(function() {
 
         $("#boxscore").hide();
         $('#btnplay').hide();
+        $('.pengLives').hide();
 
         $('#replay').on('click', function(){
-            startPlay.reset();
+            //answerShow.hide();
+            $msgEnd.fadeOut('slow');
+
+            $("#boxscore").show();
+            $("#boxscore").text() == 0;
+            $('#btnplay').show();
+            $('.pengLives').show();
+
+            startPlay();
+
         });
         // $('#learnMore').on('click', function(){
         //     l;
@@ -476,19 +500,6 @@ $(document).ready(function() {
 
 
     }; // end endplay
-
-    var startPlay = function() {
-        $('#userInput').focus();
-        createAnimatedbox();
-        moveAnimatedbox();
-        insertImages();
-        setPlayImages();
-        $('.peng_game').fadeIn('slow');
-        $('.fireball_game').fadeIn('slow');
-        loadPlayImage();
-        // matchAnswer();
-
-    }; // end startPlay
 
 
 

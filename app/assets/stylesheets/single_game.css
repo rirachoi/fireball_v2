@@ -293,6 +293,7 @@
 
 #replay:hover, #learnMore:hover{
     background-color: #f34223;
+    cursor:pointer;
 }
 
 #replayPrint, #learnMorePrint{
