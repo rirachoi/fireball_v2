@@ -33,10 +33,6 @@ $(document).ready(function(){
             $chatBox.attr('id', 'chat_box');
             $chatBox.addClass('animation-target right');
 
-            var $messageID = $('<li/>')
-            $messageID.addClass('invisible msgID');
-            $messageID.text(response.id);
-
             var $newTimestamp = $('<li/>');
             $newTimestamp.addClass('timestamp');
             $newTimestamp.text( moment().format('lll') + ":");
@@ -52,14 +48,25 @@ $(document).ready(function(){
             $newImg.addClass('sticker');
             $newImg.attr("src", "/assets/"+response.image);
             // assests need to remove when we depoloy it!!
+
+            // add span with msg id
+            var $newSound = $('<li/>');
+            var $newMsgID = $('<span/>');
+            $newMsgID.addClass('invisible msg_id');
+            $newMsgID.text(response.id);
+
             var $newPlayButton = $('<button/>');
+            $newPlayButton.addClass('.play_sound')
             $newPlayButton.text('Play');
+
+            $newSound.append($newMsgID);
+            $newSound.append($newPlayButton);
 
             $newImg.appendTo($chatBox);
             $newTimestamp.appendTo($chatBox);
             $newMsg.appendTo($chatBox);
             $newTranslation.appendTo($chatBox);
-            $newPlayButton.appendTo($chatBox);
+            $newSound.appendTo($chatBox);
             $('#chat_messages').append($chatBox);
             $('#input_text').val('').focus();
             $("html, body").animate({ scrollTop: $(document).height() }, "slow");
@@ -70,25 +77,22 @@ $(document).ready(function(){
     };
 
   var playSound = function() {
-    console.log("yep");
-
     var $currentMsg = $(this).siblings('span').text();
-    // if $('embed') {
-    //   $('embed').remove();
-    // }
+    if ($('iframe').length > 1) { // removes the sound box if there are any at the time
+      $('iframe').remove();
+    }
 
     $.ajax({
-      url: '/messages/' + $currentMsg + ".json",
+      url: '/messages/' + $currentMsg + ".json", // gets the json obj of the message
       method: 'get',
       dataType: 'json',
       data: {
       },
       success: function (response) {
-        console.log(response); // update the page with the response somehow
-        var $embed =  $('<iframe/>');
-        $embed.attr('src', response.sound);
-        $embed.addClass('invisible');
-        $embed.appendTo($('body'));
+        var $embed =  $('<iframe/>'); // makes a new iframe
+        $embed.attr('src', response.sound); // sets the iframe src to the response sound
+        $embed.addClass('invisible'); // makes it inivisible
+        $embed.appendTo($('body')); // appends it to the body
       }
     });
 
