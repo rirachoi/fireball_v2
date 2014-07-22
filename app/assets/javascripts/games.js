@@ -20,17 +20,17 @@ $(document).ready(function(){
             var $gameLink = $('<a/>');      // Add link for the new game
             $gameLink.attr("href","/games/" + response.id);
             $gameLink.text($gameLanguageText);
-            var $deleteGame = $('<a/>');    // Add delete link
-            $deleteGame.addClass('delete_game invisible');
-            $deleteGame.attr("href","/games/" + response.id);
-            $deleteGame.text("Remove");
-            var $button = $('<button/>');
-            $button.attr('value','x');
-            $button.addClass('show_delete_chat');
-            $game.append($button);
             $game.append($gameLink);
-            $game.append(" ");
-            $game.append($deleteGame);
+
+            var $form = $('<form/>');
+            $form.attr('action', "/chats/" + response.id)
+
+            var $button = $('<button/>');
+            $button.text('x');
+            $button.addClass('show_delete_chat');
+
+            $form.append($button);
+            $game.append($form);
             $('#my_games ul').prepend($game);
           }
         });

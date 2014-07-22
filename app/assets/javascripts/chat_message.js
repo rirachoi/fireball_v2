@@ -81,6 +81,7 @@ $(document).ready(function(){
     if ($('iframe').length > 1) { // removes the sound box if there are any at the time
       $('iframe').remove();
     }
+    $('#input_text').val('').focus();
 
     $.ajax({
       url: '/messages/' + $currentMsg + ".json", // gets the json obj of the message

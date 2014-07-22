@@ -17,18 +17,17 @@ $(document).ready(function(){
             var $chatLink = $('<a/>');      // Add link for the new chat
             $chatLink.attr("href","/chats/" + response.id);
             $chatLink.text($chatLanguageText);
-            var $deleteChat = $('<a/>');    // Add delete link
-            $deleteChat.addClass('delete_chat');
-            $deleteChat.addClass('invisible');
-            $deleteChat.attr("href","/chats/" + response.id);
-            $deleteChat.text("Remove");
             $chat.append($chatLink);
+
+            var $form = $('<form/>');
+            $form.attr('action', "/chats/" + response.id)
+
             var $button = $('<button/>');
             $button.text('x');
             $button.attr("href","/chats/" + response.id);
             $button.addClass('show_delete_chat');
-            $chat.append($button);
-            $chat.append($deleteChat);
+            $form.append($button);
+            $chat.append($form);
             $('#my_chats ul').prepend($chat);
           }
         });
