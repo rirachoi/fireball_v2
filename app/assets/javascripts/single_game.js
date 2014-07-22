@@ -19,13 +19,13 @@ var question = Object.keys(string);
 var score = 0;
 var wrongAnswerCount = 0;
 
-
 $(document).ready(function() {
 
     if ($("#container").length == 0) {
         return false; // will only run the game code if not on game page
     }
 
+    var addImages = function(){
     //insert water_stick
     var $water_stick = $('<div/>');
     $water_stick.addClass('water_stick');
@@ -74,7 +74,9 @@ $(document).ready(function() {
     $pengLives.append($liveImg2);
     $pengLives.append($liveImg3);
     $pengLives.prependTo("#toolbar");
+
     ($('#btnplay')).after($pengLives);
+    };
 
     var answers = $('<div class="answers animation-target "/>');
 
@@ -110,6 +112,7 @@ $(document).ready(function() {
         $("#btnplay").text("Play");
 
         if ($(this).text() == "Play") {
+            addImages();
             startPlay();
             playGame = setInterval(startPlay, 100000000);
             $(this).text("Pause");
@@ -139,6 +142,10 @@ $(document).ready(function() {
 
 
     var startPlay = function() {
+        var $aniContainer = $('<div>');
+        $aniContainer.attr('id', 'ani_container');
+
+
         $('#userInput').focus();
         child = $("#ani_container div:first-child");
         child.addClass("current");
@@ -207,7 +214,6 @@ $(document).ready(function() {
 
         $('#container').empty();
         btnSetting();
-
 
     };
 
@@ -280,7 +286,7 @@ $(document).ready(function() {
                 var inputLetterCount = userInput.length;
                 wrongAnswerCount += 1;
                 if (wrongAnswerCount == 3 ){
-                    $img1.attr('src','/assets/emoticons/surprise.png');
+                    $('.peng_game').attr('src','/assets/emoticons/surprise.png');
                     $('.peng_game').effect('bounce', {times:3}, 500);
                     $('#liveImg1').fadeOut();
 
@@ -289,11 +295,11 @@ $(document).ready(function() {
 
 
                 } else if (wrongAnswerCount == 2){
-                    $img1.attr('src','/assets/emoticons/surprise.png');
+                    $('.peng_game').attr('src','/assets/emoticons/surprise.png');
                     $('.peng_game').effect('bounce', {times:3}, 500);
                     $('#liveImg2').fadeOut();
                 } else if (wrongAnswerCount == 1){
-                    $img1.attr('src','/assets/emoticons/surprise.png');
+                    $('.peng_game').attr('src','/assets/emoticons/surprise.png');
                     $('.peng_game').effect('bounce', {times:3}, 500);
                     $('#liveImg3').fadeOut();
                 }
