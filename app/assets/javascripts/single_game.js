@@ -37,7 +37,7 @@ $(document).ready(function() {
 
     if ($("#container").length == 0) {
         return false; // will only run the game code if not on game page
-    }
+         };
 
 //////////--------image setting ---------///////////////
 
@@ -166,13 +166,6 @@ $(document).ready(function() {
 
     var createAnimatedbox = function(){
         // making html elements
-        var $animatedbox = $('<div class="animatedbox" id="first"/>');
-        var $match = $('<span class="match"/>');
-        var $unmatch = $('<span class="unmatch"/>');
-        $($animatedbox).append($match);
-        $($animatedbox).append($unmatch);
-        $('#ani_container').append($animatedbox);
-
         var $animatedbox = $('<div class="animatedbox"/>');
         var $match = $('<span class="match"/>');
         var $unmatch = $('<span class="unmatch"/>');
@@ -187,6 +180,12 @@ $(document).ready(function() {
         $($animatedbox).append($unmatch);
         $('#ani_container').append($animatedbox);
 
+        var $animatedbox = $('<div class="animatedbox"/>');
+        var $match = $('<span class="match"/>');
+        var $unmatch = $('<span class="unmatch"/>');
+        $($animatedbox).append($match);
+        $($animatedbox).append($unmatch);
+        $('#ani_container').append($animatedbox);
 
 
         // for (var m=0; m < question.length; m++){
@@ -224,14 +223,9 @@ $(document).ready(function() {
         var max_top = min_top + con_height - 56;
         var box_left = (win_width / 5) - (text_move_px / 2);
 
-        var lastAnimatedbox = $('#ani_container').last();
-        lastAnimatedbox.removeClass('current');
      ////////------------ looping words for failing
         var loopAnimatedBox = function (){
-
-
-
-            // calling variable to loop .current(moving)
+          // calling variable to loop .current(moving)
             child = $("#ani_container div:first-child");
             child.addClass("current");
             currentEl = $(".current");
@@ -254,24 +248,23 @@ $(document).ready(function() {
                             left: box_left+"px"
                         }, 'fast');
                         if (currentEl.attr("id") == "last") {
-                            child.addClass("current");
-                            currentEl = $(".current");
-
-                               $("#btnplay").text("Play");
-
+                                child.addClass("current");
+                                currentEl = $(".current");
+                                if (stop) {
+                                   $("#btnplay").text("Play");
+                                }
                         } else {
-                            currentEl.next().addClass("current");
-                            currentEl = currentEl.next();
+                                currentEl.next().addClass("current");
+                                currentEl = currentEl.next();
                         }
                     });
                     child = child.next();
                 }, delaytime);
 
             } // end for loop for word blocks
-        };
-        // };
-
-    };
+         };// end of loopAnimatebox
+       loopAnimatedBox();
+    };//end of moveAnimatedBox
 
 
 ////////-------actual game logic (matchAnswer/play/end of Game) -------///////////
@@ -321,7 +314,7 @@ $(document).ready(function() {
                 if ($score > 249){
                     $('.water5').css({"background-color": "#0000B2"});
                     $('.water_stick').css({"margin-top": 0});
-                    endPlay();
+                    // endPlay();
                 } else if ($score > 199){
                     $('.water4').css({"background-color": "#0000FF"});
                 } else if ($score > 149){
@@ -421,7 +414,6 @@ $(document).ready(function() {
     $('#ani_container').on('click', "#btnreplay", function(){
         $('.answers').hide();
         wrongAnswerCount = 0;
-        score = $score;
         //$score = $("#score").text();
         startPlay();
     });
