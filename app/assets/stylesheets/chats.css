@@ -42,7 +42,6 @@
 
 #my_chats ul li:hover > .show_delete_chat{
   opacity: 100;
-  /*display: inline-block;*/
 }
 
 .show_delete_chat {
