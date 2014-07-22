@@ -31,7 +31,7 @@ $(document).ready(function(){
             $game.append($gameLink);
             $game.append(" ");
             $game.append($deleteGame);
-            $('ul').prepend($game);
+            $('#my_games ul').prepend($game);
           }
         });
 
@@ -43,7 +43,7 @@ $(document).ready(function(){
       $this.closest('li').remove(); // removes the li from the page of the remove link you click
 
       $.ajax({
-        url: $this.attr('href'),
+        url: $this.closest('form').attr('action'),
         method: 'post',
         dataType: 'json',
         data: {
@@ -58,6 +58,6 @@ $(document).ready(function(){
 
 
   $('#create_new_game').on('click', createGame);
-  $('#my_games').on('click', '.delete_game', deleteGame);
+  $('#my_games').on('click', '.show_delete_chat', deleteGame);
 
 });
