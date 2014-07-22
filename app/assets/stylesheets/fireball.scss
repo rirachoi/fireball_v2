@@ -49,6 +49,7 @@ audio {
 #chat_messages {
   width: 500px;
   position: relative;
+  margin-bottom:80px;
 }
 
 #chat_box {
@@ -110,13 +111,14 @@ img.login_tag{
 }
 
 #input {
-  background-color: #191919;
+  // background-color: red;
   height: 100px;
 }
 
 #input form{
   width: 960px;
   max-height: 80px;
+  background-color: #191919;
   position: fixed;
   bottom:0;
 }
