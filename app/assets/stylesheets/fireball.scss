@@ -87,18 +87,18 @@ img.sticker {
 }
 
 img.thumb {
-  max-height: 3.2em;
-  max-width: 3.2em;
+  height: 3.2em;
+  width: 3.2em;
 }
 
 img.settings_tag{
-  max-height: 3.2em;
-  max-width: 3.2em;
+  height: 3.2em;
+  width: 3.2em;
 }
 
 img.login_tag{
-  max-width: 3em;
-  max-height: 3em;
+  width: 3em;
+  height: 3em;
 }
 
 .timestamp {
@@ -221,6 +221,9 @@ nav a:hover{
 /* entire container, keeps perspective */
 .flip-container{
   perspective: 1000px;
+  margin-top: 5em;
+  margin-bottom: 5em;
+  /*padding: 1em;*/
 }
 
 /* flip pane when hovered */
@@ -230,7 +233,7 @@ nav a:hover{
 
 .flip-container, .front, .back{
   width: 110px;
-  height: 45px;
+  height: 10px;
   /*background-color: white;*/
 }
 
@@ -244,7 +247,7 @@ nav a:hover{
 /* hide back of pane during swap */
 .front, .back{
   -webkit-backface-visibility: hidden;
-   /*position: absolute;*/
+  position: absolute;
   top: 0;
   left: 0;
 }

@@ -2,7 +2,7 @@ module ApplicationHelper
 
   def smartnav
 
-    # links = "<div class='flip-container' ontouchstart=\"this.classList.toggle(\'hover\')\">"
+
     links = "<div class='flip-container'>"
     links += "<div class='flipper'>"
     links += "<div class='front'>"
@@ -15,11 +15,11 @@ module ApplicationHelper
     links += link_to('Fireball', root_path)
     links += "</div>"
     links += "</div>"
-    # links += "</div>"
+    links += "</div>"
 
     if @current_user
-      # links = "<div class='flip-container'>"
-      links += "<div =class'flipper'>"
+      links += "<div class='flip-container'>"
+      links += "<div class='flipper'>"
       links += "<div class='front'>"
       links += link_to(games_path) do
                 image_tag('icons/controller.png', :class => 'thumb')
@@ -30,10 +30,10 @@ module ApplicationHelper
       links += link_to('Game', games_path)
       links += "</div>"
       links += "</div>"
-      # links += "</div>"
+      links += "</div>"
 
-      # links = "<div class='flip-container'>"
-      links += "<div =class'flipper'>"
+      links += "<div class='flip-container'>"
+      links += "<div class='flipper'>"
       links += "<div class='front'>"
       links += link_to(chats_path) do
                image_tag('icons/chat.png', :class => 'thumb')
@@ -44,10 +44,10 @@ module ApplicationHelper
       links += link_to('Chat', chats_path)
       links += "</div>"
       links += "</div>"
-      # links += "</div>"
+      links += "</div>"
 
-      # links = "<div class='flip-container'>"
-      links += "<div =class'flipper'>"
+      links += "<div class='flip-container'>"
+      links += "<div class='flipper'>"
       links += "<div class='front'>"
       links += link_to (edit_user_path(@current_user.id)) do
                 image_tag('icons/bigcog.png', :class => 'settings_tag')
@@ -58,14 +58,14 @@ module ApplicationHelper
       links += link_to('Settings', edit_user_path(@current_user.id))
       links += "</div>"
       links += "</div>"
-      # links += "</div>"
+      links += "</div>"
 
 
 
       # links += "<li class='invisible'>" + "You are speaking " + LANGUAGES.invert[@current_user.native_language] + "</li>"
 
-      # links = "<div class='flip-container'>"
-      links += "<div =class'flipper'>"
+      links += "<div class='flip-container'>"
+      links += "<div class='flipper'>"
       links += "<div class='front'>"
       links += link_to(login_path, :method => :delete) do
                 image_tag('icons/logout.png', :class => 'login_tag')
@@ -76,11 +76,11 @@ module ApplicationHelper
       links += link_to('Logout', login_path, :method => :delete)
       links += "</div>"
       links += "</div>"
-      # links += "</div>"
+      links += "</div>"
 
     else
-      # links = "<div class='flip-container'>"
-      links += "<div =class'flipper'>"
+      links += "<div class='flip-container'>"
+      links += "<div class='flipper'>"
       links += "<div class='front'>"
       links += link_to(login_path) do
                 image_tag('icons/login.png', :class => 'login_tag')
@@ -91,10 +91,10 @@ module ApplicationHelper
       links += link_to('Login', login_path)
       links += "</div>"
       links += "</div>"
-      # links += "</div>"
+      links += "</div>"
 
-      # links = "<div class='flip-container'>"
-      links += "<div =class'flipper'>"
+      links += "<div class='flip-container'>"
+      links += "<div class='flipper'>"
       links += "<div class='front'>"
       links += link_to(new_user_path) do
                 image_tag('icons/signup.png', :class => 'thumb')
