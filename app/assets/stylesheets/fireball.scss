@@ -34,10 +34,8 @@ audio {
 
 .content{
   max-width: 80%;
-  /*width: 40%;*/
-  margin: auto;
+  margin-left: 13em;
   display: inline-block;
-  margin-left: 20%;
 }
 
 /*CHAT*/
@@ -181,7 +179,7 @@ img.avatar{
 }
 
 nav{
-  width: 10%;
+  width: 10em;
   height: 100%;
   position: fixed;
   background-color: #f34223;
