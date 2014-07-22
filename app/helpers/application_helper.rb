@@ -2,7 +2,8 @@ module ApplicationHelper
 
   def smartnav
 
-    links = '<li>'
+    links = "<div class='flip-container' ontouchstart='this.classList.toggle('hover')>"
+    links += "<div class='flipper'><li class='front'>"
     links += link_to(root_path) do
               image_tag('icons/fireball.png', :class => 'thumb')
             end
