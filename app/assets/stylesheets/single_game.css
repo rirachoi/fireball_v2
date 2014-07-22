@@ -63,7 +63,7 @@
 
 #userAnswer {
     margin-left: 15%;
-    margin-bottom: 30%;
+    margin-bottom: 20%;
 }
 
 #userInput {
@@ -263,13 +263,41 @@
     background-color: rgba(0, 0, 0, 0.8);
     border-radius: 1em;
     margin-left: 1.5%;
-    width: 570px;
-    height: 270px;
+    margin-top: -13%;
+    width: 580px;
+    height: 400px;
     overflow: scroll;
+    text-align: center;
 }
 
 #you_win, #game_over, #yourScore, #comment{
     margin-left: 3%;
+
+}
+
+#you_win, #game_over{
+    margin-top: 10%;
+    color: #FF8533;
+    text-align: center;
+    font-size: 70px;
+}
+
+#replay, #learnMore{
+    background-color: #3399FF;
+    padding: 1px;
+    margin: 3%;
+    display: inline-block;
+    width: 150px;
+    border-radius: 1em;
+}
+
+#replay:hover, #learnMore:hover{
+    background-color: #f34223;
+}
+
+#replayPrint, #learnMorePrint{
+    color: white;
+    text-align: center;
 }
 
 

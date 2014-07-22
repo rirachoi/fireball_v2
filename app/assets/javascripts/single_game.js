@@ -447,11 +447,32 @@ $(document).ready(function() {
             $comment.appendTo($msgEnd);
         };
 
+
+        var $replay = $('<div id="replay"/>');
+        var $replayPrint = $('<h2 id="replayPrint">Replay</h2>');
+        $replay.append($replayPrint);
+        var $learnMore = $('<div id="learnMore"/>');
+        var $learnMorePrint = $('<h2 id="learnMorePrint">Learn More</h2>');
+
+        $learnMore.append($learnMorePrint);
+        $msgEnd.append($replay);
+        $msgEnd.append($learnMore);
+
         $('#ani_container').empty();
         $('#ani_container').append($msgEnd);
         $('.msgEnd').show();
+
         answerShow();
-        btnSetting();
+
+        $("#boxscore").hide();
+        $('#btnplay').hide();
+
+        $('#replay').on('click', function(){
+            startPlay.reset();
+        });
+        // $('#learnMore').on('click', function(){
+        //     l;
+        // });
 
 
     }; // end endplay
