@@ -2,7 +2,6 @@ var randomFromTo = function (from, to){
     return Math.floor(Math.random() * (to - from + 1) + from);
 }
 
-//////////--------questions setting ---------///////////////
 var string = {
     hungry: "i'm hungry",
     happy: "i'm happy",
@@ -20,99 +19,71 @@ var question = Object.keys(string);
 var score = 0;
 var wrongAnswerCount = 0;
 
-var children = $("#ani_container").children();
-var child = $("#ani_container div:first-child");
-
-var currentEl;
-var currentElPress;
-
-var win_width = $(window).width();
-var text_move_px = 100;
-var box_left = (win_width / 5) - (text_move_px / 2);
-
-var playGame;
-var stop;
-
-//////////--------document ready start ---------///////////////
-
 $(document).ready(function() {
 
     if ($("#container").length == 0) {
         return false; // will only run the game code if not on game page
     }
 
-//////////--------image setting ---------///////////////
-    // defined word blocks and other stuff
-    var insertImages = function(){
+    var addImages = function(){
+    //insert water_stick
+    var $water_stick = $('<div/>');
+    $water_stick.addClass('water_stick');
+    var $water1 = $('<div class="water1"></div>');
+    var $water2 = $('<div class="water2"></div>');
+    var $water3 = $('<div class="water3"></div>');
+    var $water4 = $('<div class="water4"></div>');
+    var $water5 = $('<div class="water5"></div>');
+    $water1.appendTo($water_stick);
+    $water2.appendTo($water_stick);
+    $water3.appendTo($water_stick);
+    $water4.appendTo($water_stick);
+    $water5.appendTo($water_stick);
+    $('#container').append($water_stick);
 
-        // animatedbox setting
-        $(".animatedbox").css("left", box_left+"px");
-        var con_height = $("#container").height();
-        var con_pos = $("#container").position();
-        var min_top = con_pos.top;
-        // 56 = animated box top & bottom padding + font size
-        var max_top = min_top + con_height - 56;
-        //insert water_stick
-        var $water_stick = $('<div/>');
-        $water_stick.addClass('water_stick');
-        var $water1 = $('<div class="water1"></div>');
-        var $water2 = $('<div class="water2"></div>');
-        var $water3 = $('<div class="water3"></div>');
-        var $water4 = $('<div class="water4"></div>');
-        var $water5 = $('<div class="water5"></div>');
-        $water1.appendTo($water_stick);
-        $water2.appendTo($water_stick);
-        $water3.appendTo($water_stick);
-        $water4.appendTo($water_stick);
-        $water5.appendTo($water_stick);
-        $('#container').append($water_stick);
+    // insert water_basket
+    var $basket = $('<div class="water_basket"/>');
+    var $basketImg = $('<img/>');
+    $basketImg.attr('src', 'http://i.imgur.com/BBUHONS.png');
+    $basketImg.appendTo($basket);
+    $basket.appendTo($('#container'));
 
-        // insert water_basket
-        var $basket = $('<div class="water_basket"/>');
-        var $basketImg = $('<img/>');
-        $basketImg.attr('src', 'http://i.imgur.com/BBUHONS.png');
-        $basketImg.appendTo($basket);
-        $basket.appendTo($('#container'));
+    //insert peng
+    var $pengImg = '/emoticons/wink.png';
+    var $img1 = $("<img class='peng_game'/>");
+    $img1.attr("src", "/assets/"+ $pengImg);
+    $img1.prependTo('#container');
 
-        //insert lives
-        var $pengLives = $('<div class="pengLives"/>');
-        var $liveImg1 = $('<img id="liveImg1"/>')
-        $liveImg1.attr('src', '/assets/emoticons/peng.png');
-        var $liveImg2 = $('<img id="liveImg2"/>')
-        $liveImg2.attr('src', '/assets/emoticons/peng.png');
-        var $liveImg3 = $('<img id="liveImg3"/>')
-        $liveImg3.attr('src', '/assets/emoticons/peng.png');
+    //insert fireball
+    var $fireballImg = '/emoticons/fireball.png';
+    var $img2 = $("<img/>");
+    $img2.addClass('fireball_game fireball-animation');
+    $img2.attr("src", "/assets/"+ $fireballImg);
+    $img2.prependTo('#container');
 
-        $pengLives.append($liveImg1);
-        $pengLives.append($liveImg2);
-        $pengLives.append($liveImg3);
-        $pengLives.prependTo("#toolbar");
-        ($('#btnplay')).after($pengLives);
+    //insert lives
+    var $pengLives = $('<div class="pengLives"/>');
+    var $liveImg1 = $('<img id="liveImg1"/>')
+    $liveImg1.attr('src', '/assets/emoticons/peng.png');
+    var $liveImg2 = $('<img id="liveImg2"/>')
+    $liveImg2.attr('src', '/assets/emoticons/peng.png');
+    var $liveImg3 = $('<img id="liveImg3"/>')
+    $liveImg3.attr('src', '/assets/emoticons/peng.png');
 
+    $pengLives.append($liveImg1);
+    $pengLives.append($liveImg2);
+    $pengLives.append($liveImg3);
+    $pengLives.prependTo("#toolbar");
 
-        // $('.fireball_game').hide();
-        // $('.peng_game').hide();
+    ($('#btnplay')).after($pengLives);
     };
 
-    var playImageInsert = function(){
-        //insert peng
-        var $pengImg = '/emoticons/wink.png';
-        var $img1 = $("<img class='peng_game'/>");
-        $img1.attr("src", "/assets/"+ $pengImg);
-        $img1.prependTo('#container');
-        //img1.fadeIn('slow');
+    var answers = $('<div class="answers animation-target "/>');
 
-        //insert fireball
-        var $fireballImg = '/emoticons/fireball.png';
-        var $img2 = $("<img/>");
-        $img2.addClass('fireball_game fireball-animation');
-        $img2.attr("src", "/assets" + $fireballImg);
-        $img2.prependTo('#container');
-        //img2.fadeIn('slow');
-    };
 
-    insertImages();
-//////////--------word setting ---------///////////////
+    $('.fireball_game').hide();
+    $('.peng_game').hide();
+
 
     // display word_list
     for (var q=0; q<question.length; q++){
@@ -121,14 +92,75 @@ $(document).ready(function() {
         $('#word_list').append(display_text);
     };
 
-    // answer div
-    var answers = $('<div class="answers animation-target "/>');
+    // defined word blocks and other stuff
+    var children = $("#ani_container").children();
+    var child = $("#ani_container div:first-child");
+
+    var currentEl;
+    var currentElPress;
+
+    var win_width = $(window).width();
+    var text_move_px = 100;
+    var box_left = (win_width / 5) - (text_move_px / 2);
+
+    var playGame;
+    var stop;
+
+    $(".animatedbox").css("left", box_left+"px");
+
+    var btnSetting = function(){
+        $("#btnplay").text("Play");
+
+        if ($(this).text() == "Play") {
+            addImages();
+            startPlay();
+            playGame = setInterval(startPlay, 100000000);
+            $(this).text("Pause");
+
+        } else if ($(this).text() == "Pause") {
+            stop = true;
+            $('.current').stop();
+            $(this).text("Resume");
+
+            // resume.addClass('resume');
+
+        } else if ($(this).text() == "Resume") {
+            $(this).text("Pause");
+            $('.current').on(playGame);
+
+        }
+        return false;
+
+    }; //end of newGame
+
+    var con_height = $("#container").height();
+    var con_pos = $("#container").position();
+    var min_top = con_pos.top;
+
+    // 56 = animated box top & bottom padding + font size
+    var max_top = min_top + con_height - 56;
 
 
-    var wordFalling = function(){
+    var startPlay = function() {
+        var $aniContainer = $('<div>');
+        $aniContainer.attr('id', 'ani_container');
+
+
+        $('#userInput').focus();
         child = $("#ani_container div:first-child");
         child.addClass("current");
         currentEl = $(".current");
+
+        $('.fireball_game').fadeIn('slow');
+        $('.peng_game').fadeIn('slow');
+
+        //water_stick and make water look like empty
+        $('.water_stick').css({"margin-top": 0});
+        $('.water1').css({"background-color": "#C9E7EF"});
+        $('.water2').css({"background-color": "#C9E7EF"});
+        $('.water3').css({"background-color": "#C9E7EF"});
+        $('.water4').css({"background-color": "#C9E7EF"});
+        $('.water5').css({"background-color": "#C9E7EF"});
 
         for (i=0; i<children.length; i++) {
             var delaytime = i * 5000;
@@ -161,53 +193,6 @@ $(document).ready(function() {
             }, delaytime);
 
         } // end for loop for word blocks
-
-    };
-
-
-//////////--------game functions ---------///////////////
-
-    var btnSetting = function(){
-        $("#btnplay").text("Play");
-
-        if ($(this).text() == "Play") {
-            startPlay();
-            playGame = setInterval(startPlay, 100000000);
-            $(this).text("Pause");
-
-        } else if ($(this).text() == "Pause") {
-            stop = true;
-            $('.current').stop();
-            $(this).text("Resume");
-
-            // resume.addClass('resume');
-
-        } else if ($(this).text() == "Resume") {
-            $(this).text("Pause");
-            $('.current').on(playGame);
-
-        }
-        return false;
-
-    }; //end of newGame
-
-    var startPlay = function() {
-        $('#userInput').focus();
-        playImageInsert();
-
-        $('.fireball_game').fadeIn('slow');
-        $('.peng_game').fadeIn('slow');
-
-        //water_stick and make water look like empty
-        $('.water_stick').css({"margin-top": 0});
-        $('.water1').css({"background-color": "#C9E7EF"});
-        $('.water2').css({"background-color": "#C9E7EF"});
-        $('.water3').css({"background-color": "#C9E7EF"});
-        $('.water4').css({"background-color": "#C9E7EF"});
-        $('.water5').css({"background-color": "#C9E7EF"});
-
-        wordFalling();
-
     }; // end startPlay
 
 
@@ -229,7 +214,6 @@ $(document).ready(function() {
 
         $('#container').empty();
         btnSetting();
-
 
     };
 
@@ -270,12 +254,11 @@ $(document).ready(function() {
                 }, 1000);
                 //getting water
                 var $score = $("#score").text();
-
+                console.log($score);
                 // always write it from the biggest number
                 if ($score > 249){
                     $('.water5').css({"background-color": "#0000B2"});
                     $('.water_stick').css({"margin-top": 0});
-                    endPlay();
                 } else if ($score > 199){
                     $('.water4').css({"background-color": "#0000FF"});
                 } else if ($score > 149){
@@ -303,7 +286,7 @@ $(document).ready(function() {
                 var inputLetterCount = userInput.length;
                 wrongAnswerCount += 1;
                 if (wrongAnswerCount == 3 ){
-                    $img1.attr('src','/assets/emoticons/surprise.png');
+                    $('.peng_game').attr('src','/assets/emoticons/surprise.png');
                     $('.peng_game').effect('bounce', {times:3}, 500);
                     $('#liveImg1').fadeOut();
 
@@ -312,11 +295,11 @@ $(document).ready(function() {
 
 
                 } else if (wrongAnswerCount == 2){
-                    $img1.attr('src','/assets/emoticons/surprise.png');
+                    $('.peng_game').attr('src','/assets/emoticons/surprise.png');
                     $('.peng_game').effect('bounce', {times:3}, 500);
                     $('#liveImg2').fadeOut();
                 } else if (wrongAnswerCount == 1){
-                    $img1.attr('src','/assets/emoticons/surprise.png');
+                    $('.peng_game').attr('src','/assets/emoticons/surprise.png');
                     $('.peng_game').effect('bounce', {times:3}, 500);
                     $('#liveImg3').fadeOut();
                 }
@@ -326,7 +309,6 @@ $(document).ready(function() {
     }; // end matchAnswer
 
 
-//////////--------click setting ---------///////////////
     $('#btnsubmit').on('click', matchAnswer);
     $('#userInput').on('keydown', function(key){
 
@@ -337,11 +319,9 @@ $(document).ready(function() {
 
     $("#btnplay").on('click', btnSetting);
     $('#container').on('click', "#btnreplay", function(){
-            // alert('REPLAY');
-            //replayGame = setInterval(startPlay, 100000000);
+            alert('REPLAY');
             $('.answers').hide();
             btnSetting();
-            insertImages();
         });
 
 }); // end of document ready
