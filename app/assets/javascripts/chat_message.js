@@ -56,8 +56,8 @@ $(document).ready(function(){
             $newMsgID.text(response.id);
 
             var $newPlayButton = $('<button/>');
-            $newPlayButton.addClass('.play_sound')
-            $newPlayButton.text('Play');
+            $newPlayButton.addClass('play_sound')
+            $newPlayButton.text('►');
 
             $newSound.append($newMsgID);
             $newSound.append($newPlayButton);
