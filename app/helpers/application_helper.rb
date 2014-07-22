@@ -45,7 +45,7 @@ module ApplicationHelper
       links += "</li>"
 
       links += "<li>"
-      links += link_to('Sign up', new_user_path) do
+      links += link_to(new_user_path) do
                 image_tag('icons/logout.png', :class => 'thumb')
               end
       links +="</li>"
