@@ -41,7 +41,7 @@ $(document).ready(function(){
       $this.closest('li').remove(); // removes the li from the page of the remove link you click
 
       $.ajax({
-        url: $this.attr('href'),
+        url: $this.closest('form').attr('action'),
         method: 'post',
         dataType: 'json',
         data: {

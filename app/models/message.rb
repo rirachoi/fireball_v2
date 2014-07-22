@@ -26,7 +26,7 @@ class Message < ActiveRecord::Base
     current_user = User.find self.user_id
     translate_me = URI.encode( self.input_text )
     url = 'https://www.googleapis.com/language/translate/v2?key='
-    url += API_KEY
+    url += ENV['API_KEY']
     url += '&q=' + translate_me
     url += '&source=' + current_user.native_language
     if chat.present?
@@ -36,8 +36,12 @@ class Message < ActiveRecord::Base
     end
     response = HTTParty.get( url ).to_json
     response = JSON.parse(response)
-    translation = response['data']['translations'].first['translatedText']
-    self.translation = translation
+    if response['data'] # sometimes google is a crap and wont translate my god damn text
+      translation = response['data']['translations'].first['translatedText']
+      self.translation = translation
+    else
+      self.translation = ""
+    end
   end
 
   def get_audio
