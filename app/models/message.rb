@@ -36,8 +36,12 @@ class Message < ActiveRecord::Base
     end
     response = HTTParty.get( url ).to_json
     response = JSON.parse(response)
-    translation = response['data']['translations'].first['translatedText']
-    self.translation = translation
+    if response['data'] # sometimes google is a crap and wont translate my god damn text
+      translation = response['data']['translations'].first['translatedText']
+      self.translation = translation
+    else
+      self.translation = ""
+    end
   end
 
   def get_audio

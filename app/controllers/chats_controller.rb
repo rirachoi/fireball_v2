@@ -5,8 +5,9 @@ class ChatsController < ApplicationController
     @chats = @current_user.chats.order(updated_at: :desc)
     @language_select = LANGUAGES
     @chats.each do |chat|
-      @language_select = @language_select.invert.reject!{|k,v| chat.language.include? k}.invert
+      @language_select = @language_select.invert.reject!{|k,v| chat.language.include? k || @current_user.native_language == k}.invert
     end
+    @language_select = @language_select.invert.reject!{|k,v| @current_user.native_language == k}.invert
   end
 
   def create

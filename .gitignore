@@ -17,3 +17,5 @@
 
 # Ignore the API_KEY
 /config/initializers/api_key.rb
+
+api.env
