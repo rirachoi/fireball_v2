@@ -1,4 +1,4 @@
-function randomFromTo(from, to){
+var randomFromTo = function (from, to){
     return Math.floor(Math.random() * (to - from + 1) + from);
 }
 
@@ -7,7 +7,12 @@ var string = {
     happy: "i'm happy",
     sad: "i'm sad",
     angry: "i'm angry",
-    depressed: "i'm depressed"
+    depressed: "i'm depressed",
+    sick : "i'm sick",
+    drinking: "i'm drinking",
+    calling: "i'm calling",
+    gift: "this is gift",
+    shy: "i'm shy"
     };
 
 var question = Object.keys(string);
@@ -20,17 +25,6 @@ $(document).ready(function() {
     if ($("#container").length == 0) {
         return false; // will only run the game code if not on game page
     }
-
-    var answers = $('<div class="answers animation-target "/>');
-    var yourAnswer = $('<h2 id="answer_title">Answers<h2/>')
-    answers.append(yourAnswer);
-    for (var q=0; q<question.length; q++) {
-        // var answer = string[question[q]];
-        var parah_answer = $('<h3 id=answer>' +question[q]+ '<br/> <span id="str_answer">' +string[question[q]]+ '</span></h3>');
-        answers.append(parah_answer);
-        $('#container').append(answers);
-    };
-    answers.hide();
 
     //insert water_stick
     var $water_stick = $('<div/>');
@@ -79,13 +73,15 @@ $(document).ready(function() {
     $pengLives.append($liveImg1);
     $pengLives.append($liveImg2);
     $pengLives.append($liveImg3);
-
     $pengLives.prependTo("#toolbar");
     ($('#btnplay')).after($pengLives);
 
+    var answers = $('<div class="answers animation-target "/>');
+
+
     $('.fireball_game').hide();
     $('.peng_game').hide();
-    //$('.water_stick').hide();
+
 
     // display word_list
     for (var q=0; q<question.length; q++){
@@ -108,27 +104,15 @@ $(document).ready(function() {
     var playGame;
     var stop;
 
-
     $(".animatedbox").css("left", box_left+"px");
 
-    // setting play and pause
-    $("#btnplay").click(function() {
+    var btnSetting = function(){
+        $("#btnplay").text("Play");
 
         if ($(this).text() == "Play") {
             startPlay();
             playGame = setInterval(startPlay, 100000000);
             $(this).text("Pause");
-
-            $('.fireball_game').fadeIn('slow');
-            $('.peng_game').fadeIn('slow');
-
-            //water_stick and make water look like empty
-            $('.water_stick').css({"margin-top": 0});
-            $('.water1').css({"background-color": "#C9E7EF"});
-            $('.water2').css({"background-color": "#C9E7EF"});
-            $('.water3').css({"background-color": "#C9E7EF"});
-            $('.water4').css({"background-color": "#C9E7EF"});
-            $('.water5').css({"background-color": "#C9E7EF"});
 
         } else if ($(this).text() == "Pause") {
             stop = true;
@@ -143,7 +127,8 @@ $(document).ready(function() {
 
         }
         return false;
-    });
+
+    }; //end of newGame
 
     var con_height = $("#container").height();
     var con_pos = $("#container").position();
@@ -152,11 +137,23 @@ $(document).ready(function() {
     // 56 = animated box top & bottom padding + font size
     var max_top = min_top + con_height - 56;
 
-    function startPlay() {
+
+    var startPlay = function() {
         $('#userInput').focus();
         child = $("#ani_container div:first-child");
         child.addClass("current");
         currentEl = $(".current");
+
+        $('.fireball_game').fadeIn('slow');
+        $('.peng_game').fadeIn('slow');
+
+        //water_stick and make water look like empty
+        $('.water_stick').css({"margin-top": 0});
+        $('.water1').css({"background-color": "#C9E7EF"});
+        $('.water2').css({"background-color": "#C9E7EF"});
+        $('.water3').css({"background-color": "#C9E7EF"});
+        $('.water4').css({"background-color": "#C9E7EF"});
+        $('.water5').css({"background-color": "#C9E7EF"});
 
         for (i=0; i<children.length; i++) {
             var delaytime = i * 5000;
@@ -191,6 +188,40 @@ $(document).ready(function() {
         } // end for loop for word blocks
     }; // end startPlay
 
+
+    var endPlay = function(){
+        var $msgEnd = $('<div class="msgEnd"/>');
+        var $msgGameOver = $('<h2 id="game_over">Game Over!</h2>');
+        var $msgYouWin = $('<h2 id="you_win">You Win!</h2>');
+        $msgEnd.append($msgGameOver);
+        $msgEnd.append($msgYouWin);
+
+        var $replay = $('<button id="btnreplay">Replay</button>');
+        var $userScore = $("#score").text(score);
+        var $yourScore = $('<div id="yourScore"><h2>Your Score: </h2></div>');
+        $yourScore.append($userScore);
+
+        answers.prepend($msgEnd);
+        answers.prepend($replay);
+        answers.prepend($yourScore);
+
+        $('#container').empty();
+        btnSetting();
+
+
+    };
+
+    // showing answer
+    var answerShow = function(){
+        var yourAnswer = $('<h2 id="answer_title">Answers<h2/>')
+        answers.append(yourAnswer);
+        for (var q=0; q<question.length; q++) {
+            var parah_answer = $('<h3 id=answer>' +question[q]+ '<br/> <span id="str_answer">' +string[question[q]]+ '</span></h3>');
+            answers.append(parah_answer);
+            $('#container').append(answers);
+        };
+    };
+
     var matchAnswer = function(event){
 
         var currentElPress = $(".current");
@@ -222,8 +253,6 @@ $(document).ready(function() {
                 if ($score > 249){
                     $('.water5').css({"background-color": "#0000B2"});
                     $('.water_stick').css({"margin-top": 0});
-                    //show the answer div
-                    // answers.show();
                 } else if ($score > 199){
                     $('.water4').css({"background-color": "#0000FF"});
                 } else if ($score > 149){
@@ -254,6 +283,11 @@ $(document).ready(function() {
                     $img1.attr('src','/assets/emoticons/surprise.png');
                     $('.peng_game').effect('bounce', {times:3}, 500);
                     $('#liveImg1').fadeOut();
+
+                    endPlay();
+                    answerShow();
+
+
                 } else if (wrongAnswerCount == 2){
                     $img1.attr('src','/assets/emoticons/surprise.png');
                     $('.peng_game').effect('bounce', {times:3}, 500);
@@ -271,9 +305,17 @@ $(document).ready(function() {
 
     $('#btnsubmit').on('click', matchAnswer);
     $('#userInput').on('keydown', function(key){
+
         if (key.which == 13){
             matchAnswer();
         }
     });
+
+    $("#btnplay").on('click', btnSetting);
+    $('#container').on('click', "#btnreplay", function(){
+            alert('REPLAY');
+            $('.answers').hide();
+            btnSetting();
+        });
 
 }); // end of document ready
