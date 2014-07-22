@@ -5,8 +5,8 @@
     - @chats.each do |chat|
       %li
         = link_to( LANGUAGES.invert[chat.language], chat_path(chat.id) )
-        = form_tag "/chats/#{chat.id}", :method => :delete do
-          = button_to('x', :class => 'show_delete_chat')
+        = form_tag "/chats/#{chat.id}"  do
+          = button_tag('x', :class => 'show_delete_chat')
         -# = link_to('x', "/chats/#{chat.id}", :class => 'show_delete_chat')
 
 
