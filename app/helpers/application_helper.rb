@@ -52,7 +52,7 @@ module ApplicationHelper
 
       links += "<div>"
       links += link_to(new_user_path) do
-                image_tag('icons/logout.png', :class => 'thumb')
+                image_tag('icons/signup.png', :class => 'thumb')
               end
       links +="</div>"
 
