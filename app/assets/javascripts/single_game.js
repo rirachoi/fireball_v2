@@ -26,6 +26,7 @@ $(document).ready(function() {
         return false; // will only run the game code if not on game page
     }
 
+/////////////// image insert ////////////
     //insert water_stick
     var $water_stick = $('<div/>');
     $water_stick.addClass('water_stick');
@@ -76,12 +77,12 @@ $(document).ready(function() {
     $pengLives.prependTo("#toolbar");
     ($('#btnplay')).after($pengLives);
 
-    var answers = $('<div class="answers animation-target "/>');
-
-
     $('.fireball_game').hide();
     $('.peng_game').hide();
 
+
+/////////////// answer ////////////
+    var answers = $('<div class="answers animation-target "/>');
 
     // display word_list
     for (var q=0; q<question.length; q++){
@@ -90,6 +91,7 @@ $(document).ready(function() {
         $('#word_list').append(display_text);
     };
 
+//////////// word falling //////////
     // defined word blocks and other stuff
     var children = $("#ani_container").children();
     var child = $("#ani_container div:first-child");
@@ -130,10 +132,10 @@ $(document).ready(function() {
 
     }; //end of newGame
 
+////////// animatedbox setting ///////////
     var con_height = $("#container").height();
     var con_pos = $("#container").position();
     var min_top = con_pos.top;
-
     // 56 = animated box top & bottom padding + font size
     var max_top = min_top + con_height - 56;
 
