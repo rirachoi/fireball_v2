@@ -35,6 +35,7 @@ var stop;
 
 $(document).ready(function() {
 
+
     if ($("#container").length == 0) {
         return false; // will only run the game code if not on game page
          };
@@ -118,16 +119,26 @@ $(document).ready(function() {
 
  ////////------answer setting--------////////////////
 
-    var answers = $('<div class="answers animation-target "/>');
+    var answers = $('<div class="answers"/>');
+    // animation-target
     // showing answer
     var answerShow = function(){
-        var yourAnswer = $('<h2 id="answer_title">Answers<h2/>')
-        answers.append(yourAnswer);
+        var yourAnswer = $('<h2 id="answer_title">Answers</h2>')
+        var answerSlide = $('<div class="answerSlide">');
+        var answerSheet = $('<div class="answerSheet">');
+        answerSlide.append(yourAnswer);
+        answers.append(answerSlide);
         for (var q=0; q<question.length; q++) {
             var parah_answer = $('<h3 id=answer>' +question[q]+ '<br/> <span id="str_answer">' +string[question[q]]+ '</span></h3>');
-            answers.append(parah_answer);
-            $('#ani_container').append(answers);
+            answerSheet.append(parah_answer);
+            answerSheet.prependTo(answers);
+            $('body').append(answers);
         };
+
+        $('.answerSlide').on('click', function(){
+            $('.answerSheet').slideToggle('slow');
+        });
+
     };
 //////////--------- word_list -----------///////////////
 
@@ -142,22 +153,22 @@ $(document).ready(function() {
 //////////------- buttons setting -------///////////////
 
     var btnSetting = function(){
-        $("#btnplay").text("Play New Game");
+        $("#btnplay").text("Play");
 
-        if ($(this).text() == "Play New Game") {
+        if ($(this).text() == "Play") {
             startPlay();
             playGame = setInterval(startPlay, 100000000);
             $(this).text("Pause");
 
         } else if ($(this).text() == "Pause") {
             stop = true;
-            $('.animatedbox').stop();
+            $('#container').stop();
             $(this).text("Resume");
 
             // resume.addClass('resume');
         } else if ($(this).text() == "Resume") {
             $(this).text("Pause");
-            $('.animatedbox').stop() == false;
+            $('#container').stop() == false;
         }
         return false;
     }; //end of btnSetting
@@ -187,10 +198,33 @@ $(document).ready(function() {
         $($animatedbox).append($unmatch);
         $('#ani_container').append($animatedbox);
 
+        var $animatedbox = $('<div class="animatedbox"/>');
+        var $match = $('<span class="match"/>');
+        var $unmatch = $('<span class="unmatch"/>');
+        $($animatedbox).append($match);
+        $($animatedbox).append($unmatch);
+        $('#ani_container').append($animatedbox);
 
-        // for (var m=0; m < question.length; m++){
-        //     var $animatedbox = $('<div class="animatedbox"/>');
-        // };//end of for loop to create animatedbox
+        var $animatedbox = $('<div class="animatedbox"/>');
+        var $match = $('<span class="match"/>');
+        var $unmatch = $('<span class="unmatch"/>');
+        $($animatedbox).append($match);
+        $($animatedbox).append($unmatch);
+        $('#ani_container').append($animatedbox);
+
+        var $animatedbox = $('<div class="animatedbox"/>');
+        var $match = $('<span class="match"/>');
+        var $unmatch = $('<span class="unmatch"/>');
+        $($animatedbox).append($match);
+        $($animatedbox).append($unmatch);
+        $('#ani_container').append($animatedbox);
+
+        var $animatedbox = $('<div class="animatedbox"/>');
+        var $match = $('<span class="match"/>');
+        var $unmatch = $('<span class="unmatch"/>');
+        $($animatedbox).append($match);
+        $($animatedbox).append($unmatch);
+        $('#ani_container').append($animatedbox);
 
         var $animatedbox = $('<div class="animatedbox" id="last"/>');
         var $match = $('<span class="match"/>');
@@ -313,8 +347,13 @@ $(document).ready(function() {
                 // always write it from the biggest number
                 if ($score > 249){
                     $('.water5').css({"background-color": "#0000B2"});
-                    $('.water_stick').css({"margin-top": 0});
-                    // endPlay();
+                    //$('.water_stick').css({"margin-top": 0});
+
+                    endPlay();
+
+                    $('.msgEnd').show();
+                    $('#you_win').show();
+
                 } else if ($score > 199){
                     $('.water4').css({"background-color": "#0000FF"});
                 } else if ($score > 149){
@@ -348,6 +387,9 @@ $(document).ready(function() {
                     $('#liveImg1').fadeOut();
 
                     endPlay();
+                    $('.msgEnd').show();
+                    $('#game_over').fadeIn('slow');
+                    //$('#game_window').css({"background":"opacity:0.5"});
 
                 } else if (wrongAnswerCount == 2){
                     $('.peng_game').attr('src','/assets/emoticons/surprise.png');
@@ -366,23 +408,51 @@ $(document).ready(function() {
     // set end of game
     var endPlay = function(){
         var $msgEnd = $('<div class="msgEnd"/>');
-        var $msgGameOver = $('<h2 id="game_over">Game Over!</h2>');
-        var $msgYouWin = $('<h2 id="you_win">You Win!</h2>');
+        var $msgGameOver = $('<h1 id="game_over">Game Over!</h1>');
+        var $msgYouWin = $('<h1 id="you_win">You Win!</h1>');
         $msgEnd.append($msgGameOver);
         $msgEnd.append($msgYouWin);
 
-        var $replay = $('<button id="btnreplay">Replay</button>');
-        var $userScore = $("#score").text(score);
-        var $yourScore = $('<div id="yourScore"><h2>Your Score: </h2></div>');
-        $yourScore.append($userScore);
+        $msgYouWin.hide();
+        $msgGameOver.hide();
 
-        answers.prepend($msgEnd);
-        answers.prepend($replay);
-        answers.prepend($yourScore);
+        //var $replay = $('<button id="btnreplay">Replay</button>');
+
+        //user score
+        var $userScore = $("#score").text(score);
+        var $yourScore = $('<div id="yourScore"/>');
+        var $yourScorePrint = $('<h2 id="yourScorePrint">Score: </h2>');
+        $yourScorePrint.append($userScore);
+        $yourScore.append($yourScorePrint);
+        $msgEnd.append($yourScore);
+
+        //giving comment depends on score
+        if ($userScore > 249){
+            var $comment = $('<h2 id="comment">Wizard Master!</h2>');
+            $comment.appendTo($msgEnd);
+        } else if ($userScore > 199) {
+            var $comment = $('<h2 id="comment">Excellent!</h2>');
+            $comment.appendTo($msgEnd);
+        } else if ($userScore > 149) {
+            var $comment = $('<h2 id="comment">Good Job!!</h2>');
+            $comment.appendTo($msgEnd);
+        } else if ($userScore > 99) {
+            var $comment = $('<h2 id="comment">Well... Try More!</h2>');
+            $comment.appendTo($msgEnd);
+        } else if ($userScore > 49) {
+            var $comment = $('<h2 id="comment">Are Kidding Me!?</h2>');
+            $comment.appendTo($msgEnd);
+        } else {
+            var $comment = $('<h2 id="comment">You Are Burnt Crispy!!</h2>');
+            $comment.appendTo($msgEnd);
+        };
 
         $('#ani_container').empty();
+        $('#ani_container').append($msgEnd);
+        $('.msgEnd').show();
         answerShow();
         btnSetting();
+
 
     }; // end endplay
 
@@ -415,7 +485,8 @@ $(document).ready(function() {
         $('.answers').hide();
         wrongAnswerCount = 0;
         //$score = $("#score").text();
-        startPlay();
+        $('#container').reset();
+        //startPlay();
     });
 
 }); // end of document ready
