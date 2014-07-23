@@ -4,7 +4,7 @@
 
 = form_tag('/', :id => 'search') do
   = search_field_tag(:user_search)
-  = button_tag('Add friend', :id => '#add_friend_btn')
+  = button_tag('Add friend', :id => 'add_friend_btn')
 
 - unless @friends.empty?
   %ul#friends
