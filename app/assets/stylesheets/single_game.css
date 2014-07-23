@@ -277,7 +277,9 @@
     padding: 1px;
     margin: 3%;
     display: inline-block;
+    vertical-align: top;
     width: 150px;
+    height:70px;
     border-radius: 1em;
 }
 
@@ -289,6 +291,8 @@
 #replayPrint, #learnMorePrint{
     color: white;
     text-align: center;
+    text-decoration: none;
+    margin-top: 13%;
 }
 
 
