@@ -2,6 +2,8 @@ var randomFromTo = function (from, to){
     return Math.floor(Math.random() * (to - from + 1) + from);
 }
 
+var questions;
+
 var string = {
     hungry: "i'm hungry",
     happy: "i'm happy",
@@ -369,8 +371,6 @@ $(document).ready(function() {
     }; // end matchAnswer
 
     var startPlay = function() {
-        var questions;
-
         // AJAX REQUEST TO GET QUESTIONS OBJ
         $.ajax({
             url: '/games/' + $currentGameId,
@@ -490,12 +490,6 @@ $(document).ready(function() {
             }
         });
 
-
-
-        //  params[:id]
-
-        //  game = Game.find (params[:id])
-        //  game.update(:score => params[:score] )
 
     }; // end endplay
 

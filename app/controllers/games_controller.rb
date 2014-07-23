@@ -26,8 +26,8 @@ class GamesController < ApplicationController
   def end_game
     game = Game.find (params[:id])
     game.update(:points => params[:points], :completed => true)
-
-    render :text => "Oh god please work"
+    # binding.pry
+    render :json => game
   end
 
   def destroy

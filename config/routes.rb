@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :games, :only => [:create, :show, :index, :destroy]
   post 'games/:id' => 'games#start_game'
-  put 'games/:id/end' => 'game#end_game'
+  post 'games/:id/end' => 'games#end_game'
   resources :users
   resources :messages, :only => [:show]
 
