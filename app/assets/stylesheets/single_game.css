@@ -71,21 +71,6 @@
 
 }
 
-#word_list{
-    display: inline;
-}
-
-#word_list h2{
-    display: inline-block;
-    margin: 10px;
-    color: #CC0066;
-    background-color: #F0FAFF;
-    border-radius: 0.5em;
-    padding: 15px;
-    width: 160px;
-    text-align: center;
-}
-
 #btnplay{
     text-decoration: none;
     font-size: 25px;
@@ -194,9 +179,9 @@
 /*---------------------------*/
 
 
-/*answer div*/
+/*answer div and words list div*/
 
-#answer{
+#answer, #question{
     margin: 3%;
     background-color: #85C2FF;
     padding: 1em;
@@ -211,7 +196,7 @@
 
 
 
-.answers{
+.answers, .words{
     background-color: #3399FF;
     border-radius: 1em;
     margin-left: 1.5%;
@@ -226,7 +211,12 @@
     vertical-align: top;
 }
 
-.answerSlide{
+.words, #game_window{
+    display: inline-block;
+    vertical-align: top;
+}
+
+.answerSlide, .wordSlide{
     cursor:pointer;
     width: 190px;
     height: 70px;
@@ -238,11 +228,11 @@
     border-bottom-right-radius:1em;
 }
 
-.answerSheet {
+.answerSheet, .wordSheet {
     display:none;
 }
 
-#answer_title {
+#answerTitle, #wordListTitle {
     margin:0;
     padding:0;
     border-top:solid 2px #85C2FF;
@@ -250,7 +240,7 @@
     color: white;
 }
 
-.answerSlide:hover{
+.answerSlide:hover, .wordSlide:hover{
     background-color: #85C2FF;
     color: #85C2FF;
     border-top:solid 2px #3399FF;

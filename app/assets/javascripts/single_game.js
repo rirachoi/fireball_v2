@@ -123,7 +123,7 @@ $(document).ready(function() {
     // animation-target
     // showing answer
     var answerShow = function(){
-        var yourAnswer = $('<h2 id="answer_title">Answers</h2>')
+        var yourAnswer = $('<h2 id="answerTitle">Answers</h2>');
         var answerSlide = $('<div class="answerSlide">');
         var answerSheet = $('<div class="answerSheet">');
         answerSlide.append(yourAnswer);
@@ -143,12 +143,25 @@ $(document).ready(function() {
 //////////--------- word_list -----------///////////////
 
     // display word_list
+    var words = $('<div class="words"/>');
+
     var displayWordlist = function(){
+        var wordListTitle = $('<h2 id="wordListTitle">Words List</h2>');
+        var wordSlide = $('<div class="wordSlide"/>');
+        var wordSheet = $('<div class="wordSheet"/>');
+        wordSlide.append(wordListTitle);
+        words.append(wordSlide);
         for (var q=0; q<question.length; q++){
-            var $each_word = question[q];
-            display_text = "<h2>"+ $each_word +"</h2>"
-            $('#word_list').append(display_text);
+            var eachWord = question[q];
+            displayText = $("<h2 id='question'>"+ eachWord +"</h2>")
+            wordSheet.append(displayText);
+            wordSheet.prependTo(words);
+            $('body').append(words);
         };
+
+        $('.wordSlide').on('click', function(){
+            $('.wordSheet').slideToggle('slow');
+        });
     };
 //////////------- buttons setting -------///////////////
 
@@ -400,7 +413,7 @@ $(document).ready(function() {
                     $('.peng_game').effect('bounce', {times:3}, 500);
                     $('#liveImg3').fadeOut();
                 }
-                console.log(wrongAnswerCount);
+                // console.log(wrongAnswerCount);
             }
 
     }; // end matchAnswer
@@ -411,6 +424,7 @@ $(document).ready(function() {
         moveAnimatedbox();
         insertImages();
         setPlayImages();
+        displayWordlist();
         $('.peng_game').fadeIn('slow');
         $('.fireball_game').fadeIn('slow');
         loadPlayImage();
@@ -420,6 +434,7 @@ $(document).ready(function() {
 
         // set end of game
     var endPlay = function(){
+
         var $msgEnd = $('<div class="msgEnd"/>');
         var $msgGameOver = $('<h1 id="game_over">Game Over!</h1>');
         var $msgYouWin = $('<h1 id="you_win">You Win!</h1>');
@@ -430,17 +445,17 @@ $(document).ready(function() {
         $msgGameOver.hide();
 
         //user score
-        var $userScore = $("#score").text(score);
+        var $userScore = $("#score").text();
         var $yourScore = $('<div id="yourScore"/>');
         var $yourScorePrint = $('<h2 id="yourScorePrint">Score: </h2>');
         $yourScorePrint.append($userScore);
         $yourScore.append($yourScorePrint);
         $msgEnd.append($yourScore);
-        console.log("this is userScore"+ $userScore);
-        console.log("this is text"+  $("#score").text(score));
 
+        $actualScore = parseInt($userScore);
+        console.log($actualScore);
         //giving comment depends on score
-        if ($("#score").text() > 249){
+        if ($userScore > 249){
             var $comment = $('<h2 id="comment">Wizard Master!</h2>');
             $comment.appendTo($msgEnd);
         } else if ($userScore > 199) {
@@ -472,6 +487,7 @@ $(document).ready(function() {
         $msgEnd.append($replay);
         $msgEnd.append($learnMore);
 
+        $('.words').hide();
         $('#ani_container').empty();
         $('#ani_container').append($msgEnd);
         $('.msgEnd').show();
@@ -491,12 +507,10 @@ $(document).ready(function() {
             $('#btnplay').show();
             $('.pengLives').show();
 
+            $('.answers').hide();
             startPlay();
 
         });
-        // $('#learnMore').on('click', function(){
-        //     l;
-        // });
 
 
     }; // end endplay
@@ -504,7 +518,6 @@ $(document).ready(function() {
 
 
 /////////------button and click for calling functions--------///////////
-
     $('#btnsubmit').on('click', matchAnswer);
     $('#userInput').on('keydown', function(key){
         if (key.which == 13){
