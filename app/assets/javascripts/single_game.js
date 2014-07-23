@@ -321,8 +321,15 @@ $(document).ready(function() {
                 $('#userInput').val("");
 
             } else if ( currentGameAnswer !== userInput){
+                currentElPress.stop().fadeOut('fast');
+                currentElPress.animate({
+                left: box_left+"px"
+                }, 'fast');
+                currentElPress.removeClass("current");
+                currentElPress = currentElPress.next();
+                currentElPress.addClass("current");
+                currentEl = currentElPress;
                 //fireball animation
-
                 $('.fireball_game').animate({
                     'left':  '-=140px'
                 }, 'fast');

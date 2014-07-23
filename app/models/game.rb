@@ -20,14 +20,14 @@ class Game < ActiveRecord::Base
 
   def answers
     [
-    "I'm hungry",
-    "I'm happy",
-    "I'm sad",
-    "I'm angry",
-    "I'm depressed",
-    "I'm sick",
-    "What's your name",
-    "I'm laughing",
+    "bottle",
+    "shoes",
+    "hair",
+    "tree",
+    "chair",
+    "table",
+    "flower",
+    "sun",
     "Hello",
     "Music",
     "Beer",
@@ -41,14 +41,14 @@ class Game < ActiveRecord::Base
     "Food",
     "Phone",
     "Tired",
-    "What time is it",
-    "Where are you",
+    "bag",
+    "sea",
     "Distance",
     "Time",
     "Christmas",
     "New Year",
-    "How far away are you?",
-    "How are you"
+    "book",
+    "pen"
     ]
   end
 
