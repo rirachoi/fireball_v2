@@ -46,7 +46,19 @@ module ApplicationHelper
       links += "</div>"
       links += "</div>"
 
-      links += link_to("Chat to friend", users_path)
+      links += "<div class='flip-container'>"
+      links += "<div class='flipper'>"
+      links += "<div class='front'>"
+      links += link_to (users_path) do
+                image_tag('icons/friends.png', :class => 'thumb')
+              end
+      links +="</div>"
+
+      links += "<div class='back'>"
+      links += link_to('Chat to friends', users_path)
+      links += "</div>"
+      links += "</div>"
+      links += "</div>"
 
       links += "<div class='flip-container'>"
       links += "<div class='flipper'>"
