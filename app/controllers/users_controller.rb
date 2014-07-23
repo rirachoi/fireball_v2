@@ -45,7 +45,7 @@ class UsersController < ApplicationController
     end
     # gets 3 best games from the user
     @high_scores = @user.games.order(:points => :desc).limit(3)
-    #
+    # gets the current user's cumulative score
     @my_total_score = @user.games.sum(:points)
     # gets the top 10 users cumulative score
     # @ranking = Game.group(:user_id).sum(:points).order(:points => :desc).limit(10)

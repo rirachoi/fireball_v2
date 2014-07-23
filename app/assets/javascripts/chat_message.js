@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  if ($('#input_text').length == 1){ // makes sure that it only scrolls down on chat pages
+  if ($('#chat_id').length == 1){ // makes sure that it only scrolls down on chat pages
     $("html, body").animate({ scrollTop: ($(document).height() + $(window).height()) }, 500);
   };
 
