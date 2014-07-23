@@ -2,6 +2,11 @@ class UsersController < ApplicationController
   before_action :check_if_logged_in, :except => [:new]
   def index
     @users = User.all
+    @users = @users.reject{|u| u == @current_user} # remove the current user from search results
+    respond_to do |format|
+      format.html {}
+      format.json { render :json => @priorities }
+    end
   end
 
   def new

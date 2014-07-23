@@ -11,6 +11,7 @@
 #  stage            :integer
 #  created_at       :datetime
 #  updated_at       :datetime
+#  completed        :boolean          default(FALSE)
 #
 
 class Game < ActiveRecord::Base

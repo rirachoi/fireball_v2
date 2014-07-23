@@ -31,6 +31,9 @@ form {
   min-width: 200px;
 }
 
+ul {
+  padding: 0;
+}
 
 .formgroup{
   display: block;
@@ -160,6 +163,7 @@ audio {
 #new_chat{
   font-size: 25px;
   color: white;
+  margin-top: 1em;
 }
 
 #new_chat input{
@@ -415,6 +419,26 @@ nav a:hover{
 
 /*END NAV
 
+
+/*FRIEND SEARCH*/
+
+#friend_results {
+  color: #f34223;
+}
+
+#friend_results ul {
+  list-style: none;
+}
+
+#friend_results ul li {
+  line-height: 2em;
+  background-color: #ddd;
+  border: 1px solid #f34223;
+}
+
+#friend_results ul li:hover {
+  background-color: #444;
+}
 
 /*GAME*/
 

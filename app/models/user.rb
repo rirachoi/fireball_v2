@@ -22,4 +22,7 @@ class User < ActiveRecord::Base
   has_many :games, :dependent => :destroy
   has_many :messages, :through => :chats
   has_many :messages, :through => :games
+
+  has_many :friendships, :dependent => :destroy
+  has_many :friends, :through => :friendships
 end
