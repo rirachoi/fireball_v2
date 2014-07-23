@@ -7,6 +7,8 @@ class UsersController < ApplicationController
       format.html {}
       format.json { render :json => @priorities }
     end
+    @friends = @current_user.friendships.where(:approved => :true)
+    @friends_awaiting_approval = @current_user.friendships.where(:approved => :false)
   end
 
   def new
