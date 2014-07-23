@@ -413,7 +413,7 @@ $(document).ready(function() {
                     $('.peng_game').effect('bounce', {times:3}, 500);
                     $('#liveImg3').fadeOut();
                 }
-                console.log(wrongAnswerCount);
+                // console.log(wrongAnswerCount);
             }
 
     }; // end matchAnswer
@@ -434,6 +434,7 @@ $(document).ready(function() {
 
         // set end of game
     var endPlay = function(){
+
         var $msgEnd = $('<div class="msgEnd"/>');
         var $msgGameOver = $('<h1 id="game_over">Game Over!</h1>');
         var $msgYouWin = $('<h1 id="you_win">You Win!</h1>');
@@ -444,17 +445,17 @@ $(document).ready(function() {
         $msgGameOver.hide();
 
         //user score
-        var $userScore = $("#score").text(score);
+        var $userScore = $("#score").text();
         var $yourScore = $('<div id="yourScore"/>');
         var $yourScorePrint = $('<h2 id="yourScorePrint">Score: </h2>');
         $yourScorePrint.append($userScore);
         $yourScore.append($yourScorePrint);
         $msgEnd.append($yourScore);
-        console.log("this is userScore"+ $userScore);
-        console.log("this is text"+  $("#score").text(score));
 
+        $actualScore = parseInt($userScore);
+        console.log($actualScore);
         //giving comment depends on score
-        if ($("#score").text() > 249){
+        if ($userScore > 249){
             var $comment = $('<h2 id="comment">Wizard Master!</h2>');
             $comment.appendTo($msgEnd);
         } else if ($userScore > 199) {
