@@ -9,9 +9,9 @@
           = button_tag('x', :class => 'show_delete_chat')
 
 
-= button_tag "New game", :id => 'new_game'
+= button_tag "New game", :id => 'new_game_button'
 
-%div#new_game
+%div#new_game.invisible
   = label_tag :game_language
   = select(:game, :language, LANGUAGES)
 
