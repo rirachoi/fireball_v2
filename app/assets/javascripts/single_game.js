@@ -190,62 +190,15 @@ $(document).ready(function() {
 ///////////-------creat animaite box html---------//////////
 
     var createAnimatedbox = function(){
-        // making html elements
-        var $animatedbox = $('<div class="animatedbox"/>');
-        var $match = $('<span class="match"/>');
-        var $unmatch = $('<span class="unmatch"/>');
-        $($animatedbox).append($match);
-        $($animatedbox).append($unmatch);
-        $('#ani_container').append($animatedbox);
-
-        var $animatedbox = $('<div class="animatedbox"/>');
-        var $match = $('<span class="match"/>');
-        var $unmatch = $('<span class="unmatch"/>');
-        $($animatedbox).append($match);
-        $($animatedbox).append($unmatch);
-        $('#ani_container').append($animatedbox);
-
-        var $animatedbox = $('<div class="animatedbox"/>');
-        var $match = $('<span class="match"/>');
-        var $unmatch = $('<span class="unmatch"/>');
-        $($animatedbox).append($match);
-        $($animatedbox).append($unmatch);
-        $('#ani_container').append($animatedbox);
-
-        var $animatedbox = $('<div class="animatedbox"/>');
-        var $match = $('<span class="match"/>');
-        var $unmatch = $('<span class="unmatch"/>');
-        $($animatedbox).append($match);
-        $($animatedbox).append($unmatch);
-        $('#ani_container').append($animatedbox);
-
-        var $animatedbox = $('<div class="animatedbox"/>');
-        var $match = $('<span class="match"/>');
-        var $unmatch = $('<span class="unmatch"/>');
-        $($animatedbox).append($match);
-        $($animatedbox).append($unmatch);
-        $('#ani_container').append($animatedbox);
-
-        var $animatedbox = $('<div class="animatedbox"/>');
-        var $match = $('<span class="match"/>');
-        var $unmatch = $('<span class="unmatch"/>');
-        $($animatedbox).append($match);
-        $($animatedbox).append($unmatch);
-        $('#ani_container').append($animatedbox);
-
-        var $animatedbox = $('<div class="animatedbox"/>');
-        var $match = $('<span class="match"/>');
-        var $unmatch = $('<span class="unmatch"/>');
-        $($animatedbox).append($match);
-        $($animatedbox).append($unmatch);
-        $('#ani_container').append($animatedbox);
-
-        var $animatedbox = $('<div class="animatedbox" id="last"/>');
-        var $match = $('<span class="match"/>');
-        var $unmatch = $('<span class="unmatch"/>');
-        $($animatedbox).append($match);
-        $($animatedbox).append($unmatch);
-        $('#ani_container').append($animatedbox);
+        // making html 20 elements - 20times of word falling
+        for(var b=0; b<20; b++){
+            var $animatedbox = $('<div class="animatedbox"/>');
+            var $match = $('<span class="match"/>');
+            var $unmatch = $('<span class="unmatch"/>');
+            $($animatedbox).append($match);
+            $($animatedbox).append($unmatch);
+            $('#ani_container').append($animatedbox);
+            };
     };
 
 
@@ -329,16 +282,16 @@ $(document).ready(function() {
         var max_top = min_top + con_height - 56;
         var box_left = (win_width / 5) - (text_move_px / 2);
 
-
         var currentElPress = $(".current");
         var matchSpan = currentElPress.find(".match");
         var unmatchSpan = currentElPress.find(".unmatch");
         var unmatchText = unmatchSpan.text();
         var userInput = $('#userInput').val();
 
-        //
+        var gameQuestion = $(".current").find('.unmatch').text();
+        var currentGameAnswer = string[gameQuestion];
 
-            if ($(".current").find('.unmatch').text() == userInput){
+            if ( currentGameAnswer == userInput ){
 
                 currentElPress.stop().effect("explode", 500);
                 currentElPress.animate({
@@ -361,7 +314,6 @@ $(document).ready(function() {
                 // always write it from the biggest number
                 if ($score > 249){
                     $('.water5').css({"background-color": "#0000B2"});
-                    //$('.water_stick').css({"margin-top": 0});
 
                     endPlay();
 
@@ -384,7 +336,7 @@ $(document).ready(function() {
                 //remove previous answer for next one
                 $('#userInput').val("");
 
-            } else if ($(".current").find('.unmatch').text() !== userInput){
+            } else if ( currentGameAnswer !== userInput){
                 //fireball animation
 
                 $('.fireball_game').animate({
