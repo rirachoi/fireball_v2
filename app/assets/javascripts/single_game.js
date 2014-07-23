@@ -171,18 +171,17 @@ $(document).ready(function() {
 
         if ($(this).text() == "Play") {
             startPlay();
-            playGame = setInterval(startPlay, 100000000);
             $(this).text("Pause");
 
         } else if ($(this).text() == "Pause") {
             stop = true;
-            $('#container').stop();
+
             $(this).text("Resume");
 
             // resume.addClass('resume');
         } else if ($(this).text() == "Resume") {
             $(this).text("Pause");
-            $('#container').stop() == false;
+            // $('#ani_container').stop() == false;
         }
         return false;
     }; //end of btnSetting
@@ -424,18 +423,18 @@ $(document).ready(function() {
         } else if ($userScore > 49) {
             var $comment = $('<h2 id="comment">Are Kidding Me!?</h2>');
             $comment.appendTo($msgEnd);
-        } else {
+        } else if ($userScore == 0) {
             var $comment = $('<h2 id="comment">You Are Burnt Crispy!!</h2>');
             $comment.appendTo($msgEnd);
         };
 
 
         // replay and learn more button
-        var $replay = $('<div id="replay"/>');
-        var $replayPrint = $('<a href="/games" title="Create New Game"><h2 id="replayPrint">New Game</h2></a>');
+        var $replay = $('<div id="replay"></div>');
+        var $replayPrint = $('<h2 id="replayPrint">New Game</h2>');
         $replay.append($replayPrint);
         var $learnMore = $('<div id="learnMore"/>');
-        var $learnMorePrint = $('<a href="/chats" title="Chat to fireball"><h2 id="learnMorePrint">Learn More</h2></a>');
+        var $learnMorePrint = $('<h2 id="learnMorePrint">Learn More</h2>');
 
         $learnMore.append($learnMorePrint);
         $msgEnd.append($replay);
@@ -452,21 +451,13 @@ $(document).ready(function() {
         $('#btnplay').hide();
         $('.pengLives').hide();
 
-        // $('#replay').on('click', function(){
-        //     //answerShow.hide();
-        //     $('#game_window').fadeOut('slow');
+        $("#replay").on('click',function(){
+            window.location ="/games";
+        });
 
-        //     // $("#boxscore").show();
-        //     // $("#boxscore").text() == 0;
-        //     // $('#btnplay').show();
-        //     // $('.pengLives').show();
-
-        //     // $('.answers').hide();
-
-        //     // startPlay();
-
-        // });
-
+        $("#learnMore").on('click',function(){
+            window.location ="/chats";
+        });
 
     }; // end endplay
 
