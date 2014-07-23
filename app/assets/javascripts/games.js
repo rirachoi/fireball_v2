@@ -24,6 +24,7 @@ $(document).ready(function(){
 
             var $form = $('<form/>');
             $form.attr('action', "/games/" + response.id)
+            $form.attr('id', "delete_game")
 
             var $button = $('<button/>');
             $button.text('x');
@@ -58,6 +59,10 @@ $(document).ready(function(){
 
   $('#new_game_button').on('click', function(){
     $('#new_game').toggle();
+  });
+
+  $('form#delete_game').on('submit', function(event){
+    event.preventDefault;
   });
 
   $('#create_new_game').on('click', createGame);
