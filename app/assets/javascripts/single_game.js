@@ -4,22 +4,9 @@ var randomFromTo = function (from, to){
 
 var questions;
 
-// var string = {
-//     hungry: "i'm hungry",
-//     happy: "i'm happy",
-//     sad: "i'm sad",
-//     angry: "i'm angry",
-//     depressed: "i'm depressed",
-//     sick : "i'm sick",
-//     drinking: "i'm drinking",
-//     calling: "i'm calling",
-//     gift: "this is gift",
-//     shy: "i'm shy"
-//     };
-
 var string;
 var question;
-// var question = Object.keys(string);
+
 var score = 0;
 var wrongAnswerCount = 0;
 
@@ -492,7 +479,6 @@ $(document).ready(function() {
             },
             success: function(response) {
                 // end of game, db should be updated
-                alert('game saved');
             }
         });
 
@@ -510,12 +496,6 @@ $(document).ready(function() {
     });
 
     $("#btnplay").on('click', btnSetting);
-    // $('#ani_container').on('click', "#btnreplay", function(){
-    //     $('.answers').hide();
-    //     wrongAnswerCount = 0;
-    //     //$score = $("#score").text();
-    //     $('#container').reset();
-    //     //startPlay();
-    // });
+
 
 }); // end of document ready
