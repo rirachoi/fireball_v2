@@ -5,4 +5,12 @@
 = form_tag '/' do
   = search_field_tag(:user_search)
   = button_tag('Add friend', :id => '#add_friend_btn')
-%div#friend_results
+
+%ul#friends_approved
+  - @friends_awaiting_approval.each do |friend|
+    %li= friend.name
+
+%h3= 'Awaiting approval' unless @friends_awaiting_approval.empty?
+%ul#friends_waiting
+  - @friends_awaiting_approval.each do |friend|
+    %li= friend.name
