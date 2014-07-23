@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   resources :users
   resources :messages, :only => [:show]
 
-  post '/friends/:id' => 'friends#create'
+  post '/:id' => 'friends#invite'
+  post '/friends/:id' => 'friends#invite'
   delete '/friends/:id' => 'friends#destroy'
 
   get '/login' => 'sessions#new'

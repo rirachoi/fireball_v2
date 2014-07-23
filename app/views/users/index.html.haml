@@ -2,15 +2,15 @@
   = "var all_users = #{@users.to_json};".html_safe
 %h1 Find friends
 
-= form_tag '/' do
+= form_tag('/', :id => 'search') do
   = search_field_tag(:user_search)
   = button_tag('Add friend', :id => '#add_friend_btn')
 
-%ul#friends_approved
-  - @friends_awaiting_approval.each do |friend|
-    %li= friend.name
+-# %ul#friends_approved
+-#   - @friends_awaiting_approval.each do |friend|
+-#     %li= friend.name
 
-%h3= 'Awaiting approval' unless @friends_awaiting_approval.empty?
-%ul#friends_waiting
-  - @friends_awaiting_approval.each do |friend|
-    %li= friend.name
+-# %h3= 'Awaiting approval' unless @friends_awaiting_approval.empty?
+-# %ul#friends_waiting
+-#   - @friends_awaiting_approval.each do |friend|
+-#     %li= friend.name
