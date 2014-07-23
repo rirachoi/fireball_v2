@@ -19,7 +19,7 @@ class Game < ActiveRecord::Base
   has_many :messages, :dependent => :destroy
 
   def answers
-   [
+    [
     "I'm hungry",
     "I'm happy",
     "I'm sad",
@@ -49,7 +49,7 @@ class Game < ActiveRecord::Base
     "New Year",
     "How far away are you?",
     "How are you"
-  ]
+    ]
   end
 
   def translate_game_input(word)
@@ -59,21 +59,14 @@ class Game < ActiveRecord::Base
     url += ENV['API_KEY']
     url += '&q=' + translate_me
     url += '&source=' + current_user.native_language
-    url += '&target=' + game.language
+    url += '&target=' + self.language
     response = HTTParty.get( url ).to_json
     response = JSON.parse(response)
+    # binding.pry
     if response['data'] # sometimes google is a crap and wont translate my god damn text
       translation = response['data']['translations'].first['translatedText']
     end
+    translation
   end
-
-  def self.set_up_questions
-    questions = {}
-    self.answers.sample(10).each do |answer|
-      questions[translate_game_input(answer)] = answer.downcase
-    end
-    questions
-  end
-
 
 end

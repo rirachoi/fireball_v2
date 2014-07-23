@@ -2,18 +2,18 @@ var randomFromTo = function (from, to){
     return Math.floor(Math.random() * (to - from + 1) + from);
 }
 
-// var string = {
-//     hungry: "i'm hungry",
-//     happy: "i'm happy",
-//     sad: "i'm sad",
-//     angry: "i'm angry",
-//     depressed: "i'm depressed",
-//     sick : "i'm sick",
-//     drinking: "i'm drinking",
-//     calling: "i'm calling",
-//     gift: "this is gift",
-//     shy: "i'm shy"
-//     };
+var string = {
+    hungry: "i'm hungry",
+    happy: "i'm happy",
+    sad: "i'm sad",
+    angry: "i'm angry",
+    depressed: "i'm depressed",
+    sick : "i'm sick",
+    drinking: "i'm drinking",
+    calling: "i'm calling",
+    gift: "this is gift",
+    shy: "i'm shy"
+    };
 
 var stringRequest = ["I'm hungry", "I'm happy", "I'm sad", "I'm angry", "I'm depressed", "I'm sick", "What's your name", "I'm laughing", "Hello", "Music", "Beer", "Water", "Summer", "Winter", "Spring", "Autumn", "School", "Computer", "Food", "Phone", "Tired", "What time is it", "Where are you", "Distance", "Time", "Christmas", "New Year", "How far away are you?", "How are you"];
 
@@ -39,6 +39,7 @@ var stop;
 
 $(document).ready(function() {
 
+    var $currentGameId = $('#game_id').text();
 
     if ($("#container").length == 0) {
         return false; // will only run the game code if not on game page
@@ -368,6 +369,25 @@ $(document).ready(function() {
     }; // end matchAnswer
 
     var startPlay = function() {
+        var questions;
+
+        // AJAX REQUEST TO GET QUESTIONS OBJ
+        $.ajax({
+            url: '/games/' + $currentGameId,
+            method: 'post',
+            dataType: 'json',
+            data: {
+                id: $currentGameId
+            },
+            success: function(response) {
+                questions = response;
+                console.log(response);
+
+                // everything that starts a new game goes in here
+            }
+        });
+
+
         $('#userInput').focus();
         createAnimatedbox();
         moveAnimatedbox();
@@ -456,17 +476,19 @@ $(document).ready(function() {
             window.location ="/chats";
         });
 
-
-
-        // $.ajax({
-        //     url: '/games/' + $currentGameId,
-        //     method: 'post',
-        //     dataType: 'json',
-        //     data: {
-        //         id: 3434,
-        //         points: $("#score").text(),
-        //         completed: true
-        //  }
+        $.ajax({
+            url: '/games/' + $currentGameId + "/end",
+            method: 'post',
+            dataType: 'json',
+            data: {
+                id: $currentGameId,
+                points: $("#score").text(),
+            },
+            success: function(response) {
+                // end of game, db should be updated
+                alert('game saved');
+            }
+        });
 
 
 
