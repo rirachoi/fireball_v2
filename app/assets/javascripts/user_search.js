@@ -6,15 +6,25 @@ $(document).ready(function(){
 
   $("#user_search").autocomplete({
       source: _.pluck(all_users, 'username'),
-      // appendTo: '#friend_results'
+      appendTo: '#friend_results'
     });
+
+  var removeByAttr = function(arr, attr, value){
+    var i = arr.length;
+    while(i--){
+       if(arr[i] && arr[i].hasOwnProperty(attr) && (arguments.length > 2 && arr[i][attr] === value )){
+           arr.splice(i,1);
+       }
+    }
+    return arr;
+}
 
   var addFriend = function(event) {
     var $friendName = $('#user_search').val();
     if ($friendName == "") {
       return false;
     }
-
+    $('#user_search').val("");
      $.ajax({
           url: '/friends/' + $friendName,
           method: 'post',
@@ -23,7 +33,9 @@ $(document).ready(function(){
             username: $friendName
           },
           success: function (response) {
-            console.log(response)
+            var $li = $('<li/>');
+            var $a = $('<a/>');
+            removeByAttr(all_users, 'name', $friendName);
           }
         });
 
@@ -31,7 +43,6 @@ $(document).ready(function(){
 
   $('#search').on('submit', function(event){
     event.preventDefault();
-    console.log('lelelel')
   });
 
   $('#add_friend_btn').on('click', addFriend);

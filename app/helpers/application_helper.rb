@@ -60,6 +60,12 @@ module ApplicationHelper
       links += "</div>"
       links += "</div>"
 
+      unless @current_user.friendships.where(:approved => false).empty?
+        links += "<div class='friend requests'>"
+        links += "You have #{pluralize(@current_user.friendships.where(:approved => false).count,'friend request')} "
+        links += "</div>"
+      end
+
       links += "<div class='flip-container'>"
       links += "<div class='flipper'>"
       links += "<div class='front'>"

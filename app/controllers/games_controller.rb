@@ -13,6 +13,21 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find params[:id]
+
+  end
+
+  def start_game
+    # binding.pry
+
+    @questions = set_up_questions # we're expecting a hash
+    render :json => @questions
+  end
+
+  def end_game
+    game = Game.find (params[:id])
+    game.update(:points => params[:points], :completed => true)
+    # binding.pry
+    render :json => game
   end
 
   def destroy
@@ -22,7 +37,14 @@ class GamesController < ApplicationController
   end
 
   private
-  def game_params
 
+  def set_up_questions
+    game = Game.find params[:id]
+    questions = {}
+    game.answers.sample(10).each do |answer|
+      questions[game.translate_game_input(answer)] = answer.downcase
+    end
+    questions
   end
+
 end

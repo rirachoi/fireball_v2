@@ -7,8 +7,12 @@ class UsersController < ApplicationController
       format.html {}
       format.json { render :json => @priorities }
     end
-    @friends = @current_user.friendships.where(:approved => :true)
-    @friends_awaiting_approval = @current_user.friendships.where(:approved => :false)
+    friendships = @current_user.friendships.where(:approved => :true)
+    @friends = []
+    friendships.each {|friendship| @friends << User.find(friendship.friend_id)}
+    friends_awaiting_approval = @current_user.friendships.where(:approved => :false)
+    @friend_requests = []
+    friends_awaiting_approval.each {|friendship| @friend_requests << User.find(friendship.friend_id)}
   end
 
   def new

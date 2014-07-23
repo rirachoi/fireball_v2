@@ -2,20 +2,24 @@ var randomFromTo = function (from, to){
     return Math.floor(Math.random() * (to - from + 1) + from);
 }
 
-var string = {
-    hungry: "i'm hungry",
-    happy: "i'm happy",
-    sad: "i'm sad",
-    angry: "i'm angry",
-    depressed: "i'm depressed",
-    sick : "i'm sick",
-    drinking: "i'm drinking",
-    calling: "i'm calling",
-    gift: "this is gift",
-    shy: "i'm shy"
-    };
+var questions;
 
-var question = Object.keys(string);
+// var string = {
+//     hungry: "i'm hungry",
+//     happy: "i'm happy",
+//     sad: "i'm sad",
+//     angry: "i'm angry",
+//     depressed: "i'm depressed",
+//     sick : "i'm sick",
+//     drinking: "i'm drinking",
+//     calling: "i'm calling",
+//     gift: "this is gift",
+//     shy: "i'm shy"
+//     };
+
+var string;
+var question;
+// var question = Object.keys(string);
 var score = 0;
 var wrongAnswerCount = 0;
 
@@ -35,6 +39,7 @@ var stop;
 
 $(document).ready(function() {
 
+    var $currentGameId = $('#game_id').text();
 
     if ($("#container").length == 0) {
         return false; // will only run the game code if not on game page
@@ -364,16 +369,41 @@ $(document).ready(function() {
     }; // end matchAnswer
 
     var startPlay = function() {
-        $('#userInput').focus();
-        createAnimatedbox();
-        moveAnimatedbox();
-        insertImages();
-        setPlayImages();
-        displayWordlist();
+        // AJAX REQUEST TO GET QUESTIONS OBJ
 
-        $('.peng_game').fadeIn('slow');
-        $('.fireball_game').fadeIn('slow');
-        loadPlayImage();
+        // MAKE NEW LOADING BAR
+        $.ajax({
+            url: '/games/' + $currentGameId,
+            method: 'post',
+            dataType: 'json',
+            data: {
+                id: $currentGameId
+            },
+            success: function(response) {
+                // REMOVE LOADING BAR
+                questions = response;
+                console.log(response);
+                string = questions;
+                question = Object.keys(string);
+                console.log(Object.keys(string));
+
+                $('#userInput').focus();
+                createAnimatedbox();
+                moveAnimatedbox();
+                insertImages();
+                setPlayImages();
+                displayWordlist();
+
+                $('.peng_game').fadeIn('slow');
+                $('.fireball_game').fadeIn('slow');
+                loadPlayImage();
+                // everything that starts a new game goes in here
+            }
+        });
+
+
+
+
         // matchAnswer();
 
     }; // end startPlay
@@ -451,6 +481,21 @@ $(document).ready(function() {
         $("#learnMore").on('click',function(){
             window.location ="/chats";
         });
+
+        $.ajax({
+            url: '/games/' + $currentGameId + "/end",
+            method: 'post',
+            dataType: 'json',
+            data: {
+                id: $currentGameId,
+                points: $("#score").text(),
+            },
+            success: function(response) {
+                // end of game, db should be updated
+                alert('game saved');
+            }
+        });
+
 
     }; // end endplay
 
