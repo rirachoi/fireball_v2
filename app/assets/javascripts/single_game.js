@@ -121,7 +121,7 @@ $(document).ready(function() {
         answerSlide.append(yourAnswer);
         answers.append(answerSlide);
         for (var q=0; q<question.length; q++) {
-            var parah_answer = $('<h3 id=answer>' +question[q]+ '<br/> <span id="str_answer">' +string[question[q]]+ '</span></h3>');
+            var parah_answer = $('<h3 id=answer>' +string[question[q]]+ '<br/> <span id="str_answer">' +question[q]+ '</span></h3>');
             answerSheet.append(parah_answer);
             answerSheet.prependTo(answers);
             $('body').append(answers);
