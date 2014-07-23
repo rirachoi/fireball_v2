@@ -190,62 +190,15 @@ $(document).ready(function() {
 ///////////-------creat animaite box html---------//////////
 
     var createAnimatedbox = function(){
-        // making html elements
-        var $animatedbox = $('<div class="animatedbox"/>');
-        var $match = $('<span class="match"/>');
-        var $unmatch = $('<span class="unmatch"/>');
-        $($animatedbox).append($match);
-        $($animatedbox).append($unmatch);
-        $('#ani_container').append($animatedbox);
-
-        var $animatedbox = $('<div class="animatedbox"/>');
-        var $match = $('<span class="match"/>');
-        var $unmatch = $('<span class="unmatch"/>');
-        $($animatedbox).append($match);
-        $($animatedbox).append($unmatch);
-        $('#ani_container').append($animatedbox);
-
-        var $animatedbox = $('<div class="animatedbox"/>');
-        var $match = $('<span class="match"/>');
-        var $unmatch = $('<span class="unmatch"/>');
-        $($animatedbox).append($match);
-        $($animatedbox).append($unmatch);
-        $('#ani_container').append($animatedbox);
-
-        var $animatedbox = $('<div class="animatedbox"/>');
-        var $match = $('<span class="match"/>');
-        var $unmatch = $('<span class="unmatch"/>');
-        $($animatedbox).append($match);
-        $($animatedbox).append($unmatch);
-        $('#ani_container').append($animatedbox);
-
-        var $animatedbox = $('<div class="animatedbox"/>');
-        var $match = $('<span class="match"/>');
-        var $unmatch = $('<span class="unmatch"/>');
-        $($animatedbox).append($match);
-        $($animatedbox).append($unmatch);
-        $('#ani_container').append($animatedbox);
-
-        var $animatedbox = $('<div class="animatedbox"/>');
-        var $match = $('<span class="match"/>');
-        var $unmatch = $('<span class="unmatch"/>');
-        $($animatedbox).append($match);
-        $($animatedbox).append($unmatch);
-        $('#ani_container').append($animatedbox);
-
-        var $animatedbox = $('<div class="animatedbox"/>');
-        var $match = $('<span class="match"/>');
-        var $unmatch = $('<span class="unmatch"/>');
-        $($animatedbox).append($match);
-        $($animatedbox).append($unmatch);
-        $('#ani_container').append($animatedbox);
-
-        var $animatedbox = $('<div class="animatedbox" id="last"/>');
-        var $match = $('<span class="match"/>');
-        var $unmatch = $('<span class="unmatch"/>');
-        $($animatedbox).append($match);
-        $($animatedbox).append($unmatch);
-        $('#ani_container').append($animatedbox);
+        // making html 20 elements - 20times of word falling
+        for(var b=0; b<20; b++){
+            var $animatedbox = $('<div class="animatedbox"/>');
+            var $match = $('<span class="match"/>');
+            var $unmatch = $('<span class="unmatch"/>');
+            $($animatedbox).append($match);
+            $($animatedbox).append($unmatch);
+            $('#ani_container').append($animatedbox);
+            };
     };
 
 
