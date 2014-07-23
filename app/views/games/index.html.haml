@@ -6,7 +6,7 @@
       %li
         = link_to( LANGUAGES.invert[game.language], game_path(game.id) )
         = form_tag "/games/#{game.id}" do
-          = button_tag('x', :class => 'show_delete_chat')
+          = button_tag('x', :class => 'show_delete_game')
 
 
 = button_tag "New game", :id => 'new_game_button'
@@ -15,4 +15,4 @@
   = label_tag :game_language
   = select(:game, :language, LANGUAGES)
 
-  = submit_tag "New game", :id => :create_new_game
+  = submit_tag "Create new game", :id => :create_new_game
