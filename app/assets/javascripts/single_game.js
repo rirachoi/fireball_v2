@@ -162,6 +162,7 @@ $(document).ready(function() {
         $('.wordSlide').on('click', function(){
             $('.wordSheet').slideToggle('slow');
         });
+
     };
 //////////------- buttons setting -------///////////////
 
@@ -425,6 +426,7 @@ $(document).ready(function() {
         insertImages();
         setPlayImages();
         displayWordlist();
+
         $('.peng_game').fadeIn('slow');
         $('.fireball_game').fadeIn('slow');
         loadPlayImage();
@@ -478,10 +480,10 @@ $(document).ready(function() {
 
         // replay and learn more button
         var $replay = $('<div id="replay"/>');
-        var $replayPrint = $('<h2 id="replayPrint">Replay</h2>');
+        var $replayPrint = $('<a href="/games" title="Create New Game"><h2 id="replayPrint">New Game</h2></a>');
         $replay.append($replayPrint);
         var $learnMore = $('<div id="learnMore"/>');
-        var $learnMorePrint = $('<h2 id="learnMorePrint">Learn More</h2>');
+        var $learnMorePrint = $('<a href="/chats" title="Chat to fireball"><h2 id="learnMorePrint">Learn More</h2></a>');
 
         $learnMore.append($learnMorePrint);
         $msgEnd.append($replay);
@@ -498,19 +500,20 @@ $(document).ready(function() {
         $('#btnplay').hide();
         $('.pengLives').hide();
 
-        $('#replay').on('click', function(){
-            //answerShow.hide();
-            $msgEnd.fadeOut('slow');
+        // $('#replay').on('click', function(){
+        //     //answerShow.hide();
+        //     $('#game_window').fadeOut('slow');
 
-            $("#boxscore").show();
-            $("#boxscore").text() == 0;
-            $('#btnplay').show();
-            $('.pengLives').show();
+        //     // $("#boxscore").show();
+        //     // $("#boxscore").text() == 0;
+        //     // $('#btnplay').show();
+        //     // $('.pengLives').show();
 
-            $('.answers').hide();
-            startPlay();
+        //     // $('.answers').hide();
 
-        });
+        //     // startPlay();
+
+        // });
 
 
     }; // end endplay
