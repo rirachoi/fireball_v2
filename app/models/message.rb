@@ -162,7 +162,12 @@ class Message < ActiveRecord::Base
   end
 
   def match_emoticon
-    string = self.input_text.parameterize
+    unless @current_user.native_language != 'en'
+      self.translate_text
+      string = self.input_text.parameterize
+    else
+      string = self.input_text.parameterize
+    end
     if self.emoticon.keys.select {|k| string.include? k}
       match = self.emoticon.keys.select {|k| string.include? k}.first
       self.image = self.emoticon[match]
