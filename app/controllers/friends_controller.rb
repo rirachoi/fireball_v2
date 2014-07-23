@@ -10,15 +10,15 @@ class FriendsController < ApplicationController
 
   def approve
     #approve friend
-    friend = User.where(:user_id => params[:friend_id])
-    friendship_on_my_side = Friendship.where(:user_id => @current_user.id, :friend_id => friend.id)
-    friendship_on_my_side.update(:approved => :true)
+    friend = User.where(:id => params[:id]).first
+    friendship_on_my_side = Friendship.where(:user_id => @current_user.id, :friend_id => friend.id).first
+    friendship_on_my_side.update(:approved => true)
     render :json => friendship_on_my_side
   end
 
   def destroy
     #destroy friendship
-    friend = User.where(:user_id => params[:user_id])
+    friend = User.where(:user_id => params[:user_id]).first
     friendship_on_my_side = Friendship.where(:user_id => @current_user.id, :friend_id => friend.id)
     friendship_on_friends_side = Friendship.where(:user_id => friend.id, :friend_id => @current_user.id)
     friendship_on_my_side.destroy
