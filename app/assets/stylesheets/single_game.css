@@ -31,6 +31,8 @@
 .current {
     background: #0099cc;
 }
+
+
 #toolbar {
     background: #f34223;
 
@@ -46,11 +48,19 @@
     font-size: 22px;
     color: #ffffff;
     width: 200px;
+    display: inline-block;
 }
 #score {
     font-weight: bold;
     font-size: 24px;
     padding: 0 3px;
+    color: white;
+}
+
+#lives, #btnplay{
+    font-size: 24px;
+    padding: 0 3px;
+    color: white;
 }
 
 .clear {
@@ -78,9 +88,9 @@
     width: 180px;
 }
 
-#toolbar a:hover{
-    color: #FFFF00;
-}
+/*#toolbar a:hover{*/
+    /*color: #FFFF00;*/
+/*}*/
 
 #boxscore, #btnplay, .pengLives{
     display: inline-block;

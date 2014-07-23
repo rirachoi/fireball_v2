@@ -165,24 +165,17 @@ $(document).ready(function() {
 
     };
 //////////------- buttons setting -------///////////////
-
+    //Pause function is not working well
     var btnSetting = function(){
         $("#btnplay").text("Play");
 
         if ($(this).text() == "Play") {
             startPlay();
-            $(this).text("Pause");
-
-        } else if ($(this).text() == "Pause") {
-            stop = true;
-
-            $(this).text("Resume");
-
-            // resume.addClass('resume');
-        } else if ($(this).text() == "Resume") {
-            $(this).text("Pause");
-            // $('#ani_container').stop() == false;
-        }
+            $(this).text("Lives: ");
+            $("#btnplay").hide();
+            lives = $('<span id="lives">Lives: </span>');
+            $('#boxscore').after(lives);
+        };
         return false;
     }; //end of btnSetting
 
@@ -472,12 +465,12 @@ $(document).ready(function() {
     });
 
     $("#btnplay").on('click', btnSetting);
-    $('#ani_container').on('click', "#btnreplay", function(){
-        $('.answers').hide();
-        wrongAnswerCount = 0;
-        //$score = $("#score").text();
-        $('#container').reset();
-        //startPlay();
-    });
+    // $('#ani_container').on('click', "#btnreplay", function(){
+    //     $('.answers').hide();
+    //     wrongAnswerCount = 0;
+    //     //$score = $("#score").text();
+    //     $('#container').reset();
+    //     //startPlay();
+    // });
 
 }); // end of document ready
