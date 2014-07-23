@@ -7,3 +7,5 @@
   %li= "#{LANGUAGES.invert[game.language]} : #{game.points}"
 
 %h2 Top users:
+- @ranking.each do |username, score|
+  %li= "#{username}: #{score}"

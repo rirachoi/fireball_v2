@@ -48,7 +48,12 @@ class UsersController < ApplicationController
     # gets the current user's cumulative score
     @my_total_score = @user.games.sum(:points)
     # gets the top 10 users cumulative score
-    # @ranking = Game.group(:user_id).sum(:points).order(:points => :desc).limit(10)
+    ranking_array = Game.group(:user_id).sum(:points).invert.sort.reverse.first(10)
+    @ranking = {}
+    ranking_array.each do |record|
+      user = User.find(record[-1])
+      @ranking[user.username] = record[0]
+    end
   end
 
   def update
