@@ -4,9 +4,9 @@ Rails.application.routes.draw do
     resources :messages, :only => [:create]
   end
 
-  resources :games, :only => [:create, :show, :index, :destroy]
-  post 'games/:id' => 'games#start_game'
   post 'games/:id/end' => 'games#end_game'
+  post 'games/:id/start' => 'games#start_game'
+  resources :games, :only => [:create, :show, :index, :destroy]
   resources :users
   resources :messages, :only => [:show]
 

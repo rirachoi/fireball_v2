@@ -2,7 +2,7 @@ class GamesController < ApplicationController
   before_action :check_if_logged_in
 
   def index
-    @games = @current_user.games.order(updated_at: :desc)
+    @games = @current_user.games.where(:completed => false).order(updated_at: :desc)
   end
 
   def create
@@ -13,7 +13,7 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find params[:id]
-
+    session[:user_id]
   end
 
   def start_game

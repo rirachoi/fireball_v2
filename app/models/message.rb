@@ -168,7 +168,7 @@ class Message < ActiveRecord::Base
     # else
       string = self.input_text.parameterize
     # end
-    if self.emoticon.keys.select {|k| string.include? k}
+    if self.emoticon.keys.select {|k| string.include? k}.length > 0
       match = self.emoticon.keys.select {|k| string.include? k}.last
       self.image = self.emoticon[match]
     else
