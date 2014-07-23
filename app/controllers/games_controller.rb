@@ -13,6 +13,13 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find params[:id]
+
+  end
+
+  def play
+    @questions = Game.set_up_questions # we're expecting a hash
+
+    render :json => @questions
   end
 
   def destroy

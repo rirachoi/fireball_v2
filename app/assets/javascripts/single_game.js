@@ -2,18 +2,22 @@ var randomFromTo = function (from, to){
     return Math.floor(Math.random() * (to - from + 1) + from);
 }
 
-var string = {
-    hungry: "i'm hungry",
-    happy: "i'm happy",
-    sad: "i'm sad",
-    angry: "i'm angry",
-    depressed: "i'm depressed",
-    sick : "i'm sick",
-    drinking: "i'm drinking",
-    calling: "i'm calling",
-    gift: "this is gift",
-    shy: "i'm shy"
-    };
+// var string = {
+//     hungry: "i'm hungry",
+//     happy: "i'm happy",
+//     sad: "i'm sad",
+//     angry: "i'm angry",
+//     depressed: "i'm depressed",
+//     sick : "i'm sick",
+//     drinking: "i'm drinking",
+//     calling: "i'm calling",
+//     gift: "this is gift",
+//     shy: "i'm shy"
+//     };
+
+var stringRequest = ["I'm hungry", "I'm happy", "I'm sad", "I'm angry", "I'm depressed", "I'm sick", "What's your name", "I'm laughing", "Hello", "Music", "Beer", "Water", "Summer", "Winter", "Spring", "Autumn", "School", "Computer", "Food", "Phone", "Tired", "What time is it", "Where are you", "Distance", "Time", "Christmas", "New Year", "How far away are you?", "How are you"];
+
+
 
 var question = Object.keys(string);
 var score = 0;
@@ -451,6 +455,25 @@ $(document).ready(function() {
         $("#learnMore").on('click',function(){
             window.location ="/chats";
         });
+
+
+
+        // $.ajax({
+        //     url: '/games/' + $currentGameId,
+        //     method: 'post',
+        //     dataType: 'json',
+        //     data: {
+        //         id: 3434,
+        //         points: $("#score").text(),
+        //         completed: true
+        //  }
+
+
+
+        //  params[:id]
+
+        //  game = Game.find (params[:id])
+        //  game.update(:score => params[:score] )
 
     }; // end endplay
 
