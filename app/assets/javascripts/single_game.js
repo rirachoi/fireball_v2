@@ -121,7 +121,7 @@ $(document).ready(function() {
         answerSlide.append(yourAnswer);
         answers.append(answerSlide);
         for (var q=0; q<question.length; q++) {
-            var parah_answer = $('<h3 id=answer>' +question[q]+ '<br/> <span id="str_answer">' +string[question[q]]+ '</span></h3>');
+            var parah_answer = $('<h3 id=answer>' +string[question[q]]+ '<br/> <span id="str_answer">' +question[q]+ '</span></h3>');
             answerSheet.append(parah_answer);
             answerSheet.prependTo(answers);
             $('body').append(answers);
@@ -321,8 +321,15 @@ $(document).ready(function() {
                 $('#userInput').val("");
 
             } else if ( currentGameAnswer !== userInput){
+                currentElPress.stop().fadeOut('fast');
+                currentElPress.animate({
+                left: box_left+"px"
+                }, 'fast');
+                currentElPress.removeClass("current");
+                currentElPress = currentElPress.next();
+                currentElPress.addClass("current");
+                currentEl = currentElPress;
                 //fireball animation
-
                 $('.fireball_game').animate({
                     'left':  '-=140px'
                 }, 'fast');
@@ -489,12 +496,6 @@ $(document).ready(function() {
     });
 
     $("#btnplay").on('click', btnSetting);
-    // $('#ani_container').on('click', "#btnreplay", function(){
-    //     $('.answers').hide();
-    //     wrongAnswerCount = 0;
-    //     //$score = $("#score").text();
-    //     $('#container').reset();
-    //     //startPlay();
-    // });
+
 
 }); // end of document ready
