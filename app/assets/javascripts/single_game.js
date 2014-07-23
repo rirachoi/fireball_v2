@@ -356,7 +356,6 @@ $(document).ready(function() {
     }; // end matchAnswer
 
     var startPlay = function() {
-        // AJAX REQUEST TO GET QUESTIONS OBJ
 
         // MAKE NEW LOADING BAR
         $.ajax({
@@ -384,14 +383,8 @@ $(document).ready(function() {
                 $('.peng_game').fadeIn('slow');
                 $('.fireball_game').fadeIn('slow');
                 loadPlayImage();
-                // everything that starts a new game goes in here
             }
         });
-
-
-
-
-        // matchAnswer();
 
     }; // end startPlay
 

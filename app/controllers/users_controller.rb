@@ -41,8 +41,12 @@ class UsersController < ApplicationController
   def show
     @user = @current_user
     if @user.nil?
-      redirect_to root_path
+      redirect_to root_path # you cannot see this page if you are not logged in
     end
+    # gets 3 best games from the user
+    @high_scores = @user.games.order(:points => :desc).limit(3)
+    # gets the top 10 users cumulative score
+    # @ranking = Game.group(:user_id).sum(:points).order(:points => :desc).limit(10)
   end
 
   def update
