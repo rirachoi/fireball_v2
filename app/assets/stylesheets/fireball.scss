@@ -19,7 +19,7 @@ body {
   font-family: 'Ubuntu', sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6{
+h1, h2, h3, h4, h5, h6, p{
   color: #f34223;
 }
 
@@ -30,6 +30,7 @@ h1{
 form {
   min-width: 200px;
 }
+
 
 .formgroup{
   display: block;
@@ -163,13 +164,12 @@ audio {
 
 #new_chat input{
   border-radius: 0.3em;
-  padding: 0.8em;
+  padding: 0.5em;
   font-size: 18px;
   width: 50%;
   background-color: #008DBC;
   color: white;
   text-align: center;
-  display: block;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
@@ -177,23 +177,51 @@ audio {
 }
 
 #new_chat input:hover{
-  font-size: 30px;
-  padding: 0.3em;
-  width: 100%;
+  font-size: 28px;
+  width: 180%;
   color: black;
   background-color: #f34223;
   font-weight: bold;
+  text-align: center;
+}
+
+#new_chat button{
+  width: 60%;
 }
 
 #new_chat select{
-  min-width: 500px;
+  /*min-width: 500px;*/
   display: block;
-  padding: .5em 0 .5em 38%;
+  /*padding: .8em;*/
   font-size: 30px;
   margin-top: 1em;
   margin-bottom: 1em;
   border-radius: 0.5em;
 }
+
+#new_chat_button {
+  border-radius: 0.3em;
+  padding: 0.5em;
+  font-size: 18px;
+  width: 50%;
+  background-color: #008DBC;
+  color: white;
+  text-align: center;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+#new_chat_button:hover {
+  font-size: 28px;
+  width: 180%;
+  color: black;
+  background-color: #f34223;
+  font-weight: bold;
+  text-align: center;
+}
+
 
 /*#chat_box embed {
   width: 50px;

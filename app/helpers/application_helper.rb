@@ -46,6 +46,8 @@ module ApplicationHelper
       links += "</div>"
       links += "</div>"
 
+      links += link_to("Chat to friend", "#")
+
       links += "<div class='flip-container'>"
       links += "<div class='flipper'>"
       links += "<div class='front'>"
