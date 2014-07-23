@@ -27,7 +27,7 @@ module ApplicationHelper
       links += "</div>"
 
       links += "<div class='back'>"
-      links += link_to('Game', games_path)
+      links += link_to('Battle Fireball', games_path)
       links += "</div>"
       links += "</div>"
       links += "</div>"
