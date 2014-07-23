@@ -17,5 +17,5 @@
   %h3= 'Awaiting approval'
   %ul#friends_waiting
     - @friend_requests.each do |friend|
-      %li= friend.username
+      %li= friend.username + " " + link_to('Approve', '/friends/'+ friend.id)
 
