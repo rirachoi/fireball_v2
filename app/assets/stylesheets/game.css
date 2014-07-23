@@ -102,6 +102,7 @@
 }
 
 #new_game{
+  margin-top: 1em;
   font-size: 25px;
   color: white;
 }
