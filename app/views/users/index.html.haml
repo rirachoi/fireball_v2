@@ -6,11 +6,16 @@
   = search_field_tag(:user_search)
   = button_tag('Add friend', :id => '#add_friend_btn')
 
--# %ul#friends_approved
--#   - @friends_awaiting_approval.each do |friend|
--#     %li= friend.name
+- unless @friends.empty?
+  %ul#friends
+    - @friends.each do |friend|
+      %li= friend.username
+      %li= friend.id
+      %li=# link_to( friend.username, chat_path( Chat.find_by(:user2_id => friend.id) ) )
 
--# %h3= 'Awaiting approval' unless @friends_awaiting_approval.empty?
--# %ul#friends_waiting
--#   - @friends_awaiting_approval.each do |friend|
--#     %li= friend.name
+- unless @friend_requests.empty?
+  %h3= 'Awaiting approval'
+  %ul#friends_waiting
+    - @friend_requests.each do |friend|
+      %li= friend.username
+
