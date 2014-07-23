@@ -2,7 +2,9 @@ class GamesController < ApplicationController
   before_action :check_if_logged_in
 
   def index
-    @games = @current_user.games.order(updated_at: :desc)
+    @games = @current_user.games.where(:completed => false).order(updated_at: :desc)
+    @language_select = LANGUAGES
+    @language_select = @language_select.invert.reject{|k,v| @current_user.native_language == k}.invert
   end
 
   def create
@@ -13,12 +15,9 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find params[:id]
-
   end
 
   def start_game
-    # binding.pry
-
     @questions = set_up_questions # we're expecting a hash
     render :json => @questions
   end

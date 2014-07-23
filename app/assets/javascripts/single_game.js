@@ -360,7 +360,7 @@ $(document).ready(function() {
 
         // MAKE NEW LOADING BAR
         $.ajax({
-            url: '/games/' + $currentGameId,
+            url: '/games/' + $currentGameId + '/start/',
             method: 'post',
             dataType: 'json',
             data: {
