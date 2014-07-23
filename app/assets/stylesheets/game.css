@@ -78,11 +78,11 @@
   transition: all 0.3s ease-in-out;
 }
 
-#new_game {
+#new_game_button{
   border-radius: 0.3em;
-  padding: 0.8em;
+  padding: 0.5em;
   font-size: 18px;
-  width: 30%;
+  width: 50%;
   background-color: #008DBC;
   color: white;
   text-align: center;
@@ -92,11 +92,54 @@
   transition: all 0.2s ease-in-out;
 }
 
-#new_game:hover {
-  font-size: 30px;
-  padding: 0.3em;
+#new_game_button:hover {
+  font-size: 28px;
   width: 180%;
   color: black;
   background-color: #f34223;
   font-weight: bold;
+  text-align: center;
+}
+
+#new_game{
+  margin-top: 1em;
+  font-size: 25px;
+  color: white;
+}
+
+#new_game input{
+  border-radius: 0.3em;
+  padding: 0.5em;
+  font-size: 18px;
+  width: 50%;
+  background-color: #008DBC;
+  color: white;
+  text-align: center;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+#new_game input:hover{
+  font-size: 28px;
+  width: 180%;
+  color: black;
+  background-color: #f34223;
+  font-weight: bold;
+  text-align: center;
+}
+
+#new_game button{
+  width: 60%;
+}
+
+#new_game select{
+  /*min-width: 500px;*/
+  display: block;
+  /*padding-left: 50%;*/
+  font-size: 30px;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border-radius: 0.5em;
 }

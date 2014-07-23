@@ -56,6 +56,9 @@ $(document).ready(function(){
       return false;
     };
 
+  $('#new_game_button').on('click', function(){
+    $('#new_game').toggle();
+  });
 
   $('#create_new_game').on('click', createGame);
   $('#my_games').on('click', '.show_delete_chat', deleteGame);
