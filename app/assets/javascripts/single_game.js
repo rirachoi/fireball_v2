@@ -4,24 +4,22 @@ var randomFromTo = function (from, to){
 
 var questions;
 
-var string = {
-    hungry: "i'm hungry",
-    happy: "i'm happy",
-    sad: "i'm sad",
-    angry: "i'm angry",
-    depressed: "i'm depressed",
-    sick : "i'm sick",
-    drinking: "i'm drinking",
-    calling: "i'm calling",
-    gift: "this is gift",
-    shy: "i'm shy"
-    };
+// var string = {
+//     hungry: "i'm hungry",
+//     happy: "i'm happy",
+//     sad: "i'm sad",
+//     angry: "i'm angry",
+//     depressed: "i'm depressed",
+//     sick : "i'm sick",
+//     drinking: "i'm drinking",
+//     calling: "i'm calling",
+//     gift: "this is gift",
+//     shy: "i'm shy"
+//     };
 
-var stringRequest = ["I'm hungry", "I'm happy", "I'm sad", "I'm angry", "I'm depressed", "I'm sick", "What's your name", "I'm laughing", "Hello", "Music", "Beer", "Water", "Summer", "Winter", "Spring", "Autumn", "School", "Computer", "Food", "Phone", "Tired", "What time is it", "Where are you", "Distance", "Time", "Christmas", "New Year", "How far away are you?", "How are you"];
-
-
-
-var question = Object.keys(string);
+var string;
+var question;
+// var question = Object.keys(string);
 var score = 0;
 var wrongAnswerCount = 0;
 
@@ -372,6 +370,8 @@ $(document).ready(function() {
 
     var startPlay = function() {
         // AJAX REQUEST TO GET QUESTIONS OBJ
+
+        // MAKE NEW LOADING BAR
         $.ajax({
             url: '/games/' + $currentGameId,
             method: 'post',
@@ -380,24 +380,30 @@ $(document).ready(function() {
                 id: $currentGameId
             },
             success: function(response) {
+                // REMOVE LOADING BAR
                 questions = response;
                 console.log(response);
+                string = questions;
+                question = Object.keys(string);
+                console.log(Object.keys(string));
 
+                $('#userInput').focus();
+                createAnimatedbox();
+                moveAnimatedbox();
+                insertImages();
+                setPlayImages();
+                displayWordlist();
+
+                $('.peng_game').fadeIn('slow');
+                $('.fireball_game').fadeIn('slow');
+                loadPlayImage();
                 // everything that starts a new game goes in here
             }
         });
 
 
-        $('#userInput').focus();
-        createAnimatedbox();
-        moveAnimatedbox();
-        insertImages();
-        setPlayImages();
-        displayWordlist();
 
-        $('.peng_game').fadeIn('slow');
-        $('.fireball_game').fadeIn('slow');
-        loadPlayImage();
+
         // matchAnswer();
 
     }; // end startPlay

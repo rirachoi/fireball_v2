@@ -62,7 +62,6 @@ class Game < ActiveRecord::Base
     url += '&target=' + self.language
     response = HTTParty.get( url ).to_json
     response = JSON.parse(response)
-    # binding.pry
     if response['data'] # sometimes google is a crap and wont translate my god damn text
       translation = response['data']['translations'].first['translatedText']
     end
