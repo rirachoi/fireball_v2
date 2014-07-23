@@ -23,12 +23,12 @@ $(document).ready(function(){
             $game.append($gameLink);
 
             var $form = $('<form/>');
-            $form.attr('action', "/chats/" + response.id)
+            $form.attr('action', "/games/" + response.id)
 
             var $button = $('<button/>');
             $button.text('x');
+            $button.attr("href", "/games/" + response.id);
             $button.addClass('show_delete_chat');
-
             $form.append($button);
             $game.append($form);
             $('#my_games ul').prepend($game);

@@ -17,7 +17,6 @@
 
 #my_games ul {
   list-style: none;
-  /*margin: 0;*/
   padding-left: 0;
 }
 
@@ -53,9 +52,8 @@
   color:#008DBC;
 }
 
-#my_games ul li:hover > .show_delete_game{
+#my_games ul li:hover > form button.show_delete_game{
   opacity: 100;
-  /*display: inline-block;*/
 }
 
 .show_delete_game {
@@ -76,6 +74,12 @@
   -moz-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+}
+
+.show_delete_game:hover {
+  background-color: #1C303E;
+  color: #fff;
+  opacity: 100;
 }
 
 #new_game_button{

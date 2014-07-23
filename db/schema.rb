@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20140723032031) do
   create_table "friendships", force: true do |t|
     t.integer "user_id"
     t.integer "friend_id"
-    t.boolean "approved",  default: false
+    t.boolean "approved"
   end
 
   create_table "games", force: true do |t|
