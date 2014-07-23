@@ -17,6 +17,9 @@ class MessagesController < ApplicationController
         @message.save
       elsif params[:game_id]
         game = Game.find params[:game_id]
+        # game.answers.each do |answer|
+        #   answer.
+        # end
         game.messages << @message
         game.update_attribute(:updated_at, Time.now)
       end
