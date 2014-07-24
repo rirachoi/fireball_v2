@@ -301,7 +301,7 @@ $(document).ready(function() {
         var matchSpan = currentElPress.find(".match");
         var unmatchSpan = currentElPress.find(".unmatch");
         var unmatchText = unmatchSpan.text();
-        var userInput = $('#userInput').val();
+        var userInput = $('#userInput').val().toLowerCase();
 
         var gameQuestion = $(".current").find('.unmatch').text();
         var currentGameAnswer = string[gameQuestion];
