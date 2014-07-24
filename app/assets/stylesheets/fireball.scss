@@ -144,6 +144,7 @@ audio {
   padding: 0.4em;
   list-style: none;
   position: relative;
+  color: black;
 }
 
 #chat_box.left {
@@ -481,7 +482,7 @@ nav a:hover{
   text-align: center;
 }
 
-.content li{
+#scores li{
   list-style: none;
   font-size: 22px;
   color: rgba(255, 255, 255, 0.4);
@@ -491,7 +492,7 @@ nav a:hover{
   transition: all 0.2s ease-in-out;
 }
 
-.content li:hover{
+#scores li:hover{
   color: rgba(255,255,255,1);
 }
 
