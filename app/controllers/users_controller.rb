@@ -8,9 +8,10 @@ class UsersController < ApplicationController
       format.json { render :json => @users }
     end
     friendships1 = Friendship.where("friend_id = #{@current_user.id} AND approved = true") # this is going to only grab other side approved friendships
-    friendships2 = Friendship.where("user_id = #{@current_user.id} AND approved = true")
-    @friends = friendships1 & friendships2
-    friendships.each {|friendship| @friends << User.find(friendship.user_id)}
+    # friendships2 = Friendship.where("user_id = #{@current_user.id} AND approved = true")
+    # @friends = friendships1 & friendships2
+    @friends = []
+    friendships1.each {|friendship| @friends << User.find(friendship.user_id)}
 
     friends_awaiting_approval = @current_user.friendships.where(:approved => :false)
     @friend_requests = []
@@ -19,7 +20,6 @@ class UsersController < ApplicationController
     pending_approval = Friendship.where("friend_id = #{@current_user.id} AND approved = false")
     @pending_friend_requests = []
     pending_approval.each {|friendship| @pending_friend_requests << User.find(friendship.friend_id)}
-
   end
 
   def new
