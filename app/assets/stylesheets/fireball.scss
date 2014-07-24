@@ -496,6 +496,11 @@ nav a:hover{
   color: rgba(255,255,255,1);
 }
 
+/*PROGRESS BAR*/
+#progressbar .ui-progressbar-value{
+  background-color: #f34223;
+}
+
 @-viewport {
   width: 900px;
   height: 1280px;
