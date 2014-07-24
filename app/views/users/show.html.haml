@@ -3,9 +3,13 @@
 %h2= "You have #{@my_total_score} points."
 
 %h2 Your best Games:
+-counter = 0
 - @high_scores.each do |game|
-  %li= "#{LANGUAGES.invert[game.language]} : #{game.points}"
+  - counter += 1
+  %li= "#{counter}. #{LANGUAGES.invert[game.language]} : #{game.points}"
 
 %h2 Top users:
+- counter = 0
 - @ranking.each do |username, score|
-  %li= "#{username}: #{score}"
+  - counter += 1
+  %li= "#{counter}. #{username}: #{score}"

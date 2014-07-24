@@ -481,6 +481,20 @@ nav a:hover{
   text-align: center;
 }
 
+.content li{
+  list-style: none;
+  font-size: 22px;
+  color: rgba(255, 255, 255, 0.4);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.content li:hover{
+  color: rgba(255,255,255,1);
+}
+
 @-viewport {
   width: 900px;
   height: 1280px;
