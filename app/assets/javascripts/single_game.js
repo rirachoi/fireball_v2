@@ -226,39 +226,31 @@ $(document).ready(function() {
                 setTimeout(function() {
 
                     //getting random index;
-                    var getRand = (function() {
-                        var nums = [0,1,2,3,4,5,6,7,8,9];
-                        var currentNum = [];
-                        function rand(n) {
-                            return (Math.random() * n)|0;
-                        }
-                            return function() {
-                        if (!currentNum.length) currentNum = nums.slice();
-                            return currentNum.splice(rand(currentNum.length), 1);
-                        }
-                        }());
+                    var nums = [0,1,2,3,4,5,6,7,8,9];
+                    var shuffleArray = function (array) {
+                            for (var d = array.length - 1; d > 0; d--) {
+                                var f = Math.floor(Math.random() * d); // no +1 here!
+                                var temp = array[d];
+                                array[d] = array[f];
+                                array[f] = temp;
+                            }
+                            return array;
+                        };
 
-                    randomIndex = getRand();
-                    //console.log(randomIndex);
+                    var randomArray = shuffleArray(nums);
+                    for(w=0; w< randomArray.length; w++){
+                            var randomIndex = randomArray[w];
+                        };
 
                     child.animate({"top": min_top+"px"}, 'slow');
                     child.find(".match").text();
                     child.find(".unmatch").text(question[randomIndex]);
                     child.show();
                     child.animate({
-                    // var userInput = child.find(".match").text();
-                    // var currentGameAnswer = child.find(".unmatch").text(question[randomIndex])
                        left: "+="+text_move_px
                     }, 5000, function() {
-                        // currentGameAnswer = child.find(".unmatch").text();
-                        // gameQuestion = child.find('.match').text(question[randomIndex]);
-                        // currentGameAnswer = string[gameQuestion.text()];
 
                         matchAnswer();
-                        //console.log(userInput, currentGameAnswer);
-
-                        console.log(gameQuestion);
-                        console.log(currentGameAnswer);
 
                         currentEl.removeClass("current");
                         currentEl.fadeOut('fast');
@@ -309,7 +301,6 @@ $(document).ready(function() {
 
         var gameQuestion = $(".current").find('.unmatch').text();
         var currentGameAnswer = string[gameQuestion];
-        // debugger;
 
             if ( currentGameAnswer == userInput ){
 
@@ -330,8 +321,8 @@ $(document).ready(function() {
                 }, 1000);
                 //getting water
                 var $score = $("#score").text();
-                //console.log($score);
-            // always write it from the biggest number
+
+                // always write it from the biggest number
                 if ($score > 249){
                     $('.water5').css({"background-color": "#0000B2"});
 
@@ -367,11 +358,6 @@ $(document).ready(function() {
                 currentElPress.animate({
                 left: box_left+"px"
                 }, 'fast');
-
-                console.log(userInput, currentGameAnswer);
-
-                // matchSpan = currentElPress.find(".match");
-                // unmatchSpan = currentElPress.find(".unmatch");
 
                 //fireball animation
                 $('.fireball_game').animate({
