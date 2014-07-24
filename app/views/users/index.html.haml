@@ -17,5 +17,7 @@
   %h3= 'Awaiting approval'
   %ul#friends_waiting
     - @friend_requests.each do |friend|
-      %li= "#{friend.username} #{link_to('Approve', '/friends/'+ friend.id.to_s, :method => :put)}".html_safe
+      %li
+        %span= "#{friend.username}"
+        = "#{link_to('Approve', '#', :id => 'approve_friend')}".html_safe
 
