@@ -7,6 +7,7 @@
   = button_tag('Add friend', :id => 'add_friend_btn')
 
 - unless @friends.empty?
+  %h3 Your friends:
   %ul#friends
     - @friends.each do |friend|
       %li= friend.username

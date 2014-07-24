@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-  if ($('#user_search').length == 0) {
+  if ($('#user_search').length == 0) { // only runs this code on the user search page
     return false;
   }
 
@@ -17,7 +17,7 @@ $(document).ready(function(){
        }
     }
     return arr;
-}
+  }
 
   var addFriend = function(event) {
     var $friendName = $('#user_search').val();
@@ -56,6 +56,21 @@ $(document).ready(function(){
         $a.text(response.username);
         $li.append($a);
         $('#friends').append($li);
+        $(this).closest('li').remove();
+      }
+    });
+  };
+
+  var removeFriend = function() {
+    var $friendName = $(this).siblings('span').text();
+    $.ajax({
+      url: '/friends/' + $friendName + '/approve',
+      method: 'post',
+      dataType: 'json',
+      data: {
+        "_method":"delete",
+      },
+      success: function(response) {
         $(this).closest('li').remove();
       }
     });
