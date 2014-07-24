@@ -102,7 +102,7 @@ ul {
   transition: all 0.3s ease-in-out;
 }
 
-.formsubmit input:hover, .formsubmit input:focus{
+.formsubmit input:hover, .formsubmit input:focus, a.formsubmit:hover, a.formsubmit:focus{
   box-shadow: 0 0 0 0;
   background-color: #008DBC;
   color: white;
@@ -499,9 +499,14 @@ nav a:hover{
 
 /* ABOUT PAGE */
 
-.about p{
+.about {
+
+}
+
+h1.about, .about p, .about h2{
   text-align: center;
 }
+
 
 .about_peng {
   height: 14em;
@@ -525,21 +530,29 @@ nav a:hover{
 
 .signup_signin a {
   margin: 0 .5em;
+  box-shadow: none;
+  color: #fff;
 }
+
+a.formsubmit:hover, a.formsubmit:focus {
+  font-size: 25px;
+}
+
 
 .us_box {
   // border-top: 5px solid white;
   width: 80%;
   padding-top: 5em;
   margin: auto;
-  margin-top: 5em;
+  // margin-top: 5em;
 }
 
-.us_box .me_box {
-  width: 25%;
-  margin-left: 6%;
-  display: inline-block;
-  vertical-align: top;
+.me_box {
+  width: 40%;
+  margin: auto;
+  display: block;
+  // vertical-align: top;
+  margin-top: 2em;
   text-align: center;
 }
 
@@ -561,6 +574,10 @@ nav a:hover{
 .me_box ul {
   list-style: none;
   padding: 0;
+}
+
+.me_box ul li {
+  text-align: center;
 }
 
 .me_box ul li a, .icon_credit li a {
