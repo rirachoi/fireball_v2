@@ -174,8 +174,8 @@ $(document).ready(function() {
 ///////////-------creat animaite box html---------//////////
 
     var createAnimatedbox = function(){
-        // making html 20 elements - 20times of word falling
-        for(var b=0; b<20; b++){
+        // making html 9 elements - 9 times of word falling
+        for(var b=0; b<10; b++){
             var $animatedbox = $('<div class="animatedbox"/>');
             var $match = $('<span class="match"/>');
             var $unmatch = $('<span class="unmatch"/>');
@@ -183,6 +183,14 @@ $(document).ready(function() {
             $($animatedbox).append($unmatch);
             $('#ani_container').append($animatedbox);
             };
+
+        // making the last element
+        var $animatedbox = $('<div class="animatedbox" id="last"/>');
+        var $match = $('<span class="match"/>');
+        var $unmatch = $('<span class="unmatch"/>');
+        $($animatedbox).append($match);
+        $($animatedbox).append($unmatch);
+        $('#ani_container').append($animatedbox);
     };
 
 
@@ -219,7 +227,18 @@ $(document).ready(function() {
             for (i=0; i<children.length; i++) {
                 var delaytime = i * 5000;
                 setTimeout(function() {
-                    randomIndex = randomFromTo(0, question.length - 1);
+                    //randomIndex = randomFromTo(0, question.length - 1);
+                    indexArray = randomFromTo(0, question.length - 1);
+
+                    //getting ramdom index without repeating
+                    var shuffle = function(array){
+                        for(var j, x, t = array.length; t; j = parseInt(Math.random() * t), x = array[--t], array[t] = array[t], array[t] = x);
+                        return array
+                        };
+
+                    randomIndex = shuffle(indexArray);
+                    console.log(randomIndex);
+
                     child.animate({"top": min_top+"px"}, 'slow');
                     child.find(".match").text();
                     child.find(".unmatch").text(question[randomIndex]);
@@ -235,9 +254,10 @@ $(document).ready(function() {
                         if (currentEl.attr("id") == "last") {
                                 child.addClass("current");
                                 currentEl = $(".current");
-                                if (stop) {
-                                   $("#btnplay").text("Play");
-                                }
+
+                                endPlay();
+                                $('#game_over').fadeIn();
+
                         } else {
                                 currentEl.next().addClass("current");
                                 currentEl = currentEl.next();
@@ -247,6 +267,7 @@ $(document).ready(function() {
                 }, delaytime);
 
             } // end for loop for word blocks
+
          };// end of loopAnimatebox
        loopAnimatedBox();
     };//end of moveAnimatedBox
