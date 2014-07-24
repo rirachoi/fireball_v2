@@ -248,9 +248,9 @@ $(document).ready(function() {
                     child.show();
                     child.animate({
                        left: "+="+text_move_px
-                    }, 5000, function() {
+                        }, 5000, function() {
 
-                        matchAnswer();
+                        matchAnswer(); // this is being called
 
                         currentEl.removeClass("current");
                         currentEl.fadeOut('fast');
@@ -306,7 +306,7 @@ $(document).ready(function() {
 
                 currentElPress.stop().effect("explode", 500);
                 currentElPress.animate({
-                left: box_left+"px"
+                    left: box_left+"px"
                 }, 'fast');
 
                 currentElPress.removeClass("current");

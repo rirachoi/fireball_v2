@@ -7,12 +7,14 @@ Rails.application.routes.draw do
   post 'games/:id/end' => 'games#end_game'
   post 'games/:id/start' => 'games#start_game'
   resources :games, :only => [:create, :show, :index, :destroy]
-  resources :users
+  resources :users, :except => [:index]
   resources :messages, :only => [:show]
 
   # post '/friends/:id/approve' => 'friends#approve'
   # post '/friends/:id' => 'friends#invite'
   # delete '/friends/:id' => 'friends#destroy'
+
+  get '/about' => 'pages#about'
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
