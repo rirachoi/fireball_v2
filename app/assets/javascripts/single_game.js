@@ -73,7 +73,7 @@ $(document).ready(function() {
         $pengLives.append($liveImg2);
         $pengLives.append($liveImg3);
         $pengLives.prependTo("#toolbar");
-        ($('#btnplay')).after($pengLives);
+        ($('#lives')).after($pengLives);
     };
 
     //set images which will appear when user click the btnplay
@@ -158,18 +158,10 @@ $(document).ready(function() {
     };
 //////////------- buttons setting -------///////////////
     //Pause function is not working well
-    var btnSetting = function(){
-        $("#btnplay").text("Play");
+    // var btnSetting = function(){
 
-        if ($(this).text() == "Play") {
-            startPlay();
-            $(this).text("Lives: ");
-            $("#btnplay").hide();
-            lives = $('<span id="lives">Lives: </span>');
-            $('#boxscore').after(lives);
-        };
-        return false;
-    }; //end of btnSetting
+
+    // }; //end of btnSetting
 
 ///////////-------creat animaite box html---------//////////
 
@@ -267,6 +259,16 @@ $(document).ready(function() {
                             matchAnswer();
                         }
 
+                        if (currentEl.attr("id") == "last") {
+
+                            endPlay();
+
+                            $('.msgEnd').show();
+                            $('#game_over').fadeIn('slow');
+                            $('#game_window').css({"background":"opacity:0.5"});
+
+                        }
+
                     });
                     child = child.next();
                 }, delaytime);
@@ -304,7 +306,7 @@ $(document).ready(function() {
         }
 
         var gameQuestion = $(".current").find('.unmatch').text();
-        console.log('question,', gameQuestion, "answer", currentGameAnswer, "userinput:", userInput);
+        console.log('question,', gameQuestion, "answer:", currentGameAnswer, "userinput:", userInput, timeup);
 
         currentGameAnswer = string[gameQuestion];
 
@@ -382,7 +384,7 @@ $(document).ready(function() {
                     endPlay();
                     $('.msgEnd').show();
                     $('#game_over').fadeIn('slow');
-                                    $('#game_window').css({"background":"opacity:0.5"});
+                    $('#game_window').css({"background":"opacity:0.5"});
 
                 } else if (wrongAnswerCount == 2){
                     $('.peng_game').attr('src','/assets/emoticons/surprise.png');
@@ -398,21 +400,10 @@ $(document).ready(function() {
 
     }; // end matchAnswer
 
-    // var pengAnimation = function () {
-    //     var $pengRoadRun = $('<div class="pengRoadRun"/>');
-    //     var $pengRoadRunImg = $('<img class="peng-target"/>');
-    //     $pengRoadRunImg.attr('src', '/assets/emoticons/surprise.png');
-    //     $pengRoadRun.append($pengRoadRunImg);
-    //     $('#ani_container').append($pengRoadRun);
-    // };
-
     var startPlay = function() {
 
         //$pengRoadRun.show();
         // MAKE NEW LOADING BAR
-
-        $('.pengRoadRun').show();
-        $('.pengRoadRun').fadeIn('slow');
         $('#progressbar').progressbar({
             value: false
         });
@@ -433,18 +424,25 @@ $(document).ready(function() {
                 question = Object.keys(string);
                 //console.log(Object.keys(string));
 
+                $(".peng-target").hide();
+                $("#btnplay").hide();
                 $('#userInput').focus();
+
+                lives = $('<span id="lives">Lives: </span>');
+                $('#boxscore').after(lives);
+
                 createAnimatedbox();
                 moveAnimatedbox();
                 insertImages();
                 setPlayImages();
                 displayWordlist();
-
+                loadPlayImage();
                 // $('#progressbar').hide();
                 $('#progressbar').fadeOut('slow');
                 $('.peng_game').fadeIn('slow');
                 $('.fireball_game').fadeIn('slow');
-                loadPlayImage();
+
+
             }
         });
 
@@ -543,7 +541,34 @@ $(document).ready(function() {
 
     }; // end endplay
 
+    var pengAnimation = function () {
+        var $pengRoadRun = $('<div class="pengRoadRun"/>');
+        var $pengRoadRunImg = $('<img class="peng-target"/>');
+        $pengRoadRunImg.attr('src', '/assets/emoticons/surprise.png');
+        $pengRoadRun.append($pengRoadRunImg);
+        $('#container').prepend($pengRoadRun);
+    };
 
+    var btnAnimation = function(){
+        $("#btnplay").hover(function(){
+        $(this).html("PLAY").velocity({
+            backgroundColorRed : "0",
+            translateY: "-1.5rem",
+            rotateZ: "-10deg"
+          }, 100, "easeOut").velocity({
+            rotateZ: "8deg",
+          }, 150).velocity({
+            translateY: "0",
+            rotateZ: "0"
+          }, 600, "easeOutBounce");
+
+          $("+ .btnshadow", this).velocity({
+            scale: "1.3",
+            opacity: "1"
+          }, 150).velocity("reverse", 600, "easeOutBounce");
+
+        });
+    };
 
 /////////------button and click for calling functions--------///////////
     $('#btnsubmit').on('click', matchAnswer);
@@ -553,8 +578,10 @@ $(document).ready(function() {
         }
     });
 
-    $("#btnplay").on('click', btnSetting);
+    btnAnimation();
 
-    // pengAnimation();
+    $("#btnplay").on('click', startPlay);
+
+    pengAnimation();
 
 }); // end of document ready
