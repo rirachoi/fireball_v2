@@ -251,13 +251,13 @@ $(document).ready(function() {
                        left: "+="+text_move_px
                     }, 5000, function() {
                         // currentGameAnswer = child.find(".unmatch").text();
-                        gameQuestion = child.find('.unmatch').text();
-                        currentGameAnswer = string[gameQuestion];
+                        // gameQuestion = child.find('.match').text(question[randomIndex]);
+                        // currentGameAnswer = string[gameQuestion.text()];
 
                         matchAnswer();
                         //console.log(userInput, currentGameAnswer);
 
-                        console.log(child.find(".unmatch").text(question[randomIndex]));
+                        console.log(gameQuestion);
                         console.log(currentGameAnswer);
 
                         currentEl.removeClass("current");
@@ -309,6 +309,7 @@ $(document).ready(function() {
 
         var gameQuestion = $(".current").find('.unmatch').text();
         var currentGameAnswer = string[gameQuestion];
+        // debugger;
 
             if ( currentGameAnswer == userInput ){
 
