@@ -604,6 +604,6 @@ $(document).ready(function() {
     $("#btnplay").on('click', startPlay);
 
     pengAnimation();
-    sideBackground();
+    //sideBackground();
 
 }); // end of document ready
