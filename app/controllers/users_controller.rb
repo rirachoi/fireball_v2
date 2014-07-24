@@ -5,14 +5,20 @@ class UsersController < ApplicationController
     @users = @users.reject{|u| u == @current_user} # remove the current user from search results
     respond_to do |format|
       format.html {}
-      format.json { render :json => @priorities }
+      format.json { render :json => @users }
     end
-    friendships = @current_user.friendships.where(:approved => :true)
+    friendships = Friendship.where("friend_id = #{@current_user.id} AND approved = true")
     @friends = []
     friendships.each {|friendship| @friends << User.find(friendship.friend_id)}
+
     friends_awaiting_approval = @current_user.friendships.where(:approved => :false)
     @friend_requests = []
     friends_awaiting_approval.each {|friendship| @friend_requests << User.find(friendship.friend_id)}
+
+    pending_approval = Friendship.where("friend_id = #{@current_user.id} AND approved = false")
+    @pending_friend_requests = []
+    pending_approval.each {|friendship| @pending_friend_requests << User.find(friendship.friend_id)}
+
   end
 
   def new

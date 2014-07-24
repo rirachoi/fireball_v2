@@ -14,10 +14,16 @@
       -#%li= link_to( friend.username, chat_path( Chat.find_by(:user2_id => friend.id) ) )
 
 - unless @friend_requests.empty?
-  %h3= 'Awaiting approval'
+  %h3= 'You have friend requests:'
   %ul#friends_waiting
     - @friend_requests.each do |friend|
       %li
         %span= "#{friend.username}"
         = "#{link_to('Approve', '#', :id => 'approve_friend')}".html_safe
 
+- unless @pending_friend_requests.empty?
+  %h3= 'Awaiting your friend\'s approval'
+  %ul#friends_waiting
+    - @pending_friend_requests.each do |friend|
+      %li
+        %span= "#{friend.username}"
