@@ -46,25 +46,25 @@ module ApplicationHelper
       links += "</div>"
       links += "</div>"
 
-      links += "<div class='flip-container'>"
-      links += "<div class='flipper'>"
-      links += "<div class='front'>"
-      links += link_to (users_path) do
-                image_tag('icons/friends.png', :class => 'thumb')
-              end
-      links +="</div>"
+      # links += "<div class='flip-container'>"
+      # links += "<div class='flipper'>"
+      # links += "<div class='front'>"
+      # links += link_to (users_path) do
+      #           image_tag('icons/friends.png', :class => 'thumb')
+      #         end
+      # links +="</div>"
 
-      links += "<div class='back'>"
-      links += link_to('Chat to friends', users_path)
-      links += "</div>"
-      links += "</div>"
-      links += "</div>"
+      # links += "<div class='back'>"
+      # links += link_to('Chat to friends', users_path)
+      # links += "</div>"
+      # links += "</div>"
+      # links += "</div>"
 
-      unless @current_user.friendships.where(:approved => false).empty?
-        links += "<div class='friend requests'>"
-        links += "You have #{pluralize(@current_user.friendships.where(:approved => false).count,'friend request')} "
-        links += "</div>"
-      end
+      # unless @current_user.friendships.where(:approved => false).empty?
+      #   links += "<div class='friend requests'>"
+      #   links += "You have #{pluralize(@current_user.friendships.where(:approved => false).count,'friend request')} "
+      #   links += "</div>"
+      # end
 
       links += "<div class='flip-container'>"
       links += "<div class='flipper'>"
@@ -98,7 +98,7 @@ module ApplicationHelper
       links += "</div>"
       links += "</div>"
 
-    else
+    else # if there's no one logged in
       links += "<div class='flip-container'>"
       links += "<div class='flipper'>"
       links += "<div class='front'>"
