@@ -500,7 +500,7 @@ nav a:hover{
 /* ABOUT PAGE */
 
 .about {
-
+  min-width: 504px;
 }
 
 h1.about, .about p, .about h2{
@@ -551,7 +551,6 @@ a.formsubmit:hover, a.formsubmit:focus {
   width: 40%;
   margin: auto;
   display: block;
-  // vertical-align: top;
   margin-top: 2em;
   text-align: center;
 }
