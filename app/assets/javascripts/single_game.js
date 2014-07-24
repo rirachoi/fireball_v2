@@ -230,24 +230,36 @@ $(document).ready(function() {
                         var nums = [0,1,2,3,4,5,6,7,8,9];
                         var currentNum = [];
                         function rand(n) {
-                        return (Math.random() * n)|0;
+                            return (Math.random() * n)|0;
                         }
-                        return function() {
+                            return function() {
                         if (!currentNum.length) currentNum = nums.slice();
-                        return currentNum.splice(rand(currentNum.length), 1);
+                            return currentNum.splice(rand(currentNum.length), 1);
                         }
                         }());
 
                     randomIndex = getRand();
-                    console.log(randomIndex);
+                    //console.log(randomIndex);
 
                     child.animate({"top": min_top+"px"}, 'slow');
                     child.find(".match").text();
                     child.find(".unmatch").text(question[randomIndex]);
                     child.show();
                     child.animate({
+                    // var userInput = child.find(".match").text();
+                    // var currentGameAnswer = child.find(".unmatch").text(question[randomIndex])
                        left: "+="+text_move_px
                     }, 5000, function() {
+                        // currentGameAnswer = child.find(".unmatch").text();
+                        gameQuestion = child.find('.unmatch').text();
+                        currentGameAnswer = string[gameQuestion];
+
+                        matchAnswer();
+                        //console.log(userInput, currentGameAnswer);
+
+                        console.log(child.find(".unmatch").text(question[randomIndex]));
+                        console.log(currentGameAnswer);
+
                         currentEl.removeClass("current");
                         currentEl.fadeOut('fast');
                         currentEl.animate({
@@ -317,7 +329,7 @@ $(document).ready(function() {
                 }, 1000);
                 //getting water
                 var $score = $("#score").text();
-                console.log($score);
+                //console.log($score);
             // always write it from the biggest number
                 if ($score > 249){
                     $('.water5').css({"background-color": "#0000B2"});
