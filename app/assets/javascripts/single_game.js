@@ -222,7 +222,7 @@ $(document).ready(function() {
 
 
             for (i=0; i<children.length; i++) {
-                var delaytime = i * 5000;
+                var delaytime = i * 6000;
                 setTimeout(function() {
 
                     //getting random index;
@@ -248,7 +248,11 @@ $(document).ready(function() {
                     child.show();
                     child.animate({
                        left: "+="+text_move_px
-                    }, 5000, function() {
+                    }, 6000, function() {
+                        //gameQuestion = $(".current").find('.unmatch').text();
+                        currentGameAnswer = string[question[randomIndex]];
+                        debugger;
+                        console.log(currentGameAnswer);
 
                         matchAnswer();
 
@@ -493,7 +497,7 @@ $(document).ready(function() {
         $('.msgEnd').show();
 
         answerShow();
-        //$('#userAnswer').css({"opacity":0.4});
+
         $('#userAnswer').fadeOut();
         $('#game_window').css({"height": 655+"px"});
 
