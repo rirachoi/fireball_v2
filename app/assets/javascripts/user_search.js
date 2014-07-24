@@ -35,16 +35,38 @@ $(document).ready(function(){
           success: function (response) {
             var $li = $('<li/>');
             var $a = $('<a/>');
-            removeByAttr(all_users, 'name', $friendName);
+            // removeByAttr(all_users, 'name', $friendName);
           }
         });
 
+  };
+
+  var approveFriend = function() {
+    var $friendName = $(this).siblings('span').text();
+    $.ajax({
+      url: '/friends/' + $friendName + '/approve',
+      method: 'post',
+      dataType: 'json',
+      data: {
+        username: $friendName
+      },
+      success: function(response) {
+        var $li = $('<li/>');
+        var $a = $('<a/>');
+        $a.text(response.username);
+        $li.append($a);
+        $('#friends').append($li);
+        $(this).closest('li').remove();
+      }
+    });
   };
 
   $('#search').on('submit', function(event){
     event.preventDefault();
   });
 
+
+  $('#approve_friend').on('click', approveFriend);
   $('#add_friend_btn').on('click', addFriend);
   $('#user_search').on('keydown', function(event){
     if (event.which == 13) {

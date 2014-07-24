@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   resources :users
   resources :messages, :only => [:show]
 
+  post '/friends/:id/approve' => 'friends#approve'
   post '/friends/:id' => 'friends#invite'
-  put '/friends/:id' => 'friends#approve'
   delete '/friends/:id' => 'friends#destroy'
 
   get '/login' => 'sessions#new'
