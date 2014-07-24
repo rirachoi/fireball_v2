@@ -9,14 +9,14 @@
 
 
 %div.signup_signin
-  = link_to("Sign up", "#", :class => 'formsubmit')
-  = link_to("Sign in", "#", :class => 'formsubmit')
+  = link_to("Sign up", new_user_path, :class => 'formsubmit')
+  = link_to("Sign in", login_path, :class => 'formsubmit')
 
 
 %div.us_box
   %div.me_box
     %div.bio_img
-      =image_tag('images/emoticons/happy.png')
+      = image_tag( asset_path('/assets/emoticons/happy.png') )
     %h3 Rira
     %ul.links
       %li
@@ -24,7 +24,7 @@
 
   %div.me_box
     %div.bio_img
-      = image_tag('/assets/emoticons/smoke.png')
+      = image_tag( asset_path('/assets/emoticons/smoke.png') )
     %h3 Rich
     %ul.links
       %li
@@ -32,7 +32,7 @@
 
   %div.me_box
     %div.bio_img
-      =image_tag('/assets/emoticons/fireball.png')
+      = image_tag( asset_path('/assets/emoticons/fireball.png') )
     %h3 Larlyn
     %ul.links
       %li

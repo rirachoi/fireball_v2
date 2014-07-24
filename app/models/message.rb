@@ -172,8 +172,8 @@ class Message < ActiveRecord::Base
       "peng_avatar_background" => "emoticons/peng_avatar_background.png",
       "peng_avatar" => "emoticons/peng_avatar.png",
       "punch" => "emoticons/punch.png",
-      "seal_avata" => "emoticons/seal_avata.png",
-      "seal_avata_background" => "emoticons/seal_avata_background.png",
+      "seal_avatar" => "emoticons/seal_avata.png",
+      "seal_avatar_background" => "emoticons/seal_avata_background.png",
       "shopping" => "emoticons/shopping.png",
       "stress" => "emoticons/stress.png",
       "sunny" => "emoticons/sunny.png"
