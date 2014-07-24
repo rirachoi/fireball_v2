@@ -90,7 +90,7 @@ ul {
   margin-bottom: 10em;
 }
 
-.formsubmit input{
+.formsubmit input, a.formsubmit{
   padding: 1em;
   font-size: 25px;
   border-radius: 0.5em;
@@ -102,7 +102,7 @@ ul {
   transition: all 0.3s ease-in-out;
 }
 
-.formsubmit input:hover, .formsubmit input:focus{
+.formsubmit input:hover, .formsubmit input:focus, a.formsubmit:hover, a.formsubmit:focus{
   box-shadow: 0 0 0 0;
   background-color: #008DBC;
   color: white;
@@ -497,30 +497,78 @@ nav a:hover{
 }
 
 
+/* ABOUT PAGE */
+
+.about {
+
+}
+
+h1.about, .about p, .about h2{
+  text-align: center;
+}
+
+
+.about_peng {
+  height: 14em;
+  width: 14em;
+  overflow: hidden;
+  border-radius: 100%;
+  background-color: #fff;
+  margin:auto;
+}
+
+.about_peng img {
+  height: 17em;
+  width: 17em;
+  margin-left: -10%;
+}
+
 .signup_signin {
   text-align: center;
+  padding-top: 2em;
+}
+
+.signup_signin a {
+  margin: 0 .5em;
+  box-shadow: none;
+  color: #fff;
+}
+
+a.formsubmit:hover, a.formsubmit:focus {
+  font-size: 25px;
 }
 
 
 .us_box {
-  border-top: 5px solid white;
+  // border-top: 5px solid white;
+  width: 80%;
   padding-top: 5em;
   margin: auto;
-  margin-top: 5em;
+  // margin-top: 5em;
 }
 
-.us_box .me_box {
-  width: 25%;
-  margin: 0 2%;
-  display: inline-block;
-  vertical-align: top;
+.me_box {
+  width: 40%;
+  margin: auto;
+  display: block;
+  // vertical-align: top;
+  margin-top: 2em;
   text-align: center;
 }
 
-.me_box img{
-  height: 10em;
-  width: 10em;
+.me_box .bio_img{
+  height: 7em;
+  width: 7em;
+  overflow: hidden;
   border-radius: 100%;
+  background-color: #fff;
+  margin:auto;
+}
+
+.bio_img img {
+  margin-left: -5%;
+  height: 8em;
+  width: 8em;
 }
 
 .me_box ul {
@@ -528,29 +576,52 @@ nav a:hover{
   padding: 0;
 }
 
-.me_box ul li a {
+.me_box ul li {
+  text-align: center;
+}
+
+.me_box ul li a, .icon_credit li a {
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
 
-.me_box ul li a:link {
+.me_box ul li a:link, .icon_credit li a:link {
+  color: #F6AF1D;
+
+}
+
+.me_box ul li a:visited, .icon_credit li a:visited {
+  // color:#1C303E;
   color: #008DBC;
 }
 
-.me_box ul li a:visited {
-  color:#1C303E;
-}
-
-.me_box ul li a:hover {
+.me_box ul li a:hover, .icon_credit li a:hover {
   color: #C9E7EF;
 }
 
+.acknowledgements h5 {
+  text-align: center;
+}
+
+ul.icon_credit {
+  list-style: none;
+  padding-left: 1em;
+}
+
+.icon_credit li{
+  font-size: .5em;
+  padding-top: .8em;
+  color:#fff;
+  text-align: center;
+}
 
 footer {
   text-align: center;
 }
+
+/* ABOUT PAGE END */
 
 
 /*PROGRESS BAR*/

@@ -250,19 +250,11 @@ $(document).ready(function() {
                     child.find(".match").text();
                     child.find(".unmatch").text(question[randomIndex]);
                     child.show();
-                    // setTimeout(function() {
-                    //     console.log('match');
-                    //     timeup = true;
-                    //     matchAnswer();
-                    // }, 5500);
 
                     child.animate({
                        left: "+="+text_move_px
                     }, 6000, function() {
-                        // gameQuestion = $(".current").find('.unmatch').text();
-                        // currentGameAnswer = string[question[randomIndex]];
-                        //debugger;
-                        // console.log(gameQuestion, currentGameAnswer, $('#userInput').val());
+
                         if ($('#userInput').val() === null){
                             timeup = true;
                             matchAnswer();
@@ -271,31 +263,6 @@ $(document).ready(function() {
                             matchAnswer();
                         }
 
-                        // currentEl.removeClass("current");
-                        // currentEl.fadeOut('fast');
-
-
-                        // matchAnswer(); // this is being called
-
-                        // currentEl.removeClass("current");
-                        // currentEl.fadeOut('fast');
-                        // currentEl.animate({
-                        //     left: box_left+"px"
-                        // }, 'fast');
-                        // $('.current').removeClass('current');
-
-
-                        // if (currentEl.attr("id") == "last") {
-                        //         child.addClass("current");
-                        //         currentEl = $(".current");
-
-                        //         endPlay();
-                        //         $('#game_over').fadeIn();
-
-                        // } else {
-                        //         currentEl.next().addClass("current");
-                        //         currentEl = currentEl.next();
-                        // }
                     });
                     child = child.next();
                 }, delaytime);
@@ -325,15 +292,15 @@ $(document).ready(function() {
         var matchSpan = currentElPress.find(".match");
         var unmatchSpan = currentElPress.find(".unmatch");
         var unmatchText = unmatchSpan.text();
+
         if (timeup === true) {
             var userInput = 'xxxx'
         } else {
-            var userInput = $('#userInput').val();
+            var userInput = $('#userInput').val().toLowerCase();;
         }
-        console.log("timeup ", timeup);
+
         var gameQuestion = $(".current").find('.unmatch').text();
         console.log('question,', gameQuestion, "answer", currentGameAnswer, "userinput:", userInput);
-
 
         currentGameAnswer = string[gameQuestion];
 
@@ -408,10 +375,10 @@ $(document).ready(function() {
                     $('.peng_game').effect('bounce', {times:3}, 500);
                     $('#liveImg1').fadeOut();
 
-    // endPlay();
-    // $('.msgEnd').show();
-    // $('#game_over').fadeIn('slow');
-                    //$('#game_window').css({"background":"opacity:0.5"});
+                    endPlay();
+                    $('.msgEnd').show();
+                    $('#game_over').fadeIn('slow');
+                                    $('#game_window').css({"background":"opacity:0.5"});
 
                 } else if (wrongAnswerCount == 2){
                     $('.peng_game').attr('src','/assets/emoticons/surprise.png');
