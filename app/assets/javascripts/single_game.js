@@ -477,6 +477,9 @@ $(document).ready(function() {
         $('.msgEnd').show();
 
         answerShow();
+        //$('#userAnswer').css({"opacity":0.4});
+        $('#userAnswer').fadeOut();
+        $('#game_window').css({"height": 655+"px"});
 
         $("#boxscore").hide();
         $('#btnplay').hide();
