@@ -157,6 +157,26 @@ class Message < ActiveRecord::Base
       "blind" => "emoticons/drunken.png",
       "call" => "emoticons/call.png",
       "phone" => "emoticons/call.png"
+      ################ New Emoticons ###################
+      "bear_avatar" => "emoticons/bear_avatar.png"
+      "bear_avatar_background" => "emoticons/bear_avatar_background.png"
+      "die" => "emoticons/die.png"
+      "driving" => "emoticons/driving.png"
+      "eat" => "emoticons/eat.png"
+      "exercise" => "emoticons/exercise.png"
+      "good" => "emoticons/good.png"
+      "hallelujah" => "emoticons/hallelujah.png"
+      "laugh" => "emoticons/laugh.png"
+      "name" => "emoticons/name.png"
+      "peng_avatar_background" => "emoticons/peng_avatar_background.png"
+      "peng_avatar" => "emoticons/peng_avatar.png"
+      "punch" => "emoticons/punch.png"
+      "seal_avata" => "emoticons/seal_avata.png"
+      "seal_avata_background" => "emoticons/seal_avata_background.png"
+      "shopping" => "emoticons/shopping.png"
+      "stress" => "emoticons/stress.png"
+      "sunny" => "emoticons/sunny.png"
+
     }
 
   end

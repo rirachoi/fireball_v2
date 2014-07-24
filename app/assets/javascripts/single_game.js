@@ -472,23 +472,35 @@ $(document).ready(function() {
         console.log($actualScore);
         //giving comment depends on score
         if ($userScore > 249){
+            var $endImg = $('<img src = "/assets/emoticons/hallelujah.png" id="endImg"/>');
             var $comment = $('<h2 id="comment">Wizard Master!</h2>');
             $comment.appendTo($msgEnd);
+            $comment.before($endImg);
         } else if ($userScore > 199) {
+            var $endImg = $('<img src = "/assets/emoticons/punch.png" id="endImg"/>');
             var $comment = $('<h2 id="comment">Excellent!</h2>');
             $comment.appendTo($msgEnd);
+            $comment.before($endImg);
         } else if ($userScore > 149) {
+            var $endImg = $('<img src = "/assets/emoticons/good.png" id="endImg"/>');
             var $comment = $('<h2 id="comment">Good Job!!</h2>');
             $comment.appendTo($msgEnd);
+            $comment.before($endImg);
         } else if ($userScore > 99) {
+            var $endImg = $('<img src = "/assets/emoticons/smoke.png" id="endImg"/>');
             var $comment = $('<h2 id="comment">Well... Try More!</h2>');
             $comment.appendTo($msgEnd);
+            $comment.before($endImg);
         } else if ($userScore > 49) {
+            var $endImg = $('<img src = "/assets/emoticons/stress.png" id="endImg"/>');
             var $comment = $('<h2 id="comment">Are Kidding Me!?</h2>');
             $comment.appendTo($msgEnd);
+            $comment.before($endImg);
         } else if ($userScore == 0) {
+            var $endImg = $('<img src = "/assets/emoticons/die.png" id="endImg"/>');
             var $comment = $('<h2 id="comment">You Are Burnt Crispy!!</h2>');
             $comment.appendTo($msgEnd);
+            $comment.before($endImg);
         };
 
 
