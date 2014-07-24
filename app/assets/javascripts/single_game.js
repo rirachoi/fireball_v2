@@ -310,7 +310,7 @@ $(document).ready(function() {
                 currentElPress.addClass("current");
                 currentEl = currentElPress;
 
-                //add score
+            // add score
                 score += 50;
                 $("#score").text(score).effect("highlight", {
                     color: '#000000'
@@ -318,7 +318,7 @@ $(document).ready(function() {
                 //getting water
                 var $score = $("#score").text();
                 console.log($score);
-                // always write it from the biggest number
+            // always write it from the biggest number
                 if ($score > 249){
                     $('.water5').css({"background-color": "#0000B2"});
 
@@ -343,20 +343,30 @@ $(document).ready(function() {
                 //remove previous answer for next one
                 $('#userInput').val("");
 
-            } else if ( currentGameAnswer !== userInput){
-                currentElPress.fadeOut('fast');
+            } else {
+                currentElPress.stop().fadeOut('fast');
 
                 currentElPress.removeClass("current");
                 currentElPress = currentElPress.next();
                 currentElPress.addClass("current");
                 currentEl = currentElPress;
+
+                currentElPress.animate({
+                left: box_left+"px"
+                }, 'fast');
+
+                console.log(userInput, currentGameAnswer);
+
+                // matchSpan = currentElPress.find(".match");
+                // unmatchSpan = currentElPress.find(".unmatch");
+
                 //fireball animation
                 $('.fireball_game').animate({
                     'left':  '-=140px'
                 }, 'fast');
                 $('#userInput').val("");
 
-                //remove lives when useriput is wrong
+            //remove lives when useriput is wrong
                 var inputLetterCount = userInput.length;
                 wrongAnswerCount += 1;
                 if (wrongAnswerCount == 3 ){
