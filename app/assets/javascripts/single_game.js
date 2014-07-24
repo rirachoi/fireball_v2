@@ -1,6 +1,3 @@
-var randomFromTo = function (from, to){
-    return Math.floor(Math.random() * (to - from + 1) + from);
-}
 
 var questions;
 
@@ -227,16 +224,21 @@ $(document).ready(function() {
             for (i=0; i<children.length; i++) {
                 var delaytime = i * 5000;
                 setTimeout(function() {
-                    //randomIndex = randomFromTo(0, question.length - 1);
-                    indexArray = randomFromTo(0, question.length - 1);
 
-                    //getting ramdom index without repeating
-                    var shuffle = function(array){
-                        for(var j, x, t = array.length; t; j = parseInt(Math.random() * t), x = array[--t], array[t] = array[t], array[t] = x);
-                        return array
-                        };
+                    //getting random index;
+                    var getRand = (function() {
+                        var nums = [0,1,2,3,4,5,6,7,8,9];
+                        var currentNum = [];
+                        function rand(n) {
+                        return (Math.random() * n)|0;
+                        }
+                        return function() {
+                        if (!currentNum.length) currentNum = nums.slice();
+                        return currentNum.splice(rand(currentNum.length), 1);
+                        }
+                        }());
 
-                    randomIndex = shuffle(indexArray);
+                    randomIndex = getRand();
                     console.log(randomIndex);
 
                     child.animate({"top": min_top+"px"}, 'slow');
@@ -342,10 +344,8 @@ $(document).ready(function() {
                 $('#userInput').val("");
 
             } else if ( currentGameAnswer !== userInput){
-                currentElPress.stop().fadeOut('fast');
-                currentElPress.animate({
-                left: box_left+"px"
-                }, 'fast');
+                currentElPress.fadeOut('fast');
+
                 currentElPress.removeClass("current");
                 currentElPress = currentElPress.next();
                 currentElPress.addClass("current");
