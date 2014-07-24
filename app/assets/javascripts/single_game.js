@@ -18,6 +18,9 @@ var text_move_px = 100;
 
 var playGame;
 var stop;
+var timeup = false;
+
+var currentGameAnswer;
 
 //////////--------document ready start ---------///////////////
 
@@ -70,7 +73,7 @@ $(document).ready(function() {
         $pengLives.append($liveImg2);
         $pengLives.append($liveImg3);
         $pengLives.prependTo("#toolbar");
-        ($('#btnplay')).after($pengLives);
+        ($('#lives')).after($pengLives);
     };
 
     //set images which will appear when user click the btnplay
@@ -106,7 +109,7 @@ $(document).ready(function() {
         $('.water5').css({"background-color": "#C9E7EF"});
     };
 
- ////////------answer setting--------////////////////
+////////------answer setting--------////////////////
 
     var answers = $('<div class="answers"/>');
     // animation-target
@@ -155,18 +158,10 @@ $(document).ready(function() {
     };
 //////////------- buttons setting -------///////////////
     //Pause function is not working well
-    var btnSetting = function(){
-        $("#btnplay").text("Play");
+    // var btnSetting = function(){
 
-        if ($(this).text() == "Play") {
-            startPlay();
-            $(this).text("Lives: ");
-            $("#btnplay").hide();
-            lives = $('<span id="lives">Lives: </span>');
-            $('#boxscore').after(lives);
-        };
-        return false;
-    }; //end of btnSetting
+
+    // }; //end of btnSetting
 
 ///////////-------creat animaite box html---------//////////
 
@@ -221,12 +216,13 @@ $(document).ready(function() {
             currentEl = $(".current");
 
 
-            for (i=0; i<children.length; i++) {
-                var delaytime = i * 6000;
-                setTimeout(function() {
+            for (var l=0; l<children.length; l++) {
+                var delaytime = l * 6000;
 
+                setTimeout(function() {
                     //getting random index;
                     var nums = [0,1,2,3,4,5,6,7,8,9];
+
                     var shuffleArray = function (array) {
                             for (var d = array.length - 1; d > 0; d--) {
                                 var f = Math.floor(Math.random() * d); // no +1 here!
@@ -238,45 +234,46 @@ $(document).ready(function() {
                         };
 
                     var randomArray = shuffleArray(nums);
+
                     for(w=0; w< randomArray.length; w++){
                             var randomIndex = randomArray[w];
                         };
 
+                    // var randomIndex = indexArray(0, question.length -1);
+
+                    child.find(".unmatch").text(question[randomIndex]);
                     child.animate({"top": min_top+"px"}, 'slow');
                     child.find(".match").text();
-                    child.find(".unmatch").text(question[randomIndex]);
+
                     child.show();
+
                     child.animate({
                        left: "+="+text_move_px
                     }, 6000, function() {
-                        //gameQuestion = $(".current").find('.unmatch').text();
-                        currentGameAnswer = string[question[randomIndex]];
-                        debugger;
-                        console.log(currentGameAnswer);
 
-                        matchAnswer(); // this is being called
-
-                        currentEl.removeClass("current");
-                        currentEl.fadeOut('fast');
-                        currentEl.animate({
-                            left: box_left+"px"
-                        }, 'fast');
-                        if (currentEl.attr("id") == "last") {
-                                child.addClass("current");
-                                currentEl = $(".current");
-
-                                endPlay();
-                                $('#game_over').fadeIn();
-
+                        if ($('#userInput').val() === null){
+                            timeup = true;
+                            matchAnswer();
                         } else {
-                                currentEl.next().addClass("current");
-                                currentEl = currentEl.next();
+                            timeup = false;
+                            matchAnswer();
                         }
+
+                        if (currentEl.attr("id") == "last") {
+
+                            endPlay();
+
+                            $('.msgEnd').show();
+                            $('#game_over').fadeIn('slow');
+                            $('#game_window').css({"background":"opacity:0.5"});
+
+                        }
+
                     });
                     child = child.next();
                 }, delaytime);
 
-            } // end for loop for word blocks
+            }; // end for loop for word blocks
 
          };// end of loopAnimatebox
        loopAnimatedBox();
@@ -301,10 +298,17 @@ $(document).ready(function() {
         var matchSpan = currentElPress.find(".match");
         var unmatchSpan = currentElPress.find(".unmatch");
         var unmatchText = unmatchSpan.text();
-        var userInput = $('#userInput').val().toLowerCase();
+
+        if (timeup === true) {
+            var userInput = 'xxxx'
+        } else {
+            var userInput = $('#userInput').val().toLowerCase();;
+        }
 
         var gameQuestion = $(".current").find('.unmatch').text();
-        var currentGameAnswer = string[gameQuestion];
+        console.log('question,', gameQuestion, "answer:", currentGameAnswer, "userinput:", userInput, timeup);
+
+        currentGameAnswer = string[gameQuestion];
 
             if ( currentGameAnswer == userInput ){
 
@@ -380,7 +384,7 @@ $(document).ready(function() {
                     endPlay();
                     $('.msgEnd').show();
                     $('#game_over').fadeIn('slow');
-                    //$('#game_window').css({"background":"opacity:0.5"});
+                    $('#game_window').css({"background":"opacity:0.5"});
 
                 } else if (wrongAnswerCount == 2){
                     $('.peng_game').attr('src','/assets/emoticons/surprise.png');
@@ -398,11 +402,12 @@ $(document).ready(function() {
 
     var startPlay = function() {
 
+        //$pengRoadRun.show();
         // MAKE NEW LOADING BAR
-
         $('#progressbar').progressbar({
             value: false
-        })
+        });
+
 
         $.ajax({
             url: '/games/' + $currentGameId + '/start/',
@@ -417,20 +422,29 @@ $(document).ready(function() {
                 console.log(response);
                 string = questions;
                 question = Object.keys(string);
-                console.log(Object.keys(string));
+                //console.log(Object.keys(string));
+
+                $(".peng-target").hide();
+                $("#btnplay").hide();
+                //$(".sideBackground").fideOut();
 
                 $('#userInput').focus();
+
+                lives = $('<span id="lives">Lives: </span>');
+                $('#boxscore').after(lives);
+
                 createAnimatedbox();
                 moveAnimatedbox();
                 insertImages();
                 setPlayImages();
                 displayWordlist();
-
+                loadPlayImage();
                 // $('#progressbar').hide();
                 $('#progressbar').fadeOut('slow');
                 $('.peng_game').fadeIn('slow');
                 $('.fireball_game').fadeIn('slow');
-                loadPlayImage();
+
+
             }
         });
 
@@ -460,23 +474,35 @@ $(document).ready(function() {
         console.log($actualScore);
         //giving comment depends on score
         if ($userScore > 249){
+            var $endImg = $('<img src = "/assets/emoticons/hallelujah.png" id="endImg"/>');
             var $comment = $('<h2 id="comment">Wizard Master!</h2>');
             $comment.appendTo($msgEnd);
+            $comment.before($endImg);
         } else if ($userScore > 199) {
+            var $endImg = $('<img src = "/assets/emoticons/punch.png" id="endImg"/>');
             var $comment = $('<h2 id="comment">Excellent!</h2>');
             $comment.appendTo($msgEnd);
+            $comment.before($endImg);
         } else if ($userScore > 149) {
+            var $endImg = $('<img src = "/assets/emoticons/good.png" id="endImg"/>');
             var $comment = $('<h2 id="comment">Good Job!!</h2>');
             $comment.appendTo($msgEnd);
+            $comment.before($endImg);
         } else if ($userScore > 99) {
+            var $endImg = $('<img src = "/assets/emoticons/smoke.png" id="endImg"/>');
             var $comment = $('<h2 id="comment">Well... Try More!</h2>');
             $comment.appendTo($msgEnd);
+            $comment.before($endImg);
         } else if ($userScore > 49) {
+            var $endImg = $('<img src = "/assets/emoticons/stress.png" id="endImg"/>');
             var $comment = $('<h2 id="comment">Are Kidding Me!?</h2>');
             $comment.appendTo($msgEnd);
+            $comment.before($endImg);
         } else if ($userScore == 0) {
+            var $endImg = $('<img src = "/assets/emoticons/die.png" id="endImg"/>');
             var $comment = $('<h2 id="comment">You Are Burnt Crispy!!</h2>');
             $comment.appendTo($msgEnd);
+            $comment.before($endImg);
         };
 
 
@@ -529,7 +555,41 @@ $(document).ready(function() {
 
     }; // end endplay
 
+    var pengAnimation = function () {
+        var $pengRoadRun = $('<div class="pengRoadRun"/>');
+        var $pengRoadRunImg = $('<img class="peng-target"/>');
+        $pengRoadRunImg.attr('src', '/assets/emoticons/surprise.png');
+        $pengRoadRun.append($pengRoadRunImg);
+        $('#container').prepend($pengRoadRun);
+    };
 
+    // var btnAnimation = function(){
+    //     $("#btnplay").hover(function(){
+    //     $(this).html("PLAY").velocity({
+    //         backgroundColorRed : "0",
+    //         translateY: "-1.5rem",
+    //         rotateZ: "-10deg"
+    //       }, 100, "easeOut").velocity({
+    //         rotateZ: "8deg",
+    //       }, 150).velocity({
+    //         translateY: "0",
+    //         rotateZ: "0"
+    //       }, 600, "easeOutBounce");
+
+    //       $("+ .btnshadow", this).velocity({
+    //         scale: "1.3",
+    //         opacity: "1"
+    //       }, 150).velocity("reverse", 600, "easeOutBounce");
+
+    //     });
+    // };
+
+    var sideBackground = function() {
+        var $sideBackground = $('<div class="sideBackground"/>');
+        var $sideBackgroundImg = $('<img src="/assets/backgrounds/side-background.png" id="sideBackgroundImg"/>');
+        $sideBackground.append($sideBackgroundImg);
+        $('body').append($sideBackground);
+    };
 
 /////////------button and click for calling functions--------///////////
     $('#btnsubmit').on('click', matchAnswer);
@@ -539,7 +599,11 @@ $(document).ready(function() {
         }
     });
 
-    $("#btnplay").on('click', btnSetting);
+    //btnAnimation();
 
+    $("#btnplay").on('click', startPlay);
+
+    pengAnimation();
+    //sideBackground();
 
 }); // end of document ready
