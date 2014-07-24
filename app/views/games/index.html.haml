@@ -5,7 +5,7 @@
     - @games.each do |game|
       %li
         = link_to( LANGUAGES.invert[game.language], game_path(game.id) )
-        = form_tag "/games/#{game.id}", :id => 'delete_game' do
+        = form_tag "/games/#{game.id}", :id => 'delete_game', :method => :delete do
           = button_tag('x', :class => 'show_delete_game')
 
 
