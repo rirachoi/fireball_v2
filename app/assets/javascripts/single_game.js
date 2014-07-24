@@ -22,7 +22,6 @@ var timeup = false;
 
 var currentGameAnswer;
 
-
 //////////--------document ready start ---------///////////////
 
 $(document).ready(function() {
@@ -110,7 +109,7 @@ $(document).ready(function() {
         $('.water5').css({"background-color": "#C9E7EF"});
     };
 
- ////////------answer setting--------////////////////
+////////------answer setting--------////////////////
 
     var answers = $('<div class="answers"/>');
     // animation-target
@@ -225,12 +224,13 @@ $(document).ready(function() {
             currentEl = $(".current");
 
 
-            for (i=0; i<children.length; i++) {
-                var delaytime = i * 6000;
-                setTimeout(function() {
+            for (var l=0; l<children.length; l++) {
+                var delaytime = l * 6000;
 
+                setTimeout(function() {
                     //getting random index;
                     var nums = [0,1,2,3,4,5,6,7,8,9];
+
                     var shuffleArray = function (array) {
                             for (var d = array.length - 1; d > 0; d--) {
                                 var f = Math.floor(Math.random() * d); // no +1 here!
@@ -242,13 +242,17 @@ $(document).ready(function() {
                         };
 
                     var randomArray = shuffleArray(nums);
+
                     for(w=0; w< randomArray.length; w++){
                             var randomIndex = randomArray[w];
                         };
 
+                    // var randomIndex = indexArray(0, question.length -1);
+
+                    child.find(".unmatch").text(question[randomIndex]);
                     child.animate({"top": min_top+"px"}, 'slow');
                     child.find(".match").text();
-                    child.find(".unmatch").text(question[randomIndex]);
+
                     child.show();
 
                     child.animate({
@@ -267,7 +271,7 @@ $(document).ready(function() {
                     child = child.next();
                 }, delaytime);
 
-            } // end for loop for word blocks
+            }; // end for loop for word blocks
 
          };// end of loopAnimatebox
        loopAnimatedBox();
@@ -394,13 +398,25 @@ $(document).ready(function() {
 
     }; // end matchAnswer
 
+    // var pengAnimation = function () {
+    //     var $pengRoadRun = $('<div class="pengRoadRun"/>');
+    //     var $pengRoadRunImg = $('<img class="peng-target"/>');
+    //     $pengRoadRunImg.attr('src', '/assets/emoticons/surprise.png');
+    //     $pengRoadRun.append($pengRoadRunImg);
+    //     $('#ani_container').append($pengRoadRun);
+    // };
+
     var startPlay = function() {
 
+        //$pengRoadRun.show();
         // MAKE NEW LOADING BAR
 
+        $('.pengRoadRun').show();
+        $('.pengRoadRun').fadeIn('slow');
         $('#progressbar').progressbar({
             value: false
-        })
+        });
+
 
         $.ajax({
             url: '/games/' + $currentGameId + '/start/',
@@ -415,7 +431,7 @@ $(document).ready(function() {
                 console.log(response);
                 string = questions;
                 question = Object.keys(string);
-                console.log(Object.keys(string));
+                //console.log(Object.keys(string));
 
                 $('#userInput').focus();
                 createAnimatedbox();
@@ -539,5 +555,6 @@ $(document).ready(function() {
 
     $("#btnplay").on('click', btnSetting);
 
+    // pengAnimation();
 
 }); // end of document ready
