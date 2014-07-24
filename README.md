@@ -13,6 +13,6 @@ Fireball is a translator.
 + [x] Many funs.
 + [x] Wow.
 + [x] Larlyn has mad backend skills
-+ [x] Rira will forever hate JS Games
++ [x] Rira will forever hate JS Games but loves drawing stickers
 + [x] Rich now has a new found love for front-end
 + [x] Many Thanks to Darryn for all his loving support and assistance ;)

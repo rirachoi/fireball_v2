@@ -496,6 +496,63 @@ nav a:hover{
   color: rgba(255,255,255,1);
 }
 
+
+.signup_signin {
+  text-align: center;
+}
+
+
+.us_box {
+  border-top: 5px solid white;
+  padding-top: 5em;
+  margin: auto;
+  margin-top: 5em;
+}
+
+.us_box .me_box {
+  width: 25%;
+  margin: 0 2%;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+}
+
+.me_box img{
+  height: 10em;
+  width: 10em;
+  border-radius: 100%;
+}
+
+.me_box ul {
+  list-style: none;
+  padding: 0;
+}
+
+.me_box ul li a {
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.me_box ul li a:link {
+  color: #008DBC;
+}
+
+.me_box ul li a:visited {
+  color:#1C303E;
+}
+
+.me_box ul li a:hover {
+  color: #C9E7EF;
+}
+
+
+footer {
+  text-align: center;
+}
+
+
 /*PROGRESS BAR*/
 #progressbar .ui-progressbar-value{
   background-color: #f34223;

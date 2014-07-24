@@ -254,7 +254,7 @@ $(document).ready(function() {
                         debugger;
                         console.log(currentGameAnswer);
 
-                        matchAnswer();
+                        matchAnswer(); // this is being called
 
                         currentEl.removeClass("current");
                         currentEl.fadeOut('fast');
@@ -310,7 +310,7 @@ $(document).ready(function() {
 
                 currentElPress.stop().effect("explode", 500);
                 currentElPress.animate({
-                left: box_left+"px"
+                    left: box_left+"px"
                 }, 'fast');
 
                 currentElPress.removeClass("current");
