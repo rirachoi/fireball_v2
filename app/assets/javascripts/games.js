@@ -29,7 +29,7 @@ $(document).ready(function(){
             var $button = $('<button/>');
             $button.text('x');
             $button.attr("href", "/games/" + response.id);
-            $button.addClass('show_delete_chat');
+            $button.addClass('show_delete_game');
             $form.append($button);
             $game.append($form);
             $('#my_games ul').prepend($game);
@@ -39,7 +39,6 @@ $(document).ready(function(){
     };
 
     var deleteGame = function(event) {
-      event.preventDefault();
       var $this = $(this);
       $this.closest('li').remove(); // removes the li from the page of the remove link you click
 
@@ -61,11 +60,11 @@ $(document).ready(function(){
     $('#new_game').toggle();
   });
 
-  $('form#delete_game').on('submit', function(event){
-    event.preventDefault; // WHY ARE YOU NOT PREVENTDEFAULTING????
+  $('form#delete_game').submit(function(event){
+    event.preventDefault(); // WHY ARE YOU NOT PREVENTDEFAULTING???? // because there were no parens at the end fucnthgkjhghjkdfghjkgajkhajhk
   });
 
   $('#create_new_game').on('click', createGame);
-  $('#my_games').on('click', '.show_delete_chat', deleteGame);
+  $('#my_games').on('click', '.show_delete_game', deleteGame);
 
 });
