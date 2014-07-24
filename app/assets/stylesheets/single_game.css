@@ -1,7 +1,7 @@
 /*@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600);
 */
 #ani_container {
-    background: url(http://cdn2.qvectors.net./downloads/images/preview/snow_landscape_vector_preview.jpg);
+    background: url(/assets/backgrounds/background1.jpg);
     background-repeat: no-repeat;
     background-size: 100%;
     width: 600px;
@@ -393,6 +393,14 @@
     margin: auto 0;
 }
 
+#sideBackgroundImg, #game_window {
+    display: inline-block;
+}
+
+.sideBackground{
+    width: 100px;
+    background-color: rgb(255, 102, 0);
+}
 
 
 /*---------------------------*/

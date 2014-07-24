@@ -426,6 +426,8 @@ $(document).ready(function() {
 
                 $(".peng-target").hide();
                 $("#btnplay").hide();
+                //$(".sideBackground").fideOut();
+
                 $('#userInput').focus();
 
                 lives = $('<span id="lives">Lives: </span>');
@@ -561,25 +563,32 @@ $(document).ready(function() {
         $('#container').prepend($pengRoadRun);
     };
 
-    var btnAnimation = function(){
-        $("#btnplay").hover(function(){
-        $(this).html("PLAY").velocity({
-            backgroundColorRed : "0",
-            translateY: "-1.5rem",
-            rotateZ: "-10deg"
-          }, 100, "easeOut").velocity({
-            rotateZ: "8deg",
-          }, 150).velocity({
-            translateY: "0",
-            rotateZ: "0"
-          }, 600, "easeOutBounce");
+    // var btnAnimation = function(){
+    //     $("#btnplay").hover(function(){
+    //     $(this).html("PLAY").velocity({
+    //         backgroundColorRed : "0",
+    //         translateY: "-1.5rem",
+    //         rotateZ: "-10deg"
+    //       }, 100, "easeOut").velocity({
+    //         rotateZ: "8deg",
+    //       }, 150).velocity({
+    //         translateY: "0",
+    //         rotateZ: "0"
+    //       }, 600, "easeOutBounce");
 
-          $("+ .btnshadow", this).velocity({
-            scale: "1.3",
-            opacity: "1"
-          }, 150).velocity("reverse", 600, "easeOutBounce");
+    //       $("+ .btnshadow", this).velocity({
+    //         scale: "1.3",
+    //         opacity: "1"
+    //       }, 150).velocity("reverse", 600, "easeOutBounce");
 
-        });
+    //     });
+    // };
+
+    var sideBackground = function() {
+        var $sideBackground = $('<div class="sideBackground"/>');
+        var $sideBackgroundImg = $('<img src="/assets/backgrounds/side-background.png" id="sideBackgroundImg"/>');
+        $sideBackground.append($sideBackgroundImg);
+        $('body').append($sideBackground);
     };
 
 /////////------button and click for calling functions--------///////////
@@ -590,10 +599,11 @@ $(document).ready(function() {
         }
     });
 
-    btnAnimation();
+    //btnAnimation();
 
     $("#btnplay").on('click', startPlay);
 
     pengAnimation();
+    sideBackground();
 
 }); // end of document ready
