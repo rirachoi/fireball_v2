@@ -1,1 +1,11 @@
-%h1= "Welcome #{ @user.username.upcase }, This is Show page."
+%h1= "Welcome #{ @user.username.upcase }."
+
+%h2= "You have #{@my_total_score} points."
+
+%h2 Your best Games:
+- @high_scores.each do |game|
+  %li= "#{LANGUAGES.invert[game.language]} : #{game.points}"
+
+%h2 Top users:
+- @ranking.each do |username, score|
+  %li= "#{username}: #{score}"

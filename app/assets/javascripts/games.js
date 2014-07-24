@@ -62,7 +62,7 @@ $(document).ready(function(){
   });
 
   $('form#delete_game').on('submit', function(event){
-    event.preventDefault;
+    event.preventDefault; // WHY ARE YOU NOT PREVENTDEFAULTING????
   });
 
   $('#create_new_game').on('click', createGame);

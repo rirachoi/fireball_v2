@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root :to => 'chats#index'
+  root :to => 'users#show'
   resources :chats, :only => [:create, :show, :index, :destroy] do
     resources :messages, :only => [:create]
   end
@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :messages, :only => [:show]
 
   post '/friends/:id' => 'friends#invite'
+  put '/friends/:id' => 'friends#approve'
   delete '/friends/:id' => 'friends#destroy'
 
   get '/login' => 'sessions#new'

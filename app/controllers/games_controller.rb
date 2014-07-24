@@ -25,7 +25,6 @@ class GamesController < ApplicationController
   def end_game
     game = Game.find (params[:id])
     game.update(:points => params[:points], :completed => true)
-    # binding.pry
     render :json => game
   end
 
