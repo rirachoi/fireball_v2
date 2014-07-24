@@ -46,7 +46,7 @@ $(document).ready(function(){
 
             $newImg = $('<img/>');
             $newImg.addClass('sticker');
-            $newImg.attr("src", "/assets/" + response.image);
+            $newImg.attr("src", "/assets" + response.image);
 
 
             // add span with msg id
