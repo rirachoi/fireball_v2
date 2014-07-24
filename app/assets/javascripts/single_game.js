@@ -399,6 +399,11 @@ $(document).ready(function() {
     var startPlay = function() {
 
         // MAKE NEW LOADING BAR
+
+        $('#progressbar').progressbar({
+            value: false
+        })
+
         $.ajax({
             url: '/games/' + $currentGameId + '/start/',
             method: 'post',
@@ -421,6 +426,8 @@ $(document).ready(function() {
                 setPlayImages();
                 displayWordlist();
 
+                // $('#progressbar').hide();
+                $('#progressbar').fadeOut('slow');
                 $('.peng_game').fadeIn('slow');
                 $('.fireball_game').fadeIn('slow');
                 loadPlayImage();
