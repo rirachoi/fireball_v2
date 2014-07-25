@@ -7,7 +7,8 @@
   background: #C9E7EF;
   border-radius: 0.7em;
   margin: 0;
-
+  height: 60em;
+  margin-bottom: -20em;
 }
 
 #input.game {
