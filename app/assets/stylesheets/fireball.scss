@@ -738,7 +738,7 @@ footer {
   }
 
   .content {
-    max-width: 80%;
+    max-width: 100%;
     margin: 8em auto;
   }
 
@@ -781,12 +781,15 @@ footer {
     width: 125%;
   }
 
-   #new_chat_button:hover{
+  #new_chat_button:hover{
     width: 125%;
-
   }
 
   #new_chat input:hover{
+    width: 125%;
+  }
+
+  #my_games ul li a{
     width: 125%;
   }
 
