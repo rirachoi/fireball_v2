@@ -99,7 +99,7 @@ nav a:hover{
 
 .flip-container, .front, .back{
   width: 110px;
-  height: 10px;
+  height: 20px;
 }
 
 /* flipper speed goes here */
@@ -126,7 +126,6 @@ nav a:hover{
 .back{
   -webkit-transform: rotateY(180deg);
 }
-
 
 /*END NAV*/
 
@@ -425,9 +424,6 @@ img.login_tag {
 /*END INPUT BUTTONS*/
 /*END CHAT
 
-
-
-
 /*FRIEND SEARCH*/
 
 #friend_results {
@@ -504,7 +500,7 @@ img.login_tag {
 /* ABOUT PAGE */
 
 .about {
-  min-width: 504px;
+  width: 504px;
 }
 
 h1.about, .about p, .about h2{
@@ -542,21 +538,22 @@ a.formsubmit:hover, a.formsubmit:focus {
   font-size: 25px;
 }
 
-
 .us_box {
   // border-top: 5px solid white;
-  width: 80%;
+  width: 90%;
   padding-top: 5em;
   margin: auto;
   // margin-top: 5em;
 }
 
 .me_box {
-  width: 40%;
-  margin: auto;
-  display: block;
+  width: 20%;
+  // margin: auto;
+  display: inline-block;
   margin-top: 2em;
+  margin-left: 10%;
   text-align: center;
+  vertical-align: top;
 }
 
 .me_box .bio_img{
@@ -800,4 +797,25 @@ footer {
   #new_game input:hover{
     width: 125%;
   }
+
+  .about {
+    width: 100%;
+  }
+
+  .us_box {
+    // border-top: 5px solid white;
+    width: 80%;
+    padding-top: 5em;
+    margin: auto;
+    // margin-top: 5em;
+  }
+
+  .me_box {
+    width: 40%;
+    margin: auto;
+    display: block;
+    margin-top: 2em;
+    text-align: center;
+  }
+
 }
