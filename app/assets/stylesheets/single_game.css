@@ -303,7 +303,7 @@
     text-align: center;
 }
 
-#you_win, #game_over, #yourScore, #comment{
+#you_win, #game_over, #yourScore, #comment, #msgStartTitle{
     margin-left: 3%;
 
 }
@@ -339,8 +339,8 @@
 }
 
 .pengRoadRun img{
-    width: 115px;
-    height: 115px;
+    width: 130px;
+    height: 130px;
     margin-left: 30%;
     margin-top: -5%;
     margin-bottom: -10%;
@@ -354,18 +354,18 @@
 }
 
 #btnplay {
+    display: block;
     line-height: 3.5em;
     padding: 0 1.5em;
     font-size: 25px;
     height: 4em;
-    width: 15em;
+    width: 7em;
     background: #0099cc;
     box-shadow: inset 0 -.125rem rgba(0,0,0,.2);
     color: white;
     border-radius: 1.5em;
     cursor: pointer;
-    margin-top: -80%;
-    margin-left: 30%;
+    margin-left: 37%;
     text-align: center;
     user-select: none;
     transform-origin: 100% 100%;
@@ -393,15 +393,44 @@
     margin: auto 0;
 }
 
-#sideBackgroundImg, #game_window {
+#msgStart{
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 1em;
+    margin-left: 1.5%;
+    margin-top: -52%;
+    width: 580px;
+    height: 450px;
+    overflow: scroll;
+    text-align: center;
+}
+
+#msgStartTitle{
+
+    color: #FF8533;
+    font-size: 50px;
+}
+
+#rescuePengImg{
+    width:200px;
+    height: 200px;
+    margin-top: -7%;
+  /*  margin-right: 10%;*/
+}
+
+/*#sideBackgroundImg, #game_window{
     display: inline-block;
+    vertical-align: top;
+    margin-bottom: 10%;
 }
 
-.sideBackground{
-    width: 100px;
-    background-color: rgb(255, 102, 0);
+#sideBackgroundImg{
+    width: 300px;
+    height: 500px;
+    margin-left: 70%;
+    margin-top: -50%;
+    background-color: white;
 }
-
+*/
 
 /*---------------------------*/
 

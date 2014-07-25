@@ -425,7 +425,8 @@ $(document).ready(function() {
                 //console.log(Object.keys(string));
 
                 $(".peng-target").hide();
-                $("#btnplay").hide();
+                $("#msgStart").fadeOut('slow');
+                //$("#btnplay").hide();
                 //$(".sideBackground").fideOut();
 
                 $('#userInput').focus();
@@ -489,7 +490,7 @@ $(document).ready(function() {
             $comment.appendTo($msgEnd);
             $comment.before($endImg);
         } else if ($userScore > 99) {
-            var $endImg = $('<img src = "/assets/emoticons/smoke.png" id="endImg"/>');
+            var $endImg = $('<img src = "/assets/emoticons/wink.png" id="endImg"/>');
             var $comment = $('<h2 id="comment">Well... Try More!</h2>');
             $comment.appendTo($msgEnd);
             $comment.before($endImg);
@@ -558,7 +559,7 @@ $(document).ready(function() {
     var pengAnimation = function () {
         var $pengRoadRun = $('<div class="pengRoadRun"/>');
         var $pengRoadRunImg = $('<img class="peng-target"/>');
-        $pengRoadRunImg.attr('src', '/assets/emoticons/surprise.png');
+        $pengRoadRunImg.attr('src', '/assets/emoticons/driving.png');
         $pengRoadRun.append($pengRoadRunImg);
         $('#container').prepend($pengRoadRun);
     };
@@ -584,11 +585,23 @@ $(document).ready(function() {
     //     });
     // };
 
+    var msgStart = function(){
+        var $msgStart = $('<div id="msgStart"/>');
+        var $areYouReady = $('<h2 id="msgStartTitle">Rescue Peng!</h2>');
+        var $rescuePengImg = $('<img id="rescuePengImg"/>');
+        $rescuePengImg.attr('src', "/assets/emoticons/stress.png");
+        $msgStart.append($areYouReady);
+        $msgStart.append($rescuePengImg);
+        $msgStart.append($("#btnplay"));
+        $("#container").append($msgStart);
+    }
+
     var sideBackground = function() {
         var $sideBackground = $('<div class="sideBackground"/>');
-        var $sideBackgroundImg = $('<img src="/assets/backgrounds/side-background.png" id="sideBackgroundImg"/>');
+        var $sideBackgroundImg = $('<img id="sideBackgroundImg"/>');
+        $sideBackgroundImg.attr('src', "/assets/backgrounds/side-background.png");
         $sideBackground.append($sideBackgroundImg);
-        $('body').append($sideBackground);
+        $sideBackground.appendTo($('body'));
     };
 
 /////////------button and click for calling functions--------///////////
@@ -601,9 +614,13 @@ $(document).ready(function() {
 
     //btnAnimation();
 
-    $("#btnplay").on('click', startPlay);
+    $("#btnplay").on('click', function(){
+        startPlay();
+    });
+
+    msgStart();
 
     pengAnimation();
-    //sideBackground();
+    // sideBackground();
 
 }); // end of document ready
