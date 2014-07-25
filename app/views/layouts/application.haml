@@ -10,7 +10,10 @@
 
 
     %nav
-      = image_tag(@current_user.avatar, :class => 'avatar') if @current_user
+      - if @current_user
+        %div.current_user_box
+          = image_tag(@current_user.avatar, :class => 'avatar')
+          %h2.username= @current_user.username
       %ul
         = smartnav.html_safe
 

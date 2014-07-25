@@ -306,7 +306,7 @@ $(document).ready(function() {
         }
 
         var gameQuestion = $(".current").find('.unmatch').text();
-        console.log('question,', gameQuestion, "answer:", currentGameAnswer, "userinput:", userInput, timeup);
+        // console.log('question,', gameQuestion, "answer:", currentGameAnswer, "userinput:", userInput, timeup);
 
         currentGameAnswer = string[gameQuestion];
 
@@ -349,7 +349,7 @@ $(document).ready(function() {
                     $('.water1').css({"background-color": "#5CADFF"});
                     $('.water_basket').animate({"size": "200%"}, 'slow');
                 } else {
-                    console.log("You can't get any water hahahah");
+                    // console.log("You can't get any water hahahah");
                 }
 
                 //remove previous answer for next one
@@ -419,10 +419,10 @@ $(document).ready(function() {
             success: function(response) {
                 // REMOVE LOADING BAR
                 questions = response;
-                console.log(response);
+                // console.log(response);
                 string = questions;
                 question = Object.keys(string);
-                //console.log(Object.keys(string));
+                // console.log(Object.keys(string));
 
                 $(".peng-target").hide();
                 $("#btnplay").hide();
@@ -471,7 +471,7 @@ $(document).ready(function() {
         $msgEnd.append($yourScore);
 
         $actualScore = parseInt($userScore);
-        console.log($actualScore);
+        // console.log($actualScore);
         //giving comment depends on score
         if ($userScore > 249){
             var $endImg = $('<img src = "/assets/emoticons/hallelujah.png" id="endImg"/>');
