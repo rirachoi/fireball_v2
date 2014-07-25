@@ -203,7 +203,7 @@ class Message < ActiveRecord::Base
       "stress" => "emoticons/stress.png",
       "pressure" => "emoticons/stress.png",
       "nightmare" => "emoticons/stress.png",
-      "sunny" => "emoticons/sunny.png"
+      "sunny" => "emoticons/sunny.png",
       "sun" => "emoticons/sunny.png"
     }
 
