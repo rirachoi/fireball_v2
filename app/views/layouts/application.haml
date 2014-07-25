@@ -14,8 +14,7 @@
         %div.current_user_box
           = image_tag(@current_user.avatar, :class => 'avatar')
           %h2.username= @current_user.username
-      %ul
-        = smartnav.html_safe
+      = smartnav.html_safe
 
   %div.content
     = yield
