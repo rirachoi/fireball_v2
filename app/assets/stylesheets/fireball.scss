@@ -225,7 +225,7 @@ audio {
 }
 
 #chat_messages {
-  width: 500px;
+  width: 100%;
   position: relative;
   margin-bottom:80px;
 }
@@ -249,7 +249,7 @@ audio {
 }
 
 #chat_box.right {
-  right: 0;
+  margin-left:20em;
   // border-radius: 3em;
   border-bottom-right-radius: 0;
   padding: 2em;
@@ -752,7 +752,7 @@ footer {
   }
 
   #chat_messages {
-    max-width: 500px;
+    width: 100%;
     margin: auto;
   }
 
@@ -770,7 +770,7 @@ footer {
   }
 
   #chat_box.right {
-    margin-left: 20em;
+    margin-left: 9em;
     padding: .6em;
   }
 
