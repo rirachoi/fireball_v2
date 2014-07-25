@@ -19,3 +19,5 @@
 /config/initializers/api_key.rb
 
 .env
+
+# /assets/emoticons/
