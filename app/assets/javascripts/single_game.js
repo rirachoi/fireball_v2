@@ -424,6 +424,7 @@ $(document).ready(function() {
                 question = Object.keys(string);
                 // console.log(Object.keys(string));
 
+                $('#toolbar').css({"margin-top": 18+"%"});
                 $(".peng-target").hide();
                 $("#msgStart").hide();
                 //$("#btnplay").hide();
@@ -514,6 +515,9 @@ $(document).ready(function() {
         var $learnMore = $('<div id="learnMore"/>');
         var $learnMorePrint = $('<h2 id="learnMorePrint">Learn More</h2>');
 
+
+        $('#toolbar').css({"margin-top": 0+"px"});
+
         $learnMore.append($learnMorePrint);
         $msgEnd.append($replay);
         $msgEnd.append($learnMore);
@@ -526,7 +530,7 @@ $(document).ready(function() {
         answerShow();
 
         $('#userAnswer').fadeOut();
-        $('#game_window').css({"height": 655+"px"});
+
 
         $("#boxscore").hide();
         $('#btnplay').hide();
