@@ -425,7 +425,7 @@ $(document).ready(function() {
                 // console.log(Object.keys(string));
 
                 $(".peng-target").hide();
-                $("#msgStart").fadeOut('slow');
+                $("#msgStart").hide();
                 //$("#btnplay").hide();
                 //$(".sideBackground").fideOut();
 
@@ -596,13 +596,6 @@ $(document).ready(function() {
         $("#container").append($msgStart);
     }
 
-    var sideBackground = function() {
-        var $sideBackground = $('<div class="sideBackground"/>');
-        var $sideBackgroundImg = $('<img id="sideBackgroundImg"/>');
-        $sideBackgroundImg.attr('src', "/assets/backgrounds/side-background.png");
-        $sideBackground.append($sideBackgroundImg);
-        $sideBackground.appendTo($('body'));
-    };
 
 /////////------button and click for calling functions--------///////////
     $('#btnsubmit').on('click', matchAnswer);
@@ -621,6 +614,5 @@ $(document).ready(function() {
     msgStart();
 
     pengAnimation();
-    // sideBackground();
 
 }); // end of document ready

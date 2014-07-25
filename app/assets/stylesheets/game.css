@@ -4,12 +4,10 @@
 
 #game_window {
   width: 100%;
-  /*height: 100em;*/
   background: #C9E7EF;
- /* background-color: #0A1536;*/
   border-radius: 0.7em;
   margin: 0;
-  /*border: 10px solid #335CAD;*/
+
 }
 
 #input.game {

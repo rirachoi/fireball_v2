@@ -1,5 +1,10 @@
 /*@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600);
 */
+
+#contatiner{
+    width: 100%;
+}
+
 #ani_container {
     background: url(/assets/backgrounds/background1.jpg);
     background-repeat: no-repeat;
@@ -297,7 +302,7 @@
     border-radius: 1em;
     margin-left: 1.5%;
     margin-top: -15%;
-    width: 100%;
+    width: 580px;
     height: 550px;
     overflow: scroll;
     text-align: center;
@@ -417,20 +422,6 @@
   /*  margin-right: 10%;*/
 }
 
-/*#sideBackgroundImg, #game_window{
-    display: inline-block;
-    vertical-align: top;
-    margin-bottom: 10%;
-}
-
-#sideBackgroundImg{
-    width: 300px;
-    height: 500px;
-    margin-left: 70%;
-    margin-top: -50%;
-    background-color: white;
-}
-*/
 
 /*---------------------------*/
 
@@ -722,9 +713,3 @@
   98.809524% { -webkit-transform: matrix3d(1, 0, 0, 0, 0.8391, 1, 0, 0, 0, 0, 1, 0, 349.99648, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0.8391, 1, 0, 0, 0, 0, 1, 0, 349.99648, 0, 0, 1); }
   100% { -webkit-transform: matrix3d(1, 0, 0, 0, 0.8391, 1, 0, 0, 0, 0, 1, 0, 349.99743, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0.8391, 1, 0, 0, 0, 0, 1, 0, 349.99743, 0, 0, 1); }
 }
-
-
-
-
-
-
