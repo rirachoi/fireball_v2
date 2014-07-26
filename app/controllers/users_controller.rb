@@ -7,11 +7,9 @@ class UsersController < ApplicationController
       format.html {}
       format.json { render :json => @users }
     end
-    friendships1 = Friendship.where("friend_id = #{@current_user.id} AND approved = true") # this is going to only grab other side approved friendships
-    # friendships2 = Friendship.where("user_id = #{@current_user.id} AND approved = true")
-    # @friends = friendships1 & friendships2
+    friendships = Friendship.where("friend_id = #{@current_user.id} AND approved = true") # this is going to only grab other side approved friendships
     @friends = []
-    friendships1.each {|friendship| @friends << User.find(friendship.user_id)}
+    friendships.each {|friendship| @friends << User.find(friendship.user_id)}
 
     friends_awaiting_approval = @current_user.friendships.where(:approved => :false)
     @friend_requests = []
@@ -74,7 +72,6 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find params[:id]
     @user.destroy
-
     redirect_to users_path
   end
 
