@@ -7,7 +7,7 @@ class UsersController < ApplicationController
       format.html {}
       format.json { render :json => @users }
     end
-    friendships = Friendship.where("friend_id = #{@current_user.id} AND approved = true") # this is going to only grab other side approved friendships
+    friendships = @current_user.friendships.where(:approved => :true)
     @friends = []
     friendships.each {|friendship| @friends << User.find(friendship.user_id)}
 
