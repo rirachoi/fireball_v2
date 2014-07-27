@@ -14,6 +14,9 @@
         %div.current_user_box
           = image_tag(@current_user.avatar, :class => 'avatar')
           %h2.username= @current_user.username
+      - else
+        %div.current_user_box
+          = image_tag( asset_path('assets/emoticons/fireball.png'), :class => 'avatar')
       %div
       = smartnav.html_safe
 
