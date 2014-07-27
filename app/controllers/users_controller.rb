@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :check_if_logged_in, :except => [:new]
+  before_action :check_if_logged_in, :except => [:new,:create]
   def index
     @users = User.all
     @users = @users.reject{|u| u == @current_user} # remove the current user from search results
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     @user.avatar = "emoticon/peng.png"
     if @user.save
       session[:user_id] = @user.id
-      redirect_to users_path
+      redirect_to user_path(@user.id)
     else
       render :new
     end

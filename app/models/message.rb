@@ -37,7 +37,7 @@ class Message < ActiveRecord::Base
     response = HTTParty.get( url ).to_json
     response = JSON.parse(response)
     if response['data'] # sometimes google is a crap and wont translate my god damn text
-      translation = response['data']['translations'].first['translatedText']
+      translation = response['data']['translations'].first['translatedText'].gsub('&#39;',"'")
       self.translation = translation
     else
       self.translation = ""
