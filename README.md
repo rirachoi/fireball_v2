@@ -1,4 +1,5 @@
-# Fireball
+Fireball
+=========
 
 Fireball is a translator.
 
@@ -17,3 +18,16 @@ Fireball is a translator.
 + [x] Rich now has a new found love for front-end
 + [x] Many Thanks to Darryn for all his loving support and assistance ;)
 + [x] THANKS JOEL AND DT XOXO - GOSSIP GIRL
+
+Project Demo
+=========
+
+![alt tag](http://i.imgur.com/Pwy3UDN.gif)
+
+[DEMO](http://fireballtalks.herokuapp.com/)
+
+
+Background Story - SOLUHO Calendar
+===================================
+
+![alt tag](http://i.imgur.com/7gcjtyc.jpg)

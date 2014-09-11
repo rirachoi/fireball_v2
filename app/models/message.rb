@@ -163,7 +163,6 @@ class Message < ActiveRecord::Base
       "bear_avatar_background" => "emoticons/bear_avatar_background.png",
       "die" => "emoticons/die.png",
       "driving" => "emoticons/driving.png",
-
       "eat" => "emoticons/eat.png",
       "dinner" => "emoticons/eat.png",
       "lunch" => "emoticons/eat.png",
@@ -203,7 +202,7 @@ class Message < ActiveRecord::Base
       "stress" => "emoticons/stress.png",
       "pressure" => "emoticons/stress.png",
       "nightmare" => "emoticons/stress.png",
-      "sunny" => "emoticons/sunny.png"
+      "sunny" => "emoticons/sunny.png",
       "sun" => "emoticons/sunny.png"
     }
 

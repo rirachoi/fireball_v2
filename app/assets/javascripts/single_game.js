@@ -300,7 +300,7 @@ $(document).ready(function() {
         var unmatchText = unmatchSpan.text();
 
         if (timeup === true) {
-            var userInput = 'xxxx'
+            var userInput = 'User missed the question'
         } else {
             var userInput = $('#userInput').val().toLowerCase();;
         }
@@ -322,7 +322,7 @@ $(document).ready(function() {
                 currentElPress.addClass("current");
                 currentEl = currentElPress;
 
-            // add score
+            // add score when answer is correct
                 score += 50;
                 $("#score").text(score).effect("highlight", {
                     color: '#000000'
@@ -331,9 +331,9 @@ $(document).ready(function() {
                 var $score = $("#score").text();
 
                 // always write it from the biggest number
-                if ($score > 249){
+                if ($score > 249){ // When score is over 250( 5 times correct answer )
                     $('.water5').css({"background-color": "#0000B2"});
-
+                    // water stick is full and end of the game
                     endPlay();
 
                     $('.msgEnd').show();
@@ -352,10 +352,10 @@ $(document).ready(function() {
                     // console.log("You can't get any water hahahah");
                 }
 
-                //remove previous answer for next one
+                //remove previous answer for next matching
                 $('#userInput').val("");
 
-            } else {
+            } else { // When missed the question or wrote wrong answer
                 currentElPress.stop().fadeOut('fast');
 
                 currentElPress.removeClass("current");
@@ -367,7 +367,8 @@ $(document).ready(function() {
                 left: box_left+"px"
                 }, 'fast');
 
-                //fireball animation
+            //fireball animation
+                // fireball is coming more close
                 $('.fireball_game').animate({
                     'left':  '-=140px'
                 }, 'fast');
@@ -427,8 +428,6 @@ $(document).ready(function() {
                 $('#toolbar').css({"margin-top": 18+"%"});
                 $(".peng-target").hide();
                 $("#msgStart").hide();
-                //$("#btnplay").hide();
-                //$(".sideBackground").fideOut();
 
                 $('#userInput').focus();
 
@@ -441,7 +440,7 @@ $(document).ready(function() {
                 setPlayImages();
                 displayWordlist();
                 loadPlayImage();
-                // $('#progressbar').hide();
+
                 $('#progressbar').fadeOut('slow');
                 $('.peng_game').fadeIn('slow');
                 $('.fireball_game').fadeIn('slow');
@@ -473,8 +472,8 @@ $(document).ready(function() {
         $msgEnd.append($yourScore);
 
         $actualScore = parseInt($userScore);
-        // console.log($actualScore);
-        //giving comment depends on score
+
+        // Display comment depends on score
         if ($userScore > 249){
             var $endImg = $('<img src = "/assets/emoticons/hallelujah.png" id="endImg"/>');
             var $comment = $('<h2 id="comment">Wizard Master!</h2>');
@@ -522,6 +521,7 @@ $(document).ready(function() {
         $msgEnd.append($replay);
         $msgEnd.append($learnMore);
 
+        // hide quetions list and display answer with question
         $('.words').hide();
         $('#ani_container').empty();
         $('#ani_container').append($msgEnd);
@@ -567,27 +567,6 @@ $(document).ready(function() {
         $pengRoadRun.append($pengRoadRunImg);
         $('#container').prepend($pengRoadRun);
     };
-
-    // var btnAnimation = function(){
-    //     $("#btnplay").hover(function(){
-    //     $(this).html("PLAY").velocity({
-    //         backgroundColorRed : "0",
-    //         translateY: "-1.5rem",
-    //         rotateZ: "-10deg"
-    //       }, 100, "easeOut").velocity({
-    //         rotateZ: "8deg",
-    //       }, 150).velocity({
-    //         translateY: "0",
-    //         rotateZ: "0"
-    //       }, 600, "easeOutBounce");
-
-    //       $("+ .btnshadow", this).velocity({
-    //         scale: "1.3",
-    //         opacity: "1"
-    //       }, 150).velocity("reverse", 600, "easeOutBounce");
-
-    //     });
-    // };
 
     var msgStart = function(){
         var $msgStart = $('<div id="msgStart"/>');
