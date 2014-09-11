@@ -18,7 +18,6 @@
 #
 
 class Message < ActiveRecord::Base
-  include ActionView::Helpers::AssetUrlHelper
   belongs_to :chat
   belongs_to :game
   belongs_to :user
@@ -38,7 +37,7 @@ class Message < ActiveRecord::Base
     response = HTTParty.get( url ).to_json
     response = JSON.parse(response)
     if response['data'] # sometimes google is a crap and wont translate my god damn text
-      translation = response['data']['translations'].first['translatedText']
+      translation = response['data']['translations'].first['translatedText'].gsub('&#39;',"'")
       self.translation = translation
     else
       self.translation = ""
@@ -124,7 +123,6 @@ class Message < ActiveRecord::Base
       "running" => "emoticons/run.png",
       "jogging" => "emoticons/run.png",
       "bye" => "emoticons/run.png",
-      "working-out" => "emoticons/run.png",
       "i-m-sad" => "emoticons/sad.png",
       "sad" => "emoticons/sad.png",
       "lonely" => "emoticons/depressed.png",
@@ -162,13 +160,18 @@ class Message < ActiveRecord::Base
       "bear_avatar" => "emoticons/bear_avatar.png",
       "bear_avatar_background" => "emoticons/bear_avatar_background.png",
       "die" => "emoticons/die.png",
+      "died" => "emoticons/die.png",
+      "dead" => "emoticons/die.png",
       "driving" => "emoticons/driving.png",
+      "travel" => "emoticons/driving.png",
       "eat" => "emoticons/eat.png",
       "dinner" => "emoticons/eat.png",
       "lunch" => "emoticons/eat.png",
       "meal" => "emoticons/eat.png",
       "food" => "emoticons/eat.png",
       "exercise" => "emoticons/exercise.png",
+      "work-out" => "emoticons/exercise.png",
+      "working-out" => "emoticons/exercise.png",
       "gym" => "emoticons/exercise.png",
       "good" => "emoticons/good.png",
       "nice" => "emoticons/good.png",

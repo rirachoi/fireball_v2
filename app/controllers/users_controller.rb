@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :check_if_logged_in, :except => [:new]
+  before_action :check_if_logged_in, :except => [:new,:create]
   def index
     @users = User.all
     @users = @users.reject{|u| u == @current_user} # remove the current user from search results
@@ -7,11 +7,9 @@ class UsersController < ApplicationController
       format.html {}
       format.json { render :json => @users }
     end
-    friendships1 = Friendship.where("friend_id = #{@current_user.id} AND approved = true") # this is going to only grab other side approved friendships
-    # friendships2 = Friendship.where("user_id = #{@current_user.id} AND approved = true")
-    # @friends = friendships1 & friendships2
+    friendships = @current_user.friendships.where(:approved => :true)
     @friends = []
-    friendships1.each {|friendship| @friends << User.find(friendship.user_id)}
+    friendships.each {|friendship| @friends << User.find(friendship.user_id)}
 
     friends_awaiting_approval = @current_user.friendships.where(:approved => :false)
     @friend_requests = []
@@ -29,10 +27,10 @@ class UsersController < ApplicationController
   def create
     @user = User.create user_params
     @user.username = @user.username.downcase
-    @user.avatar = "emoticon/peng.png"
+    @user.avatar = "emoticons/peng.png"
     if @user.save
       session[:user_id] = @user.id
-      redirect_to users_path
+      redirect_to user_path(@user.id)
     else
       render :new
     end
@@ -74,7 +72,6 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find params[:id]
     @user.destroy
-
     redirect_to users_path
   end
 

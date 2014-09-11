@@ -20,11 +20,11 @@
     - @friend_requests.each do |friend|
       %li
         %span= "#{friend.username}"
-        = "#{link_to('Approve', '#', :id => 'approve_friend')}".html_safe
+        = "#{link_to('Approve', '#', :id => 'approve_friend')}".html_safe # this needs to be post requests
 
 - unless @pending_friend_requests.empty?
   %h3= 'Awaiting your friend\'s approval'
   %ul#friends_waiting
     - @pending_friend_requests.each do |friend|
       %li
-        %span= "#{friend.username}"
+        %span= "#{friend.username}" # this needs to be post requests
