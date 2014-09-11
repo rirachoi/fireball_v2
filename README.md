@@ -26,7 +26,7 @@ Project Demo
 [DEMO](http://fireballtalks.herokuapp.com/)
 
 
-Background Story - SOLUHO Calendar
+Background Story - Fireball
 ===================================
 
 ![alt tag](http://i.imgur.com/7gcjtyc.jpg)
