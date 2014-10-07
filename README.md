@@ -23,8 +23,7 @@ Project Demo
 
 ![alt tag](http://i.imgur.com/Iu68n7g.png)
 
-[DEMO](http://fireballtalks.herokuapp.com/)
-
+[DEMO](http://rescue-peng.herokuapp.com)
 
 Background Story - Fireball
 ===================================
