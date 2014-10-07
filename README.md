@@ -21,7 +21,7 @@ Fireball is a translator.
 Project Demo
 =========
 
-![alt tag](http://i.imgur.com/Pwy3UDN.gif)
+![alt tag](http://i.imgur.com/Iu68n7g.png)
 
 [DEMO](http://fireballtalks.herokuapp.com/)
 
