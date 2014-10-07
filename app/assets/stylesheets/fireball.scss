@@ -67,7 +67,7 @@ nav a {
   display: block;
   text-decoration: none;
   padding-bottom: 2em;
-  padding-left: 1.8em;
+  padding-left: 1.2em;
   color: black;
   font-weight: bold;
   margin-left: 35%;
@@ -88,6 +88,8 @@ nav a:hover{
 /* entire container, keeps perspective */
 .flip-container{
   -webkit-perspective: 1000px;
+  -moz-perspective: 1000px;
+  perspective: 1000px;
   margin-top: 5em;
   margin-bottom: 5em;
 }
@@ -95,6 +97,8 @@ nav a:hover{
 /* flip pane when hovered */
 .flipper:hover{
   -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
 .flip-container, .front, .back{
@@ -106,12 +110,18 @@ nav a:hover{
 .flipper{
   -webkit-transition: all .6s;
   -webkit-transform-style: preserve-3d;
+  -moz-transition: all .6s;
+  -moz-transform-style: preserve-3d;
+  transition: all .6s;
+  transform-style: preserve-3d;
   position: relative;
 }
 
 /* hide back of pane during swap */
 .flipper div{
   -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -125,6 +135,8 @@ nav a:hover{
 /* back, initially hidden pane */
 .back{
   -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
 /*END NAV*/
@@ -141,7 +153,7 @@ nav a:hover{
   padding: 1em;
   margin-bottom: 1em;
   display: block;
-  color: rgba(255,255,255,.05);
+  color: rgba(255,255,255,.5);
   -webkit-transition: all 0.30s ease-in-out;
   -moz-transition: all 0.30s ease-in-out;
   -o-transition: all 0.30s ease-in-out;
@@ -156,7 +168,7 @@ nav a:hover{
 
 .formgroup label{
   display: block;
-  color: #420d00;
+  color: rgba(144, 49, 26, 1);
   -webkit-transition: all 0.15s ease-in-out;
   -moz-transition: all 0.15s ease-in-out;
   -o-transition: all 0.15s ease-in-out;
@@ -366,11 +378,12 @@ img.login_tag {
 }
 
 #input {
+  width: 100%;
   height: 100px;
 }
 
 #input form {
-  width: 960px;
+  width: 100%;
   max-height: 80px;
   background-color: #191919;
   position: fixed;
@@ -379,9 +392,9 @@ img.login_tag {
 
 #input_text {
   height: 100%;
-  width: 80%;
+  width: 50%;
   font-size: 40px;
-  padding: 14px;
+  padding: 14px 0;
   margin-top: 1px;
   border-bottom: 2px solid #420d00;
   background: none;
@@ -400,9 +413,18 @@ img.login_tag {
 
 /*END CHAT*/
 /*INPUT BUTTONS*/
+#btn-set{
+  width: 30%;
+}
+
+#input_text, #btn-set{
+  display: inline-block;
+}
+
 #speak, #scroll-to-top {
+  display: inline-block;
   height: 78px;
-  width: 90px;
+  min-width: 80px;
   top: -7px;
   position: relative;
   font-size: 20px;
@@ -633,7 +655,39 @@ footer {
   height: 1280px;
 }
 
-@media (max-width: 520px) {
+@media screen and (max-width: 960px){
+  .content {
+    width: 65%;
+    height: 100%;
+  }
+
+  #my_chats ul li a,
+  #new_chat input:hover,
+  #new_chat_button:hover,
+  #my_games ul li a,
+  #new_game input:hover,
+  #new_game_button:hover{
+    width: 100%;
+  }
+
+  #chat_box.right{
+    margin-left: 50%;
+    min-width: 210px;
+  }
+
+  #input_text{
+    width: 40%;
+  }
+
+  #speak, #scroll-to-top{
+    height: 65px;
+    width: 60px;
+    font-size: 15px;
+  }
+
+}
+
+@media screen and (max-width: 640px){
   body {
     // background:  red;
   }
@@ -654,6 +708,7 @@ footer {
     text-decoration: none;
     color: black;
     font-weight: bold;
+    padding-left:0.5em;
   }
 
   .current_user_box {
@@ -682,6 +737,7 @@ footer {
 
   .flip-container{
     // -webkit-perspective: 1000px;
+    width: 40%;
     margin-top: 2em;
     display: inline-block;
     vertical-align: top;
@@ -693,6 +749,8 @@ footer {
   /* flip pane when hovered */
   .flipper:hover{
     -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    transform: rotateY(180deg);
   }
 
   .flip-container, .front, .back{
@@ -713,12 +771,18 @@ footer {
   .flipper{
     -webkit-transition: all .6s;
     -webkit-transform-style: preserve-3d;
+    -moz-transition: all .6s;
+    -moz-transform-style: preserve-3d;
+    ransition: all .6s;
+    transform-style: preserve-3d;
     position: relative;
   }
 
   /* hide back of pane during swap */
   .flipper div{
     -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -732,10 +796,12 @@ footer {
   /* back, initially hidden pane */
   .back{
     -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    transform: rotateY(180deg);
   }
 
   .content {
-    max-width: 100%;
+    width: 100%;
     margin: 8em auto;
   }
 
@@ -747,9 +813,10 @@ footer {
     max-width: 15em;
   }
 
-  input#input_text {
-    min-width: 100%
+  input #input_text {
+    min-width: 80%
   }
+
 
   #chat_messages {
     width: 100%;
@@ -770,32 +837,48 @@ footer {
   }
 
   #chat_box.right {
-    margin-left: 9em;
+    margin-left: 60%;
+    min-width: 190px;
     padding: .6em;
   }
 
   #my_chats ul li a{
-    width: 125%;
+    width: 100%;
   }
 
   #new_chat_button:hover{
-    width: 125%;
+    width: 100%;
   }
 
   #new_chat input:hover{
-    width: 125%;
+    width: 100%;
+  }
+
+  #input_text{
+    width: 80%;
+  }
+
+  #btn-set{
+    width: 10%;
+  }
+
+  #scroll-to-top{
+    min-width: 40px;
+  }
+  #speak{
+    display: none;
   }
 
   #my_games ul li a{
-    width: 125%;
+    width: 100%;
   }
 
   #new_game_button:hover{
-    width: 125%;
+    width: 100%;
   }
 
   #new_game input:hover{
-    width: 125%;
+    width: 100%;
   }
 
   .about {
@@ -816,6 +899,26 @@ footer {
     display: block;
     margin-top: 2em;
     text-align: center;
+  }
+
+  .formgroup input,
+  .formmenu #user_native_language{
+    width: 100%;
+    min-width: 100%;
+  }
+
+
+}
+
+@media screen and (max-width: 440px){
+  nav{
+    padding-left: 3em;
+  }
+  .current_user_box{
+    display: none;
+  }
+  #chat_box.right {
+    margin-left: 40%;
   }
 
 }

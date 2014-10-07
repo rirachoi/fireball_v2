@@ -124,7 +124,7 @@ $(document).ready(function() {
             var parah_answer = $('<h3 id=answer>' +string[question[q]]+ '<br/> <span id="str_answer">' +question[q]+ '</span></h3>');
             answerSheet.append(parah_answer);
             answerSheet.prependTo(answers);
-            $('body').append(answers);
+            $('.content').append(answers);
         };
 
         $('.answerSlide').on('click', function(){
@@ -148,7 +148,7 @@ $(document).ready(function() {
             displayText = $("<h2 id='question'>"+ eachWord +"</h2>")
             wordSheet.append(displayText);
             wordSheet.prependTo(words);
-            $('body').append(words);
+            $('.content').append(words);
         };
 
         $('.wordSlide').on('click', function(){
@@ -369,9 +369,17 @@ $(document).ready(function() {
 
             //fireball animation
                 // fireball is coming more close
-                $('.fireball_game').animate({
-                    'left':  '-=140px'
-                }, 'fast');
+                var $gameWindonwWidth = $('#game_window').width();
+                if ($gameWindonwWidth < 350){
+                    $('.fireball_game').animate({
+                        'left':  '-=50px'
+                    }, 'fast');
+                }else{
+                    $('.fireball_game').animate({
+                        'left':  '-=100px'
+                    }, 'fast');
+                }
+
                 $('#userInput').val("");
 
             //remove lives when useriput is wrong
@@ -403,13 +411,6 @@ $(document).ready(function() {
 
     var startPlay = function() {
 
-        //$pengRoadRun.show();
-        // MAKE NEW LOADING BAR
-        $('#progressbar').progressbar({
-            value: false
-        });
-
-
         $.ajax({
             url: '/games/' + $currentGameId + '/start/',
             method: 'post',
@@ -428,7 +429,7 @@ $(document).ready(function() {
                 $('#toolbar').css({"margin-top": 18+"%"});
                 $(".peng-target").hide();
                 $("#msgStart").hide();
-
+                $('#userAnswer').show();
                 $('#userInput').focus();
 
                 lives = $('<span id="lives">Lives: </span>');
@@ -441,7 +442,7 @@ $(document).ready(function() {
                 displayWordlist();
                 loadPlayImage();
 
-                $('#progressbar').fadeOut('slow');
+                $('.pengRoadRun').fadeOut('slow');
                 $('.peng_game').fadeIn('slow');
                 $('.fireball_game').fadeIn('slow');
 
@@ -564,7 +565,8 @@ $(document).ready(function() {
         var $pengRoadRun = $('<div class="pengRoadRun"/>');
         var $pengRoadRunImg = $('<img class="peng-target"/>');
         $pengRoadRunImg.attr('src', '/assets/emoticons/driving.png');
-        $pengRoadRun.append($pengRoadRunImg);
+        var $loadMsg = $('<h2>LOADING..</h2>')
+        $pengRoadRun.append($loadMsg).append($pengRoadRunImg);
         $('#container').prepend($pengRoadRun);
     };
 
@@ -577,6 +579,7 @@ $(document).ready(function() {
         $msgStart.append($rescuePengImg);
         $msgStart.append($("#btnplay"));
         $("#container").append($msgStart);
+         $('#userAnswer').hide();
     }
 
 
@@ -591,11 +594,10 @@ $(document).ready(function() {
     //btnAnimation();
 
     $("#btnplay").on('click', function(){
+        pengAnimation();
         startPlay();
     });
 
     msgStart();
-
-    pengAnimation();
 
 }); // end of document ready

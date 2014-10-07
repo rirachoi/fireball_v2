@@ -1,7 +1,3 @@
-#word_list {
-  width: 15%;
-}
-
 #game_window {
   width: 100%;
   background: #C9E7EF;
@@ -67,6 +63,8 @@
   z-index: 1;
   font-size: 2em;
   font-weight: bold;
+  -webkti-border-radius: 2em;
+  -moz-border-radius: 2em;
   border-radius: 2em;
   opacity: 0;
   padding-bottom: 0.1em;
@@ -146,4 +144,13 @@
   margin-top: 1em;
   margin-bottom: 1em;
   border-radius: 0.5em;
+}
+
+
+@media screen and (max-width: 960px){
+  #my_games ul li a,
+  #new_game input:hover,
+  #new_game_button:hover{
+    width: 100%;
+  }
 }

@@ -1,17 +1,9 @@
-/*@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600);
-*/
-
-/*#contatiner{
-    width: 100%;
-}*/
-
 #ani_container {
     background: url(/assets/backgrounds/background1.jpg);
     background-repeat: no-repeat;
-    background-size: 100%;
-    width: 600px;
+    background-size: 100% 100%;
+    width: 100%;
     height: 300px;
-    /*margin-left: 15%;*/
     -webkit-border-radius: 0.7em;
     -moz-border-radius: 0.7em;
     border-radius: 0.7em;
@@ -24,13 +16,13 @@
     padding: 8px 20px 12px 15px;
     font-size: 36px;
     color: #ffffff;
-/*    -webkit-border-radius: 0.5em 2.5em 2.5em 0.5em;
-    -moz-border-radius: 0.5em 2.5em 2.5em 0.5em;
-    border-radius: 0.5em 2.5em 2.5em 0.5em;*/
     left: 500px;
     letter-spacing: 3px;
     display: none;
-
+    -webkit-border-radius: 1em;
+    -webkit-border-bottom-left-radius: 0;
+    -moz-border-radius: 1em;
+    -moz-border-bottom-left-radius: 0;
     border-radius: 1em;
     border-bottom-left-radius: 0;
 }
@@ -40,9 +32,9 @@
 .current {
     background: #0099cc;
 }
+
 #toolbar {
     background: #f34223;
-
     width: 100%;
     height: 40px;
     padding: 10px 0 10px 0;
@@ -55,7 +47,7 @@
     font-size: 22px;
     color: #ffffff;
     width: 200px;
-    display: inline-block;
+    float: left;
 }
 #score {
     font-weight: bold;
@@ -68,6 +60,7 @@
     font-size: 24px;
     padding: 0 3px;
     color: white;
+    float: left;
 }
 
 .clear {
@@ -79,16 +72,14 @@
 }
 
 #userAnswer {
-    margin-left: 5%;
-    margin-bottom: 20%;
+    margin:auto;
 }
 
 #userInput {
-    width: 450px;
+    width: 80%;
     font-size: 30px;
-
     padding: 14px;
-    margin-top: 1px;
+    margin: auto;
     border-bottom: 2px solid #f34223;
     background: none;
     color: black;
@@ -100,11 +91,17 @@
 
 #btnsubmit{
     height: 60px;
-    width: 90px;
+    width: 17%;
     top: -3px;
+    margin: auto;
+    color: #fff;
     position: relative;
     font-size: 20px;
+    -webkit-border-radius: 0.5em;
+    -moz-border-radius: 0.5em;
     border-radius: 0.5em;
+    -webkit-box-shadow: 1px 2px 0 0;
+    -moz-box-shadow: 1px 2px 0 0;
     box-shadow: 1px 2px 0 0;
     background-color: #f34223;
     -webkit-transition: all 0.3s ease-in-out;
@@ -116,17 +113,6 @@
 #btnsubmit:hover{
     background-color: #0099cc;
 }
-
-/*#btnplay{
-    text-decoration: none;
-    font-size: 25px;
-    color: white;
-    width: 180px;
-}*/
-
-/*#toolbar a:hover{*/
-    /*color: #FFFF00;*/
-/*}*/
 
 #boxscore, .pengLives{
     display: inline-block;
@@ -152,7 +138,7 @@
 /* water_stick */
 
 .water_stick{
-    width: 500px;
+    width: 80%;
     height: 30px;
     border-radius: 0.5em;
     border: 2px solid #003D99;
@@ -161,10 +147,9 @@
 }
 
 .water1, .water2, .water3, .water4, .water5 {
-    width: 85px;
+    width: 20%;
     height: 20px;
-    margin-left: 2%;
-    margin-top: 3px;
+    margin: 3px auto;
     display: inline-block;
 
 }
@@ -172,7 +157,7 @@
 .water_stick, .water_basket{
     display: inline-block;
     vertical-align: bottom;
-    margin-left: 15px;
+    margin: auto;
 }
 
 .water1{
@@ -210,33 +195,30 @@
     display: inline-block;
 
 }
-
 .pengLives{
     position: right;
     width: 180px
 
 }
 
-/*.pengLives, #btnplay, #boxscore{
-    display: inline-block;
-    vertical-align: top;
-}
-*/
 /*---------------------------*/
 
 
 /*answer div and words list div*/
 
 #answer, #question{
+    width: 90%;
     margin: 3%;
     background-color: #85C2FF;
     padding: 1em;
-    border-radius: 0.5em;
-    color: white;
+    -webkit-border-radius: 0.5em;
+       -moz-border-radius: 0.5em;
+            border-radius: 0.5em;
+    color:white;
 }
 
 #str_answer{
-    color: #005CE6;
+    color:  #005CE6;
     font-size: 25px;
 }
 
@@ -244,14 +226,16 @@
 
 .answers, .words{
     background-color: #3399FF;
-    border-radius: 1em;
-    margin-left: 1.5%;
+    -webkit-border-radius: 0 0 1em 1em;
+       -moz-border-radius: 0 0 1em 1em;
+            border-radius: 0 0 1em 1em;
     width: 200px;
-    max-width: 20%;
-    max-height:950px;
-    overflow-y: scroll;
+    max-height: 600px;
+    overflow-y: auto;
     overflow-x: hidden;
-
+    position: fixed;
+    top: 0px;
+    margin-left: 5px;
 }
 
 .answers, #game_window{
@@ -272,6 +256,8 @@
     height: 70px;
     margin: 3%;
     text-decoration:none;
+    -webkit-border-bottom-left-radius:1em;
+    -webkit-border-bottom-right-radius:1em;
     -moz-border-bottom-left-radius:1em;
     -moz-border-bottom-right-radius:1em;
     border-bottom-left-radius:1em;
@@ -285,7 +271,7 @@
 #answerTitle, #wordListTitle {
     margin:0;
     padding:0;
-    border-top:solid 2px #85C2FF;
+    border-top:solid 2px 2px solid #85C2FF;
     text-align:center;
     color: white;
 }
@@ -302,11 +288,10 @@
 .msgEnd{
     background-color: rgba(0, 0, 0, 0.8);
     border-radius: 1em;
-    margin-left: 1.5%;
-    margin-top: -10%;
-    width: 580px;
-    height: 700px;
-    overflow: scroll;
+    margin:auto;
+    width: 90%;
+    height: 550px;
+    overflow: auto;
     text-align: center;
 }
 
@@ -316,7 +301,7 @@
 }
 
 #you_win, #game_over{
-    margin-top: 10%;
+    margin: auto;
     color: #FF8533;
     text-align: center;
     font-size: 70px;
@@ -353,6 +338,13 @@
     margin-bottom: -10%;
 }
 
+.pengRoadRun img, .pengRoadRun h2{
+    display: inline-block;
+}
+.pengRoadRun h2{
+    padding-left: 7.5em;
+}
+
 
 .gamebtn {
   display: flex;
@@ -368,20 +360,25 @@
     height: 4em;
     width: 7em;
     background: #0099cc;
+    -webkit-box-shadow: inset 0 -.125rem rgba(0,0,0,.2);
+    -moz-box-shadow: inset 0 -.125rem rgba(0,0,0,.2);
     box-shadow: inset 0 -.125rem rgba(0,0,0,.2);
     color: white;
+    -webkit-border-radius: 1.5em;
+    -moz-border-radius: 1.5em;
     border-radius: 1.5em;
     cursor: pointer;
-    margin-left: 37%;
+    margin:auto;
     text-align: center;
     user-select: none;
     transform-origin: 100% 100%;
-
     &:focus { outline: 0; }
 }
 
 #btnplay:hover{
     background-color: black;
+    -webkit-box-shadow: inset 0 -.125rem rgba(0,0,0,.2);
+    -moz-box-shadow: inset 0 -.125rem rgba(0,0,0,.2);
     box-shadow: inset 0 -.125rem rgba(0,0,0,.2);
     color: #f34223;
 }
@@ -397,22 +394,22 @@
 #endImg {
     width: 170px;
     height: 170px;
-    margin: auto 0;
+    margin: auto;
 }
 
 #msgStart{
     background-color: rgba(0, 0, 0, 0.8);
+    -webkit-border-radius: 1em;
+    -moz-border-radius: 1em;
     border-radius: 1em;
-    margin-left: 1.5%;
-    margin-top: -52%;
-    width: 580px;
+    margin:-300px auto;
+    width: 95%;
     height: 550px;
     overflow: scroll;
     text-align: center;
 }
 
 #msgStartTitle{
-
     color: #FF8533;
     font-size: 50px;
 }
@@ -420,8 +417,167 @@
 #rescuePengImg{
     width:200px;
     height: 200px;
+}
 
-  /*  margin-right: 10%;*/
+@media screen and (max-width: 960px){
+    #game_window{
+        width: 420px;
+        margin-left: -30px;
+    }
+
+
+    .fireball_game{
+        width: 150px;
+        height: 150px;
+        left: 500px;
+        position: absolute;
+    }
+    #ani_container{
+        height: 230px;
+    }
+
+    #msgStart{
+        margin: -230px auto;
+    }
+
+    .peng_game{
+        width: 120px;
+        height: 120px;
+        margin-top: 10%;
+    }
+
+    .answers, .words{
+        width: 20%;
+        right: 15px;
+    }
+
+    #answer, #question{
+        width:95%;
+    }
+    .answerSlide, .wordSlide{
+        width: 94%;
+    }
+
+    #answer, #str_answer, #question{
+        font-size: 1em;
+    }
+
+    #game_title{
+        font-size: 2.5em;
+    }
+
+    #you_win, #game_over{
+        font-size: 55px;
+    }
+
+    #userInput{
+        font-size: 25px;
+    }
+
+    .water_stick{
+        margin: -5px 5px;
+    }
+
+    .water_basket{
+        margin: -10px auto;
+    }
+    .pengLives{
+        width: 150px;
+    }
+
+    .pengRoadRun h2{
+        padding-left: 6em;
+    }
+}
+
+
+@media screen and (max-width: 640px){
+    #game_window{
+        width: 320px;
+        margin-left: 0;
+    }
+    #msgStartTitle, #you_win, #game_over{
+        font-size: 40px;
+    }
+    #game_title {
+        font-size: 1.8em;
+    }
+    .pengRoadRun h2 {
+        padding-left: 4em;
+    }
+    #boxscore {
+        font-size: 15px;
+        width: 100px;
+        float: left;
+    }
+    #lives {
+        font-size: 15px;
+        margin-top: 10px;
+    }
+    .fireball_game {
+        width: 100px;
+        height: 100px;
+        left: 230px;
+        margin-top: 50px;
+    }
+    .peng_game {
+        width: 90px;
+        height: 90px;
+        margin-top: 20%;
+    }
+    .msgEnd{
+        height: 650px;
+    }
+
+    #userInput {
+        font-size: 20px;
+    }
+    #btnsubmit{
+        font-size: 15px;
+    }
+
+    .answers, .words {
+        width: 130px;
+        top: 95px;
+        max-height: 465px;
+        -webkit-border-radius: 0 0 0.5em 0.5em;
+           -moz-border-radius: 0 0 0.5em 0.5em;
+                border-radius: 0 0 0.5em 0.5em;
+    }
+    .answerSlide, .wordSlide{
+        height: 40px;
+    }
+
+    .answerSlide:hover, .wordSlide:hover{
+        background-color: rgba(255, 203, 126, 1);
+        -webkit-border-radius: 0 0 0.5em 0.5em;
+           -moz-border-radius: 0 0 0.5em 0.5em;
+                border-radius: 0 0 0.5em 0.5em;
+    }
+    .animatedbox {
+        padding: 3px 15px 7px 10px;
+        font-size: 25px;
+    }
+
+    #answer, #question{
+        background-color: #fff;
+        color:#D5A286;
+    }
+    #str_answer{
+        color: #FF7139;
+    }
+    .answers, .words{
+        background-color: rgba(255, 156, 45, 1);
+    }
+    #answerTitle, #wordListTitle {
+        border-top:solid 2px 2px solid rgba(255, 202, 133, 1);
+        color: white;
+    }
+    .answerSlide:hover, .wordSlide:hover{
+        color: #85C2FF;
+        border-top:solid 2px rgba(254, 134, 0, 1);
+    }
+
 }
 
 
