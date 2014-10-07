@@ -205,7 +205,7 @@ $(document).ready(function() {
         var con_pos = $("#ani_container").position();
         var min_top = con_pos.top;
         // 56 = animated box top & bottom padding + font size
-        var max_top = min_top + con_height - 56;
+        var max_top = min_top + con_height - 30;
         var box_left = (win_width / 5) - (text_move_px / 2);
 
      ////////------------ looping words for failing

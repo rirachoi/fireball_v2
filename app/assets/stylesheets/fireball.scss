@@ -863,10 +863,10 @@ footer {
   }
 
   #scroll-to-top{
-    min-width: 40px;
+    display: none;
   }
   #speak{
-    display: none;
+     min-width: 40px;
   }
 
   #my_games ul li a{

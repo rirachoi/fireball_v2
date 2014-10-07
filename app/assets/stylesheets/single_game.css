@@ -124,7 +124,7 @@
 .fireball_game{
     width: 200px;
     height: 200px;
-    left: 650px;
+    left: 550px;
     position: absolute;
 }
 
@@ -222,8 +222,6 @@
     font-size: 25px;
 }
 
-
-
 .answers, .words{
     background-color: #3399FF;
     -webkit-border-radius: 0 0 1em 1em;
@@ -236,19 +234,17 @@
     position: fixed;
     top: 0px;
     margin-left: 5px;
-}
-
-.answers, #game_window{
-    display: inline-block;
-    vertical-align: top;
-    margin-bottom: 10%;
 
 }
 
-.words, #game_window{
-    display: inline-block;
-    vertical-align: top;
+.answers{
+    left:750px;
 }
+
+.words{
+    left: 850px;
+}
+
 
 .answerSlide, .wordSlide{
     cursor:pointer;
@@ -449,6 +445,7 @@
     .answers, .words{
         width: 20%;
         right: 15px;
+        left:650px;
     }
 
     #answer, #question{
@@ -540,6 +537,8 @@
         width: 130px;
         top: 95px;
         max-height: 465px;
+        left: auto;
+        right: 0;
         -webkit-border-radius: 0 0 0.5em 0.5em;
            -moz-border-radius: 0 0 0.5em 0.5em;
                 border-radius: 0 0 0.5em 0.5em;
