@@ -492,6 +492,7 @@
     #game_window{
         width: 320px;
         margin-left: 0;
+        height: 650px;
     }
     #msgStartTitle, #you_win, #game_over{
         font-size: 40px;
@@ -522,8 +523,12 @@
         height: 90px;
         margin-top: 20%;
     }
+
+    #msgStart{
+        height: 480px;
+    }
     .msgEnd{
-        height: 650px;
+        height: 500px;
     }
 
     #userInput {
@@ -535,13 +540,15 @@
 
     .answers, .words {
         width: 130px;
-        top: 95px;
-        max-height: 465px;
+        top: 0;
+        max-height: 550px;
         left: auto;
         right: 0;
+        z-index: 2010;
         -webkit-border-radius: 0 0 0.5em 0.5em;
            -moz-border-radius: 0 0 0.5em 0.5em;
                 border-radius: 0 0 0.5em 0.5em;
+
     }
     .answerSlide, .wordSlide{
         height: 40px;

@@ -441,10 +441,13 @@ $(document).ready(function() {
                 setPlayImages();
                 displayWordlist();
                 loadPlayImage();
-
+                $('#game_window').css({
+                    "height":"550px"
+                });
                 $('.pengRoadRun').fadeOut('slow');
                 $('.peng_game').fadeIn('slow');
                 $('.fireball_game').fadeIn('slow');
+
 
 
             }
@@ -523,6 +526,9 @@ $(document).ready(function() {
         $msgEnd.append($learnMore);
 
         // hide quetions list and display answer with question
+        $('#game_window').css({
+            "height":"650px"
+        });
         $('.words').hide();
         $('#ani_container').empty();
         $('#ani_container').append($msgEnd);

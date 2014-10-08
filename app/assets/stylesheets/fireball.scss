@@ -15,7 +15,7 @@ body {
   padding: 0;
   border: 0;
   background-color: rgba(0, 0, 0, 0.9);
-  color: #420d00;
+  color: #90311A;
   font-family: 'Ubuntu', sans-serif;
 }
 
@@ -61,6 +61,8 @@ nav {
   // border-bottom-right-radius: 0.5em;
   // border-bottom-style: groove;
   border-color: #776a6a;
+  left: 0;
+  top:0;
 }
 
 nav a {
@@ -139,6 +141,25 @@ nav a:hover{
   transform: rotateY(180deg);
 }
 
+.icon-menu,.icon-close{
+  opacity: 0;
+  z-index: -10;
+  pointer-events: none;
+  color: #fff;
+  cursor: pointer;
+  text-transform: uppercase;
+  height: 1em;
+}
+
+.icon-menu {
+  font-size: 2em;
+}
+
+.icon-close{
+  float: right;
+  margin: 10px 10px auto auto;
+}
+
 /*END NAV*/
 
 .formgroup{
@@ -187,7 +208,13 @@ nav a:hover{
   font-size: 30px;
   margin-top: 1em;
   margin-bottom: 1em;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
   border-radius: 0.5em;
+}
+
+.formmenu label{
+  color: rgba(144, 49, 26, 1);
 }
 
 .formsubmit{
@@ -199,16 +226,31 @@ nav a:hover{
 .formsubmit input, a.formsubmit{
   padding: 1em;
   font-size: 25px;
-  border-radius: 0.5em;
-  box-shadow: 2px 4px 0 0;
+  -webkit-border-radius: 0.5em;
+     -moz-border-radius: 0.5em;
+          border-radius: 0.5em;
+  -webkit-box-shadow: 2px 4px 0 0;
+    -moz-box-shadow: 2px 4px 0 0;
+        box-shadow: 2px 4px 0 0;
   background-color: #f34223;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+  -webkit-transition-property: all;
+  -webkit-transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-in-out;
+     -moz-transition-property: all;
+     -moz-transition-duration: 0.3s;
+     -moz-transition-timing-function: ease-in-out;
+       -o-transition-property: all;
+       -o-transition-duration: 0.3s;
+       -o-transition-timing-function: ease-in-out;
+          transition-property: all;
+          transition-duration: 0.3s;
+          transition-timing-function: ease-in-out;
 }
 
-.formsubmit input:hover, .formsubmit input:focus, a.formsubmit:hover, a.formsubmit:focus{
+.formsubmit input:hover,
+.formsubmit input:focus,
+a.formsubmit:hover,
+a.formsubmit:focus{
   box-shadow: 0 0 0 0;
   background-color: #008DBC;
   color: white;
@@ -551,7 +593,7 @@ h1.about, .about p, .about h2{
 }
 
 .signup_signin a {
-  margin: 0 .5em;
+  margin: 0.5em;
   box-shadow: none;
   color: #fff;
 }
@@ -697,18 +739,33 @@ footer {
   }
 
   nav {
-    width: 100%;
-    height: 6em;
-    top: 0;
-    z-index: 20;
+    z-index: 2000;
+    left:-192px;
+    margin-bottom: 1.5em;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 
-  nav a {
-    display: inline-block;
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-    padding-left:0.5em;
+  .icon-close img{
+    width: 40px;
+    height: 40px;
+  }
+
+  .icon-menu{
+    position: fixed;
+    background-color: black;
+    width: 100%;
+  }
+
+  .icon-close, .icon-menu{
+    opacity: 1;
+    z-index: 1000;
+    pointer-events: auto;
+    height: 2em;
+  }
+
+  .icon-close:hover{
+    transform: scale(1.2, 1.2);
   }
 
   .current_user_box {
@@ -719,30 +776,19 @@ footer {
   }
 
   img.avatar {
-    height: 3em;
-    width: 3em;
-    margin:1em;
+    margin-left: 1.5em;
   }
 
   h2.username {
     font-size: 1em;
     text-align: center;
-  }
-
-  nav div{
-    margin-left: -1em;
-    display: inline-block;
-    vertical-align: top;
+    margin-left: 3.5em;
   }
 
   .flip-container{
     // -webkit-perspective: 1000px;
-    width: 40%;
+    width: 30%;
     margin-top: 2em;
-    display: inline-block;
-    vertical-align: top;
-    height: 3em;
-    width: 3em;
     margin-left: 6%;
   }
 
@@ -751,20 +797,6 @@ footer {
     -webkit-transform: rotateY(180deg);
     -moz-transform: rotateY(180deg);
     transform: rotateY(180deg);
-  }
-
-  .flip-container, .front, .back{
-    width: 40px;
-    height: 40px;
-  }
-
-  .front img {
-    height: 2em;
-    width: 2em;
-  }
-
-  .back {
-    font-size: .5em;
   }
 
   /* flipper speed goes here */
@@ -802,7 +834,7 @@ footer {
 
   .content {
     width: 100%;
-    margin: 8em auto;
+    margin: 2.5em auto;
   }
 
   .content h2 {
@@ -905,18 +937,36 @@ footer {
   .formmenu #user_native_language{
     width: 100%;
     min-width: 100%;
+    font-size: 20px;
+    padding: 0.5em;
+  }
+
+  .formsubmit input:hover,
+  .formsubmit input:focus,
+  a.formsubmit:hover,
+  a.formsubmit:focus{
+    font-size: 25px;
+  }
+
+  .signup_signin {
+    text-align: center;
+    padding-top: 2em;
+  }
+
+  .signup_signin a {
+    margin: 0.5em;
+    box-shadow: none;
+    color: #fff;
+  }
+
+.formsubmit input, a.formsubmit{
+    font-size: 20px;
   }
 
 
 }
 
 @media screen and (max-width: 440px){
-  nav{
-    padding-left: 3em;
-  }
-  .current_user_box{
-    display: none;
-  }
   #chat_box.right {
     margin-left: 40%;
   }

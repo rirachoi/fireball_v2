@@ -16,3 +16,18 @@
 //= require moment
 //= require underscore
 //= require_tree .
+
+$(document).ready(function(){
+  $('.icon-menu').click(function() {
+    $('nav').animate({
+      left: "0px"
+    }, 200);
+  });
+
+  $('.icon-close').click(function() {
+    $('nav').animate({
+      left: "-192px"
+    }, 200);
+  });
+
+});
