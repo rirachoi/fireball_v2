@@ -2,6 +2,8 @@
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box; /* Firefox, other Gecko */
   box-sizing: border-box; /* Opera/IE 8+ */
+  -webkit-appearance: none;
+   -moz-appearance: none;
   outline: 0;
   text-decoration: none;
 }
@@ -226,6 +228,8 @@ nav a:hover{
 .formsubmit input, a.formsubmit{
   padding: 1em;
   font-size: 25px;
+  -webkit-appearance: none;
+   -moz-appearance: none;
   -webkit-border-radius: 0.5em;
      -moz-border-radius: 0.5em;
           border-radius: 0.5em;
@@ -259,6 +263,8 @@ a.formsubmit:focus{
 }
 
 button, input{
+  -webkit-appearance: none;
+     -moz-appearance: none;
   border: 0;
   font-family: inherit;
 }
@@ -353,6 +359,8 @@ audio {
 }
 
 #new_chat_button {
+  -webkit-appearance: none;
+    -moz-appearance: none;
   border-radius: 0.3em;
   padding: 0.5em;
   font-size: 18px;
@@ -887,16 +895,15 @@ footer {
   }
 
   #input_text{
-    width: 80%;
+    width: 60%;
+    font-size: 20px;
   }
 
   #btn-set{
-    width: 10%;
+    width: 20%;
   }
 
-  #scroll-to-top{
-    display: none;
-  }
+  #scroll-to-top,
   #speak{
      min-width: 40px;
   }
@@ -959,8 +966,13 @@ footer {
     color: #fff;
   }
 
-.formsubmit input, a.formsubmit{
+  .formsubmit input, a.formsubmit{
     font-size: 20px;
+  }
+
+  img.sticker {
+    max-height: 7em;
+    max-width: 7em;
   }
 
 
