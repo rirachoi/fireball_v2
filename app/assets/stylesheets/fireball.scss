@@ -575,31 +575,39 @@ img.login_tag {
 
 .about {
   width: 504px;
-}
-
-h1.about, .about p, .about h2{
   text-align: center;
+  margin: auto;
 }
 
+#sub-title{
+  padding-bottom: 0.5em;
+}
+
+#summary{
+  background-color: rgba(117, 114, 113, 0.08);
+  padding: 0 0 3em 0;
+  border: 5px solid;
+}
+
+#summary h3, #summary p{
+  color: rgba(255, 255, 255, 0.6);
+}
 
 .about_peng {
   height: 14em;
   width: 14em;
-  overflow: hidden;
-  border-radius: 100%;
-  background-color: #fff;
   margin:auto;
+
 }
 
 .about_peng img {
-  height: 17em;
-  width: 17em;
-  margin-left: -10%;
+  height: 14em;
+  width: 14em;
 }
 
 .signup_signin {
   text-align: center;
-  padding-top: 2em;
+  padding-top: 2.5em;
 }
 
 .signup_signin a {
@@ -613,19 +621,16 @@ a.formsubmit:hover, a.formsubmit:focus {
 }
 
 .us_box {
-  // border-top: 5px solid white;
   width: 100%;
-  padding-top: 5em;
-  margin: auto;
-  // margin-top: 5em;
+  padding-top: 3em;
+  margin: 5em auto;
 }
 
 .me_box {
-  width: 17%;
-  // margin: auto;
+  width: 32%;
+  margin: auto;
   display: inline-block;
   margin-top: 2em;
-  margin-left: 14%;
   text-align: center;
   vertical-align: top;
 }
@@ -662,7 +667,7 @@ a.formsubmit:hover, a.formsubmit:focus {
 }
 
 .me_box ul li a:link, .icon_credit li a:link {
-  color: #F6AF1D;
+  color: rgba(216, 134, 65, 1);
 
 }
 
@@ -681,7 +686,6 @@ a.formsubmit:hover, a.formsubmit:focus {
 
 ul.icon_credit {
   list-style: none;
-  padding-left: 1em;
 }
 
 .icon_credit li{
@@ -926,16 +930,34 @@ footer {
     width: 100%;
   }
 
-  .us_box {
-    // border-top: 5px solid white;
-    width: 80%;
-    padding-top: 5em;
+  #summary{
+    padding: 0.2em 0 3em 0;
+    border-left:0;
+    border-right: 0;
+  }
+
+  .about_peng {
+    height: 11em;
+    width: 12em;
     margin: auto;
-    // margin-top: 5em;
+  }
+
+  .about_peng img {
+    height: 12em;
+    width: 12em;
+  }
+
+  #title{
+    padding-top: 0.6em;
+  }
+
+  .us_box {
+    width: 80%;
+    padding-top: 1.5em;
   }
 
   .me_box {
-    width: 40%;
+    width: 60%;
     margin: auto;
     display: block;
     margin-top: 2em;
