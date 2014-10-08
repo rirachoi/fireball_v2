@@ -2,8 +2,6 @@
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box; /* Firefox, other Gecko */
   box-sizing: border-box; /* Opera/IE 8+ */
-  -webkit-appearance: none;
-   -moz-appearance: none;
   outline: 0;
   text-decoration: none;
 }
@@ -345,6 +343,8 @@ audio {
 }
 
 #new_chat button{
+  -webkit-appearance: none;
+     -moz-appearance: none;
   width: 60%;
 }
 
@@ -481,6 +481,8 @@ img.login_tag {
   border-radius: 0.5em;
   box-shadow: 1px 2px 0 0;
   background-color: #f34223;
+  -webkit-appearance: none;
+     -moz-appearance: none;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;

@@ -8,7 +8,7 @@ Fireball is a translator.
 + [x] Fully Functioning Chat in all Languages
 + [ ] "Chat to Friend" system to translate between two languages
 + [x] Using the Google Translate Api
-+ [ ] Will be converted into a native phone app
++ [x] converted into a native phone app
 + [x] Implemented Progress Bar
 + [x] Such language.
 + [x] Many funs.
